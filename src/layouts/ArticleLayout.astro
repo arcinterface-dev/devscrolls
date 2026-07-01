@@ -2,6 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import StructuredData from '../components/StructuredData.astro';
 import AdSlot from '../components/AdSlot.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
 import { SITE } from '../config';
 import '../styles/prose.css';
 
@@ -85,13 +86,15 @@ const formattedPublishDate = publishDate.toLocaleDateString('en-US', {
     
     <footer class="article-footer">
       <div class="author-bio">
-        <img src="/avatar-placeholder.svg" alt={authorName} class="author-bio-avatar" width="48" height="48" />
+        <img src="/profile.jpeg" alt={authorName} class="author-bio-avatar" width="48" height="48" />
         <div>
           <p class="author-bio-name">Written by <strong>{authorName}</strong></p>
           <p class="author-bio-desc">Senior Frontend Engineer & UI Architect with 7+ years of experience building scalable design systems, high-performance web architectures, and clean user experiences.</p>
         </div>
       </div>
     </footer>
+
+    <NewsletterForm variant="inline" />
   </article>
 </BaseLayout>
 
@@ -150,6 +153,7 @@ const formattedPublishDate = publishDate.toLocaleDateString('en-US', {
     border-radius: 50%;
     background: var(--surface-sunken);
     flex-shrink: 0;
+    object-fit: cover;
   }
   .author-bio-name {
     font-size: var(--text-ui);

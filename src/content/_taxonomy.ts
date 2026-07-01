@@ -1,9 +1,9 @@
 export const CATEGORIES = [
-  { slug: 'frontend', name: 'Frontend', description: 'UI, frameworks, and client-side architecture' },
-  { slug: 'backend', name: 'Backend', description: 'APIs, databases, and server logic' },
-  { slug: 'ai', name: 'AI & Data', description: 'Machine learning, agents, and data engineering' },
-  { slug: 'architecture', name: 'Architecture', description: 'System design and scalable patterns' },
-  { slug: 'tutorials', name: 'Tutorials', description: 'Step-by-step guides and how-tos' }
+  { slug: 'frontend', name: 'Frontend Scrolls', description: 'UI, frameworks, and client-side architecture' },
+  { slug: 'backend', name: 'Backend Scrolls', description: 'APIs, databases, and server logic' },
+  { slug: 'ai', name: 'AI Scrolls', description: 'Machine learning, agents, and data engineering' },
+  { slug: 'architecture', name: 'Architecture Scrolls', description: 'System design and scalable patterns' },
+  { slug: 'tutorials', name: 'Tutorial Scrolls', description: 'Step-by-step guides and how-tos' }
 ] as const;
 
 export type CategorySlug = typeof CATEGORIES[number]['slug'];

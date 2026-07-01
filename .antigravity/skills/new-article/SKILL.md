@@ -133,8 +133,16 @@ Run the **full New Article Checklist** from 16_Checklists.md (Checklist #1).
 - [ ] Code blocks accessible
 - [ ] Color contrast verified
 
+### 8. Generate Local Social Media Assets (Git-ignored)
+To help promote the article, automatically generate social media assets locally inside `.dev/social/<article-slug>/`. Because `.dev/` is git-ignored, these assets will not be pushed to Git:
+- **LinkedIn Post (`.dev/social/<article-slug>/linkedin-post.md`)**: Write a highly engaging, scannable post (BLUF format) explaining the technical challenge, trade-offs, and solution. Include the link to the live article.
+- **Instagram Assets (`.dev/social/<article-slug>/instagram/`)**: 
+  - **Caption (`.dev/social/<article-slug>/instagram/caption.md`)**: A brief caption summarizing the key takeaway, inviting users to check out the slides and visit the link in bio.
+  - **Carousel Slides (`.dev/social/<article-slug>/instagram/slide-1.png`, etc.)**: Generate 3-4 typography-driven visual slides using the `generate_image` tool. The prompts MUST include explicit text rendering instructions so the images contain: 1) A minimalist scroll icon/logo followed by the brand name "DevScrolls", 2) Actual brief content/quotes from the article, 3) Engaging hooks to drive link clicks on the final slide. Apply a bright, engaging aesthetic (Off-white/Light gray background, Dark Slate text) with STRICT usage of the brand color `#d97706` (Amber/Orange) for prominent graphical elements, icons, or text highlights. The images MUST NOT be purely black and white. Do NOT generate random abstract placeholders.
+
 ## Output
 
 - A markdown file at the appropriate content path
 - Generated OG image
 - Updated sitemap and RSS (via build)
+- Local social assets directory at `.dev/social/<article-slug>/` (LinkedIn post and Instagram carousel assets)

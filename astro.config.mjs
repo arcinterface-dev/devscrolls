@@ -4,7 +4,7 @@ import { unified } from '@astrojs/markdown-remark';
 import { remarkReadingTime } from './remark-reading-time.mjs';
 
 export default defineConfig({
-  site: 'https://devscrolls.com',
+  site: 'https://devscrolls.dev',
   integrations: [sitemap()],
   markdown: {
     processor: unified({
