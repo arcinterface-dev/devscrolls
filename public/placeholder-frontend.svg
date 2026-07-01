@@ -1,0 +1,19 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#0f172a"/>
+  <!-- Decorative abstract lines representing frontend components/architecture -->
+  <rect x="150" y="100" width="300" height="180" rx="12" fill="#1e293b" stroke="#334155" stroke-width="4"/>
+  <rect x="150" y="320" width="300" height="200" rx="12" fill="#1e293b" stroke="#334155" stroke-width="4"/>
+  <rect x="520" y="100" width="530" height="420" rx="12" fill="#1e293b" stroke="#334155" stroke-width="4"/>
+  <!-- Highlight accent components -->
+  <circle cx="210" cy="160" r="20" fill="#f59e0b"/>
+  <circle cx="270" cy="160" r="20" fill="#3b82f6"/>
+  <circle cx="330" cy="160" r="20" fill="#22c55e"/>
+  
+  <rect x="580" y="160" width="410" height="24" rx="6" fill="#f59e0b" opacity="0.8"/>
+  <rect x="580" y="210" width="300" height="20" rx="5" fill="#94a3b8" opacity="0.3"/>
+  <rect x="580" y="250" width="350" height="20" rx="5" fill="#94a3b8" opacity="0.3"/>
+  <rect x="580" y="290" width="200" height="20" rx="5" fill="#94a3b8" opacity="0.3"/>
+  
+  <rect x="580" y="360" width="410" height="100" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+  <text x="610" y="415" font-family="monospace" font-size="28" fill="#f8fafc">&lt;InteractiveComponent /&gt;</text>
+</svg>

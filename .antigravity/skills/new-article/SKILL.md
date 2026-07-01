@@ -6,7 +6,7 @@ description: >
   image selection, and pre-publish verification.
 inputs:
   - topic: The subject of the article
-  - category: One of the controlled category list (engineering, design-systems, ai, career, tools, process, notes)
+  - category: One of the controlled category list (frontend, backend, ai, architecture, tutorials)
   - tags: Up to 5 tags from the allowlist
   - draft: Whether to create as draft (default: true)
 ---
@@ -75,11 +75,14 @@ Follow the article anatomy (06_Content_Strategy):
 - JSON-LD Article schema
 - Internal links to ≥ 2 related posts
 
-### 6. Image selection
-Run the image selection checklist from 06_Content_Strategy:
-- Matches persona? Custom > stock? Brand-palette aligned?
-- Alt text fully describes the image
-- Hero image distinct from other hero images on the index
+### 6. Image selection & Generation
+Always create custom, high-quality images closely related to the article topic using the `generate_image` tool. Do not use generic placeholders.
+- Generate a 16:9 hero image representing the topic using the brand color scheme (Slate `#0f172a` and Amber `#f59e0b`). Copy the generated PNG asset to `/public/` with a descriptive kebab-case filename.
+- If needed, generate and embed secondary illustrations/diagrams within specific sections to best represent the technical concepts.
+- Run the image selection checklist from `06_Content_Strategy`:
+  - Matches persona? Custom > stock? Brand-palette aligned?
+  - Alt text fully describes the image
+  - Hero image distinct from other hero images on the index
 
 ### 7. Pre-publish verification
 Run the **full New Article Checklist** from 16_Checklists.md (Checklist #1).

@@ -1,0 +1,51 @@
+---
+import { SITE } from '../config';
+
+export interface Props {
+  slotId: string;
+}
+
+const { slotId } = Astro.props;
+const isEnabled = SITE.adsense.enabled;
+---
+
+{isEnabled && (
+  <div class="ad-container">
+    <span class="ad-label">Advertisement</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client={SITE.adsense.publisherId}
+         data-ad-slot={slotId}
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script is:inline>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+)}
+
+<style>
+  .ad-container {
+    margin: var(--space-8) auto;
+    text-align: center;
+    background: var(--surface-sunken);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: var(--space-6);
+    min-height: 120px; /* Reserves height to prevent Cumulative Layout Shift (CLS) */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ad-label {
+    display: block;
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    margin-bottom: var(--space-2);
+  }
+</style>

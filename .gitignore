@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# dev-only reference material (writing samples, drafts)
+.dev/

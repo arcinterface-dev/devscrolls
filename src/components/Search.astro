@@ -1,0 +1,272 @@
+---
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('articles', ({ data }) => !data.draft);
+const searchData = allPosts.map(post => ({
+  id: post.id,
+  title: post.data.title,
+  description: post.data.description,
+  category: post.data.category,
+  tags: post.data.tags,
+  date: post.data.publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }),
+}));
+---
+<div class="search-overlay" id="search-overlay" hidden>
+  <div class="search-backdrop" id="search-backdrop"></div>
+  <div class="search-modal" role="dialog" aria-label="Search articles" aria-modal="true">
+    <div class="search-input-wrapper">
+      <svg class="search-input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input 
+        type="search" 
+        id="search-input" 
+        class="search-input" 
+        placeholder="Search articles..." 
+        autocomplete="off"
+        autofocus
+      />
+      <kbd class="search-kbd" id="search-kbd">Esc</kbd>
+    </div>
+    <div class="search-results" id="search-results">
+      <p class="search-hint">Start typing to search through articles…</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .search-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 15vh;
+  }
+  .search-overlay[hidden] {
+    display: none;
+  }
+  .search-backdrop {
+    position: absolute;
+    inset: 0;
+    background: var(--surface-overlay);
+    animation: fadeIn 0.15s ease;
+  }
+  .search-modal {
+    position: relative;
+    width: 90%;
+    max-width: 580px;
+    background: var(--surface-raised);
+    border-radius: 16px;
+    border: 1px solid var(--border-subtle);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    animation: slideUp 0.2s ease;
+  }
+  
+  .search-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-6);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .search-input-icon {
+    flex-shrink: 0;
+    color: var(--text-muted);
+  }
+  .search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: var(--text-body);
+    color: var(--text-primary);
+    outline: none;
+  }
+  .search-input::placeholder {
+    color: var(--text-muted);
+  }
+  .search-kbd {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    background: var(--surface-sunken);
+    color: var(--text-muted);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    padding: 2px 6px;
+    flex-shrink: 0;
+  }
+  
+  .search-results {
+    max-height: 360px;
+    overflow-y: auto;
+    padding: var(--space-3);
+  }
+  .search-hint {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: var(--text-small);
+    padding: var(--space-6) 0;
+    margin: 0;
+  }
+  .search-no-results {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: var(--text-small);
+    padding: var(--space-8) 0;
+  }
+  .search-result-item {
+    display: block;
+    padding: var(--space-3) var(--space-4);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.12s;
+  }
+  .search-result-item:hover, .search-result-item:focus, .search-result-item.selected {
+    background: var(--surface-sunken);
+  }
+  .search-result-title {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: var(--text-ui);
+    margin-bottom: 2px;
+  }
+  .search-result-meta {
+    color: var(--text-muted);
+    font-size: var(--text-xs);
+    display: flex;
+    gap: var(--space-2);
+  }
+  .search-result-category {
+    color: var(--accent-default);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(12px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+</style>
+
+<script is:inline define:vars={{ searchData }}>
+  const overlay = document.getElementById('search-overlay');
+  const backdrop = document.getElementById('search-backdrop');
+  const input = document.getElementById('search-input');
+  const resultsContainer = document.getElementById('search-results');
+  const openBtn = document.getElementById('search-open-btn');
+  
+  let selectedIndex = -1;
+  
+  function openSearch() {
+    overlay?.removeAttribute('hidden');
+    input?.focus();
+    document.body.style.overflow = 'hidden';
+  }
+  
+  function closeSearch() {
+    overlay?.setAttribute('hidden', '');
+    if (input) input.value = '';
+    resultsContainer.innerHTML = '<p class="search-hint">Start typing to search through articles…</p>';
+    document.body.style.overflow = '';
+    selectedIndex = -1;
+  }
+  
+  function performSearch(query) {
+    if (!query || query.length < 2) {
+      resultsContainer.innerHTML = '<p class="search-hint">Start typing to search through articles…</p>';
+      selectedIndex = -1;
+      return;
+    }
+    
+    const q = query.toLowerCase();
+    const results = searchData.filter(post => 
+      post.title.toLowerCase().includes(q) ||
+      post.description.toLowerCase().includes(q) ||
+      post.category.toLowerCase().includes(q) ||
+      (post.tags && post.tags.some(tag => tag.toLowerCase().includes(q)))
+    );
+    
+    if (results.length === 0) {
+      resultsContainer.innerHTML = '<p class="search-no-results">No articles found. Try a different search term.</p>';
+      selectedIndex = -1;
+      return;
+    }
+    
+    selectedIndex = -1;
+    resultsContainer.innerHTML = results.map((post, i) => `
+      <a class="search-result-item" href="/articles/${post.id}/" data-index="${i}">
+        <div class="search-result-title">${highlightMatch(post.title, q)}</div>
+        <div class="search-result-meta">
+          <span class="search-result-category">${post.category}</span>
+          <span>&middot;</span>
+          <span>${post.date}</span>
+        </div>
+      </a>
+    `).join('');
+  }
+  
+  function highlightMatch(text, query) {
+    const idx = text.toLowerCase().indexOf(query);
+    if (idx === -1) return text;
+    return text.slice(0, idx) + '<mark style="background: var(--amber-200); color: var(--blue-900); border-radius: 2px; padding: 0 1px;">' + text.slice(idx, idx + query.length) + '</mark>' + text.slice(idx + query.length);
+  }
+  
+  function updateSelection() {
+    const items = resultsContainer.querySelectorAll('.search-result-item');
+    items.forEach((el, i) => {
+      el.classList.toggle('selected', i === selectedIndex);
+    });
+    if (selectedIndex >= 0 && items[selectedIndex]) {
+      items[selectedIndex].scrollIntoView({ block: 'nearest' });
+    }
+  }
+  
+  // Event Listeners
+  openBtn?.addEventListener('click', openSearch);
+  backdrop?.addEventListener('click', closeSearch);
+  
+  input?.addEventListener('input', (e) => {
+    performSearch(e.target.value);
+  });
+  
+  document.addEventListener('keydown', (e) => {
+    // Cmd/Ctrl + K to open
+    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault();
+      if (overlay?.hidden) {
+        openSearch();
+      } else {
+        closeSearch();
+      }
+    }
+    
+    // Escape to close
+    if (e.key === 'Escape' && !overlay?.hidden) {
+      closeSearch();
+    }
+    
+    // Arrow key navigation within results
+    if (!overlay?.hidden) {
+      const items = resultsContainer.querySelectorAll('.search-result-item');
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        selectedIndex = Math.min(selectedIndex + 1, items.length - 1);
+        updateSelection();
+      }
+      if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        selectedIndex = Math.max(selectedIndex - 1, 0);
+        updateSelection();
+      }
+      if (e.key === 'Enter' && selectedIndex >= 0 && items[selectedIndex]) {
+        e.preventDefault();
+        items[selectedIndex].click();
+      }
+    }
+  });
+</script>

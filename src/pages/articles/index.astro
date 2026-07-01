@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleListItem from '../../components/ArticleListItem.astro';
+import CategoryNav from '../../components/CategoryNav.astro';
+import { getCollection } from 'astro:content';
+import getReadingTime from 'reading-time';
+
+const allPosts = await getCollection('articles', ({ data }) => !data.draft);
+allPosts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+---
+
+<BaseLayout 
+  title="Articles — DevScrolls" 
+  description="An archive of all articles, notes, and tutorials."
+>
+  <div class="writing-layout">
+    <header class="page-header">
+      <h1 class="page-title">Articles</h1>
+      <p class="page-subtitle">All articles, chronologically.</p>
+    </header>
+    
+    <CategoryNav />
+    
+    <div class="article-list">
+      {allPosts.map(post => (
+        <ArticleListItem 
+          title={post.data.title}
+          href={`/articles/${post.id}/`}
+          description={post.data.description}
+          publishDate={post.data.publishDate}
+          category={post.data.category}
+          readingTime={getReadingTime(post.body || '').text}
+          heroImage={post.data.heroImage}
+          heroImageAlt={post.data.heroImageAlt}
+        />
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .writing-layout {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .page-header {
+    margin-bottom: var(--space-8);
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .page-title {
+    margin-bottom: var(--space-2);
+    letter-spacing: -0.02em;
+  }
+  .page-subtitle {
+    font-size: var(--text-ui);
+    color: var(--text-muted);
+    margin: 0;
+  }
+  .article-list {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

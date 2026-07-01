@@ -1,0 +1,182 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import StructuredData from '../components/StructuredData.astro';
+import AdSlot from '../components/AdSlot.astro';
+import { SITE } from '../config';
+import '../styles/prose.css';
+
+export interface Props {
+  title: string;
+  description: string;
+  publishDate: Date;
+  updatedDate?: Date;
+  category: string;
+  heroImage: string;
+  heroImageAlt: string;
+  authorName?: string;
+  readingTime?: string;
+}
+
+const { 
+  title, 
+  description, 
+  publishDate, 
+  updatedDate, 
+  category, 
+  heroImage, 
+  heroImageAlt,
+  authorName = "Santhanakrishnan",
+  readingTime
+} = Astro.props;
+
+const formattedPublishDate = publishDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+<BaseLayout title={title} description={description} type="article" image={heroImage} publishDate={publishDate}>
+  <StructuredData 
+    type="Article" 
+    data={{
+      headline: title,
+      description: description,
+      image: [new URL(heroImage, Astro.site || 'https://devscrolls.com')],
+      datePublished: publishDate.toISOString(),
+      dateModified: updatedDate ? updatedDate.toISOString() : publishDate.toISOString(),
+      author: [{
+        "@type": "Person",
+        name: authorName,
+        url: Astro.site ? new URL('/about/', Astro.site) : 'https://devscrolls.com/about/'
+      }]
+    }}
+  />
+  
+  <article class="article-container">
+    <header class="article-header">
+      <a href="/" class="back-link">&larr; Back to all posts</a>
+      <div class="category-eyebrow">{category}</div>
+      <h1 class="article-title">{title}</h1>
+      
+      <div class="article-meta">
+        <span class="author">{authorName}</span>
+        <span class="separator" aria-hidden="true">&middot;</span>
+        <time datetime={publishDate.toISOString()}>{formattedPublishDate}</time>
+        {readingTime && (
+          <>
+            <span class="separator" aria-hidden="true">&middot;</span>
+            <span class="reading-time">{readingTime}</span>
+          </>
+        )}
+      </div>
+    </header>
+    
+    {heroImage && (
+      <figure class="hero-image-container">
+        <img src={heroImage} alt={heroImageAlt} class="hero-image" loading="eager" />
+      </figure>
+    )}
+    
+    <div class="article-content prose">
+      <slot />
+    </div>
+
+    <AdSlot slotId={SITE.adsense.articleBottomSlotId} />
+    
+    <footer class="article-footer">
+      <div class="author-bio">
+        <img src="/avatar-placeholder.svg" alt={authorName} class="author-bio-avatar" width="48" height="48" />
+        <div>
+          <p class="author-bio-name">Written by <strong>{authorName}</strong></p>
+          <p class="author-bio-desc">Senior Frontend Engineer & UI Architect with 7+ years of experience building scalable design systems, high-performance web architectures, and clean user experiences.</p>
+        </div>
+      </div>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  .article-container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  
+  .back-link {
+    display: inline-block;
+    font-size: var(--text-small);
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-bottom: var(--space-8);
+    transition: color 0.15s;
+  }
+  .back-link:hover {
+    color: var(--text-primary);
+  }
+  
+  .article-header {
+    margin-bottom: var(--space-12);
+  }
+  .category-eyebrow {
+    color: var(--accent-default);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: var(--text-xs);
+    margin-bottom: var(--space-3);
+  }
+  .article-title {
+    margin-bottom: var(--space-4);
+    letter-spacing: -0.02em;
+  }
+  .article-meta {
+    color: var(--text-muted);
+    font-size: var(--text-ui);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  
+  .article-footer {
+    margin-top: var(--space-16);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--border-subtle);
+  }
+  .author-bio {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+  .author-bio-avatar {
+    border-radius: 50%;
+    background: var(--surface-sunken);
+    flex-shrink: 0;
+  }
+  .author-bio-name {
+    font-size: var(--text-ui);
+    margin: 0 0 2px;
+    color: var(--text-secondary);
+  }
+  .author-bio-name strong {
+    color: var(--text-primary);
+  }
+  .author-bio-desc {
+    color: var(--text-muted);
+    font-size: var(--text-small);
+    margin: 0;
+    line-height: var(--leading-normal);
+  }
+  
+  .hero-image-container {
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: var(--space-8);
+    border: 1px solid var(--border-subtle);
+  }
+  .hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+</style>

@@ -1,0 +1,219 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Contact — DevScrolls" 
+  description="Get in touch with Santhanakrishnan."
+>
+  <div class="contact-container">
+    <header class="page-header">
+      <h1 class="page-title">Get in Touch</h1>
+      <p class="page-subtitle">I'm always open to discussing frontend architecture, design systems, or potential collaborations.</p>
+    </header>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Connect Directly</h3>
+        <p>The fastest way to reach me is through email or LinkedIn. I typically respond within 24-48 hours.</p>
+        
+        <ul class="info-list">
+          <li>
+            <strong>Email</strong>
+            <a href="mailto:santhanakrishnanstark@gmail.com">santhanakrishnanstark@gmail.com</a>
+          </li>
+          <li>
+            <strong>LinkedIn</strong>
+            <a href="https://linkedin.com/in/santhanakrishnan" target="_blank" rel="noopener noreferrer">linkedin.com/in/santhanakrishnan</a>
+          </li>
+          <li>
+            <strong>GitHub</strong>
+            <a href="https://github.com/santhanakrishnan" target="_blank" rel="noopener noreferrer">github.com/santhanakrishnan</a>
+          </li>
+          <li>
+            <strong>Location</strong>
+            <span>Bangalore, India</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="contact-form-wrapper">
+        <form class="contact-form" action="https://formspree.io/f/mlgypryd" method="POST">
+          
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Jane Doe" autocomplete="name" />
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="jane@example.com" autocomplete="email" />
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required rows="5" placeholder="How can I help you?"></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Clear form fields when navigating back to the page via browser history (bfcache)
+    window.addEventListener('pageshow', () => {
+      const form = document.querySelector('.contact-form');
+      if (form instanceof HTMLFormElement) {
+        form.reset();
+      }
+    });
+  </script>
+</BaseLayout>
+
+<style>
+  .contact-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: var(--space-8);
+  }
+  .page-header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+  }
+  .page-title {
+    font-size: var(--text-h1);
+    margin-bottom: var(--space-4);
+    letter-spacing: -0.02em;
+  }
+  .page-subtitle {
+    font-size: var(--text-lead);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: var(--leading-relaxed);
+  }
+  
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+
+  @media (min-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr 1.2fr;
+      gap: var(--space-16);
+      align-items: start;
+    }
+  }
+
+  .contact-info h3 {
+    font-size: var(--text-h3);
+    margin-top: 0;
+    margin-bottom: var(--space-4);
+  }
+  .contact-info p {
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-8);
+  }
+
+  .info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+  .info-list li {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+  .info-list strong {
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+  }
+  .info-list a, .info-list span {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .info-list a:hover {
+    color: var(--accent-default);
+    text-decoration: underline;
+  }
+  
+  .contact-form-wrapper {
+    background: var(--surface-raised);
+    padding: var(--space-8);
+    border-radius: 16px;
+    border: 1px solid var(--border-subtle);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+  .hidden {
+    display: none;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  label {
+    font-size: var(--text-small);
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+  input, textarea {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--border-default);
+    border-radius: 8px;
+    background: var(--surface-base);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: var(--text-ui);
+    transition: all 0.2s ease;
+  }
+  input::placeholder, textarea::placeholder {
+    color: var(--text-muted);
+  }
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+  }
+  
+  .submit-btn {
+    margin-top: var(--space-2);
+    background-color: var(--text-primary);
+    color: var(--surface-base);
+    font-weight: 600;
+    font-size: var(--text-ui);
+    padding: var(--space-4);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+  }
+  .submit-btn:hover, .submit-btn:focus {
+    transform: translateY(-2px);
+    background-color: var(--text-secondary);
+    outline: none;
+  }
+  .submit-btn:focus-visible {
+    outline: 2px solid var(--border-focus);
+    outline-offset: 2px;
+  }
+</style>

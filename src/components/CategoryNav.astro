@@ -1,0 +1,83 @@
+---
+import { CATEGORIES } from '../content/_taxonomy';
+
+export interface Props {
+  activeCategory?: string;
+}
+
+const { activeCategory } = Astro.props;
+---
+<nav class="category-nav" aria-label="Topics">
+  <ul class="category-list">
+    <li>
+      <a 
+        href="/articles/" 
+        class={`category-link ${!activeCategory ? 'active' : ''}`}
+      >
+        All
+      </a>
+    </li>
+    {CATEGORIES.map(category => (
+      <li>
+        <a 
+          href={`/category/${category.slug}`} 
+          class={`category-link ${activeCategory === category.slug ? 'active' : ''}`}
+        >
+          {category.name}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<style>
+  .category-nav {
+    margin-bottom: var(--space-8);
+    overflow-x: auto;
+    scrollbar-width: none; /* Hide scrollbars */
+    -ms-overflow-style: none;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .category-nav::-webkit-scrollbar {
+    display: none; /* Hide scrollbars in WebKit */
+  }
+
+  .category-list {
+    display: flex;
+    gap: var(--space-6);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .category-link {
+    display: inline-block;
+    padding: var(--space-3) 0;
+    font-size: var(--text-small);
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+    position: relative;
+  }
+
+  .category-link:hover, .category-link:focus {
+    color: var(--text-primary);
+  }
+
+  .category-link.active {
+    color: var(--text-primary);
+  }
+  
+  .category-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; /* align with the nav border-bottom */
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 2px 2px 0 0;
+  }
+</style>

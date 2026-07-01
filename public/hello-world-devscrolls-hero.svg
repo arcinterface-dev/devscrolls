@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%" fill="none">
+  <!-- Background -->
+  <rect width="800" height="450" fill="#0f172a"/>
+  
+  <!-- Subtle Grid Lines -->
+  <path d="M 0,50 L 800,50 M 0,100 L 800,100 M 0,150 L 800,150 M 0,200 L 800,200 M 0,250 L 800,250 M 0,300 L 800,300 M 0,350 L 800,350 M 0,400 L 800,400" stroke="#1e293b" stroke-width="1" opacity="0.3"/>
+  <path d="M 100,0 L 100,450 M 200,0 L 200,450 M 300,0 L 300,450 M 400,0 L 400,450 M 500,0 L 500,450 M 600,0 L 600,450 M 700,0 L 700,450" stroke="#1e293b" stroke-width="1" opacity="0.3"/>
+
+  <!-- Glowing background circles -->
+  <circle cx="400" cy="225" r="220" fill="#f59e0b" opacity="0.04" filter="blur(60px)"/>
+  <circle cx="150" cy="150" r="120" fill="#3b82f6" opacity="0.05" filter="blur(40px)"/>
+
+  <!-- Isometric Platform Blocks (Static blocks) -->
+  <g transform="translate(180, 80)">
+    <!-- Base Grid Lines connecting components -->
+    <path d="M 80,180 L 220,110 M 220,110 L 360,180 M 220,110 L 220,280" stroke="#334155" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.5"/>
+    
+    <!-- Central Platform: Astro / Engine Block -->
+    <g transform="translate(160, 80)" opacity="0.95">
+      <!-- Top Face -->
+      <path d="M 60,0 L 120,30 L 60,60 L 0,30 Z" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+      <!-- Left Face -->
+      <path d="M 0,30 L 60,60 L 60,90 L 0,60 Z" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5"/>
+      <!-- Right Face -->
+      <path d="M 60,60 L 120,30 L 120,60 L 60,90 Z" fill="#020617" stroke="#f59e0b" stroke-width="1.5"/>
+      
+      <!-- Inside Core Graphic (Astro Spark/Rocket concept) -->
+      <path d="M 60,15 L 75,30 L 60,45 L 45,30 Z" fill="#f59e0b" opacity="0.8"/>
+      <!-- Floating Energy Ring -->
+      <path d="M 20,25 Q 60,5 100,25" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.6"/>
+      <path d="M 20,35 Q 60,55 100,35" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.6"/>
+    </g>
+
+    <!-- Left Platform: Markdown Source Document -->
+    <g transform="translate(30, 130)">
+      <!-- Top Face -->
+      <path d="M 50,0 L 100,25 L 50,50 L 0,25 Z" fill="#0f172a" stroke="#3b82f6" stroke-width="1"/>
+      <!-- Left Face -->
+      <path d="M 0,25 L 50,50 L 50,65 L 0,40 Z" fill="#020617" stroke="#3b82f6" stroke-width="1"/>
+      <!-- Right Face -->
+      <path d="M 50,50 L 100,25 L 100,40 L 50,65 Z" fill="#020617" stroke="#3b82f6" stroke-width="1"/>
+      
+      <!-- Floating Markdown Page -->
+      <g transform="translate(25, -25)" opacity="0.9">
+        <rect width="50" height="60" rx="3" fill="#1e293b" stroke="#3b82f6" stroke-width="1"/>
+        <line x1="8" y1="12" x2="25" y2="12" stroke="#f8fafc" stroke-width="2" stroke-linecap="round"/>
+        <line x1="8" y1="22" x2="42" y2="22" stroke="#64748b" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="8" y1="32" x2="35" y2="32" stroke="#64748b" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="8" y1="42" x2="42" y2="42" stroke="#64748b" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Amber MD badge -->
+        <rect x="34" y="8" width="10" height="8" rx="1.5" fill="#f59e0b"/>
+        <text x="39" y="14" fill="#0f172a" font-family="monospace" font-weight="900" font-size="6" text-anchor="middle">M</text>
+      </g>
+    </g>
+
+    <!-- Right Platform: Published UI Output (Static Screen) -->
+    <g transform="translate(290, 130)">
+      <!-- Top Face -->
+      <path d="M 50,0 L 100,25 L 50,50 L 0,25 Z" fill="#0f172a" stroke="#10b981" stroke-width="1"/>
+      <!-- Left Face -->
+      <path d="M 0,25 L 50,50 L 50,65 L 0,40 Z" fill="#020617" stroke="#10b981" stroke-width="1"/>
+      <!-- Right Face -->
+      <path d="M 50,50 L 100,25 L 100,40 L 50,65 Z" fill="#020617" stroke="#10b981" stroke-width="1"/>
+
+      <!-- Floating Webpage mockup -->
+      <g transform="translate(20, -25)" opacity="0.9">
+        <rect width="60" height="55" rx="4" fill="#090d16" stroke="#10b981" stroke-width="1"/>
+        <rect x="0" y="0" width="60" height="10" rx="4" fill="#1e293b"/>
+        <!-- Window buttons -->
+        <circle cx="5" cy="5" r="1.5" fill="#ef4444"/>
+        <circle cx="9" cy="5" r="1.5" fill="#f59e0b"/>
+        <circle cx="13" cy="5" r="1.5" fill="#10b981"/>
+        <!-- Content indicators -->
+        <rect x="6" y="16" width="48" height="6" rx="1" fill="#10b981" opacity="0.4"/>
+        <circle cx="11" cy="34" r="5" fill="#3b82f6" opacity="0.4"/>
+        <rect x="22" y="31" width="32" height="3" rx="0.5" fill="#64748b"/>
+        <rect x="22" y="37" width="20" height="3" rx="0.5" fill="#64748b"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Typography: DevScrolls Title Branding -->
+  <g transform="translate(400, 370)" text-anchor="middle">
+    <text y="0" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="28" font-weight="800" letter-spacing="-0.03em">DevScrolls</text>
+    <text y="22" fill="#f59e0b" font-family="monospace" font-size="12" font-weight="600" letter-spacing="0.1em">LAUNCHING THE ENGINE</text>
+  </g>
+
+  <!-- Floating particles -->
+  <circle cx="210" cy="180" r="3" fill="#f59e0b" opacity="0.6"/>
+  <circle cx="580" cy="190" r="2.5" fill="#10b981" opacity="0.6"/>
+  <circle cx="340" cy="140" r="2" fill="#3b82f6" opacity="0.5"/>
+</svg>

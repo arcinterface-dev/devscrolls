@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%" fill="none">
+  <!-- Background -->
+  <rect width="800" height="450" fill="#0f172a"/>
+  
+  <!-- Subtle Grid Lines -->
+  <path d="M 0,50 L 800,50 M 0,100 L 800,100 M 0,150 L 800,150 M 0,200 L 800,200 M 0,250 L 800,250 M 0,300 L 800,300 M 0,350 L 800,350 M 0,400 L 800,400" stroke="#1e293b" stroke-width="1" opacity="0.3"/>
+  <path d="M 100,0 L 100,450 M 200,0 L 200,450 M 300,0 L 300,450 M 400,0 L 400,450 M 500,0 L 500,450 M 600,0 L 600,450 M 700,0 L 700,450" stroke="#1e293b" stroke-width="1" opacity="0.3"/>
+
+  <!-- Glowing background circles -->
+  <circle cx="250" cy="225" r="180" fill="#3b82f6" opacity="0.05" filter="blur(40px)"/>
+  <circle cx="550" cy="225" r="150" fill="#f59e0b" opacity="0.06" filter="blur(40px)"/>
+
+  <!-- Left: Code Editor Wireframe -->
+  <g transform="translate(60, 80)">
+    <!-- Window Border -->
+    <rect width="320" height="290" rx="8" fill="#020617" stroke="#334155" stroke-width="1.5"/>
+    <!-- Window Header -->
+    <rect width="320" height="30" rx="8" fill="#1e293b"/>
+    <!-- Window Buttons -->
+    <circle cx="15" cy="15" r="5" fill="#ef4444"/>
+    <circle cx="30" cy="15" r="5" fill="#f59e0b"/>
+    <circle cx="45" cy="15" r="5" fill="#10b981"/>
+    <!-- Window Title -->
+    <text x="160" y="20" fill="#94a3b8" font-family="monospace" font-size="11" text-anchor="middle">how-to-code.ts</text>
+    
+    <!-- Code lines -->
+    <g transform="translate(20, 50)" fill="#64748b" font-family="monospace" font-size="12">
+      <!-- Line 1 -->
+      <text x="0" y="15" fill="#f59e0b">import</text>
+      <text x="50" y="15" fill="#f8fafc">{ UI, AI }</text>
+      <text x="125" y="15" fill="#f59e0b">from</text>
+      <text x="165" y="15" fill="#10b981">"devscrolls"</text>
+      
+      <!-- Line 2 -->
+      <text x="0" y="40" fill="#3b82f6">const</text>
+      <text x="45" y="40" fill="#f8fafc">developer</text>
+      <text x="120" y="40" fill="#f59e0b">=</text>
+      <text x="135" y="40" fill="#3b82f6">new</text>
+      <text x="165" y="40" fill="#10b981">Architect</text>
+      <text x="235" y="40" fill="#f8fafc">();</text>
+
+      <!-- Line 3 (nested) -->
+      <text x="0" y="75" fill="#64748b">// 2026 Core Workflow</text>
+      <text x="0" y="100" fill="#f8fafc">developer</text>
+      <text x="70" y="100" fill="#64748b">.addCoPilot(</text>
+      <text x="160" y="100" fill="#f8fafc">AI</text>
+      <text x="175" y="100" fill="#64748b">);</text>
+
+      <!-- Line 4 -->
+      <text x="0" y="125" fill="#f8fafc">developer</text>
+      <text x="70" y="125" fill="#64748b">.build(</text>
+      <text x="120" y="125" fill="#f8fafc">{</text>
+      
+      <text x="20" y="150" fill="#10b981">staticFirst:</text>
+      <text x="110" y="150" fill="#f59e0b">true</text>
+      <text x="140" y="150" fill="#64748b">,</text>
+
+      <text x="20" y="175" fill="#10b981">accessible:</text>
+      <text x="110" y="175" fill="#f59e0b">true</text>
+      <text x="140" y="175" fill="#64748b">,</text>
+
+      <text x="20" y="200" fill="#10b981">islands:</text>
+      <text x="85" y="200" fill="#f8fafc">[</text>
+      <text x="95" y="200" fill="#10b981">"theme"</text>
+      <text x="150" y="200" fill="#f8fafc">]</text>
+
+      <text x="0" y="225" fill="#f8fafc">});</text>
+    </g>
+  </g>
+
+  <!-- Right: Holographic UI Blocks & AI waves -->
+  <g transform="translate(420, 80)">
+    <!-- Floating Card 1 -->
+    <g transform="translate(30, 20)" opacity="0.9">
+      <rect width="260" height="90" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5" filter="drop-shadow(0 4px 10px rgba(245,158,11,0.1))"/>
+      <rect x="15" y="15" width="40" height="40" rx="4" fill="#f59e0b" opacity="0.2"/>
+      <!-- Icon representation -->
+      <path d="M25 35 L35 30 L45 35" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+      <path d="M25 40 L35 35 L45 40" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+      
+      <!-- Text Blocks -->
+      <rect x="70" y="20" width="130" height="10" rx="2" fill="#f8fafc"/>
+      <rect x="70" y="38" width="160" height="6" rx="2" fill="#64748b"/>
+      <rect x="70" y="50" width="100" height="6" rx="2" fill="#64748b"/>
+    </g>
+
+    <!-- Holographic AI Wave Path -->
+    <path d="M -60,200 Q 20,130 110,180 T 280,140" fill="none" stroke="url(#ai-gradient)" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+    <path d="M -60,210 Q 30,120 120,170 T 280,150" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="6,4" opacity="0.6"/>
+
+    <!-- Floating Card 2 -->
+    <g transform="translate(60, 160)" opacity="0.85">
+      <rect width="220" height="100" rx="6" fill="#181b21" stroke="#3b82f6" stroke-width="1"/>
+      <!-- Small Bar chart wireframe -->
+      <rect x="15" y="65" width="20" height="20" rx="2" fill="#3b82f6"/>
+      <rect x="40" y="50" width="20" height="35" rx="2" fill="#3b82f6"/>
+      <rect x="65" y="35" width="20" height="50" rx="2" fill="#10b981"/>
+      <rect x="90" y="55" width="20" height="30" rx="2" fill="#3b82f6"/>
+      
+      <!-- Micro Text -->
+      <rect x="15" y="15" width="100" height="8" rx="2" fill="#f8fafc"/>
+      <rect x="125" y="15" width="40" height="8" rx="2" fill="#10b981" opacity="0.3"/>
+      
+      <circle cx="190" cy="50" r="15" fill="none" stroke="#1e293b" stroke-width="3"/>
+      <path d="M 190,35 A 15,15 0 0,1 205,50" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- Interactive cursor indicator -->
+  <g transform="translate(480, 150)">
+    <path d="M0,0 L12,24 L6,14 L0,18 Z" fill="#f59e0b" stroke="#f8fafc" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="8" fill="none" stroke="#f59e0b" stroke-width="1.5" opacity="0.5"/>
+  </g>
+
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="ai-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+</svg>

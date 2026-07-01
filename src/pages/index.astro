@@ -1,17 +1,112 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleListItem from '../components/ArticleListItem.astro';
+import CategoryNav from '../components/CategoryNav.astro';
+import StructuredData from '../components/StructuredData.astro';
+import { getCollection } from 'astro:content';
+import getReadingTime from 'reading-time';
 
+const allPosts = await getCollection('articles', ({ data }) => !data.draft);
+allPosts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout 
+  title="DevScrolls — Santhanakrishnan" 
+  description="Thoughts on software engineering, frontend architecture, and the builder's journey."
+>
+  <StructuredData 
+    type="WebSite"
+    data={{
+      name: "DevScrolls",
+      url: Astro.site ? Astro.site.toString() : 'https://devscrolls.com',
+      description: "Thoughts on software engineering, frontend architecture, and the builder's journey."
+    }}
+  />
+  <div class="home-layout">
+    <header class="home-intro">
+      <div class="intro-top">
+        <img src="/avatar-placeholder.svg" alt="Santhanakrishnan" class="intro-avatar" width="56" height="56" />
+        <div>
+          <h1 class="intro-name">DevScrolls</h1>
+          <p class="intro-byline">by <strong>Santhanakrishnan</strong></p>
+        </div>
+      </div>
+      <p class="intro-bio">
+        A thoughtful builder's journal — exploring modern frontend architecture, state management, design systems, and the craft of resilient software.
+      </p>
+    </header>
+
+    <CategoryNav />
+
+    <section class="home-feed" aria-label="All articles">
+      {allPosts.map(post => (
+        <ArticleListItem 
+          title={post.data.title}
+          href={`/articles/${post.id}/`}
+          description={post.data.description}
+          publishDate={post.data.publishDate}
+          category={post.data.category}
+          readingTime={getReadingTime(post.body || '').text}
+          heroImage={post.data.heroImage}
+          heroImageAlt={post.data.heroImageAlt}
+        />
+      ))}
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .home-layout {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: var(--space-4) 0;
+  }
+
+  .home-intro {
+    margin-bottom: var(--space-12);
+    padding-bottom: var(--space-8);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .intro-top {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+  }
+
+  .intro-avatar {
+    border-radius: 50%;
+    background: var(--surface-sunken);
+    flex-shrink: 0;
+  }
+
+  .intro-name {
+    font-size: var(--text-h3);
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+
+  .intro-byline {
+    color: var(--text-muted);
+    font-size: var(--text-small);
+    margin: 0;
+  }
+  .intro-byline strong {
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .intro-bio {
+    color: var(--text-secondary);
+    font-size: var(--text-ui);
+    line-height: var(--leading-relaxed);
+    margin: 0;
+    max-width: 56ch;
+  }
+
+  .home-feed {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

@@ -1,0 +1,167 @@
+---
+export interface Props {
+  title: string;
+  href: string;
+  description: string;
+  publishDate: Date;
+  readingTime?: string;
+  category: string;
+  heroImage?: string;
+  heroImageAlt?: string;
+}
+
+const { title, href, description, publishDate, readingTime, category, heroImage, heroImageAlt } = Astro.props;
+
+const formattedPublishDate = publishDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+});
+---
+<article class="article-list-item">
+  <a href={href} class="article-link-wrapper">
+    <div class="article-content-wrapper">
+      <div class="article-text-content">
+        <div class="article-meta">
+          <span class="article-category">{category}</span>
+          <span class="meta-dot" aria-hidden="true">&middot;</span>
+          <time datetime={publishDate.toISOString()} class="article-date">{formattedPublishDate}</time>
+          {readingTime && (
+            <>
+              <span class="meta-dot" aria-hidden="true">&middot;</span>
+              <span class="article-reading-time">{readingTime}</span>
+            </>
+          )}
+        </div>
+        <h3 class="article-title">{title}</h3>
+        <p class="article-excerpt">{description}</p>
+      </div>
+      
+      {heroImage && (
+        <div class="article-thumbnail-wrapper">
+          <img src={heroImage} alt={heroImageAlt || ""} class="article-thumbnail" loading="lazy" />
+        </div>
+      )}
+    </div>
+  </a>
+</article>
+
+<style>
+  .article-list-item {
+    padding: var(--space-6) 0;
+  }
+  .article-list-item + .article-list-item {
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .article-link-wrapper {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 12px;
+    padding: var(--space-4);
+    margin: calc(-1 * var(--space-4));
+    transition: background 0.2s ease;
+  }
+  .article-link-wrapper:hover, .article-link-wrapper:focus-visible {
+    background: var(--surface-sunken);
+  }
+  .article-link-wrapper:focus-visible {
+    outline: 2px solid var(--border-focus);
+    outline-offset: 2px;
+  }
+
+  .article-content-wrapper {
+    display: flex;
+    flex-direction: column-reverse; /* Put image on top on mobile */
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 640px) {
+    .article-content-wrapper {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--space-6);
+    }
+  }
+
+  .article-text-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .article-thumbnail-wrapper {
+    flex-shrink: 0;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--surface-sunken);
+    border: 1px solid var(--border-subtle);
+  }
+
+  @media (min-width: 640px) {
+    .article-thumbnail-wrapper {
+      width: 180px;
+      height: 110px;
+      aspect-ratio: auto;
+    }
+  }
+
+  .article-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .article-link-wrapper:hover .article-thumbnail {
+    transform: scale(1.03);
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    font-size: var(--text-small);
+    color: var(--text-muted);
+    margin-bottom: var(--space-2);
+    margin-top: var(--space-2);
+  }
+  
+  @media (min-width: 640px) {
+    .article-meta {
+      margin-top: 0;
+    }
+  }
+
+  .article-category {
+    color: var(--accent-default);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    font-size: var(--text-xs);
+  }
+  
+  .article-title {
+    font-size: var(--text-h3);
+    margin-top: 0;
+    margin-bottom: var(--space-2);
+    line-height: var(--leading-snug);
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+  }
+
+  .article-excerpt {
+    color: var(--text-secondary);
+    font-size: var(--text-ui);
+    line-height: var(--leading-relaxed);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

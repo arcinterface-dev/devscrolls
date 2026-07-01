@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import StructuredData from '../components/StructuredData.astro';
+import '../styles/prose.css';
+---
+
+<BaseLayout 
+  title="About — DevScrolls" 
+  description="About Santhanakrishnan, Senior Frontend Engineer and UI Architect."
+>
+  <StructuredData 
+    type="Person"
+    data={{
+      name: "Santhanakrishnan M",
+      jobTitle: "Senior Frontend Engineer & UI Architect",
+      url: Astro.site ? new URL('/about/', Astro.site) : 'https://devscrolls.com/about/'
+    }}
+  />
+
+  <div class="about-container">
+    <header class="about-header">
+      <div class="about-avatar-wrapper">
+        <img src="/avatar-placeholder.svg" alt="Santhanakrishnan" class="about-avatar" width="120" height="120" />
+      </div>
+      <h1 class="about-title">Santhanakrishnan M</h1>
+      <p class="about-subtitle">Senior Frontend Engineer & UI Architect</p>
+      
+      <div class="social-links">
+        <a href="https://github.com/santhanakrishnan" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/santhanakrishnan" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:santhanakrishnanstark@gmail.com">Email</a>
+      </div>
+    </header>
+
+    <article class="prose about-prose">
+      <h2>About Me</h2>
+      <p class="lead">Hi, I'm Santhanakrishnan. With nearly 7 years of experience in the software industry, I specialize in building scalable, enterprise-grade web applications and leading UI architecture.</p>
+      
+      <h2>What I Do</h2>
+      <p>My core focus lies in modern frontend ecosystems, primarily working with React.js, TypeScript, and Vue.js. I am passionate about crafting framework-agnostic Web Components, defining component-driven design systems, and ensuring seamless cross-product portability.</p>
+      <p>Recently, I've been deeply involved in integrating Generative AI, LLMs, and RAG-based systems into production applications—handling real-time token streaming via Server-Sent Events (SSE) and orchestrating complex frontend-backend interactions.</p>
+      
+      <h2>Experience Highlights</h2>
+      <ul>
+        <li><strong>UI Lead & Frontend Architect:</strong> Spearheading the modernization of legacy modules to framework-agnostic architectures, significantly improving time-to-market and reducing duplication.</li>
+        <li><strong>Performance & Quality:</strong> Driving frontend performance engineering, achieving high Lighthouse scores, and maintaining 90%+ test coverage through robust CI/CD pipelines and DevOps practices.</li>
+        <li><strong>GenAI Integration:</strong> Building advanced UI observability and interaction frameworks for LLM-driven features, collaborating closely with ML engineers and data scientists.</li>
+      </ul>
+
+      <h2>The Thoughtful Builder</h2>
+      <p>I created DevScrolls as a living archive of my learnings. It's a place where I document technical deep dives, architectural decisions, and thoughts on the craft of software engineering. My goal is to share knowledge transparently and help elevate the engineering community.</p>
+      
+      <div class="contact-cta">
+        <p>Interested in collaborating or discussing web architecture?</p>
+        <a href="/contact/" class="button">Get in Touch</a>
+      </div>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .about-container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding-top: var(--space-4);
+  }
+  .about-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+    padding-bottom: var(--space-8);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .about-avatar-wrapper {
+    margin-bottom: var(--space-6);
+  }
+  .about-avatar {
+    border-radius: 50%;
+    background: var(--surface-sunken);
+    display: inline-block;
+    border: 4px solid var(--surface-base);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .about-title {
+    font-size: var(--text-h2);
+    margin-bottom: var(--space-2);
+    letter-spacing: -0.02em;
+  }
+  .about-subtitle {
+    font-size: var(--text-lead);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-6);
+  }
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-6);
+  }
+  .social-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .social-links a:hover {
+    color: var(--text-primary);
+  }
+  
+  .about-prose {
+    margin-top: 0;
+  }
+  .lead {
+    font-size: var(--text-lead);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+  }
+  
+  .contact-cta {
+    margin-top: var(--space-12);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--border-subtle);
+    text-align: center;
+  }
+  .contact-cta p {
+    margin-bottom: var(--space-6);
+    color: var(--text-secondary);
+  }
+  .button {
+    display: inline-block;
+    background-color: var(--text-primary);
+    color: var(--surface-base);
+    text-decoration: none;
+    padding: var(--space-3) var(--space-8);
+    border-radius: 100px;
+    font-weight: 600;
+    transition: transform 0.2s, background-color 0.2s;
+  }
+  .button:hover, .button:focus {
+    transform: translateY(-2px);
+    background-color: var(--text-secondary);
+    color: var(--surface-base);
+    outline: none;
+  }
+</style>

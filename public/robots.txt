@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /drafts/
+Disallow: /preview/
+Disallow: /_admin/
+
+Sitemap: https://devscrolls.com/sitemap-index.xml

@@ -1,0 +1,120 @@
+---
+export interface Props {
+  title: string;
+  href: string;
+  description: string;
+  image?: string;
+  imageAlt?: string;
+  eyebrow?: string;
+}
+
+const { title, href, description, image, imageAlt, eyebrow } = Astro.props;
+---
+<article class="card">
+  {image && (
+    <div class="card-image-wrapper">
+      <img src={image} alt={imageAlt || ""} class="card-image" loading="lazy" />
+    </div>
+  )}
+  <div class="card-content">
+    {eyebrow && <span class="card-eyebrow">{eyebrow}</span>}
+    <h3 class="card-title">
+      <a href={href} class="card-link">
+        <span class="absolute-link" aria-hidden="true"></span>
+        {title}
+      </a>
+    </h3>
+    <p class="card-description">{description}</p>
+  </div>
+</article>
+
+<style>
+  .card {
+    position: relative;
+    background: var(--surface-raised);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .card:hover, .card:focus-within {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border-color: var(--border-default);
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .card:hover,
+    :root:not([data-theme="light"]) .card:focus-within {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] .card:hover,
+  :root[data-theme="dark"] .card:focus-within {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .card-image-wrapper {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--surface-sunken);
+  }
+  .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease-out;
+  }
+  .card:hover .card-image {
+    transform: scale(1.05);
+  }
+  
+  .card-content {
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .card-eyebrow {
+    font-size: var(--text-xs);
+    color: var(--accent-default);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    margin-bottom: var(--space-2);
+  }
+  .card-title {
+    font-size: var(--text-h4);
+    margin-bottom: var(--space-2);
+    margin-top: 0;
+  }
+  .card-link {
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+  .card-link:focus {
+    outline: none; /* Focus handled by card focus-within */
+  }
+  .absolute-link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+  .absolute-link:focus-visible {
+    outline: 2px solid var(--border-focus);
+    outline-offset: 2px;
+  }
+  .card-description {
+    color: var(--text-secondary);
+    font-size: var(--text-small);
+    line-height: var(--leading-normal);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

@@ -1,11 +1,12 @@
 import { defineCollection, z } from 'astro:content';
-import { CATEGORIES, TAGS } from './_taxonomy';
+import { glob } from 'astro/loaders';
+import { CATEGORIES, TAGS } from './src/content/_taxonomy';
 
 const categorySlugs = CATEGORIES.map((c) => c.slug) as [string, ...string[]];
 const tagSlugs = TAGS.map((t) => t.slug) as [string, ...string[]];
 
-const writingCollection = defineCollection({
-  type: 'content',
+const articlesCollection = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/articles' }),
   schema: z.object({
     title: z.string().max(70, "Title must be 70 characters or less"),
     description: z.string().min(100).max(160, "Description should be between 100-160 characters for SEO"),
@@ -18,10 +19,11 @@ const writingCollection = defineCollection({
     draft: z.boolean().default(true),
     canonical: z.string().url().optional(),
     series: z.string().optional(),
-    seriesOrder: z.number().optional()
+    seriesOrder: z.number().optional(),
+    readingTime: z.string().optional()
   })
 });
 
 export const collections = {
-  'writing': writingCollection
+  'articles': articlesCollection
 };
