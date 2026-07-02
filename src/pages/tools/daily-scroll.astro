@@ -1,0 +1,27 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+import DailyScroll from '../../components/tools/DailyScroll/index.tsx';
+---
+
+<ToolLayout 
+  title="DailyScroll - Developer To-Do List & Standup Generator" 
+  toolName="DailyScroll"
+  description="A keyboard-focused developer to-do list and daily planner. Track your daily mission, manage markdown tasks, and generate standup notes instantly."
+>
+  <StructuredData 
+    type="SoftwareApplication"
+    data={{
+      name: "DailyScroll",
+      applicationCategory: "DeveloperApplication",
+      operatingSystem: "Any",
+      description: "A fast, keyboard-first developer to-do list for tracking daily tasks and exporting markdown standup notes.",
+      offers: {
+        "@type": "Offer",
+        price: "0"
+      }
+    }}
+  />
+  
+  <DailyScroll client:only="react" />
+</ToolLayout>
