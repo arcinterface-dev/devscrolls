@@ -4,8 +4,8 @@ description: "Why your basic JSON Formatter is slowing you down, and the enginee
 publishDate: 2026-07-02
 category: "frontend"
 tags: ["react", "architecture"]
-heroImage: "/hello-world-devscrolls-hero.svg"
-heroImageAlt: "JSON Formatter Editor interface"
+heroImage: "/evolving-the-json-formatter-hero.png"
+heroImageAlt: "Sleek IDE interface illustrating a glowing JSON query engine"
 draft: false
 ---
 
