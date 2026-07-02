@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const tools = [
+  {
+    title: "JSON Formatter & Validator",
+    description: "Format, validate, query, and generate types from JSON payloads.",
+    href: "/tools/json-formatter/",
+    icon: "{}"
+  }
+];
+---
+
+<BaseLayout 
+  title="Developer Tools — DevScrolls" 
+  description="Client-side developer utilities designed for speed and privacy."
+>
+  <StructuredData 
+    type="WebPage"
+    data={{
+      name: "Developer Tools",
+      description: "Client-side developer utilities designed for speed and privacy."
+    }}
+  />
+  <div class="tools-layout">
+    <header class="tools-header">
+      <h1 class="tools-title">Developer Tools</h1>
+      <p class="tools-description">
+        Fast, pure client-side utilities built for daily developer workflows. 
+        No tracking, no backend processing, and absolutely no data leaves your browser.
+      </p>
+    </header>
+
+    <div class="tools-grid">
+      {tools.map(tool => (
+        <a href={tool.href} class="tool-card">
+          <div class="tool-icon">{tool.icon}</div>
+          <div class="tool-content">
+            <h2 class="tool-name">{tool.title}</h2>
+            <p class="tool-desc">{tool.description}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .tools-layout {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--space-4) 0 var(--space-16);
+  }
+
+  .tools-header {
+    margin-bottom: var(--space-12);
+    padding-bottom: var(--space-8);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .tools-title {
+    font-size: var(--text-h2);
+    margin: 0 0 var(--space-3) 0;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+  }
+
+  .tools-description {
+    color: var(--text-secondary);
+    font-size: var(--text-ui);
+    line-height: var(--leading-relaxed);
+    margin: 0;
+    max-width: 60ch;
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .tool-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-6);
+    background: var(--surface-sunken);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .tool-card:hover {
+    background: var(--surface-elevated);
+    border-color: var(--border-default);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .tool-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--surface-default);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    color: var(--accent-brand);
+    font-family: var(--font-mono);
+    font-size: var(--text-base);
+    font-weight: 700;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+  }
+
+  .tool-card:hover .tool-icon {
+    background: var(--accent-brand);
+    color: var(--surface-default);
+    border-color: var(--accent-brand);
+  }
+
+  .tool-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .tool-name {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .tool-desc {
+    font-size: var(--text-small);
+    color: var(--text-secondary);
+    line-height: var(--leading-normal);
+    margin: 0;
+  }
+</style>

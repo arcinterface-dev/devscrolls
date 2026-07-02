@@ -1,0 +1,142 @@
+---
+import '../styles/global.css';
+import SEO from '../components/SEO.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <script is:inline>
+      (function() {
+        const getTheme = () => {
+          if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+            return localStorage.getItem('theme');
+          }
+          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        };
+        const theme = getTheme();
+        if (theme === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
+
+    <SEO title={title} description={description} />
+  </head>
+  <body class="tool-body">
+    <header class="tool-minimal-header">
+      <div class="tool-header-left">
+        <a href="/" class="tool-logo" aria-label="Home">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 2v20M2 4h4M2 20h4" />
+            <path d="M20 2v20M18 4h4M18 20h4" />
+            <path d="M4 6c4-1 12-1 16 0" />
+            <path d="M4 18c4 1 12 1 16 0" />
+            <path d="M8.5 9.5L6 12l2.5 2.5" />
+            <path d="M15.5 9.5l2.5 2.5-2.5 2.5" />
+            <path d="M13 8.5l-2 7" />
+          </svg>
+        </a>
+        <span class="tool-header-divider">/</span>
+        <a href="/tools/" class="tool-nav-link">Tools</a>
+        <span class="tool-header-divider">/</span>
+        <span class="tool-current-name">JSON Formatter</span>
+      </div>
+      <div class="tool-header-right">
+        <ThemeToggle />
+      </div>
+    </header>
+    
+    <main class="tool-main">
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style>
+  .tool-body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden; /* App-like full bleed */
+    background-color: var(--surface-base);
+  }
+
+  .tool-minimal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-2) var(--space-4);
+    background: var(--surface-raised);
+    border-bottom: 1px solid var(--border-subtle);
+    height: 48px;
+    flex-shrink: 0;
+  }
+
+  .tool-header-left {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-small);
+    font-weight: 500;
+  }
+
+  .tool-logo {
+    display: flex;
+    color: var(--accent-default);
+    transition: color 0.2s;
+  }
+  
+  .tool-logo svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .tool-logo:hover {
+    color: var(--accent-hover);
+  }
+
+  .tool-header-divider {
+    color: var(--border-strong);
+  }
+
+  .tool-nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .tool-nav-link:hover {
+    color: var(--text-primary);
+  }
+
+  .tool-current-name {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .tool-header-right {
+    display: flex;
+    align-items: center;
+  }
+
+  .tool-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0; /* important for nested flex scrolling */
+  }
+</style>

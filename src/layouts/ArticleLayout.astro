@@ -136,7 +136,8 @@ const formattedPublishDate = publishDate.toLocaleDateString('en-US', {
     font-size: var(--text-ui);
     display: flex;
     align-items: center;
-    gap: var(--space-2);
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-2);
   }
   
   .article-footer {

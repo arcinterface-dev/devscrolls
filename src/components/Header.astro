@@ -4,6 +4,7 @@ import ThemeToggle from './ThemeToggle.astro';
 const navItems = [
   { label: 'Home', href: '/' },
   { label: 'Articles', href: '/articles/' },
+  { label: 'Tools', href: '/tools/' },
   { label: 'About', href: '/about/' },
   { label: 'Contact', href: '/contact/' }
 ];
@@ -213,6 +214,15 @@ const currentPath = Astro.url.pathname;
   
   .mobile-nav {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: color-mix(in srgb, var(--surface-base) 90%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-subtle);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
     padding: 0 var(--space-6) var(--space-6);
   }
   .mobile-nav[hidden] {

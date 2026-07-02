@@ -1,0 +1,26 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+import JsonFormatter from '../../components/tools/JsonFormatter/index.tsx';
+---
+
+<ToolLayout 
+  title="JSON Formatter & Validator" 
+  description="A premium, client-side JSON formatter with auto-fix, type generation, and query capabilities."
+>
+  <StructuredData 
+    type="SoftwareApplication"
+    data={{
+      name: "JSON Formatter & Validator",
+      applicationCategory: "DeveloperApplication",
+      operatingSystem: "Any",
+      description: "Format, validate, query, and generate types from JSON payloads.",
+      offers: {
+        "@type": "Offer",
+        price: "0"
+      }
+    }}
+  />
+  
+  <JsonFormatter client:only="react" />
+</ToolLayout>
