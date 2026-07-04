@@ -1,6 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Editor, { DiffEditor } from '@monaco-editor/react';
+import Editor, { DiffEditor, loader } from '@monaco-editor/react';
 import { parseAndFormatJson, queryJsonPath, getSampleJson } from './utils';
+
+// Configure Monaco loader to use local self-hosted assets
+if (typeof window !== 'undefined') {
+  loader.config({
+    paths: {
+      vs: '/monaco/vs'
+    }
+  });
+}
 
 export default function JsonFormatter() {
   const [input, setInput] = useState('');

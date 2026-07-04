@@ -9,7 +9,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "postinstall": "node -e \"const fs = require('fs'); fs.cpSync('node_modules/monaco-editor/min/vs', 'public/monaco/vs', { recursive: true });\""
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.2.0",
@@ -25,6 +26,7 @@
     "astro": "^7.0.4",
     "jsonpath-plus": "^10.4.0",
     "mdast-util-to-string": "^4.0.0",
+    "monaco-editor": "^0.55.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "reading-time": "^1.5.0",
