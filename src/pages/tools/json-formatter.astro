@@ -5,8 +5,9 @@ import JsonFormatter from '../../components/tools/JsonFormatter/index.tsx';
 ---
 
 <ToolLayout 
-  title="JSON Formatter & Validator" 
-  description="A premium, client-side JSON formatter with auto-fix, type generation, and query capabilities."
+  title="JSON Formatter, Validator & Diff Checker — Free Online Tool | DevScrolls" 
+  description="Free online JSON formatter, validator, and diff checker with a VS Code-style editor. Beautify, minify, compare, query with JSONPath, and sort keys — all client-side, no data leaves your browser."
+  toolName="JSON Formatter & Validator"
 >
   <StructuredData 
     type="SoftwareApplication"
@@ -14,13 +15,166 @@ import JsonFormatter from '../../components/tools/JsonFormatter/index.tsx';
       name: "JSON Formatter & Validator",
       applicationCategory: "DeveloperApplication",
       operatingSystem: "Any",
-      description: "Format, validate, query, and generate types from JSON payloads.",
+      description: "Online developer utility to format, validate, compare, and query JSON payloads. Highly secure and runs completely client-side in the browser.",
       offers: {
         "@type": "Offer",
-        price: "0"
+        price: "0",
+        priceCurrency: "USD"
       }
+    }}
+  />
+
+  <StructuredData 
+    type="FAQPage"
+    data={{
+      mainEntity: [
+        {
+          "@type": "Question",
+          "name": "Is this online JSON formatter safe to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Unlike other tools that send your payloads to external servers, this formatter works 100% client-side. Your data remains safe and private within your local browser context."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I query JSON payloads using JSONPath?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, enter any valid JSONPath expression (e.g., $.store.book[*].author) in the query bar at the top of the editor and press query to extract specific nodes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I compare two JSON objects?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Click the Compare tab to open the side-by-side Diff Editor. Paste your original JSON on the left and the modified JSON on the right to visually inspect differences."
+          }
+        }
+      ]
     }}
   />
   
   <JsonFormatter client:only="react" />
+
+  <article class="jf-seo-article">
+    <h2>Online JSON Formatter, Validator & Diff Checker</h2>
+    <p>
+      Format, validate, query, and compare your JSON payloads in a secure, high-performance environment. 
+      Designed for developers who want a familiar, VS Code-like coding experience directly in their web browser.
+    </p>
+    
+    <div class="jf-seo-grid">
+      <div class="jf-seo-card">
+        <h3>⚡ High Performance Formatter</h3>
+        <p>Format nested JSON payloads instantly. Clean formatting helps you read, debug, and inspect API responses quickly.</p>
+      </div>
+      <div class="jf-seo-card">
+        <h3>🔍 JSONPath Querying</h3>
+        <p>Filter and extract values from complex JSON payloads using powerful JSONPath expressions without leaving the tool.</p>
+      </div>
+      <div class="jf-seo-card">
+        <h3>⚖️ Diff Checker & Compare</h3>
+        <p>Compare two JSON objects side-by-side to highlight additions, modifications, and deletions. Spot structural differences in seconds.</p>
+      </div>
+      <div class="jf-seo-card">
+        <h3>🔒 100% Client-Side & Secure</h3>
+        <p>Your data never leaves your browser. All formatting, sorting, and validation occur completely locally in JavaScript.</p>
+      </div>
+    </div>
+
+    <h2>How to Format and Validate JSON Online</h2>
+    <ol>
+      <li>Paste your raw JSON text directly into the VS Code-style editor.</li>
+      <li>If there are any syntax errors, the built-in validator will underline them in red and display details in the blue status bar.</li>
+      <li>Click <strong>Beautify</strong> (or press <code>Shift + Alt + F</code>) to format the code automatically, or click <strong>Minify</strong> to condense the payload.</li>
+      <li>Use the <strong>Sort Keys</strong> action to sort JSON keys alphabetically for clean structure.</li>
+    </ol>
+
+    <h2>Frequently Asked Questions</h2>
+    <dl class="jf-seo-faq">
+      <dt>Is this online JSON formatter safe to use?</dt>
+      <dd>Yes. Unlike other tools that send your payloads to external servers, this formatter works 100% client-side. Your data remains safe and private within your local browser context.</dd>
+      
+      <dt>Can I query JSON payloads using JSONPath?</dt>
+      <dd>Yes, enter any valid JSONPath expression (e.g., <code>$.store.book[*].author</code>) in the query bar at the top of the editor and press query to extract specific nodes.</dd>
+      
+      <dt>How do I compare two JSON objects?</dt>
+      <dd>Click the <strong>Compare</strong> tab to open the side-by-side Diff Editor. Paste your original JSON on the left and the modified JSON on the right to visually inspect differences.</dd>
+    </dl>
+  </article>
 </ToolLayout>
+
+<style>
+  .jf-seo-article {
+    max-width: 900px;
+    margin: 64px auto;
+    padding: 0 var(--space-4);
+    color: var(--text-secondary);
+    line-height: var(--leading-normal);
+  }
+
+  .jf-seo-article h2 {
+    color: var(--text-primary);
+    font-size: var(--text-h2);
+    margin-top: 48px;
+    margin-bottom: var(--space-4);
+    font-weight: 700;
+  }
+
+  .jf-seo-article p {
+    margin-bottom: var(--space-6);
+    font-size: var(--text-body);
+  }
+
+  .jf-seo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+    margin: var(--space-8) 0;
+  }
+
+  .jf-seo-card {
+    background: var(--surface-raised);
+    border: 1px solid var(--border-subtle);
+    padding: var(--space-6);
+    border-radius: var(--radius-sm);
+  }
+
+  .jf-seo-card h3 {
+    font-size: var(--text-ui);
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+  }
+
+  .jf-seo-card p {
+    font-size: var(--text-small);
+    margin-bottom: 0;
+    color: var(--text-muted);
+  }
+
+  .jf-seo-article ol {
+    margin-left: var(--space-6);
+    margin-bottom: var(--space-8);
+  }
+
+  .jf-seo-article li {
+    margin-bottom: var(--space-2);
+    color: var(--text-secondary);
+  }
+
+  .jf-seo-faq dt {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-1);
+    font-size: var(--text-lead);
+  }
+
+  .jf-seo-faq dd {
+    margin-left: 0;
+    margin-bottom: var(--space-6);
+    color: var(--text-muted);
+  }
+</style>

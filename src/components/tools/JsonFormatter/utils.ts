@@ -48,7 +48,7 @@ export function parseAndFormatJson(input: string, spaces: number = 2): Formatter
       
       return {
         formatted,
-        error: `Auto-fixed minor syntax issues. Original error: ${err.message}`,
+        error: `Syntax error (Auto-fix available, click Beautify). Original error: ${err.message}`,
         isValid: true,
         metadata
       };
@@ -187,3 +187,49 @@ export function getSampleJson(type: 'simple' | 'nested' | 'large'): string {
     data: largeArray
   }, null, 2);
 }
+
+export function sortJsonKeys(jsonStr: string): FormatterResult {
+  if (!jsonStr.trim()) {
+    return { formatted: '', error: null, isValid: false };
+  }
+  try {
+    const parsed = JSON.parse(jsonStr);
+    const sorted = sortObjectKeys(parsed);
+    const formatted = JSON.stringify(sorted, null, 2);
+    
+    return {
+      formatted,
+      error: null,
+      isValid: true,
+      metadata: {
+        size: new TextEncoder().encode(formatted).length,
+        depth: getDepth(sorted),
+        keyCount: countKeys(sorted)
+      }
+    };
+  } catch (err: any) {
+    return {
+      formatted: '',
+      error: `Could not sort keys. Invalid JSON: ${err.message}`,
+      isValid: false
+    };
+  }
+}
+
+function sortObjectKeys(obj: any): any {
+  if (obj === null || typeof obj !== 'object') {
+    return obj;
+  }
+  
+  if (Array.isArray(obj)) {
+    return obj.map(sortObjectKeys);
+  }
+  
+  const sortedKeys = Object.keys(obj).sort();
+  const sortedObj: any = {};
+  for (const key of sortedKeys) {
+    sortedObj[key] = sortObjectKeys(obj[key]);
+  }
+  return sortedObj;
+}
+

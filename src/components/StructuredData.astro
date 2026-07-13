@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  type: 'Article' | 'Person' | 'WebSite';
+  type: string;
   data: Record<string, any>;
 }
 const { type, data } = Astro.props;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Editor, { DiffEditor, loader } from '@monaco-editor/react';
-import { parseAndFormatJson, queryJsonPath, getSampleJson } from './utils';
+import { parseAndFormatJson, queryJsonPath, getSampleJson, sortJsonKeys } from './utils';
 
 // Configure Monaco loader to use local self-hosted assets
 if (typeof window !== 'undefined') {
@@ -19,6 +19,8 @@ export default function JsonFormatter() {
   const [jsonPathQuery, setJsonPathQuery] = useState('');
   const [originalJson, setOriginalJson] = useState<string | null>(null); // snapshot before query
   const [metrics, setMetrics] = useState<{size: number, depth: number, keyCount: number} | null>(null);
+  const [validationError, setValidationError] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
   const [fontsReady, setFontsReady] = useState(false);
   
   const editorRef = useRef<any>(null);
@@ -37,8 +39,6 @@ export default function JsonFormatter() {
   }, []);
 
   // Wait for system fonts to load before mounting Monaco
-  // This prevents the cursor misalignment caused by Monaco measuring
-  // a fallback font then rendering with the real one.
   useEffect(() => {
     document.fonts.ready.then(() => setFontsReady(true));
   }, []);
@@ -46,11 +46,18 @@ export default function JsonFormatter() {
   const updateMetrics = (val: string) => {
     if (!val.trim()) {
       setMetrics(null);
+      setValidationError(null);
       return;
     }
     const result = parseAndFormatJson(val);
-    if (result.isValid && result.metadata) {
-      setMetrics(result.metadata);
+    if (result.isValid) {
+      setValidationError(result.error); // Might be warning like auto-fixed
+      if (result.metadata) {
+        setMetrics(result.metadata);
+      }
+    } else {
+      setValidationError(result.error || 'Invalid JSON');
+      setMetrics(null);
     }
   };
 
@@ -60,9 +67,14 @@ export default function JsonFormatter() {
     updateMetrics(val);
   };
 
-  const handleEditorDidMount = (editor: any, _monaco: any) => {
+  const handleEditorDidMount = (editor: any, monaco: any) => {
     editorRef.current = editor;
     
+    // Register format document shortcut (Shift + Alt + F)
+    editor.addCommand(monaco.KeyMod.Shift | monaco.KeyMod.Alt | monaco.KeyCode.KeyF, () => {
+      handleFormat();
+    });
+
     editor.onDidPaste(() => {
       setTimeout(() => {
         handleFormat();
@@ -78,10 +90,7 @@ export default function JsonFormatter() {
         [{ range: model.getFullModelRange(), text: newText }],
         () => null
       );
-      // We don't need to manually call setInput or updateMetrics here,
-      // because pushEditOperations triggers onChange natively!
     } else {
-      // Fallback if no model is found
       editor.setValue(newText);
     }
   };
@@ -102,10 +111,20 @@ export default function JsonFormatter() {
     }
   };
 
+  const handleSortKeys = () => {
+    if (!input.trim()) return;
+    const result = sortJsonKeys(input);
+    if (result.formatted && editorRef.current && mode === 'edit') {
+      applyEditorChange(editorRef.current, result.formatted);
+    }
+  };
+
   const handleCopy = async () => {
     if (!input) return;
     try {
       await navigator.clipboard.writeText(input);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error('Failed to copy', err);
     }
@@ -117,6 +136,7 @@ export default function JsonFormatter() {
     } else {
       setInput('');
       setMetrics(null);
+      setValidationError(null);
     }
   };
 
@@ -167,7 +187,6 @@ export default function JsonFormatter() {
 
   const switchMode = (newMode: 'edit' | 'diff') => {
     if (newMode === 'diff') {
-      // Always snapshot the current input as the "original" baseline
       setDiffOriginalInit(input);
     }
     setMode(newMode);
@@ -179,8 +198,32 @@ export default function JsonFormatter() {
     return (bytes / 1048576).toFixed(1) + ' MB';
   };
 
+  const sharedMonacoOptions = {
+    minimap: { enabled: false },
+    fontSize: 14,
+    fontFamily: "'JetBrains Mono Variable', 'JetBrains Mono', 'SF Mono', Monaco, Menlo, Consolas, 'Ubuntu Mono', 'Liberation Mono', 'Courier New', monospace",
+    fontLigatures: true,
+    formatOnPaste: false,
+    scrollBeyondLastLine: false,
+    wordWrap: 'on' as const,
+    padding: { top: 16, bottom: 16 },
+    tabSize: 2,
+    renderLineHighlight: 'all' as const,
+    bracketPairColorization: { enabled: true },
+    lineHeight: 22,
+    cursorBlinking: 'smooth' as const,
+    cursorSmoothCaretAnimation: 'on' as const,
+    scrollbar: {
+      vertical: 'visible' as const,
+      horizontal: 'visible' as const,
+      useShadows: false,
+      verticalScrollbarSize: 10,
+      horizontalScrollbarSize: 10,
+    }
+  };
+
   return (
-    <div className="json-formatter-container">
+    <div className="json-formatter-container vscode-style">
       <div className="jf-toolbar">
         <div className="jf-toolbar-left">
           <button className={`jf-btn-tab ${mode === 'edit' ? 'active' : ''}`} onClick={() => switchMode('edit')}>Editor</button>
@@ -235,18 +278,29 @@ export default function JsonFormatter() {
               {mode === 'diff' ? 'Modified Payload' : 'JSON Payload'}
             </span>
             <div className="jf-toolbar-actions">
-              <button className="jf-btn-modern" onClick={handleFormat} title="Beautify & Auto-Fix">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z"/><path d="m14 7 3 3"/><path d="M5 6v4"/><path d="M19 14v4"/><path d="M10 2v2"/><path d="M7 8H3"/><path d="M21 16h-4"/><path d="M11 3H9"/></svg>
-                Beautify
-              </button>
-              <button className="jf-btn-modern" onClick={handleMinify} title="Minify JSON">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/></svg>
-                Minify
-              </button>
-              <div className="jf-toolbar-divider"></div>
-              <button className="jf-btn-icon" onClick={handleCopy} title="Copy to Clipboard">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-              </button>
+              {mode === 'edit' && (
+                <>
+                  <button className="jf-btn-modern" onClick={handleFormat} title="Beautify & Auto-Fix (Shift+Alt+F)">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z"/><path d="m14 7 3 3"/><path d="M5 6v4"/><path d="M19 14v4"/><path d="M10 2v2"/><path d="M7 8H3"/><path d="M21 16h-4"/><path d="M11 3H9"/></svg>
+                    Beautify
+                  </button>
+                  <button className="jf-btn-modern" onClick={handleMinify} title="Minify JSON">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/></svg>
+                    Minify
+                  </button>
+                  <button className="jf-btn-modern" onClick={handleSortKeys} title="Sort Keys Alphabetically">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 16h10M3 12h14M3 8h18M3 4h21"/></svg>
+                    Sort Keys
+                  </button>
+                  <div className="jf-toolbar-divider"></div>
+                </>
+              )}
+              <div className="jf-copy-btn-container" style={{ position: 'relative' }}>
+                <button className="jf-btn-icon" onClick={handleCopy} title="Copy to Clipboard">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                </button>
+                {copied && <div className="jf-copied-toast">Copied!</div>}
+              </div>
               <button className="jf-btn-icon" onClick={handleClear} title="Clear Editor">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
               </button>
@@ -263,19 +317,7 @@ export default function JsonFormatter() {
                 value={input}
                 onChange={handleEditorChange}
                 onMount={handleEditorDidMount}
-                options={{
-                  minimap: { enabled: false },
-                  fontSize: 14,
-                  fontFamily: 'Consolas, "Courier New", monospace',
-                  fontLigatures: false,
-                  formatOnPaste: false,
-                  scrollBeyondLastLine: false,
-                  wordWrap: 'on',
-                  padding: { top: 16, bottom: 16 },
-                  tabSize: 2,
-                  renderLineHighlight: 'all',
-                  bracketPairColorization: { enabled: true },
-                }}
+                options={sharedMonacoOptions}
               />
             ) : (
               <DiffEditor
@@ -285,9 +327,6 @@ export default function JsonFormatter() {
                 original={diffOriginalInit}
                 modified={input}
                 onMount={(editor) => {
-                  // Only sync the modified (right) editor back to state.
-                  // Do NOT sync the original (left) editor — that causes
-                  // React re-renders that reset the cursor and reverse typing.
                   editor.getModifiedEditor().onDidChangeModelContent(() => {
                      const val = editor.getModifiedEditor().getValue();
                      setInput(val);
@@ -295,13 +334,7 @@ export default function JsonFormatter() {
                   });
                 }}
                 options={{
-                  minimap: { enabled: false },
-                  fontSize: 14,
-                  fontFamily: 'Consolas, "Courier New", monospace',
-                  fontLigatures: false,
-                  scrollBeyondLastLine: false,
-                  wordWrap: 'on',
-                  padding: { top: 16, bottom: 16 },
+                  ...sharedMonacoOptions,
                   renderSideBySide: true,
                   originalEditable: true
                 }}
@@ -311,12 +344,27 @@ export default function JsonFormatter() {
         </div>
       </div>
 
-      <div className="jf-status-bar">
+      <div className={`jf-status-bar ${mode === 'edit' && validationError ? 'has-error' : ''}`}>
         <div className="jf-status-left">
-          <span>Ready</span>
+          {mode === 'diff' ? (
+            <span className="jf-status-success">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '4px' }}><path d="M15 4h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-3"/><path d="M9 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3"/><path d="M12 9v10"/><path d="M9 12h6"/></svg>
+              Comparing...
+            </span>
+          ) : validationError ? (
+            <span className="jf-status-error" title={validationError} style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '800px' }}>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '4px', flexShrink: 0 }}><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              {validationError}
+            </span>
+          ) : (
+            <span className="jf-status-success">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '4px' }}><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Ready
+            </span>
+          )}
         </div>
         <div className="jf-status-right">
-          {metrics ? (
+          {mode === 'edit' && metrics ? (
             <>
               <span title="Nesting Depth">Depth: {metrics.depth}</span>
               <span className="jf-status-divider">|</span>
@@ -325,7 +373,7 @@ export default function JsonFormatter() {
               <span title="Payload Size">{formatSize(metrics.size)}</span>
             </>
           ) : (
-            <span>0 B</span>
+            <span>UTF-8 <span className="jf-status-divider">|</span> JSON</span>
           )}
         </div>
       </div>
@@ -334,7 +382,8 @@ export default function JsonFormatter() {
         .json-formatter-container {
           display: flex;
           flex-direction: column;
-          height: 100%;
+          min-height: calc(100vh - 48px);
+          flex-shrink: 0;
           width: 100%;
           background: var(--surface-base);
         }
@@ -521,23 +570,33 @@ export default function JsonFormatter() {
           position: relative;
         }
 
+        /* VS Code style status bar */
         .jf-status-bar {
           display: flex;
           justify-content: space-between;
           align-items: center;
           height: 24px;
-          background: var(--accent-default);
-          color: var(--surface-base);
+          background: #007acc;
+          color: #ffffff;
           font-size: 11px;
           font-weight: 500;
           padding: 0 var(--space-4);
           flex-shrink: 0;
+          user-select: none;
+          transition: background-color 0.2s;
+        }
+
+        .jf-status-bar.has-error {
+          background: #d32f2f; /* Dark red for high contrast with white text */
         }
         
         [data-theme="dark"] .jf-status-bar {
-          background: var(--surface-raised);
-          border-top: 1px solid var(--border-subtle);
-          color: var(--text-secondary);
+          background: #007acc;
+          color: #ffffff;
+        }
+
+        [data-theme="dark"] .jf-status-bar.has-error {
+          background: #d32f2f;
         }
 
         .jf-status-left, .jf-status-right {
@@ -548,6 +607,41 @@ export default function JsonFormatter() {
 
         .jf-status-divider {
           opacity: 0.5;
+        }
+
+        .jf-status-error {
+          display: flex;
+          align-items: center;
+          color: #ffffff;
+          font-weight: 600;
+        }
+
+        .jf-status-success {
+          display: flex;
+          align-items: center;
+          color: #ffffff;
+        }
+
+        /* Copied Toast */
+        .jf-copied-toast {
+          position: absolute;
+          bottom: 100%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-4px);
+          background: var(--surface-inverse);
+          color: var(--text-inverse);
+          padding: 2px 8px;
+          font-size: var(--text-xs);
+          border-radius: var(--radius-sm);
+          pointer-events: none;
+          animation: jfFadeIn 0.15s ease-out;
+          white-space: nowrap;
+          z-index: 10;
+        }
+
+        @keyframes jfFadeIn {
+          from { opacity: 0; transform: translateX(-50%) translateY(0); }
+          to { opacity: 1; transform: translateX(-50%) translateY(-4px); }
         }
       `}</style>
     </div>
