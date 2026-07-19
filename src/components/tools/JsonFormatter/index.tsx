@@ -12,7 +12,16 @@ if (typeof window !== 'undefined') {
 }
 
 export default function JsonFormatter() {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        return localStorage.getItem('devscrolls-json-formatter-input') || '';
+      } catch (err) {
+        console.error('Failed to read JSON formatter input from localStorage:', err);
+      }
+    }
+    return '';
+  });
   const [diffOriginalInit, setDiffOriginalInit] = useState('');
   const [theme, setTheme] = useState('vs-dark');
   const [mode, setMode] = useState<'edit' | 'diff'>('edit');
@@ -24,6 +33,17 @@ export default function JsonFormatter() {
   const [fontsReady, setFontsReady] = useState(false);
   
   const editorRef = useRef<any>(null);
+
+  // Keep input synchronized with localStorage
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.setItem('devscrolls-json-formatter-input', input);
+      } catch (err) {
+        console.error('Failed to save JSON formatter input to localStorage:', err);
+      }
+    }
+  }, [input]);
 
   useEffect(() => {
     const updateTheme = () => {
@@ -41,6 +61,14 @@ export default function JsonFormatter() {
   // Wait for system fonts to load before mounting Monaco
   useEffect(() => {
     document.fonts.ready.then(() => setFontsReady(true));
+  }, []);
+
+  // Calculate initial metrics for loaded content on mount
+  useEffect(() => {
+    if (input) {
+      updateMetrics(input);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const updateMetrics = (val: string) => {
