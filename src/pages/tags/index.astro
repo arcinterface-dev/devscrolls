@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { TAGS } from '../../content/_taxonomy';
+
+const title = "All Tags — DevScrolls";
+const description = "Browse all topics and tags on DevScrolls.";
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="tags-layout">
+    <header class="page-header">
+      <h1 class="page-title">All Tags</h1>
+      <p class="page-subtitle">Browse articles by topic</p>
+    </header>
+
+    <div class="tags-cloud">
+      {TAGS.map(tag => (
+        <a href={`/tags/${tag.slug}/`} class="tag-pill">
+          # {tag.name}
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .tags-layout {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .page-header {
+    margin-bottom: var(--space-8);
+  }
+  .page-title {
+    font-size: var(--text-h2);
+    margin-bottom: var(--space-2);
+    letter-spacing: -0.02em;
+  }
+  .page-subtitle {
+    font-size: var(--text-ui);
+    color: var(--text-muted);
+    margin: 0;
+  }
+  .tags-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+  .tag-pill {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    background: var(--surface-raised);
+    border: 1px solid var(--border-subtle);
+    border-radius: 100px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: var(--text-small);
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+  .tag-pill:hover {
+    background: var(--surface-sunken);
+    color: var(--text-primary);
+    border-color: var(--accent-default);
+    transform: translateY(-1px);
+  }
+</style>

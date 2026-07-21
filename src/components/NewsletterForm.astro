@@ -82,43 +82,41 @@ const formActionUrl = SITE.newsletter.formActionUrl;
 </aside>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
-    document.querySelectorAll<HTMLFormElement>('[data-kit-form]').forEach(form => {
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        const button = form.querySelector('.newsletter-button') as HTMLButtonElement;
-        const successMsg = form.querySelector('.newsletter-success') as HTMLElement;
-        const errorMsg = form.querySelector('.newsletter-error') as HTMLElement;
-        const input = form.querySelector('.newsletter-input') as HTMLInputElement;
+  document.querySelectorAll<HTMLFormElement>('[data-kit-form]').forEach(form => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const button = form.querySelector('.newsletter-button') as HTMLButtonElement;
+      const successMsg = form.querySelector('.newsletter-success') as HTMLElement;
+      const errorMsg = form.querySelector('.newsletter-error') as HTMLElement;
+      const input = form.querySelector('.newsletter-input') as HTMLInputElement;
 
-        // Reset states
-        successMsg.classList.remove('visible');
-        errorMsg.classList.remove('visible');
-        form.classList.add('is-loading');
-        button.disabled = true;
+      // Reset states
+      successMsg.classList.remove('visible');
+      errorMsg.classList.remove('visible');
+      form.classList.add('is-loading');
+      button.disabled = true;
 
-        try {
-          const formData = new FormData(form);
-          const response = await fetch(form.action, {
-            method: 'POST',
-            body: formData,
-          });
+      try {
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+        });
 
-          if (response.ok || response.status === 200 || response.status === 302) {
-            form.classList.remove('is-loading');
-            form.classList.add('is-success');
-            successMsg.classList.add('visible');
-            input.value = '';
-          } else {
-            throw new Error('Subscription failed');
-          }
-        } catch {
+        if (response.ok || response.status === 200 || response.status === 302) {
           form.classList.remove('is-loading');
-          errorMsg.classList.add('visible');
-          button.disabled = false;
+          form.classList.add('is-success');
+          successMsg.classList.add('visible');
+          input.value = '';
+        } else {
+          throw new Error('Subscription failed');
         }
-      });
+      } catch {
+        form.classList.remove('is-loading');
+        errorMsg.classList.add('visible');
+        button.disabled = false;
+      }
     });
   });
 </script>

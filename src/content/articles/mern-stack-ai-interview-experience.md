@@ -2,8 +2,8 @@
 title: "An AI Bot Conducted My MERN Interview: 14 Questions"
 description: "My experience taking an AI-powered Berribot technical interview. Here are 14 real questions covering React, backend architecture, and CI/CD."
 publishDate: 2026-07-20
-category: "ai"
-tags: ["react", "architecture", "performance"]
+category: "interviews"
+tags: ["react", "system-design", "performance"]
 heroImage: "/mern_ai_interview_hero_1784465198163.png"
 heroImageAlt: "Robot conducting an interview with a developer, with MERN stack logos"
 draft: false

@@ -2,8 +2,8 @@
 title: "Whiteboard Reality Check: Why AI Won't Save Your Next Interview"
 description: "How over-reliance on AI coding agents and a lack of hand-written coding practice cost me a senior-level MERN stack interview."
 publishDate: 2026-07-04
-category: "frontend"
-tags: ["react", "architecture"]
+category: "interviews"
+tags: ["react", "system-design"]
 heroImage: "/whiteboard-reality-check-hero.png"
 heroImageAlt: "A physical fountain pen resting on top of handwritten code notes, with amber digital code glows"
 draft: false

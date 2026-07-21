@@ -12,9 +12,10 @@ export interface Props {
   image?: string;
   type?: 'website' | 'article';
   publishDate?: Date;
+  canonical?: string;
 }
 
-const { title, description, image, type, publishDate } = Astro.props;
+const { title, description, image, type, publishDate, canonical } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +23,7 @@ const { title, description, image, type, publishDate } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title="DevScrolls RSS Feed" href="/rss.xml" />
     
     <script is:inline>
       (function() {
@@ -40,7 +42,7 @@ const { title, description, image, type, publishDate } = Astro.props;
       })();
     </script>
 
-    <SEO title={title} description={description} image={image} type={type} publishDate={publishDate} />
+    <SEO title={title} description={description} image={image} type={type} publishDate={publishDate} canonical={canonical} />
     
     {SITE.adsense.enabled && (
       <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${SITE.adsense.publisherId}`} crossorigin="anonymous"></script>

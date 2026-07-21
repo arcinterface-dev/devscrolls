@@ -1,0 +1,78 @@
+---
+/**
+ * Giscus.astro
+ * 
+ * GitHub Discussions-backed comments component.
+ * Readers can comment on each article using their GitHub account.
+ * Comments are mapped 1:1 to articles via URL pathname.
+ * 
+ * Configuration: https://giscus.app
+ */
+---
+
+<section class="giscus-container" aria-label="Comments">
+  <h2 class="giscus-title">Comments</h2>
+  <div class="giscus"></div>
+</section>
+
+<script is:inline>
+  // Giscus loader — respects current theme
+  (function() {
+    var theme = document.documentElement.getAttribute('data-theme') || 'light';
+    var giscusTheme = theme === 'dark' ? 'noborder_dark' : 'noborder_light';
+    
+    var script = document.createElement('script');
+    script.src = 'https://giscus.app/client.js';
+    script.setAttribute('data-repo', 'arcinterface-dev/devscrolls');
+    script.setAttribute('data-repo-id', 'R_kgDOTKSH3Q');
+    script.setAttribute('data-category', 'General');
+    script.setAttribute('data-category-id', 'DIC_kwDOTKSH3c4DBqrr');
+    script.setAttribute('data-mapping', 'pathname');
+    script.setAttribute('data-strict', '0');
+    script.setAttribute('data-reactions-enabled', '1');
+    script.setAttribute('data-emit-metadata', '0');
+    script.setAttribute('data-input-position', 'top');
+    script.setAttribute('data-theme', giscusTheme);
+    script.setAttribute('data-lang', 'en');
+    script.setAttribute('data-loading', 'lazy');
+    script.crossOrigin = 'anonymous';
+    script.async = true;
+    
+    var container = document.querySelector('.giscus');
+    if (container) {
+      container.appendChild(script);
+    }
+
+    // Sync theme changes with Giscus iframe
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.attributeName === 'data-theme') {
+          var newTheme = document.documentElement.getAttribute('data-theme');
+          var newGiscusTheme = newTheme === 'dark' ? 'noborder_dark' : 'noborder_light';
+          var iframe = document.querySelector('iframe.giscus-frame');
+          if (iframe) {
+            iframe.contentWindow.postMessage(
+              { giscus: { setConfig: { theme: newGiscusTheme } } },
+              'https://giscus.app'
+            );
+          }
+        }
+      });
+    });
+    
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  })();
+</script>
+
+<style>
+  .giscus-container {
+    margin-top: var(--space-12);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--border-subtle);
+  }
+  .giscus-title {
+    font-size: var(--text-h3);
+    margin-bottom: var(--space-6);
+    color: var(--text-primary);
+  }
+</style>

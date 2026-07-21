@@ -1,0 +1,132 @@
+---
+import { getCollection } from 'astro:content';
+
+export interface Props {
+  series: string;
+  currentPostId: string;
+  seriesOrder?: number;
+}
+
+const { series, currentPostId, seriesOrder } = Astro.props;
+
+const allSeriesPosts = await getCollection('articles', ({ data }) => {
+  return !data.draft && data.series === series;
+});
+
+allSeriesPosts.sort((a, b) => (a.data.seriesOrder || 0) - (b.data.seriesOrder || 0));
+---
+
+{allSeriesPosts.length > 0 && (
+  <nav class="series-nav" aria-label={`Articles in series: ${series}`}>
+    <div class="series-header">
+      <span class="series-badge">Series</span>
+      <h2 class="series-title">{series}</h2>
+      {seriesOrder && (
+        <span class="series-part">Part {seriesOrder} of {allSeriesPosts.length}</span>
+      )}
+    </div>
+    <ol class="series-list">
+      {allSeriesPosts.map((post) => {
+        const isCurrent = post.id === currentPostId;
+        return (
+          <li class={`series-item ${isCurrent ? 'is-current' : ''}`}>
+            {isCurrent ? (
+              <span class="series-current-title">
+                <span class="series-num">{post.data.seriesOrder}.</span>
+                {post.data.title}
+                <span class="current-tag">(Current)</span>
+              </span>
+            ) : (
+              <a href={`/articles/${post.id}/`} class="series-link">
+                <span class="series-num">{post.data.seriesOrder}.</span>
+                {post.data.title}
+              </a>
+            )}
+          </li>
+        );
+      })}
+    </ol>
+  </nav>
+)}
+
+<style>
+  .series-nav {
+    background: var(--surface-sunken);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: var(--space-6);
+    margin: var(--space-8) 0;
+  }
+  .series-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .series-badge {
+    background: var(--accent-default);
+    color: var(--surface-base);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .series-title {
+    font-size: var(--text-h3);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+  }
+  .series-part {
+    margin-left: auto;
+    font-size: var(--text-small);
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  .series-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .series-item {
+    font-size: var(--text-small);
+    line-height: var(--leading-normal);
+  }
+  .series-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.15s;
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+  }
+  .series-link:hover {
+    color: var(--accent-default);
+  }
+  .series-current-title {
+    color: var(--text-primary);
+    font-weight: 600;
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+  }
+  .series-num {
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    font-size: var(--text-xs);
+  }
+  .current-tag {
+    font-size: var(--text-xs);
+    color: var(--accent-default);
+    font-weight: 600;
+    margin-left: var(--space-2);
+  }
+</style>

@@ -1,0 +1,106 @@
+---
+import { getCollection } from 'astro:content';
+
+export interface Props {
+  currentPostId: string;
+  category: string;
+  tags?: string[];
+}
+
+const { currentPostId, category, tags = [] } = Astro.props;
+
+const allPosts = await getCollection('articles', ({ data, id }) => {
+  return !data.draft && id !== currentPostId;
+});
+
+// Simple scoring algorithm to find related posts
+const relatedPosts = allPosts
+  .map(post => {
+    let score = 0;
+    if (post.data.category === category) score += 2;
+    if (post.data.tags) {
+      const matchingTags = post.data.tags.filter(tag => tags.includes(tag));
+      score += matchingTags.length;
+    }
+    return { post, score };
+  })
+  .filter(item => item.score > 0)
+  .sort((a, b) => b.score - a.score || b.post.data.publishDate.valueOf() - a.post.data.publishDate.valueOf())
+  .map(item => item.post)
+  .slice(0, 3);
+---
+
+{relatedPosts.length > 0 && (
+  <aside class="related-posts" aria-label="Related articles">
+    <h2 class="related-title">Keep reading</h2>
+    <div class="related-grid">
+      {relatedPosts.map(post => (
+        <a href={`/articles/${post.id}/`} class="related-card">
+          {post.data.heroImage && (
+            <img src={post.data.heroImage} alt="" class="related-image" loading="lazy" />
+          )}
+          <div class="related-content">
+            <span class="related-category">{post.data.category}</span>
+            <h3 class="related-post-title">{post.data.title}</h3>
+          </div>
+        </a>
+      ))}
+    </div>
+  </aside>
+)}
+
+<style>
+  .related-posts {
+    margin: var(--space-12) 0;
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--border-subtle);
+  }
+  .related-title {
+    font-size: var(--text-h3);
+    margin-bottom: var(--space-6);
+    color: var(--text-primary);
+  }
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--space-6);
+  }
+  .related-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    background: var(--surface-raised);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .related-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+  }
+  .related-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .related-content {
+    padding: var(--space-4);
+  }
+  .related-category {
+    font-size: var(--text-xs);
+    color: var(--accent-default);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    display: block;
+    margin-bottom: var(--space-2);
+  }
+  .related-post-title {
+    font-size: var(--text-ui);
+    color: var(--text-primary);
+    margin: 0;
+    line-height: var(--leading-snug);
+  }
+</style>

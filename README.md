@@ -21,7 +21,7 @@
 ```text
 /
 ├── .antigravity/        # Custom agent instructions and runnable skills
-├── .github/workflows/   # CI/CD pipeline (automated GitHub Pages deployments)
+├── .github/workflows/   # CI/CD pipeline (legacy/alternative GitHub Pages deployments)
 ├── knowledge-base/      # Core design principles, UX invariants, and guides
 ├── public/              # Static assets, manifests, icons, and custom SVGs
 ├── scripts/             # Developer utilities (e.g. icon generators)
@@ -94,3 +94,16 @@ draft: false                                 # Set to true to hide from build fe
 ---
 ```
 *Note: Drafts are automatically excluded from production builds but are accessible during local development.*
+
+---
+
+## 🚀 Deployment
+
+### Primary Deployment: Vercel (Auto-Deployment)
+The production site is hosted on **Vercel** with automatic deployment:
+- **Trigger**: Every push or merge to the `main` branch on GitHub automatically kicks off a production build on Vercel.
+- **Build Settings**: Vercel automatically detects the Astro project and configures the build settings (`npm run build` and output directory `dist/`).
+
+### Legacy Deployment: GitHub Pages (Alternative)
+A workflow is also configured in [.github/workflows/deploy.yml](file:///.github/workflows/deploy.yml) for deploying to GitHub Pages. It can be used as a backup deployment pipeline.
+

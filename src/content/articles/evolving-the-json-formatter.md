@@ -3,7 +3,7 @@ title: "Evolving the JSON Formatter: Building an In-Browser JQ Engine"
 description: "Why your basic JSON Formatter is slowing you down, and the engineering war story behind building a non-destructive JSONPath engine with Monaco and React."
 publishDate: 2026-07-02
 category: "frontend"
-tags: ["react", "architecture"]
+tags: ["react", "system-design"]
 heroImage: "/evolving-the-json-formatter-hero.png"
 heroImageAlt: "Sleek IDE interface illustrating a glowing JSON query engine"
 draft: false

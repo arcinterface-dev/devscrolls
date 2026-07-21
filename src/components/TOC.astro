@@ -1,0 +1,196 @@
+---
+export interface Props {
+  headings: { depth: number; slug: string; text: string }[];
+}
+
+const { headings } = Astro.props;
+const toc = headings.filter((h) => h.depth > 1 && h.depth < 4);
+---
+
+{toc.length > 0 && (
+  <nav class="toc-wrapper" aria-label="Table of Contents">
+    <div class="toc-markers" aria-hidden="true">
+      {toc.map(() => <div class="toc-marker"></div>)}
+    </div>
+    
+    <div class="toc-container">
+      <div class="toc-title">On this page</div>
+      <ul class="toc-list">
+        {toc.map((heading) => (
+          <li class={`toc-item depth-${heading.depth}`}>
+            <a href={`#${heading.slug}`}>{heading.text}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+)}
+
+<script>
+  const tocWrapper = document.querySelector('.toc-wrapper');
+  // Find the hero image, or fallback to the article header
+  const targetElement = document.querySelector('.hero-image-container') || document.querySelector('.article-header');
+  
+  if (tocWrapper && targetElement) {
+    // Use Intersection Observer to toggle visibility
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        // Show TOC when target element is scrolled completely out of view above the viewport
+        if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+          tocWrapper.classList.add('is-visible');
+        } else {
+          tocWrapper.classList.remove('is-visible');
+        }
+      });
+    }, {
+      threshold: 0
+    });
+
+    observer.observe(targetElement);
+  }
+</script>
+
+<style>
+  .toc-wrapper {
+    margin: var(--space-8) 0;
+  }
+  
+  .toc-markers {
+    display: none;
+  }
+  
+  .toc-container {
+    padding: var(--space-4) var(--space-6);
+    background: var(--surface-sunken);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+  }
+
+  .toc-title {
+    font-weight: 600;
+    font-size: var(--text-ui);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .toc-item {
+    margin-bottom: var(--space-3);
+  }
+  .toc-item:last-child {
+    margin-bottom: 0;
+  }
+  .toc-item.depth-3 {
+    padding-left: var(--space-4);
+  }
+  .toc-item a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: var(--text-small);
+    transition: color 0.15s;
+    display: block;
+    line-height: var(--leading-snug);
+  }
+  .toc-item a:hover {
+    color: var(--text-primary);
+  }
+
+  /* Desktop Floating Mode */
+  @media (min-width: 1200px) {
+    .toc-wrapper {
+      position: fixed;
+      right: max(2rem, calc((100vw - 1100px) / 2 + 1rem));
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 50;
+      margin: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    
+    .toc-wrapper.is-visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .toc-markers {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: var(--space-4) 10px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    
+    .toc-marker {
+      width: 16px;
+      height: 2px;
+      background-color: var(--border-default);
+      transition: background-color 0.2s;
+      border-radius: 2px;
+    }
+    
+    .toc-wrapper:hover .toc-marker {
+      background-color: var(--text-muted);
+    }
+    
+    .toc-container {
+      position: absolute;
+      right: calc(100% + var(--space-2));
+      top: 50%;
+      transform: translateY(-50%) translateX(12px);
+      background: var(--surface-raised);
+      width: max-content;
+      max-width: 340px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    /* Invisible bridge to prevent hover loss between markers and container */
+    .toc-container::after {
+      content: '';
+      position: absolute;
+      right: calc(var(--space-2) * -2);
+      top: 0;
+      bottom: 0;
+      width: calc(var(--space-2) * 2);
+    }
+
+    .toc-list {
+      max-height: 60vh;
+      overflow-y: auto;
+      padding-right: var(--space-2);
+    }
+    
+    /* Scrollbar for TOC list */
+    .toc-list::-webkit-scrollbar {
+      width: 4px;
+    }
+    .toc-list::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .toc-list::-webkit-scrollbar-thumb {
+      background-color: var(--border-default);
+      border-radius: 4px;
+    }
+    
+    .toc-wrapper:hover .toc-container,
+    .toc-wrapper:focus-within .toc-container {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(-50%) translateX(0);
+    }
+  }
+</style>

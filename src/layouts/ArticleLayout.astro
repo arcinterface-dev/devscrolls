@@ -3,6 +3,10 @@ import BaseLayout from './BaseLayout.astro';
 import StructuredData from '../components/StructuredData.astro';
 import AdSlot from '../components/AdSlot.astro';
 import NewsletterForm from '../components/NewsletterForm.astro';
+import TOC from '../components/TOC.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
+import Giscus from '../components/Giscus.astro';
+import SeriesNav from '../components/SeriesNav.astro';
 import { SITE } from '../config';
 import '../styles/prose.css';
 
@@ -16,6 +20,12 @@ export interface Props {
   heroImageAlt: string;
   authorName?: string;
   readingTime?: string;
+  headings?: { depth: number; slug: string; text: string }[];
+  tags?: string[];
+  postId?: string;
+  canonical?: string;
+  series?: string;
+  seriesOrder?: number;
 }
 
 const { 
@@ -27,7 +37,13 @@ const {
   heroImage, 
   heroImageAlt,
   authorName = "Santhanakrishnan",
-  readingTime
+  readingTime,
+  headings = [],
+  tags = [],
+  postId,
+  canonical,
+  series,
+  seriesOrder
 } = Astro.props;
 
 const formattedPublishDate = publishDate.toLocaleDateString('en-US', {
@@ -36,20 +52,30 @@ const formattedPublishDate = publishDate.toLocaleDateString('en-US', {
   day: 'numeric',
 });
 ---
-<BaseLayout title={title} description={description} type="article" image={heroImage} publishDate={publishDate}>
+<BaseLayout title={title} description={description} type="article" image={heroImage} publishDate={publishDate} canonical={canonical}>
   <StructuredData 
-    type="Article" 
+    type="BlogPosting" 
     data={{
       headline: title,
       description: description,
-      image: [new URL(heroImage, Astro.site || 'https://devscrolls.com')],
+      image: [new URL(heroImage, Astro.site || 'https://devscrolls.dev')],
       datePublished: publishDate.toISOString(),
       dateModified: updatedDate ? updatedDate.toISOString() : publishDate.toISOString(),
       author: [{
         "@type": "Person",
         name: authorName,
-        url: Astro.site ? new URL('/about/', Astro.site) : 'https://devscrolls.com/about/'
+        url: Astro.site ? new URL('/about/', Astro.site) : 'https://devscrolls.dev/about/'
       }]
+    }}
+  />
+  <StructuredData
+    type="BreadcrumbList"
+    data={{
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: Astro.site ? new URL('/', Astro.site) : 'https://devscrolls.dev/' },
+        { "@type": "ListItem", position: 2, name: category, item: Astro.site ? new URL(`/category/${category}/`, Astro.site) : `https://devscrolls.dev/category/${category}/` },
+        { "@type": "ListItem", position: 3, name: title }
+      ]
     }}
   />
   
@@ -78,6 +104,12 @@ const formattedPublishDate = publishDate.toLocaleDateString('en-US', {
       </figure>
     )}
     
+    {series && postId && (
+      <SeriesNav series={series} currentPostId={postId} seriesOrder={seriesOrder} />
+    )}
+    
+    {headings && headings.length > 0 && <TOC headings={headings} />}
+    
     <div class="article-content prose">
       <slot />
     </div>
@@ -95,8 +127,42 @@ const formattedPublishDate = publishDate.toLocaleDateString('en-US', {
     </footer>
 
     <NewsletterForm variant="inline" />
+
+    <Giscus />
+
+    {postId && category && <RelatedPosts currentPostId={postId} category={category} tags={tags} />}
   </article>
 </BaseLayout>
+
+<script is:inline>
+  // Copy Code Button Logic — runs after DOM is parsed
+  document.querySelectorAll('.prose pre').forEach(function(block) {
+    var button = document.createElement('button');
+    button.className = 'copy-code-button';
+    button.setAttribute('aria-label', 'Copy code to clipboard');
+    button.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+    
+    block.style.position = 'relative';
+    block.appendChild(button);
+    
+    button.addEventListener('click', function() {
+      var code = block.querySelector('code');
+      if (!code) return;
+      
+      navigator.clipboard.writeText(code.innerText).then(function() {
+        button.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+        button.classList.add('copied');
+        
+        setTimeout(function() {
+          button.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+          button.classList.remove('copied');
+        }, 2000);
+      }).catch(function(err) {
+        console.error('Failed to copy text: ', err);
+      });
+    });
+  });
+</script>
 
 <style>
   .article-container {
@@ -183,5 +249,34 @@ const formattedPublishDate = publishDate.toLocaleDateString('en-US', {
     display: block;
     aspect-ratio: 16 / 9;
     object-fit: cover;
+  }
+  
+  :global(.copy-code-button) {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    background: var(--surface-raised);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+    border-radius: 6px;
+    padding: var(--space-2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    opacity: 0;
+  }
+  :global(.prose pre:hover .copy-code-button) {
+    opacity: 1;
+  }
+  :global(.copy-code-button:hover) {
+    background: var(--surface-sunken);
+    color: var(--text-primary);
+    border-color: var(--border-default);
+  }
+  :global(.copy-code-button.copied) {
+    color: var(--state-success);
+    border-color: var(--state-success);
   }
 </style>

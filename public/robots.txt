@@ -4,4 +4,4 @@ Disallow: /drafts/
 Disallow: /preview/
 Disallow: /_admin/
 
-Sitemap: https://devscrolls.com/sitemap-index.xml
+Sitemap: https://devscrolls.dev/sitemap-index.xml

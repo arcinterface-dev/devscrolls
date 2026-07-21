@@ -3,7 +3,7 @@ title: "How to Become a Frontend Developer in 2026"
 description: "A complete roadmap to becoming a frontend developer in the AI era. Learn why HTML/CSS basics, islands architecture, and UX matter more than ever."
 publishDate: 2026-07-01
 category: "frontend"
-tags: ["architecture", "performance", "accessibility"]
+tags: ["system-design", "performance", "accessibility"]
 heroImage: "/how-to-become-a-frontend-developer-in-2026-hero.svg"
 heroImageAlt: "Holographic AI wave interacting with a web layout wireframe and code editor"
 draft: false

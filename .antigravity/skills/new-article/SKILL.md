@@ -48,7 +48,7 @@ seriesOrder:           # number, optional
 Follow the article anatomy (06_Content_Strategy):
 1. **Lead paragraph** — 1–3 sentences, premise + stakes, `lead` type size
 2. **Optional TL;DR** — bulleted summary for scanners
-3. **Body** — h2/h3 sections with descriptive headings (never "Introduction"/"Conclusion")
+3. **Body** — h2/h3 sections with descriptive headings (never "Introduction"/"Conclusion"). **Mandatory Internal Linking**: Inspect existing articles in `src/content/articles/` and embed contextual markdown links (e.g. `[Related Article Title](/articles/<slug>/)`) to existing blog posts whenever relevant concepts or past articles are mentioned.
 4. **Resolution** — "Where this leaves us," not "In conclusion"
 5. **Single CTA** — subscribe OR related OR contact (pick one)
 6. **Footnotes + references** — real links, archived if critical
@@ -66,14 +66,14 @@ Follow the article anatomy (06_Content_Strategy):
 - Comment to explain *why*, not what
 - Diff blocks use `+`/`-` prefix (not color alone)
 
-### 5. SEO metadata
+### 5. SEO metadata & Internal Linking
 - `<title>` ≤ 60 chars: `[Post Title] — [Site Name]`
 - Meta description: 140–160 chars, unique
 - Canonical URL set
 - OG image generated (1200×630)
 - Twitter Card meta
 - JSON-LD Article schema
-- Internal links to ≥ 2 related posts
+- **Mandatory Internal Links**: Scan `src/content/articles/` and add contextual internal links to at least 2 relevant existing blog posts.
 
 ### 6. Image selection & Generation
 Always create custom, high-quality images closely related to the article topic using the `generate_image` tool. Do not use generic placeholders.

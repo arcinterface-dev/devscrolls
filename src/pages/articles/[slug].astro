@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content, remarkPluginFrontmatter } = await render(post);
+const { Content, remarkPluginFrontmatter, headings } = await render(post);
 ---
 <ArticleLayout
   title={post.data.title}
@@ -24,6 +24,12 @@ const { Content, remarkPluginFrontmatter } = await render(post);
   heroImage={post.data.heroImage}
   heroImageAlt={post.data.heroImageAlt}
   readingTime={remarkPluginFrontmatter.readingTime}
+  headings={headings}
+  tags={post.data.tags}
+  postId={post.id}
+  canonical={post.data.canonical}
+  series={post.data.series}
+  seriesOrder={post.data.seriesOrder}
 >
   <Content />
 </ArticleLayout>

@@ -3,7 +3,7 @@ title: "Why Developers Need a Daily Companion (Not Another Todo App)"
 description: "Why generic to-do tools fail developers, the cost of context switching, and how building a local-first companion (DailyScroll) solved my daily chaos."
 publishDate: 2026-07-02
 category: "architecture"
-tags: ["react", "architecture"]
+tags: ["react", "system-design"]
 heroImage: "/why-developers-need-a-daily-companion-hero.png"
 heroImageAlt: "A chaotic web of complex Jira tickets transforming into a clean, minimal developer task list."
 draft: false

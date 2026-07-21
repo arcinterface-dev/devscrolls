@@ -186,17 +186,28 @@ export default function DailyScroll() {
     let priority: Priority = 'none';
     let text = input;
     
-    if (/(^|\s)!high(?=\s|$)/i.test(text)) { priority = 'high'; text = text.replace(/(^|\s)!high(?=\s|$)/ig, ' '); }
-    else if (/(^|\s)!medium(?=\s|$)/i.test(text)) { priority = 'medium'; text = text.replace(/(^|\s)!medium(?=\s|$)/ig, ' '); }
-    else if (/(^|\s)!low(?=\s|$)/i.test(text)) { priority = 'low'; text = text.replace(/(^|\s)!low(?=\s|$)/ig, ' '); }
-  
+    const foundPriorities: Priority[] = [];
+    text = text.replace(/(?:^|\s)!(high|medium|low)\b/gi, (_, p1) => {
+      foundPriorities.push(p1.toLowerCase() as Priority);
+      return ' ';
+    });
+
+    if (foundPriorities.length > 0) {
+      priority = foundPriorities[foundPriorities.length - 1];
+    }
+
     const tags: string[] = [];
     const tagMatches = text.match(/#[\w-]+/g);
     if (tagMatches) {
-      tagMatches.forEach(t => tags.push(t.substring(1)));
+      tagMatches.forEach(t => {
+        const tag = t.substring(1);
+        if (!tags.includes(tag)) {
+          tags.push(tag);
+        }
+      });
       text = text.replace(/#[\w-]+/g, '');
     }
-  
+
     return { text: text.trim().replace(/\s+/g, ' '), tags, priority };
   };
 

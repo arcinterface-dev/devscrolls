@@ -26,6 +26,7 @@
   color: var(--text-primary);
   font-size: var(--text-h2);
   letter-spacing: -0.02em;
+  scroll-margin-top: 100px;
 }
 
 .prose h3 {
@@ -34,6 +35,7 @@
   color: var(--text-primary);
   font-size: var(--text-h3);
   letter-spacing: -0.015em;
+  scroll-margin-top: 100px;
 }
 
 .prose h2 + p,
