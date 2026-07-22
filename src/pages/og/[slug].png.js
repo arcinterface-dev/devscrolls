@@ -1,6 +1,8 @@
 import { getCollection } from 'astro:content';
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
+import fs from 'node:fs';
+import path from 'node:path';
 
 export async function getStaticPaths() {
   const posts = await getCollection('articles');
@@ -13,10 +15,38 @@ export async function getStaticPaths() {
 export async function GET({ props }) {
   const post = props;
   
-  // Fetch Inter Bold directly to use in Satori (Satori requires TTF/OTF/WOFF)
-  const fontData = await fetch(
-    'https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-700-normal.woff'
-  ).then(res => res.arrayBuffer()).catch(() => null);
+  let fontData = null;
+  const localFontCandidates = [
+    path.resolve('src/assets/fonts/Inter-Bold.ttf'),
+    path.resolve('src/assets/fonts/Inter-Bold.woff'),
+    'C:/Windows/Fonts/segoeui.ttf',
+    'C:/Windows/Fonts/arial.ttf',
+    '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
+  ];
+
+  for (const fPath of localFontCandidates) {
+    try {
+      if (fs.existsSync(fPath)) {
+        fontData = fs.readFileSync(fPath);
+        if (fontData && fontData.length > 0) break;
+      }
+    } catch (e) {
+      fontData = null;
+    }
+  }
+
+  // Fallback to fetch from CDN if local font is not found
+  if (!fontData) {
+    try {
+      const res = await fetch('https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-700-normal.woff');
+      if (res.ok) {
+        const arrayBuf = await res.arrayBuffer();
+        fontData = Buffer.from(arrayBuf);
+      }
+    } catch (err) {
+      fontData = null;
+    }
+  }
 
   const svg = await satori(
     {
@@ -31,7 +61,7 @@ export async function GET({ props }) {
           backgroundColor: '#0f172a',
           color: '#f8fafc',
           padding: '64px',
-          fontFamily: 'Inter',
+          fontFamily: 'Inter, Segoe UI, Arial, sans-serif',
         },
         children: {
           type: 'div',
