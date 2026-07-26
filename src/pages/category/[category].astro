@@ -45,7 +45,7 @@ allPosts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueO
     <section class="category-feed" aria-label={`Articles in ${category.name}`}>
       {allPosts.length > 0 ? (
         <div class="article-list">
-          {allPosts.map(post => (
+          {allPosts.map((post, index) => (
             <ArticleListItem 
               title={post.data.title}
               href={`/articles/${post.id}/`}
@@ -55,6 +55,7 @@ allPosts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueO
               readingTime={getReadingTime(post.body || '').text}
               heroImage={post.data.heroImage}
               heroImageAlt={post.data.heroImageAlt}
+              isFirst={index === 0}
             />
           ))}
         </div>

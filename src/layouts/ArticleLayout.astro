@@ -100,7 +100,7 @@ const formattedPublishDate = publishDate.toLocaleDateString('en-US', {
     
     {heroImage && (
       <figure class="hero-image-container">
-        <img src={heroImage} alt={heroImageAlt} class="hero-image" loading="eager" />
+        <img src={heroImage} alt={heroImageAlt} class="hero-image" loading="eager" fetchpriority="high" width="960" height="540" />
       </figure>
     )}
     

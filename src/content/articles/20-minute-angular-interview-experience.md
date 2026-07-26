@@ -4,7 +4,7 @@ description: "My honest review of a rapid 20-minute Angular technical interview,
 publishDate: 2026-07-22
 category: "interviews"
 tags: ["performance", "system-design"]
-heroImage: "/angular_interview_hero.png"
+heroImage: "/angular_interview_hero.webp"
 heroImageAlt: "Modern 16:9 technical artwork representing a 20-minute Angular interview with clock and code elements"
 draft: false
 ---

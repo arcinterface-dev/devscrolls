@@ -8,9 +8,24 @@ export interface Props {
   category: string;
   heroImage?: string;
   heroImageAlt?: string;
+  isFirst?: boolean;
+  loading?: 'lazy' | 'eager';
+  fetchpriority?: 'high' | 'low' | 'auto';
 }
 
-const { title, href, description, publishDate, readingTime, category, heroImage, heroImageAlt } = Astro.props;
+const { 
+  title, 
+  href, 
+  description, 
+  publishDate, 
+  readingTime, 
+  category, 
+  heroImage, 
+  heroImageAlt,
+  isFirst = false,
+  loading = isFirst ? 'eager' : 'lazy',
+  fetchpriority = isFirst ? 'high' : 'auto'
+} = Astro.props;
 
 const formattedPublishDate = publishDate.toLocaleDateString('en-US', {
   year: 'numeric',
@@ -39,7 +54,15 @@ const formattedPublishDate = publishDate.toLocaleDateString('en-US', {
       
       {heroImage && (
         <div class="article-thumbnail-wrapper">
-          <img src={heroImage} alt={heroImageAlt || ""} class="article-thumbnail" loading="lazy" />
+          <img 
+            src={heroImage} 
+            alt={heroImageAlt || ""} 
+            class="article-thumbnail" 
+            loading={loading} 
+            fetchpriority={fetchpriority}
+            width="960"
+            height="540"
+          />
         </div>
       )}
     </div>

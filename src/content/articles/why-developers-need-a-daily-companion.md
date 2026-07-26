@@ -4,7 +4,7 @@ description: "Why generic to-do tools fail developers, the cost of context switc
 publishDate: 2026-07-02
 category: "architecture"
 tags: ["react", "system-design"]
-heroImage: "/why-developers-need-a-daily-companion-hero.png"
+heroImage: "/why-developers-need-a-daily-companion-hero.webp"
 heroImageAlt: "A chaotic web of complex Jira tickets transforming into a clean, minimal developer task list."
 draft: false
 ---

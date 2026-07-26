@@ -4,7 +4,7 @@ description: "My experience taking an AI-powered Berribot technical interview. H
 publishDate: 2026-07-20
 category: "interviews"
 tags: ["react", "system-design", "performance"]
-heroImage: "/mern_ai_interview_hero_1784465198163.png"
+heroImage: "/mern_ai_interview_hero_1784465198163.webp"
 heroImageAlt: "Robot conducting an interview with a developer, with MERN stack logos"
 draft: false
 ---

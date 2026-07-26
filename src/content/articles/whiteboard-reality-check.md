@@ -4,7 +4,7 @@ description: "How over-reliance on AI coding agents and a lack of hand-written c
 publishDate: 2026-07-04
 category: "interviews"
 tags: ["react", "system-design"]
-heroImage: "/whiteboard-reality-check-hero.png"
+heroImage: "/whiteboard-reality-check-hero.webp"
 heroImageAlt: "A physical fountain pen resting on top of handwritten code notes, with amber digital code glows"
 draft: false
 ---

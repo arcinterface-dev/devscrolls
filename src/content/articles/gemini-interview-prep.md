@@ -4,7 +4,7 @@ description: "How I used Gemini's Guided Learning, Canvas, and Interactive Quiz 
 publishDate: 2026-07-26
 category: "interviews"
 tags: ["react", "system-design"]
-heroImage: "/gemini-interview-prep-hero.png"
+heroImage: "/gemini-interview-prep-hero.webp"
 heroImageAlt: "A developer studying with Gemini AI for a senior technical interview, with code elements and a ticking clock"
 draft: false
 ---
