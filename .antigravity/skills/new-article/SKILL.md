@@ -78,7 +78,7 @@ Follow the article anatomy (06_Content_Strategy):
 
 ### 6. Image selection & Generation
 Always create custom, high-quality images closely related to the article topic using the `generate_image` tool. Do not use generic placeholders.
-- Generate a 16:9 hero image representing the topic using the brand color scheme (Slate `#0f172a` and Amber `#f59e0b`). Copy the generated PNG asset to `/public/` with a descriptive kebab-case filename.
+- Generate a 16:9 hero image representing the topic using the brand color scheme (Slate `#0f172a` and Amber `#f59e0b`). Convert/compress the generated image to WebP format (`.webp`, max width 960px, quality 80) using `sharp` before placing it in `/public/` with a descriptive kebab-case filename (e.g., `public/<article-slug>-hero.webp`). Set `heroImage: "/<article-slug>-hero.webp"` in frontmatter. Never leave uncompressed raw PNGs in `/public/`.
 - If needed, generate and embed secondary illustrations/diagrams within specific sections to best represent the technical concepts.
 - Run the image selection checklist from `06_Content_Strategy`:
   - Matches persona? Custom > stock? Brand-palette aligned?
