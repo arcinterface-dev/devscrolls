@@ -6,7 +6,7 @@ category: "frontend"
 tags: ["react", "system-design", "performance"]
 heroImage: "/ai-rewired-my-engineering-brain-hero.webp"
 heroImageAlt: "A developer's brain connected to circuit-like AI pathways, with fading handwritten code in the background"
-draft: true
+draft: false
 ---
 
 **BLUF:** I have been using AI coding agents for over a year now — from simple code suggestions to letting them build entire features end to end. I ship code faster than I ever have. But in that same year, I failed a whiteboard interview because I could not write a basic sorting algorithm on paper, I have struggled to debug my own codebase on live calls, and I have noticed that my code looks less and less like *mine*. After 12 months of AI-driven development, I am faster — and I am also a worse engineer than I was a year ago. Here is the honest breakdown of what happened, what it cost me, and how I am fixing it.
