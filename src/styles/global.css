@@ -59,7 +59,8 @@
   /* Text */
   --text-primary: var(--blue-900);
   --text-secondary: var(--blue-700);
-  --text-muted: var(--blue-500);
+  --text-tertiary: var(--blue-500);
+  --text-muted: var(--blue-400);
   --text-inverse: var(--blue-50);
   --text-link: var(--blue-700);
   --text-link-hover: var(--amber-600);
@@ -148,7 +149,8 @@
   :root:not([data-theme="light"]) {
     --text-primary: #e8e9eb;
     --text-secondary: var(--blue-300);
-    --text-muted: var(--blue-400);
+    --text-tertiary: var(--blue-400);
+    --text-muted: var(--blue-500);
     --text-inverse: var(--blue-900);
     --text-link: var(--blue-300);
     --text-link-hover: var(--amber-400);
@@ -173,7 +175,8 @@
 [data-theme="dark"] {
   --text-primary: #e8e9eb;
   --text-secondary: var(--blue-300);
-  --text-muted: var(--blue-400);
+  --text-tertiary: var(--blue-400);
+  --text-muted: var(--blue-500);
   --text-inverse: var(--blue-900);
   --text-link: var(--blue-300);
   --text-link-hover: var(--amber-400);
