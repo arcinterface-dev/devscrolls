@@ -70,12 +70,20 @@ export default function DailyScroll() {
 
   // Standup Generator 2.0
   const [showStandupModal, setShowStandupModal] = useState(false);
-  const [standupFormat, setStandupFormat] = useState<'slack' | 'markdown'>('slack');
+  const [standupFormat, setStandupFormat] = useState<'slack' | 'markdown' | 'ai-prompt'>('slack');
   const [includeYesterdayDone, setIncludeYesterdayDone] = useState(false);
   const [editedStandupText, setEditedStandupText] = useState<string>('');
   const [isStandupCopied, setIsStandupCopied] = useState(false);
   const showStandupModalRef = useRef(false);
   showStandupModalRef.current = showStandupModal;
+
+  // Multi-Selection for Group Operations
+  const [selectedMultiIds, setSelectedMultiIds] = useState<Set<string>>(new Set());
+  const lastSelectedMultiIdRef = useRef<string | null>(null);
+  const selectedMultiIdsRef = useRef<Set<string>>(new Set());
+  selectedMultiIdsRef.current = selectedMultiIds;
+  const [showBatchTimeBlockDropdown, setShowBatchTimeBlockDropdown] = useState(false);
+  const batchTimeBlockDropdownRef = useRef<HTMLDivElement>(null);
 
   // Data Portability & Settings Modal
   const [showSettingsModal, setShowSettingsModal] = useState(false);
@@ -112,6 +120,18 @@ export default function DailyScroll() {
   const deferTaskRef = useRef<(id: string) => void>(() => {});
   const setTaskTimeBlockRef = useRef<(id: string, block?: TimeBlock) => void>(() => {});
   const moveTaskRelativeRef = useRef<(taskId: string, direction: -1 | 1) => void>(() => {});
+
+  // Track where mousedown started to prevent text-selection drag from closing modals
+  const isMouseDownOnOverlayRef = useRef(false);
+  const handleOverlayMouseDown = (e: React.MouseEvent) => {
+    isMouseDownOnOverlayRef.current = (e.target === e.currentTarget);
+  };
+  const createOverlayClickHandler = (closeFn: () => void) => (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget && isMouseDownOnOverlayRef.current) {
+      closeFn();
+    }
+    isMouseDownOnOverlayRef.current = false;
+  };
 
   const scrollTaskIntoView = (taskId: string) => {
     requestAnimationFrame(() => {
@@ -169,6 +189,11 @@ export default function DailyScroll() {
 
       // Escape when not in input: close modal, clear selection
       if (e.key === 'Escape') {
+        setShowBatchTimeBlockDropdown(false);
+        if (selectedMultiIdsRef.current.size > 0) {
+          setSelectedMultiIds(new Set());
+          return;
+        }
         if (showSettingsModalRef.current) {
           setShowSettingsModal(false);
           return;
@@ -190,6 +215,21 @@ export default function DailyScroll() {
       if (e.key === '?' || (e.shiftKey && e.key === '/')) {
         e.preventDefault();
         setShowShortcutsModal(prev => !prev);
+        return;
+      }
+
+      // Cmd+A / Ctrl+A: Select all visible tasks (when not in input)
+      if (e.key.toLowerCase() === 'a' && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        const visible = visibleTasksRef.current;
+        if (visible.length > 0) {
+          setSelectedMultiIds(prev => {
+            if (prev.size === visible.length) {
+              return new Set();
+            }
+            return new Set(visible.map(t => t.id));
+          });
+        }
         return;
       }
 
@@ -274,8 +314,24 @@ export default function DailyScroll() {
       const currentTask = tasks.find(t => t.id === currentSelectedId);
       if (!currentTask) return;
 
-      // x or Space: Toggle completion
-      if (e.key.toLowerCase() === 'x' || e.key === ' ') {
+      // x: Toggle group multi-select on selected task
+      if (e.key.toLowerCase() === 'x') {
+        e.preventDefault();
+        setSelectedMultiIds(prev => {
+          const next = new Set(prev);
+          if (next.has(currentSelectedId)) {
+            next.delete(currentSelectedId);
+          } else {
+            next.add(currentSelectedId);
+          }
+          return next;
+        });
+        lastSelectedMultiIdRef.current = currentSelectedId;
+        return;
+      }
+
+      // Space: Toggle completion
+      if (e.key === ' ') {
         e.preventDefault();
         toggleTaskRef.current(currentSelectedId);
         return;
@@ -681,9 +737,167 @@ export default function DailyScroll() {
     }
   };
 
+  // Close batch time block dropdown on click outside
+  useEffect(() => {
+    if (!showBatchTimeBlockDropdown) return;
+    const handleClick = (e: MouseEvent) => {
+      if (batchTimeBlockDropdownRef.current && !batchTimeBlockDropdownRef.current.contains(e.target as Node)) {
+        setShowBatchTimeBlockDropdown(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, [showBatchTimeBlockDropdown]);
+
+  // Group / Batch operations
+  const handleToggleMultiSelect = (taskId: string, e?: React.MouseEvent) => {
+    const isShift = e?.shiftKey;
+    setSelectedMultiIds(prev => {
+      const next = new Set(prev);
+      if (isShift && lastSelectedMultiIdRef.current && lastSelectedMultiIdRef.current !== taskId) {
+        const visible = visibleTasksRef.current;
+        const idxA = visible.findIndex(t => t.id === lastSelectedMultiIdRef.current);
+        const idxB = visible.findIndex(t => t.id === taskId);
+        if (idxA !== -1 && idxB !== -1) {
+          const start = Math.min(idxA, idxB);
+          const end = Math.max(idxA, idxB);
+          for (let i = start; i <= end; i++) {
+            next.add(visible[i].id);
+          }
+          return next;
+        }
+      }
+      if (next.has(taskId)) {
+        next.delete(taskId);
+      } else {
+        next.add(taskId);
+      }
+      return next;
+    });
+    lastSelectedMultiIdRef.current = taskId;
+  };
+
+  const handleSelectAllVisible = () => {
+    const visible = visibleTasksRef.current;
+    if (selectedMultiIds.size === visible.length) {
+      setSelectedMultiIds(new Set());
+    } else {
+      setSelectedMultiIds(new Set(visible.map(t => t.id)));
+    }
+  };
+
+  const handleBatchToggleComplete = () => {
+    if (selectedMultiIds.size === 0) return;
+    const currentTasks = data[currentDateStr] || [];
+    const selectedTasks = currentTasks.filter(t => selectedMultiIds.has(t.id));
+    const hasPending = selectedTasks.some(t => !t.completed);
+    const targetCompleted = hasPending;
+
+    setData(prev => ({
+      ...prev,
+      [currentDateStr]: (prev[currentDateStr] || []).map(t =>
+        selectedMultiIds.has(t.id) ? { ...t, completed: targetCompleted } : t
+      )
+    }));
+    setSelectedMultiIds(new Set());
+  };
+
+  const handleBatchDefer = () => {
+    if (selectedMultiIds.size === 0) return;
+    const currentTasks = data[currentDateStr] || [];
+    const selectedTasks = currentTasks.filter(t => selectedMultiIds.has(t.id) && !t.completed);
+    if (selectedTasks.length === 0) return;
+
+    let targetDateStr: string;
+    if (currentDateStr < todayStr) {
+      targetDateStr = todayStr;
+    } else {
+      targetDateStr = getOffsetDateStr(1, new Date(currentDateStr + 'T12:00:00'));
+    }
+
+    const selectedIdSet = new Set(selectedTasks.map(t => t.id));
+    const migratedTasks = selectedTasks.map(t => ({ ...t, migrated: true }));
+
+    if (undoTimeoutRef.current) clearTimeout(undoTimeoutRef.current);
+
+    const prevCurrentList = currentTasks;
+    const prevTargetList = data[targetDateStr] || [];
+
+    setData(prev => ({
+      ...prev,
+      [currentDateStr]: (prev[currentDateStr] || []).filter(t => !selectedIdSet.has(t.id)),
+      [targetDateStr]: [...(prev[targetDateStr] || []), ...migratedTasks]
+    }));
+
+    const targetLabel = targetDateStr === todayStr ? 'Today' : targetDateStr === tomorrowStr ? 'Tomorrow' : getDayName(targetDateStr).substring(0, 3);
+    setUndoAction({
+      message: `${selectedTasks.length} tasks deferred to ${targetLabel}`,
+      undo: () => {
+        setData(prev => ({
+          ...prev,
+          [currentDateStr]: prevCurrentList,
+          [targetDateStr]: prevTargetList
+        }));
+      }
+    });
+
+    undoTimeoutRef.current = setTimeout(() => {
+      setUndoAction(null);
+      undoTimeoutRef.current = null;
+    }, 5000);
+
+    setSelectedMultiIds(new Set());
+  };
+
+  const handleBatchSetTimeBlock = (block?: TimeBlock) => {
+    if (selectedMultiIds.size === 0) return;
+    setData(prev => ({
+      ...prev,
+      [currentDateStr]: (prev[currentDateStr] || []).map(t =>
+        selectedMultiIds.has(t.id) ? { ...t, timeBlock: block } : t
+      )
+    }));
+    setShowBatchTimeBlockDropdown(false);
+    setSelectedMultiIds(new Set());
+  };
+
+  const handleBatchDelete = () => {
+    if (selectedMultiIds.size === 0) return;
+    const currentTasks = data[currentDateStr] || [];
+    const tasksToDelete = currentTasks.filter(t => selectedMultiIds.has(t.id));
+    if (tasksToDelete.length === 0) return;
+
+    if (undoTimeoutRef.current) clearTimeout(undoTimeoutRef.current);
+
+    const prevList = currentTasks;
+
+    setData(prev => ({
+      ...prev,
+      [currentDateStr]: (prev[currentDateStr] || []).filter(t => !selectedMultiIds.has(t.id))
+    }));
+
+    setUndoAction({
+      message: `${tasksToDelete.length} tasks deleted`,
+      undo: () => {
+        setData(prev => ({
+          ...prev,
+          [currentDateStr]: prevList
+        }));
+      }
+    });
+
+    undoTimeoutRef.current = setTimeout(() => {
+      setUndoAction(null);
+      undoTimeoutRef.current = null;
+    }, 5000);
+
+    setSelectedMultiIds(new Set());
+  };
+
   const handleDateSelect = (dateStr: string) => {
     setCurrentDateStr(dateStr);
     setSelectedTaskId(null);
+    setSelectedMultiIds(new Set());
     setEditingTaskId(null);
     const taskListEl = document.querySelector(`.${styles.taskList}`);
     if (taskListEl && 'scrollTo' in taskListEl) {
@@ -879,16 +1093,33 @@ export default function DailyScroll() {
 
   // Drag and drop & Touch Reorder logic
   const handleDragStart = (id: string) => setDraggedId(id);
+  const handleDragEnd = () => {
+    setDraggedId(null);
+    setTouchOverId(null);
+    setTouchOverTimeBlock(null);
+  };
   const handleDrop = (e: React.DragEvent, targetId: string, isCompletedList: boolean) => {
     e.preventDefault();
-    if (!draggedId || draggedId === targetId) return;
+    if (!draggedId || draggedId === targetId) {
+      setDraggedId(null);
+      setTouchOverId(null);
+      return;
+    }
 
     const dayTasks = [...(data[currentDateStr] || [])];
     const draggedIdx = dayTasks.findIndex(t => t.id === draggedId);
     const targetIdx = dayTasks.findIndex(t => t.id === targetId);
 
-    if (draggedIdx === -1 || targetIdx === -1) return;
-    if (dayTasks[draggedIdx].completed !== isCompletedList) return; 
+    if (draggedIdx === -1 || targetIdx === -1) {
+      setDraggedId(null);
+      setTouchOverId(null);
+      return;
+    }
+    if (dayTasks[draggedIdx].completed !== isCompletedList) {
+      setDraggedId(null);
+      setTouchOverId(null);
+      return;
+    }
 
     const targetTask = dayTasks[targetIdx];
     const [removed] = dayTasks.splice(draggedIdx, 1);
@@ -977,7 +1208,7 @@ export default function DailyScroll() {
   };
 
   // Standup Generator 2.0 logic
-  const generateStandupText = (format: 'slack' | 'markdown', withYesterday: boolean) => {
+  const generateStandupText = (format: 'slack' | 'markdown' | 'ai-prompt', withYesterday: boolean) => {
     const currentTasks = data[currentDateStr] || [];
     
     // Done tasks
@@ -1036,7 +1267,7 @@ export default function DailyScroll() {
       }
 
       return text.trim();
-    } else {
+    } else if (format === 'markdown') {
       let text = `### Daily Standup — ${dateTitle}\n\n`;
 
       text += `#### ✅ Done\n`;
@@ -1070,6 +1301,51 @@ export default function DailyScroll() {
       }
 
       return text.trim();
+    } else {
+      // AI Agent Prompt for Gemini, Claude Code, Copilot, ChatGPT
+      let text = `You are an expert senior software engineer and technical planner.\n`;
+      text += `Please analyze my planned engineering tasks for ${dateTitle}, break them down into concrete technical implementation steps, evaluate risks/trade-offs, and prepare an execution plan with realistic ETAs.\n\n`;
+
+      text += `### 📋 Planned & In-Progress Tasks\n`;
+      if (inProgress.length > 0) {
+        inProgress.forEach(t => {
+          const prio = t.priority !== 'none' ? ` (${t.priority.charAt(0).toUpperCase() + t.priority.slice(1)} Priority)` : '';
+          text += `- [ ] ${t.text}${prio}\n`;
+        });
+      } else {
+        text += `- None\n`;
+      }
+      text += `\n`;
+
+      text += `### ⛔ Blockers & Critical Risks\n`;
+      if (blockers.length > 0) {
+        blockers.forEach(t => {
+          const prio = t.priority !== 'none' ? ` (${t.priority.charAt(0).toUpperCase() + t.priority.slice(1)} Priority)` : '';
+          text += `- ⚠️ ${t.text}${prio}\n`;
+        });
+      } else {
+        text += `- None\n`;
+      }
+      text += `\n`;
+
+      text += `### ✅ Context / Already Completed\n`;
+      if (doneList.length > 0) {
+        doneList.forEach(t => {
+          text += `- [x] ${t.text}\n`;
+        });
+      } else {
+        text += `- None\n`;
+      }
+      text += `\n`;
+
+      text += `---\n`;
+      text += `### 🎯 Expected Plan & Response Format:\n`;
+      text += `1. **Technical Breakdown**: Break down each pending task into specific technical subtasks and note key files/components.\n`;
+      text += `2. **Sequencing & ETAs**: Recommend an optimal order of execution with realistic time estimates.\n`;
+      text += `3. **Risk Mitigation**: Propose immediate workarounds or solutions for any blockers above.\n`;
+      text += `4. **Kickoff Action**: Provide the exact first coding steps or starter snippet for Task #1 so we can begin coding immediately.\n`;
+
+      return text.trim();
     }
   };
 
@@ -1082,7 +1358,7 @@ export default function DailyScroll() {
     setShowStandupModal(true);
   };
 
-  const handleFormatChange = (fmt: 'slack' | 'markdown') => {
+  const handleFormatChange = (fmt: 'slack' | 'markdown' | 'ai-prompt') => {
     setStandupFormat(fmt);
     setEditedStandupText(generateStandupText(fmt, includeYesterdayDone));
     setIsStandupCopied(false);
@@ -1120,7 +1396,7 @@ export default function DailyScroll() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `dailyscroll-standup-${currentDateStr}.md`;
+    link.download = standupFormat === 'ai-prompt' ? `dailyscroll-ai-prompt-${currentDateStr}.md` : `dailyscroll-standup-${currentDateStr}.md`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -1707,9 +1983,12 @@ export default function DailyScroll() {
                             editTaskText={editTaskText}
                             setTaskTimeBlock={setTaskTimeBlock}
                             onDragStart={handleDragStart}
+                            onDragEnd={handleDragEnd}
                             onDrop={(e: any) => handleDrop(e, task.id, false)}
                             isSelected={selectedTaskId === task.id}
+                            isMultiSelected={selectedMultiIds.has(task.id)}
                             onSelect={() => setSelectedTaskId(task.id)}
+                            onToggleMultiSelect={handleToggleMultiSelect}
                             editingTaskId={editingTaskId}
                             setEditingTaskId={setEditingTaskId}
                             onStartFocus={startFocusSession}
@@ -1739,9 +2018,12 @@ export default function DailyScroll() {
                     editTaskText={editTaskText}
                     setTaskTimeBlock={setTaskTimeBlock}
                     onDragStart={handleDragStart}
+                    onDragEnd={handleDragEnd}
                     onDrop={(e: any) => handleDrop(e, task.id, false)}
                     isSelected={selectedTaskId === task.id}
+                    isMultiSelected={selectedMultiIds.has(task.id)}
                     onSelect={() => setSelectedTaskId(task.id)}
+                    onToggleMultiSelect={handleToggleMultiSelect}
                     editingTaskId={editingTaskId}
                     setEditingTaskId={setEditingTaskId}
                     onStartFocus={startFocusSession}
@@ -1774,9 +2056,12 @@ export default function DailyScroll() {
                         editTaskText={editTaskText}
                         setTaskTimeBlock={setTaskTimeBlock}
                         onDragStart={handleDragStart}
+                        onDragEnd={handleDragEnd}
                         onDrop={(e: any) => handleDrop(e, task.id, true)}
                         isSelected={selectedTaskId === task.id}
+                        isMultiSelected={selectedMultiIds.has(task.id)}
                         onSelect={() => setSelectedTaskId(task.id)}
+                        onToggleMultiSelect={handleToggleMultiSelect}
                         editingTaskId={editingTaskId}
                         setEditingTaskId={setEditingTaskId}
                         onStartFocus={startFocusSession}
@@ -1797,10 +2082,118 @@ export default function DailyScroll() {
       </main>
       </div>
 
+      {/* Floating Batch Action Bar for Group Operations */}
+      {selectedMultiIds.size > 0 && (
+        <div className={styles.batchActionBar} role="toolbar" aria-label="Group operations">
+          <div className={styles.batchInfo}>
+            <span className={styles.batchCountBadge}>{selectedMultiIds.size}</span>
+            <span className={styles.batchCountText}>selected</span>
+          </div>
+
+          <div className={styles.batchDivider} />
+
+          <button 
+            type="button"
+            className={styles.batchActionBtn}
+            onClick={handleSelectAllVisible}
+            title={selectedMultiIds.size === visibleTasks.length ? "Deselect All" : "Select All Visible (⌘A)"}
+          >
+            <span className={styles.batchActionIcon}>
+              {selectedMultiIds.size === visibleTasks.length ? "☐" : "☑"}
+            </span>
+            <span>{selectedMultiIds.size === visibleTasks.length ? "Deselect" : "Select All"}</span>
+          </button>
+
+          <button 
+            type="button"
+            className={`${styles.batchActionBtn} ${styles.batchActionPrimary}`}
+            onClick={handleBatchToggleComplete}
+            title="Mark selected tasks as completed / pending"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>{Array.from(selectedMultiIds).every(id => (data[currentDateStr] || []).find(t => t.id === id)?.completed) ? "Mark Pending" : "Mark Done"}</span>
+          </button>
+
+          <button 
+            type="button"
+            className={styles.batchActionBtn}
+            onClick={handleBatchDefer}
+            title={currentDateStr === todayStr ? "Defer to Tomorrow" : currentDateStr < todayStr ? "Move to Today" : "Defer to Next Day"}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14"></path>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+            <span>{currentDateStr < todayStr ? "Move to Today" : "Defer"}</span>
+          </button>
+
+          {/* Time Block Dropdown Menu */}
+          <div className={styles.batchTimeBlockWrapper} ref={batchTimeBlockDropdownRef}>
+            <button 
+              type="button"
+              className={`${styles.batchActionBtn} ${showBatchTimeBlockDropdown ? styles.batchActionBtnActive : ''}`}
+              onClick={() => setShowBatchTimeBlockDropdown(prev => !prev)}
+              title="Move selected tasks to a time block"
+            >
+              <span>🕐</span>
+              <span>Time Block</span>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </button>
+
+            {showBatchTimeBlockDropdown && (
+              <div className={styles.batchTimeBlockMenu}>
+                <button type="button" onClick={() => handleBatchSetTimeBlock('morning')} className={styles.batchTimeBlockOption}>
+                  <span>☀️</span> Move to Morning
+                </button>
+                <button type="button" onClick={() => handleBatchSetTimeBlock('afternoon')} className={styles.batchTimeBlockOption}>
+                  <span>🌤️</span> Move to Afternoon
+                </button>
+                <button type="button" onClick={() => handleBatchSetTimeBlock('evening')} className={styles.batchTimeBlockOption}>
+                  <span>🌙</span> Move to Evening
+                </button>
+                <button type="button" onClick={() => handleBatchSetTimeBlock(undefined)} className={styles.batchTimeBlockOption}>
+                  <span>🕐</span> Move to Anytime
+                </button>
+              </div>
+            )}
+          </div>
+
+          <button 
+            type="button"
+            className={`${styles.batchActionBtn} ${styles.batchActionDanger}`}
+            onClick={handleBatchDelete}
+            title="Delete selected tasks"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="3 6 5 6 21 6"></polyline>
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+            </svg>
+            <span>Delete</span>
+          </button>
+
+          <div className={styles.batchDivider} />
+
+          <button 
+            type="button"
+            className={styles.batchClearBtn}
+            onClick={() => setSelectedMultiIds(new Set())}
+            title="Clear selection (Esc)"
+            aria-label="Clear selection"
+          >
+            ✕
+          </button>
+        </div>
+      )}
+
       {showShortcutsModal && (
         <div 
           className={styles.shortcutsModalOverlay} 
-          onClick={() => setShowShortcutsModal(false)}
+          onMouseDown={handleOverlayMouseDown}
+          onClick={createOverlayClickHandler(() => setShowShortcutsModal(false))}
         >
           <div 
             className={styles.shortcutsModal} 
@@ -1844,7 +2237,11 @@ export default function DailyScroll() {
                 <h4 className={styles.shortcutsCategoryTitle}>Task Actions (when selected)</h4>
                 <div className={styles.shortcutRow}>
                   <span className={styles.shortcutDesc}>Toggle complete</span>
-                  <div className={styles.shortcutKeys}><kbd>X</kbd> or <kbd>Space</kbd></div>
+                  <div className={styles.shortcutKeys}><kbd>Space</kbd></div>
+                </div>
+                <div className={styles.shortcutRow}>
+                  <span className={styles.shortcutDesc}>Select for group actions</span>
+                  <div className={styles.shortcutKeys}><kbd>X</kbd></div>
                 </div>
                 <div className={styles.shortcutRow}>
                   <span className={styles.shortcutDesc}>Defer to tomorrow</span>
@@ -1879,6 +2276,10 @@ export default function DailyScroll() {
                   <div className={styles.shortcutKeys}><kbd>N</kbd></div>
                 </div>
                 <div className={styles.shortcutRow}>
+                  <span className={styles.shortcutDesc}>Select / deselect all</span>
+                  <div className={styles.shortcutKeys}><kbd>⌘A</kbd></div>
+                </div>
+                <div className={styles.shortcutRow}>
                   <span className={styles.shortcutDesc}>Search tasks</span>
                   <div className={styles.shortcutKeys}><kbd>/</kbd> or <kbd>⌘K</kbd></div>
                 </div>
@@ -1901,7 +2302,11 @@ export default function DailyScroll() {
       )}
 
       {showStandupModal && (
-        <div className={styles.shortcutsModalOverlay} onClick={() => setShowStandupModal(false)}>
+        <div 
+          className={styles.shortcutsModalOverlay} 
+          onMouseDown={handleOverlayMouseDown}
+          onClick={createOverlayClickHandler(() => setShowStandupModal(false))}
+        >
           <div className={styles.standupModal} onClick={(e) => e.stopPropagation()}>
             <div className={styles.standupHeader}>
               <div className={styles.standupHeaderTitle}>
@@ -1935,6 +2340,13 @@ export default function DailyScroll() {
                   onClick={() => handleFormatChange('markdown')}
                 >
                   <span>📝 Clean Markdown</span>
+                </button>
+                <button
+                  type="button"
+                  className={`${styles.standupFormatTab} ${standupFormat === 'ai-prompt' ? styles.standupFormatTabActive : ''}`}
+                  onClick={() => handleFormatChange('ai-prompt')}
+                >
+                  <span>🤖 AI Prompt</span>
                 </button>
               </div>
 
@@ -1978,7 +2390,7 @@ export default function DailyScroll() {
                   <polyline points="7 10 12 15 17 10"></polyline>
                   <line x1="12" y1="15" x2="12" y2="3"></line>
                 </svg>
-                <span>Download .md</span>
+                <span>{standupFormat === 'ai-prompt' ? 'Download Prompt (.md)' : 'Download .md'}</span>
               </button>
 
               <button
@@ -1991,7 +2403,7 @@ export default function DailyScroll() {
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
-                    <span>Copied to Clipboard!</span>
+                    <span>{standupFormat === 'ai-prompt' ? 'Copied AI Prompt!' : 'Copied Standup!'}</span>
                   </>
                 ) : (
                   <>
@@ -1999,7 +2411,7 @@ export default function DailyScroll() {
                       <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
                       <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
                     </svg>
-                    <span>Copy Standup</span>
+                    <span>{standupFormat === 'ai-prompt' ? 'Copy AI Prompt' : 'Copy Standup'}</span>
                   </>
                 )}
               </button>
@@ -2010,7 +2422,11 @@ export default function DailyScroll() {
 
       {/* Data Portability & Settings Modal */}
       {showSettingsModal && (
-        <div className={styles.shortcutsModalOverlay} onClick={() => setShowSettingsModal(false)}>
+        <div 
+          className={styles.shortcutsModalOverlay} 
+          onMouseDown={handleOverlayMouseDown}
+          onClick={createOverlayClickHandler(() => setShowSettingsModal(false))}
+        >
           <div className={styles.settingsModal} onClick={(e) => e.stopPropagation()}>
             <div className={styles.settingsHeader}>
               <div className={styles.settingsHeaderTitle}>
@@ -2228,9 +2644,12 @@ function TaskItemComponent({
   editTaskText, 
   setTaskTimeBlock, 
   onDragStart, 
+  onDragEnd,
   onDrop,
   isSelected,
+  isMultiSelected,
   onSelect,
+  onToggleMultiSelect,
   editingTaskId,
   setEditingTaskId,
   onStartFocus,
@@ -2316,15 +2735,22 @@ function TaskItemComponent({
     <div 
       id={`task-${task.id}`}
       data-task-id={task.id}
-      className={`${styles.taskItem} ${task.completed ? styles.completedTask : ''} ${showTimeBlockPopover ? styles.taskItemHasPopover : ''} ${isSelected ? styles.taskItemSelected : ''} ${task.blocked && !task.completed ? styles.taskItemBlocked : ''} ${isFocused ? styles.taskItemInFocus : ''} ${isDragging ? styles.taskItemDragging : ''} ${isTouchOver ? styles.taskItemDropTarget : ''}`}
+      className={`${styles.taskItem} ${task.completed ? styles.completedTask : ''} ${showTimeBlockPopover ? styles.taskItemHasPopover : ''} ${isSelected ? styles.taskItemSelected : ''} ${isMultiSelected ? styles.taskItemMultiSelected : ''} ${task.blocked && !task.completed ? styles.taskItemBlocked : ''} ${isFocused ? styles.taskItemInFocus : ''} ${isDragging ? styles.taskItemDragging : ''} ${isTouchOver ? styles.taskItemDropTarget : ''}`}
       onClick={(e) => {
         const target = e.target as HTMLElement;
         if (!target.closest('button') && !target.closest('input')) {
           onSelect?.();
         }
       }}
-      draggable
-      onDragStart={() => onDragStart(task.id)}
+      draggable={!isEditing}
+      onDragStart={(e) => {
+        if (isEditing) {
+          e.preventDefault();
+          return;
+        }
+        onDragStart(task.id);
+      }}
+      onDragEnd={onDragEnd}
       onDragOver={(e) => e.preventDefault()}
       onDrop={onDrop}
     >
@@ -2355,11 +2781,16 @@ function TaskItemComponent({
         ⋮⋮
       </div>
       <button 
-        className={`${styles.checkbox} ${task.completed ? styles.checkboxChecked : ''}`} 
-        onClick={(e) => { e.stopPropagation(); toggleTask(task.id); }}
-        aria-label={task.completed ? "Mark pending" : "Mark completed"}
+        type="button"
+        className={`${styles.selectCheckbox} ${isMultiSelected ? styles.selectCheckboxChecked : ''}`} 
+        onClick={(e) => { 
+          e.stopPropagation(); 
+          onToggleMultiSelect?.(task.id, e); 
+        }}
+        title="Select task for group actions (Shift+Click for range)"
+        aria-label={isMultiSelected ? "Deselect task" : "Select task"}
       >
-        {task.completed && (
+        {isMultiSelected && (
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
@@ -2411,6 +2842,8 @@ function TaskItemComponent({
             type="text" 
             className={styles.editInput}
             value={editText}
+            draggable={false}
+            onDragStart={(e) => e.stopPropagation()}
             onChange={(e) => setEditText(e.target.value)}
             onKeyDown={handleEditSubmit}
             onBlur={finishEditing}
@@ -2438,6 +2871,18 @@ function TaskItemComponent({
       </div>
       
       <div className={styles.taskActions}>
+        <button 
+          type="button"
+          className={`${styles.completeBtn} ${task.completed ? styles.completeBtnDone : ''}`}
+          onClick={(e) => { e.stopPropagation(); toggleTask(task.id); }}
+          title={task.completed ? "Mark as Incomplete (Space)" : "Mark as Completed (Space)"}
+          aria-label={task.completed ? "Mark incomplete" : "Mark completed"}
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </button>
+
         {!task.completed && (
           <button 
             className={`${styles.focusBtn} ${isFocused ? styles.focusBtnActive : ''}`} 
