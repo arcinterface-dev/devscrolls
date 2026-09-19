@@ -17,5 +17,14 @@ export const SITE = {
     enabled: true,
     provider: 'kit', // Kit (formerly ConvertKit)
     formActionUrl: 'https://app.kit.com/forms/9632861/subscriptions', // DevScrolls Kit form
+  },
+  notifications: {
+    formspreeUrl: 'https://formspree.io/f/mlgypryd', // Author email notifications for new comments
+  },
+  social: {
+    github: 'https://github.com/santhanakrishnanstark',
+    linkedin: 'https://www.linkedin.com/in/santhanakrishnan96/',
+    instagram: 'https://www.instagram.com/devscrolls.dev/',
+    telegram: 'https://t.me/devscrolls',
   }
 };

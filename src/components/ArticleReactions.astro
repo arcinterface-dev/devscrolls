@@ -1,0 +1,450 @@
+---
+/**
+ * ArticleReactions.astro
+ * 
+ * Minimalist reaction controls styled like the TOC markers:
+ * - Completely transparent / no bright box / no heavy shadow
+ * - Authentic clapping hands icon
+ * - Desktop: Floats on the left margin mirroring the TOC on the right
+ * - Mobile: Flat, minimal horizontal bar
+ */
+
+export interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+---
+
+<div class="reactions-wrapper" data-article-reactions data-slug={slug}>
+  <div class="reactions-dock" aria-label="Article Actions">
+    <!-- Authentic Clapping Hands Button -->
+    <div class="reaction-item">
+      <button 
+        type="button" 
+        class="dock-btn clap-btn" 
+        aria-label="Clap for this article" 
+        title="Clap to show appreciation (up to 10 claps)"
+      >
+        <span class="clap-icon-wrap">
+          <!-- Clapping Hands with Applause Marks SVG -->
+          <svg class="dock-icon clap-icon" viewBox="0 0 512 512" fill="currentColor" width="18" height="18" aria-hidden="true">
+            <path d="M336 16l0 64c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64c0-8.8 7.2-16 16-16s16 7.2 16 16zm-98.7 7.1l32 48c4.9 7.4 2.9 17.3-4.4 22.2s-17.3 2.9-22.2-4.4l-32-48c-4.9-7.4-2.9-17.3 4.4-22.2s17.3-2.9 22.2 4.4zM135 119c9.4-9.4 24.6-9.4 33.9 0L292.7 242.7c10.1 10.1 27.3 2.9 27.3-11.3l0-39.4c0-17.7 14.3-32 32-32s32 14.3 32 32l0 153.6c0 57.1-30 110-78.9 139.4c-64 38.4-145.8 28.3-198.5-24.4L7 361c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l53 53c6.1 6.1 16 6.1 22.1 0s6.1-16 0-22.1L23 265c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l93 93c6.1 6.1 16 6.1 22.1 0s6.1-16 0-22.1L55 185c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l117 117c6.1 6.1 16 6.1 22.1 0s6.1-16 0-22.1l-93-93c-9.4-9.4-9.4-24.6 0-33.9zM433.1 484.9c-24.2 14.5-50.9 22.1-77.7 23.1c48.1-39.6 76.6-99 76.6-162.4l0-98.1c8.2-.1 16-6.4 16-16l0-39.4c0-17.7 14.3-32 32-32s32 14.3 32 32l0 153.6c0 57.1-30 110-78.9 139.4zM424.9 18.7c7.4 4.9 9.3 14.8 4.4 22.2l-32 48c-4.9 7.4-14.8 9.3-22.2 4.4s-9.3-14.8-4.4-22.2l32-48c4.9-7.4 14.8-9.3 22.2-4.4z"/>
+          </svg>
+        </span>
+        <span class="dock-count" data-clap-count>0</span>
+        <span class="clap-bubble" aria-hidden="true">+1</span>
+      </button>
+      <span class="dock-tooltip" data-user-clap-hint>Clap</span>
+    </div>
+
+    <!-- Comments Jump -->
+    <div class="reaction-item">
+      <a href="#comments" class="dock-btn comment-btn" aria-label="Jump to discussion" title="Discussion">
+        <svg class="dock-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        <span class="dock-count" data-dock-comments-count>0</span>
+      </a>
+      <span class="dock-tooltip">Discussion</span>
+    </div>
+
+    <!-- Share Link -->
+    <div class="reaction-item">
+      <button type="button" class="dock-btn share-btn" data-share-btn aria-label="Copy link" title="Share article">
+        <svg class="dock-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+        </svg>
+      </button>
+      <span class="dock-tooltip share-tooltip">Copy Link</span>
+    </div>
+
+    <!-- Unique Views -->
+    <div class="reaction-item views-item">
+      <div class="dock-btn views-btn" aria-label="Unique views" title="Unique views">
+        <svg class="dock-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+        <span class="dock-count" data-view-count>—</span>
+      </div>
+      <span class="dock-tooltip">Unique views</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { supabase, isSupabaseConfigured } from '../lib/supabase';
+  import { getOrCreateVisitorId, hasViewedInSession, markViewedInSession } from '../lib/visitor';
+
+  function initReactions() {
+    document.querySelectorAll<HTMLElement>('[data-article-reactions]').forEach(container => {
+      if (container.dataset.initialized) return;
+      container.dataset.initialized = 'true';
+
+      const slug = container.dataset.slug;
+      if (!slug) return;
+
+      const clapBtn = container.querySelector<HTMLButtonElement>('.clap-btn');
+      const clapCountEl = container.querySelector<HTMLElement>('[data-clap-count]');
+      const clapBubble = container.querySelector<HTMLElement>('.clap-bubble');
+      const userClapHint = container.querySelector<HTMLElement>('[data-user-clap-hint]');
+      const viewCountEl = container.querySelector<HTMLElement>('[data-view-count]');
+      const commentsCountEl = container.querySelector<HTMLElement>('[data-dock-comments-count]');
+      const shareBtn = container.querySelector<HTMLButtonElement>('[data-share-btn]');
+
+      const visitorId = getOrCreateVisitorId();
+      const localClapKey = `devscrolls_claps_${slug}`;
+      let userClaps = parseInt(localStorage.getItem(localClapKey) || '0', 10);
+      let totalClaps = 0;
+
+      // Desktop floating visibility observer (mirrors TOC observer)
+      const targetElement = document.querySelector('.hero-image-container') || document.querySelector('.article-header');
+      if (targetElement) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+              container.classList.add('is-visible');
+            } else {
+              container.classList.remove('is-visible');
+            }
+          });
+        }, { threshold: 0 });
+        observer.observe(targetElement);
+      } else {
+        container.classList.add('is-visible');
+      }
+
+      function renderClapUI() {
+        if (clapCountEl) clapCountEl.textContent = totalClaps.toString();
+        if (userClaps > 0) {
+          clapBtn?.classList.add('has-clapped');
+          if (userClapHint) {
+            userClapHint.textContent = userClaps >= 10 ? 'Max clapped' : `${userClaps}/10 claps`;
+          }
+        }
+        if (userClaps >= 10 && clapBtn) {
+          clapBtn.classList.add('max-claps');
+        }
+      }
+
+      async function loadData() {
+        if (!isSupabaseConfigured) {
+          totalClaps = userClaps;
+          renderClapUI();
+          if (viewCountEl) viewCountEl.textContent = '1';
+          return;
+        }
+
+        try {
+          const { data: stats } = await supabase
+            .from('post_stats')
+            .select('claps_count, views_count')
+            .eq('post_slug', slug)
+            .maybeSingle();
+
+          if (stats) {
+            totalClaps = stats.claps_count || 0;
+            if (viewCountEl) viewCountEl.textContent = (stats.views_count || 1).toString();
+          } else {
+            totalClaps = userClaps;
+            if (viewCountEl) viewCountEl.textContent = '1';
+          }
+          renderClapUI();
+
+          const { count } = await supabase
+            .from('post_comments')
+            .select('*', { count: 'exact', head: true })
+            .eq('post_slug', slug);
+
+          if (commentsCountEl && typeof count === 'number') {
+            commentsCountEl.textContent = count.toString();
+          }
+        } catch (err) {
+          console.error('Failed to load reaction stats', err);
+        }
+      }
+
+      async function recordView() {
+        if (!hasViewedInSession(slug)) {
+          markViewedInSession(slug);
+          if (isSupabaseConfigured) {
+            try {
+              const { data } = await supabase.rpc('record_view', { p_slug: slug });
+              if (typeof data === 'number' && viewCountEl) {
+                viewCountEl.textContent = data.toString();
+              }
+            } catch {}
+          }
+        }
+      }
+
+      clapBtn?.addEventListener('click', async () => {
+        if (userClaps >= 10) {
+          clapBtn.classList.add('shake');
+          setTimeout(() => clapBtn.classList.remove('shake'), 400);
+          return;
+        }
+
+        userClaps += 1;
+        totalClaps += 1;
+        localStorage.setItem(localClapKey, userClaps.toString());
+        renderClapUI();
+
+        if (clapBubble) {
+          clapBubble.classList.remove('animate');
+          void clapBubble.offsetWidth;
+          clapBubble.classList.add('animate');
+        }
+
+        if (isSupabaseConfigured) {
+          try {
+            const { data } = await supabase.rpc('add_clap', { 
+              p_slug: slug, 
+              p_visitor_id: visitorId 
+            });
+            if (data && typeof data.total_claps === 'number') {
+              totalClaps = data.total_claps;
+              if (typeof data.user_claps === 'number') userClaps = data.user_claps;
+              renderClapUI();
+            }
+          } catch (err) {
+            console.error('Clap sync error', err);
+          }
+        }
+      });
+
+      shareBtn?.addEventListener('click', async () => {
+        const url = window.location.href;
+        try {
+          if (navigator.clipboard) {
+            await navigator.clipboard.writeText(url);
+          } else {
+            const temp = document.createElement('input');
+            temp.value = url;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand('copy');
+            document.body.removeChild(temp);
+          }
+
+          const tooltip = container.querySelector('.share-tooltip');
+          if (tooltip) {
+            const orig = tooltip.textContent;
+            tooltip.textContent = 'Copied!';
+            shareBtn.classList.add('copied');
+            setTimeout(() => {
+              tooltip.textContent = orig;
+              shareBtn.classList.remove('copied');
+            }, 2000);
+          }
+        } catch {}
+      });
+
+      loadData();
+      recordView();
+    });
+  }
+
+  initReactions();
+  document.addEventListener('astro:page-load', initReactions);
+</script>
+
+<style>
+  /* ==========================================================================
+     Mobile & Tablet View (< 1200px): Clean Flat Inline Bar (Zero White Box)
+     ========================================================================== */
+  .reactions-wrapper {
+    margin: 2rem 0;
+    user-select: none;
+  }
+
+  .reactions-dock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0.5rem 0;
+    background: transparent;
+    border-top: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+    border-bottom: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+  }
+
+  .reaction-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .dock-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: transparent;
+    border: none;
+    color: var(--text-muted, #94a3b8);
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.35rem 0.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: color 0.15s ease, transform 0.15s ease;
+    outline: none;
+  }
+
+  .dock-btn:hover {
+    color: var(--text-primary, #f8fafc);
+  }
+
+  .clap-btn.has-clapped {
+    color: var(--accent-default, #d97706);
+  }
+
+  .clap-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+  }
+
+  .clap-btn:hover .clap-icon-wrap {
+    transform: scale(1.15);
+  }
+
+  .clap-btn:active {
+    transform: scale(0.92);
+  }
+
+  .dock-count {
+    font-variant-numeric: tabular-nums;
+    font-size: 0.8rem;
+  }
+
+  .dock-views {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--text-muted, #64748b);
+    font-size: 0.8rem;
+  }
+
+  /* Tooltips (hidden on mobile) */
+  .dock-tooltip {
+    display: none;
+  }
+
+  /* Floating +1 Bubble */
+  .clap-bubble {
+    position: absolute;
+    top: -20px;
+    left: 4px;
+    color: var(--accent-default, #d97706);
+    font-size: 0.75rem;
+    font-weight: 700;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(6px) scale(0.6);
+  }
+
+  .clap-bubble.animate {
+    animation: floatUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes floatUp {
+    0% { opacity: 0; transform: translateY(6px) scale(0.6); }
+    40% { opacity: 1; transform: translateY(-4px) scale(1.1); }
+    100% { opacity: 0; transform: translateY(-16px) scale(0.85); }
+  }
+
+  .clap-btn.shake {
+    animation: shake 0.35s ease;
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    75% { transform: translateX(3px); }
+  }
+
+  /* ==========================================================================
+     Desktop View (>= 1200px): Pure Minimalist Dock (Mirrors TOC Markers)
+     Zero white background, zero box shadow, blends perfectly with blog
+     ========================================================================== */
+  @media (min-width: 1200px) {
+    .reactions-wrapper {
+      position: fixed;
+      left: max(2rem, calc((100vw - 1100px) / 2 + 1rem));
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 50;
+      margin: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .reactions-wrapper.is-visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .reactions-dock {
+      flex-direction: column;
+      gap: 1rem;
+      padding: 0;
+      background: transparent;
+      border: none;
+    }
+
+    .dock-btn {
+      flex-direction: column;
+      gap: 0.2rem;
+      padding: 0.3rem 0;
+      width: 32px;
+      justify-content: center;
+      color: var(--text-muted, #94a3b8);
+    }
+
+    .dock-btn:hover {
+      color: var(--text-primary, #f8fafc);
+      background: transparent;
+    }
+
+    .views-btn {
+      cursor: default;
+    }
+
+    .views-btn:hover {
+      color: var(--text-muted, #94a3b8);
+    }
+
+    /* Minimalist Tooltips on Hover (Fly out cleanly to right) */
+    .dock-tooltip {
+      display: block;
+      position: absolute;
+      left: calc(100% + 8px);
+      top: 50%;
+      transform: translateY(-50%) translateX(-4px);
+      background: var(--surface-sunken, #0f172a);
+      color: var(--text-muted, #94a3b8);
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 3px 7px;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: all 0.15s ease;
+    }
+
+    .reaction-item:hover .dock-tooltip {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0);
+      color: var(--text-primary, #f8fafc);
+    }
+  }
+</style>

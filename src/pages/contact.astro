@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config';
 ---
 
 <BaseLayout 
@@ -24,11 +25,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </li>
           <li>
             <strong>LinkedIn</strong>
-            <a href="https://www.linkedin.com/in/santhanakrishnan96/" target="_blank" rel="noopener noreferrer">linkedin.com/in/santhanakrishnan96</a>
+            <a href={SITE.social.linkedin} target="_blank" rel="noopener noreferrer">linkedin.com/in/santhanakrishnan96</a>
+          </li>
+          <li>
+            <strong>Telegram</strong>
+            <a href={SITE.social.telegram} target="_blank" rel="noopener noreferrer">t.me/devscrolls</a>
           </li>
           <li>
             <strong>GitHub</strong>
-            <a href="https://github.com/santhanakrishnanstark" target="_blank" rel="noopener noreferrer">github.com/santhanakrishnanstark</a>
+            <a href={SITE.social.github} target="_blank" rel="noopener noreferrer">github.com/santhanakrishnanstark</a>
+          </li>
+          <li>
+            <strong>Instagram</strong>
+            <a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer">instagram.com/devscrolls.dev</a>
           </li>
           <li>
             <strong>Location</strong>

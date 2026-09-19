@@ -82,6 +82,11 @@
   --accent-default: var(--amber-600);
   --accent-hover: var(--amber-500);
   --accent-active: var(--amber-700);
+  --accent-brand: var(--amber-600);
+
+  /* Surface aliases */
+  --surface-default: var(--surface-raised);
+  --surface-elevated: var(--surface-raised);
 
   /* States */
   --state-success: var(--green-500);
@@ -169,6 +174,10 @@
     --accent-default: var(--amber-500);
     --accent-hover: var(--amber-400);
     --accent-active: var(--amber-600);
+    --accent-brand: var(--amber-500);
+
+    --surface-default: var(--surface-raised);
+    --surface-elevated: var(--surface-raised);
   }
 }
 
@@ -195,6 +204,10 @@
   --accent-default: var(--amber-500);
   --accent-hover: var(--amber-400);
   --accent-active: var(--amber-600);
+  --accent-brand: var(--amber-500);
+
+  --surface-default: var(--surface-raised);
+  --surface-elevated: var(--surface-raised);
 }
 
 /* =========================================

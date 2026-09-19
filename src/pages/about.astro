@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import StructuredData from '../components/StructuredData.astro';
+import { SITE } from '../config';
 import '../styles/prose.css';
 ---
 
@@ -26,15 +27,17 @@ import '../styles/prose.css';
       <p class="about-subtitle">Senior Frontend Engineer & UI Architect</p>
       
       <div class="social-links">
-        <a href="https://github.com/santhanakrishnanstark" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://www.linkedin.com/in/santhanakrishnan96/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href={SITE.social.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href={SITE.social.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href={SITE.social.telegram} target="_blank" rel="noopener noreferrer">Telegram</a>
+        <a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
         <a href="mailto:santhanakrishnanstark@gmail.com">Email</a>
       </div>
     </header>
 
     <article class="prose about-prose">
       <h2>About Me</h2>
-      <p class="lead">Hi, I'm Santhanakrishnan. With nearly 7 years of experience in the software industry, I specialize in building scalable, enterprise-grade web applications and leading UI architecture.</p>
+      <p class="lead">Hi, I'm Santhanakrishnan. With nearly 7+ years of experience in the software industry, I specialize in building scalable, enterprise-grade web applications and leading UI architecture.</p>
       
       <h2>What I Do</h2>
       <p>My core focus lies in modern frontend ecosystems, primarily working with React.js, TypeScript, and Vue.js. I am passionate about crafting framework-agnostic Web Components, defining component-driven design systems, and ensuring seamless cross-product portability.</p>

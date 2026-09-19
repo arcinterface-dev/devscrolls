@@ -5,7 +5,8 @@ import AdSlot from '../components/AdSlot.astro';
 import NewsletterForm from '../components/NewsletterForm.astro';
 import TOC from '../components/TOC.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
-import Giscus from '../components/Giscus.astro';
+import ArticleReactions from '../components/ArticleReactions.astro';
+import Comments from '../components/Comments.astro';
 import SeriesNav from '../components/SeriesNav.astro';
 import { SITE } from '../config';
 import '../styles/prose.css';
@@ -114,21 +115,41 @@ const formattedPublishDate = publishDate.toLocaleDateString('en-US', {
       <slot />
     </div>
 
+    {postId && <ArticleReactions slug={postId} />}
+
     <AdSlot slotId={SITE.adsense.articleBottomSlotId} />
     
     <footer class="article-footer">
       <div class="author-bio">
-        <img src="/profile.jpeg" alt={authorName} class="author-bio-avatar" width="48" height="48" />
-        <div>
+        <img src="/profile.jpeg" alt={authorName} class="author-bio-avatar" width="56" height="56" />
+        <div class="author-bio-content">
           <p class="author-bio-name">Written by <strong>{authorName}</strong></p>
           <p class="author-bio-desc">Senior Frontend Engineer & UI Architect with 7+ years of experience building scalable design systems, high-performance web architectures, and clean user experiences.</p>
+          <div class="author-social-links">
+            <a href={SITE.social.linkedin} target="_blank" rel="noopener noreferrer" class="bio-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              <span>Connect on LinkedIn</span>
+            </a>
+            <a href={SITE.social.telegram} target="_blank" rel="noopener noreferrer" class="bio-link telegram">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              <span>Join Telegram</span>
+            </a>
+            <a href={SITE.social.github} target="_blank" rel="noopener noreferrer" class="bio-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              <span>GitHub</span>
+            </a>
+            <a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer" class="bio-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              <span>Instagram</span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
 
     <NewsletterForm variant="inline" />
 
-    <Giscus />
+    {postId && <Comments slug={postId} />}
 
     {postId && category && <RelatedPosts currentPostId={postId} category={category} tags={tags} />}
   </article>
@@ -213,7 +234,7 @@ const formattedPublishDate = publishDate.toLocaleDateString('en-US', {
   }
   .author-bio {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: var(--space-4);
   }
   .author-bio-avatar {
@@ -221,6 +242,10 @@ const formattedPublishDate = publishDate.toLocaleDateString('en-US', {
     background: var(--surface-sunken);
     flex-shrink: 0;
     object-fit: cover;
+    margin-top: var(--space-1);
+  }
+  .author-bio-content {
+    flex: 1;
   }
   .author-bio-name {
     font-size: var(--text-ui);
@@ -233,8 +258,37 @@ const formattedPublishDate = publishDate.toLocaleDateString('en-US', {
   .author-bio-desc {
     color: var(--text-muted);
     font-size: var(--text-small);
-    margin: 0;
+    margin: 0 0 var(--space-3);
     line-height: var(--leading-normal);
+  }
+  .author-social-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2) var(--space-3);
+  }
+  .bio-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: var(--surface-raised);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+  .bio-link:hover {
+    color: var(--text-primary);
+    border-color: var(--border-default);
+    transform: translateY(-1px);
+  }
+  .bio-link.telegram:hover {
+    color: #0088cc;
+    border-color: #0088cc;
   }
   
   .hero-image-container {

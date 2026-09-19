@@ -1,11 +1,42 @@
 ---
+import { SITE } from '../config';
+
 const currentYear = new Date().getFullYear();
 ---
 <footer class="site-footer">
   <div class="footer-container">
     <div class="footer-copyright">
-      &copy; {currentYear} Santhanakrishnan. All rights reserved.
+      &copy; {currentYear} {SITE.author}. All rights reserved.
     </div>
+
+    <div class="footer-social" aria-label="Social links">
+      <a href={SITE.social.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-icon-link" title="GitHub">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+        </svg>
+      </a>
+      <a href={SITE.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon-link" title="LinkedIn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+          <rect x="2" y="9" width="4" height="12"></rect>
+          <circle cx="4" cy="4" r="2"></circle>
+        </svg>
+      </a>
+      <a href={SITE.social.telegram} target="_blank" rel="noopener noreferrer" aria-label="Telegram" class="social-icon-link" title="Telegram Community">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </a>
+      <a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon-link" title="Instagram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+      </a>
+    </div>
+
     <nav aria-label="Footer Navigation">
       <ul class="footer-links">
         <li><a href="/rss.xml">RSS</a></li>
@@ -45,6 +76,27 @@ const currentYear = new Date().getFullYear();
   }
   .footer-links a:hover, .footer-links a:focus {
     color: var(--text-primary);
+  }
+
+  .footer-social {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+  .social-icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+  }
+  .social-icon-link:hover, .social-icon-link:focus {
+    color: var(--accent-default, #d97706);
+    background: var(--surface-raised, rgba(0, 0, 0, 0.04));
+    transform: translateY(-2px);
   }
   
   @media (min-width: 640px) {

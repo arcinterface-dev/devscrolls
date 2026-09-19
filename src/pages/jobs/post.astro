@@ -1,0 +1,527 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Post a Developer Job (Free for Launch) — DevScrolls"
+  description="Post your remote frontend, backend, or full-stack engineering role on DevScrolls. Free during our community launch. Verified corporate employers only."
+>
+  <div class="post-job-container">
+    <!-- Page Header -->
+    <header class="form-header">
+      <a href="/jobs/" class="back-link">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        <span>Back to Job Board</span>
+      </a>
+
+      <div class="header-main">
+        <div class="launch-badge">
+          <span class="pulse-dot"></span>
+          <span>Community Launch — 100% Free</span>
+        </div>
+        <h1 class="page-title">Post an Engineering Role</h1>
+        <p class="page-subtitle">
+          Reach thousands of senior engineers, tech leads, and builders reading DevScrolls every week. Every post is reviewed within 24 hours.
+        </p>
+
+        <!-- Clean horizontal trust strip -->
+        <div class="trust-strip">
+          <div class="trust-pill">
+            <span class="trust-icon">🛡️</span>
+            <span>Corporate Email Verified</span>
+          </div>
+          <span class="pill-divider">•</span>
+          <div class="trust-pill">
+            <span class="trust-icon">⚡</span>
+            <span>Live Within 24h</span>
+          </div>
+          <span class="pill-divider">•</span>
+          <div class="trust-pill">
+            <span class="trust-icon">🌐</span>
+            <span>Any Currency & Region</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Focused Form Card -->
+    <div class="form-card">
+      <form class="job-form" id="job-submission-form" action="https://formspree.io/f/mlgypryd" method="POST">
+        <!-- Formspree Subject & Honeypot Bot Trap -->
+        <input type="hidden" name="_subject" value="[DevScrolls Job Board] New Job Submission" />
+        <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off" />
+
+        <!-- 1. Company Information -->
+        <div class="form-section">
+          <div class="form-section-title">1. Company Details</div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="company_name">Company Name <span class="required">*</span></label>
+              <input type="text" id="company_name" name="company_name" required placeholder="e.g. Linear, Stripe, Acme Inc" />
+            </div>
+
+            <div class="form-group">
+              <label for="company_website">Company Website <span class="required">*</span></label>
+              <input type="url" id="company_website" name="company_website" required placeholder="https://example.com" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="work_email">Your Work Email <span class="required">*</span></label>
+            <input type="email" id="work_email" name="work_email" required placeholder="name@company.com" autocomplete="email" />
+            <span class="field-hint">Must match your company's domain. Consumer emails (@gmail, @yahoo, etc.) are blocked to prevent fraud.</span>
+            <div id="email-error-msg" class="validation-error" style="display: none;"></div>
+          </div>
+        </div>
+
+        <!-- 2. Role & Workplace -->
+        <div class="form-section">
+          <div class="form-section-title">2. Role & Workplace</div>
+
+          <div class="form-group">
+            <label for="job_title">Job Title <span class="required">*</span></label>
+            <input type="text" id="job_title" name="job_title" required placeholder="e.g. Senior Frontend Engineer" />
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="job_region">Primary Region <span class="required">*</span></label>
+              <select id="job_region" name="job_region" required>
+                <option value="" disabled selected>Select candidate region requirement</option>
+                <option value="Worldwide">Worldwide / Global Remote (Open to anywhere)</option>
+                <option value="US">United States (Remote / Hybrid / On-site)</option>
+                <option value="EU">Europe & UK (Remote / Hybrid / On-site)</option>
+                <option value="Canada">Canada (Remote / Hybrid / On-site)</option>
+                <option value="APAC">Asia-Pacific & India (Remote / Hybrid / On-site)</option>
+                <option value="LATAM">Latin America (Remote / Hybrid / On-site)</option>
+                <option value="Other">Other Region / Country-Specific</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="workplace_type">Workplace Type <span class="required">*</span></label>
+              <select id="workplace_type" name="workplace_type" required>
+                <option value="100% Remote" selected>100% Remote</option>
+                <option value="Hybrid">Hybrid</option>
+                <option value="On-site">On-site</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="location_details">Specific Location / Office / Timezone <span class="optional">(Optional)</span></label>
+            <input type="text" id="location_details" name="location_details" placeholder="e.g. Remote (Worldwide), Berlin, Germany, or Bengaluru, India" />
+            <span class="field-hint">Specify city for Hybrid/On-site, or timezone preference for Remote.</span>
+          </div>
+        </div>
+
+        <!-- 3. Compensation & Stack -->
+        <div class="form-section">
+          <div class="form-section-title">3. Compensation & Stack</div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="salary_currency">Currency <span class="optional">(Any Currency)</span></label>
+              <select id="salary_currency" name="salary_currency">
+                <option value="USD ($)" selected>USD ($) — US Dollar</option>
+                <option value="EUR (€)">EUR (€) — Euro</option>
+                <option value="GBP (£)">GBP (£) — British Pound</option>
+                <option value="INR (₹)">INR (₹) — Indian Rupee</option>
+                <option value="CAD (C$)">CAD (C$) — Canadian Dollar</option>
+                <option value="AUD (A$)">AUD (A$) — Australian Dollar</option>
+                <option value="SGD (S$)">SGD (S$) — Singapore Dollar</option>
+                <option value="CHF">CHF — Swiss Franc</option>
+                <option value="JPY (¥)">JPY (¥) — Japanese Yen</option>
+                <option value="Other">Other Local Currency</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="salary_range">Compensation / Salary Range <span class="optional">(Recommended)</span></label>
+              <input type="text" id="salary_range" name="salary_range" placeholder="e.g. $140k – $180k, €75k – €95k, ₹30L – ₹45L, or 120,000 – 160,000" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="tech_stack">Primary Tech Stack / Keywords <span class="required">*</span></label>
+            <input type="text" id="tech_stack" name="tech_stack" required placeholder="e.g. React, TypeScript, Next.js, GraphQL (comma-separated)" />
+          </div>
+        </div>
+
+        <!-- 4. Application & Overview -->
+        <div class="form-section">
+          <div class="form-section-title">4. Application & Overview</div>
+
+          <div class="form-group">
+            <label for="apply_url">Direct Application URL <span class="required">*</span></label>
+            <input type="url" id="apply_url" name="apply_url" required placeholder="https://company.com/careers/role or Greenhouse/Lever/Ashby URL" />
+            <span class="field-hint">Must be a direct link to apply on your company website or official ATS. No shortlinks.</span>
+            <div id="url-error-msg" class="validation-error" style="display: none;"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="job_description">Role Summary / Key Responsibilities <span class="required">*</span></label>
+            <textarea id="job_description" name="job_description" required rows="4" placeholder="Briefly describe what the engineer will build, key expectations, and team context..."></textarea>
+          </div>
+        </div>
+
+        <button type="submit" id="submit-btn" class="submit-btn">
+          <span>Submit Job for Review — Free</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+
+        <p class="submit-disclaimer">
+          By submitting, you confirm that you are an authorized representative of the company. Verified submissions are published within 24 hours.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script is:inline>
+    // Strict Anti-Fraud Validation
+    const BLOCKED_DOMAINS = [
+      'gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'aol.com',
+      'icloud.com', 'proton.me', 'protonmail.com', 'mail.com', 'zoho.com',
+      'yandex.com', 'gmx.com', 'live.com', 'msn.com', 'me.com'
+    ];
+
+    const BLOCKED_SHORTENERS = [
+      'bit.ly', 'tinyurl.com', 't.co', 'cutt.ly', 'goo.gl', 'is.gd', 'buff.ly', 'ow.ly'
+    ];
+
+    const emailInput = document.getElementById('work_email');
+    const emailError = document.getElementById('email-error-msg');
+    const urlInput = document.getElementById('apply_url');
+    const urlError = document.getElementById('url-error-msg');
+    const form = document.getElementById('job-submission-form');
+
+    function validateWorkEmail(email) {
+      if (!email || !email.includes('@')) return false;
+      const domain = email.split('@')[1].toLowerCase().trim();
+      return !BLOCKED_DOMAINS.includes(domain);
+    }
+
+    function validateApplyUrl(url) {
+      if (!url) return false;
+      try {
+        const parsed = new URL(url);
+        const host = parsed.hostname.toLowerCase();
+        for (const shortener of BLOCKED_SHORTENERS) {
+          if (host.includes(shortener)) return false;
+        }
+        return parsed.protocol === 'https:';
+      } catch {
+        return false;
+      }
+    }
+
+    emailInput?.addEventListener('input', () => {
+      const email = emailInput.value.trim();
+      if (email && !validateWorkEmail(email)) {
+        emailError.style.display = 'block';
+        emailError.textContent = '⚠️ Consumer webmail (@gmail, @yahoo, @outlook, etc.) is blocked. Please provide an official business email matching your company domain.';
+        emailInput.classList.add('input-invalid');
+      } else {
+        emailError.style.display = 'none';
+        emailInput.classList.remove('input-invalid');
+      }
+    });
+
+    urlInput?.addEventListener('input', () => {
+      const url = urlInput.value.trim();
+      if (url && !validateApplyUrl(url)) {
+        urlError.style.display = 'block';
+        urlError.textContent = '⚠️ Please enter a direct https:// application URL on your company domain or official ATS. URL shorteners are blocked.';
+        urlInput.classList.add('input-invalid');
+      } else {
+        urlError.style.display = 'none';
+        urlInput.classList.remove('input-invalid');
+      }
+    });
+
+    form?.addEventListener('submit', (e) => {
+      const email = emailInput.value.trim();
+      const url = urlInput.value.trim();
+
+      if (!validateWorkEmail(email)) {
+        e.preventDefault();
+        emailError.style.display = 'block';
+        emailError.textContent = '⚠️ Please use your official corporate/business email address.';
+        emailInput.focus();
+        return;
+      }
+
+      if (!validateApplyUrl(url)) {
+        e.preventDefault();
+        urlError.style.display = 'block';
+        urlError.textContent = '⚠️ Please provide a valid direct https:// application link.';
+        urlInput.focus();
+        return;
+      }
+    });
+  </script>
+
+  <style>
+    .post-job-container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: var(--space-6) 1.25rem var(--space-16);
+    }
+
+    /* Header */
+    .form-header {
+      margin-bottom: 2rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.15s ease;
+      margin-bottom: 1.25rem;
+    }
+
+    .back-link:hover {
+      color: var(--accent-default);
+    }
+
+    .header-main {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .launch-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      background: rgba(217, 119, 6, 0.1);
+      border: 1px solid rgba(217, 119, 6, 0.25);
+      color: var(--accent-default);
+      width: fit-content;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.25);
+    }
+
+    .page-title {
+      font-size: clamp(2rem, 4.5vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .page-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* Horizontal Trust Strip */
+    .trust-strip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.5rem 1rem;
+      background: var(--surface-raised);
+      border: 1.5px solid var(--border-default);
+      border-radius: 9999px;
+      width: fit-content;
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    }
+
+    .trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+
+    .trust-icon {
+      font-size: 0.95rem;
+    }
+
+    .pill-divider {
+      color: var(--border-default);
+      font-size: 0.85rem;
+    }
+
+    /* Form Card */
+    .form-card {
+      background: var(--surface-raised);
+      border: 1.5px solid var(--border-default);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    .form-section {
+      margin-bottom: 2rem;
+    }
+
+    .form-section:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .form-section-title {
+      font-size: 0.825rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-default);
+      margin: 0 0 1.25rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .form-group label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .required {
+      color: #ef4444;
+    }
+
+    .optional {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+      font-weight: normal;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      border: 1.5px solid var(--border-default);
+      background: var(--surface-base);
+      color: var(--text-primary);
+      font-size: 0.925rem;
+      font-family: var(--font-sans);
+      outline: none;
+      transition: all 0.15s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent-default);
+      box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.2);
+      background: var(--surface-raised);
+    }
+
+    .input-invalid {
+      border-color: #ef4444 !important;
+      background: rgba(239, 68, 68, 0.05) !important;
+    }
+
+    .validation-error {
+      font-size: 0.8rem;
+      color: #ef4444;
+      font-weight: 600;
+      padding-top: 0.2rem;
+    }
+
+    .field-hint {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+      line-height: 1.35;
+    }
+
+    .submit-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      background: var(--accent-default);
+      color: #ffffff;
+      padding: 1rem;
+      border-radius: 10px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      margin-top: 2rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35);
+    }
+
+    .submit-btn:hover {
+      filter: brightness(1.15);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(217, 119, 6, 0.5);
+    }
+
+    .submit-disclaimer {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+      text-align: center;
+      margin-top: var(--space-3);
+      line-height: 1.4;
+    }
+
+    @media (max-width: 680px) {
+      .form-card {
+        padding: 1.5rem;
+      }
+      .form-grid-2 {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .trust-strip {
+        border-radius: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .pill-divider {
+        display: none;
+      }
+    }
+  </style>
+</BaseLayout>

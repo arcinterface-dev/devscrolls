@@ -1,0 +1,880 @@
+---
+/**
+ * Comments.astro
+ * 
+ * Native discussion section powered by Supabase Auth (GitHub & Google OAuth)
+ * and PostgreSQL Row Level Security (RLS).
+ */
+
+import { SITE } from '../config';
+
+export interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+const newsletterUrl = SITE.newsletter.enabled ? SITE.newsletter.formActionUrl : '';
+const notificationUrl = SITE.notifications?.formspreeUrl || '';
+---
+
+<section 
+  class="comments-section" 
+  id="comments" 
+  data-comments-root 
+  data-slug={slug} 
+  data-newsletter-url={newsletterUrl}
+  data-notification-url={notificationUrl}
+  aria-label="Article Discussion"
+>
+  <div class="comments-header">
+    <div class="comments-title-wrap">
+      <h2 class="comments-title">Discussion</h2>
+      <span class="comments-badge" data-comments-count>0</span>
+    </div>
+    <div class="comments-auth-status" data-auth-status>
+      <!-- Injected by script: User profile or Sign In options -->
+    </div>
+  </div>
+
+  <!-- Comment Form Container -->
+  <div class="comment-box-wrapper" data-comment-box-wrapper>
+    <!-- Injected by script based on auth state -->
+  </div>
+
+  <!-- Comments Feed List -->
+  <div class="comments-list" data-comments-list>
+    <div class="comments-loading">
+      <span class="spinner"></span> Loading discussion...
+    </div>
+  </div>
+</section>
+
+<script>
+  import { supabase, isSupabaseConfigured } from '../lib/supabase';
+  import type { User } from '@supabase/supabase-js';
+
+  interface CommentItem {
+    id: string;
+    post_slug: string;
+    user_id: string;
+    user_name: string;
+    user_avatar: string | null;
+    provider: string | null;
+    content: string;
+    created_at: string;
+  }
+
+  function initComments() {
+    document.querySelectorAll<HTMLElement>('[data-comments-root]').forEach(async (root) => {
+      if (root.dataset.initialized) return;
+      root.dataset.initialized = 'true';
+
+      const slug = root.dataset.slug;
+      if (!slug) return;
+
+      const newsletterUrl = root.dataset.newsletterUrl || '';
+      const notificationUrl = root.dataset.notificationUrl || '';
+      const authStatusEl = root.querySelector<HTMLElement>('[data-auth-status]');
+      const boxWrapperEl = root.querySelector<HTMLElement>('[data-comment-box-wrapper]');
+      const listEl = root.querySelector<HTMLElement>('[data-comments-list]');
+      const countEl = root.querySelector<HTMLElement>('[data-comments-count]');
+
+      let currentUser: User | null = null;
+      let comments: CommentItem[] = [];
+
+      // Auto-heal double hash if returning with #comments#access_token=...
+      if (window.location.hash.includes('#comments#')) {
+        window.location.hash = window.location.hash.replace('#comments#', '#');
+      }
+
+      // Check if user was in the middle of OAuth sign-in flow
+      let shouldScrollToComments = false;
+      try {
+        if (sessionStorage.getItem('ds_return_to_comments') === 'true') {
+          shouldScrollToComments = true;
+          sessionStorage.removeItem('ds_return_to_comments');
+        }
+      } catch {}
+
+      if (window.location.hash.includes('access_token') || window.location.search.includes('code=')) {
+        shouldScrollToComments = true;
+      }
+
+      function scrollToComments(focusInput = false) {
+        const commentsEl = document.getElementById('comments');
+        if (!commentsEl) return;
+        commentsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (focusInput) {
+          setTimeout(() => {
+            const input = boxWrapperEl?.querySelector<HTMLTextAreaElement>('[data-comment-input]');
+            input?.focus();
+          }, 350);
+        }
+      }
+
+      // Check configuration
+      if (!isSupabaseConfigured) {
+        if (boxWrapperEl) {
+          boxWrapperEl.innerHTML = `
+            <div class="comments-unconfigured">
+              <p>Discussion section is currently connecting to Supabase.</p>
+              <small>Configure your <code>PUBLIC_SUPABASE_URL</code> and <code>PUBLIC_SUPABASE_ANON_KEY</code> to enable Google and GitHub discussion.</small>
+            </div>
+          `;
+        }
+        if (listEl) listEl.innerHTML = '';
+        return;
+      }
+
+      // 1. Get current session
+      try {
+        const { data } = await supabase.auth.getSession();
+        currentUser = data.session?.user || null;
+      } catch (err) {
+        console.error('Error fetching session', err);
+      }
+
+      // Render Auth Bar & Comment Box
+      renderAuthAndInput();
+
+      if (shouldScrollToComments) {
+        window.history.replaceState(null, '', window.location.pathname + '#comments');
+        scrollToComments(true);
+        setTimeout(() => scrollToComments(true), 250);
+      }
+
+      // Listen for auth state changes
+      supabase.auth.onAuthStateChange((event, session) => {
+        currentUser = session?.user || null;
+        renderAuthAndInput();
+        renderCommentsList();
+
+        if (event === 'SIGNED_IN' || shouldScrollToComments) {
+          window.history.replaceState(null, '', window.location.pathname + '#comments');
+          setTimeout(() => scrollToComments(true), 150);
+        }
+      });
+
+      // 2. Fetch comments from Supabase
+      async function loadComments() {
+        try {
+          const { data, error } = await supabase
+            .from('post_comments')
+            .select('*')
+            .eq('post_slug', slug)
+            .order('created_at', { ascending: true });
+
+          if (error) throw error;
+          comments = data || [];
+          if (countEl) countEl.textContent = comments.length.toString();
+          renderCommentsList();
+        } catch (err) {
+          console.error('Error loading comments', err);
+          if (listEl) {
+            listEl.innerHTML = `
+              <div class="comments-empty">
+                <p>Be the first to share your thoughts!</p>
+              </div>
+            `;
+          }
+        }
+      }
+
+      function renderAuthAndInput() {
+        if (!authStatusEl || !boxWrapperEl) return;
+
+        if (currentUser) {
+          // Identify the most recently active identity (e.g. if user has linked Google & GitHub)
+          const sortedIdentities = (currentUser.identities || []).slice().sort((a, b) => {
+            const timeA = a.last_sign_in_at ? new Date(a.last_sign_in_at).getTime() : 0;
+            const timeB = b.last_sign_in_at ? new Date(b.last_sign_in_at).getTime() : 0;
+            return timeB - timeA;
+          });
+          const activeIdentity = sortedIdentities[0];
+          const provider = (activeIdentity?.provider || currentUser.app_metadata?.provider || 'oauth').toLowerCase();
+          const name = activeIdentity?.identity_data?.full_name || 
+                       activeIdentity?.identity_data?.user_name || 
+                       currentUser.user_metadata?.full_name || 
+                       currentUser.user_metadata?.user_name || 
+                       'Engineer';
+          const avatar = activeIdentity?.identity_data?.avatar_url || 
+                         currentUser.user_metadata?.avatar_url || 
+                         currentUser.user_metadata?.picture || 
+                         '';
+          const userEmail = currentUser.email || '';
+
+          authStatusEl.innerHTML = `
+            <div class="user-pill">
+              ${avatar 
+                ? `<img src="${avatar}" alt="${name}" class="user-pill-avatar" referrerpolicy="no-referrer" onerror="this.style.display='none'" />` 
+                : `<div class="user-pill-avatar fallback">${name.charAt(0).toUpperCase()}</div>`
+              }
+              <span class="user-pill-name">${name}</span>
+              <span class="user-pill-provider">${provider}</span>
+              <button type="button" class="sign-out-btn" data-sign-out>Sign out</button>
+            </div>
+          `;
+
+          const signOutBtn = authStatusEl.querySelector('[data-sign-out]');
+          signOutBtn?.addEventListener('click', async () => {
+            await supabase.auth.signOut();
+            currentUser = null;
+            if (window.location.hash) {
+              window.history.replaceState(null, '', window.location.pathname + '#comments');
+            }
+            renderAuthAndInput();
+            renderCommentsList();
+          });
+
+          boxWrapperEl.innerHTML = `
+            <form class="comment-form" data-comment-form>
+              <textarea 
+                class="comment-textarea" 
+                placeholder="Share your technical perspective, question, or architecture trade-off..." 
+                rows="3" 
+                maxlength="1000" 
+                required
+                data-comment-input
+              ></textarea>
+              ${userEmail && newsletterUrl ? `
+                <div class="comment-optin-row">
+                  <label class="comment-optin-label">
+                    <input type="checkbox" class="comment-optin-checkbox" data-newsletter-optin checked />
+                    <span>Also subscribe to the weekly DevScrolls engineering dispatch (<strong class="optin-email">${userEmail}</strong>)</span>
+                  </label>
+                </div>
+              ` : ''}
+              <div class="comment-form-footer">
+                <span class="char-count" data-char-count>0/1000</span>
+                <button type="submit" class="comment-submit-btn" data-submit-btn>
+                  <span>Post Comment</span>
+                </button>
+              </div>
+            </form>
+          `;
+
+          const form = boxWrapperEl.querySelector<HTMLFormElement>('[data-comment-form]');
+          const input = boxWrapperEl.querySelector<HTMLTextAreaElement>('[data-comment-input]');
+          const charCount = boxWrapperEl.querySelector<HTMLElement>('[data-char-count]');
+          const submitBtn = boxWrapperEl.querySelector<HTMLButtonElement>('[data-submit-btn]');
+
+          input?.addEventListener('input', () => {
+            if (charCount) charCount.textContent = `${input.value.length}/1000`;
+          });
+
+          form?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!input || !input.value.trim() || !currentUser) return;
+
+            const content = input.value.trim();
+            if (submitBtn) {
+              submitBtn.disabled = true;
+              submitBtn.textContent = 'Posting...';
+            }
+
+            try {
+              const { data, error } = await supabase
+                .from('post_comments')
+                .insert({
+                  post_slug: slug,
+                  user_id: currentUser.id,
+                  user_name: name,
+                  user_avatar: avatar || null,
+                  provider: provider,
+                  content: content
+                })
+                .select()
+                .single();
+
+              if (error) throw error;
+
+              if (data) {
+                comments.push(data);
+                if (countEl) countEl.textContent = comments.length.toString();
+                input.value = '';
+                if (charCount) charCount.textContent = '0/1000';
+                renderCommentsList();
+
+                // 1-Click newsletter sync to Kit
+                const optinCheckbox = form.querySelector<HTMLInputElement>('[data-newsletter-optin]');
+                if (optinCheckbox?.checked && userEmail && newsletterUrl) {
+                  try {
+                    const formData = new FormData();
+                    formData.append('email_address', userEmail);
+                    fetch(newsletterUrl, {
+                      method: 'POST',
+                      body: formData,
+                      mode: 'no-cors'
+                    }).catch(() => {});
+                  } catch {
+                    // Non-blocking
+                  }
+                }
+
+                // Instant notification to Author via Formspree
+                if (notificationUrl) {
+                  try {
+                    fetch(notificationUrl, {
+                      method: 'POST',
+                      headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                      },
+                      body: JSON.stringify({
+                        _subject: `💬 New DevScrolls Comment: "${slug}"`,
+                        article_slug: slug,
+                        article_url: window.location.origin + window.location.pathname,
+                        commenter_name: name,
+                        commenter_email: userEmail || 'Not provided',
+                        auth_provider: provider,
+                        comment_content: content,
+                        newsletter_opt_in: optinCheckbox?.checked ? 'Yes' : 'No',
+                      }),
+                    }).catch(() => {});
+                  } catch {
+                    // Non-blocking
+                  }
+                }
+              }
+            } catch (err) {
+              alert('Could not post comment. Please try again.');
+              console.error(err);
+            } finally {
+              if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Post Comment';
+              }
+            }
+          });
+        } else {
+          // Logged out state
+          authStatusEl.innerHTML = '';
+          boxWrapperEl.innerHTML = `
+            <div class="login-prompt-card">
+              <div class="login-prompt-text">
+                <h3>Join the Discussion</h3>
+                <p>Sign in with your developer account to comment on architectural trade-offs and code insights.</p>
+              </div>
+              <div class="oauth-buttons">
+                <button type="button" class="oauth-btn github-btn" data-oauth="github">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                  </svg>
+                  <span>Sign in with GitHub</span>
+                </button>
+                <button type="button" class="oauth-btn google-btn" data-oauth="google">
+                  <svg width="18" height="18" viewBox="0 0 24 24">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                  </svg>
+                  <span>Sign in with Google</span>
+                </button>
+              </div>
+            </div>
+          `;
+
+          // Bind OAuth actions
+          boxWrapperEl.querySelectorAll<HTMLButtonElement>('[data-oauth]').forEach(btn => {
+            btn.addEventListener('click', async () => {
+              const provider = btn.dataset.oauth as 'github' | 'google';
+              btn.disabled = true;
+              btn.style.opacity = '0.7';
+
+              // Remember that the user initiated sign-in so we can scroll straight to comments on return
+              try {
+                sessionStorage.setItem('ds_return_to_comments', 'true');
+              } catch {}
+
+              // Strictly use clean origin + pathname without fragments (RFC 6749 forbids fragments in redirect_uri)
+              const cleanRedirect = window.location.origin + window.location.pathname;
+
+              try {
+                const { error } = await supabase.auth.signInWithOAuth({
+                  provider,
+                  options: {
+                    redirectTo: cleanRedirect,
+                    queryParams: provider === 'google' ? { prompt: 'select_account' } : undefined,
+                  },
+                });
+
+                if (error) {
+                  console.error('OAuth sign in error:', error);
+                  alert(`Sign in failed: ${error.message}`);
+                  btn.disabled = false;
+                  btn.style.opacity = '1';
+                }
+              } catch (err) {
+                console.error('Unexpected OAuth error:', err);
+                btn.disabled = false;
+                btn.style.opacity = '1';
+              }
+            });
+          });
+        }
+      }
+
+      function renderCommentsList() {
+        if (!listEl) return;
+
+        if (comments.length === 0) {
+          listEl.innerHTML = `
+            <div class="comments-empty">
+              <p>No comments yet. Be the first to start the conversation!</p>
+            </div>
+          `;
+          return;
+        }
+
+        listEl.innerHTML = comments.map(c => {
+          const isAuthor = currentUser && currentUser.id === c.user_id;
+          const dateStr = new Date(c.created_at).toLocaleDateString(undefined, {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+          });
+
+          // Basic HTML escape
+          const safeContent = c.content
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/\n/g, '<br/>');
+
+          return `
+            <div class="comment-card" data-comment-id="${c.id}">
+              <div class="comment-card-header">
+                <div class="comment-author-info">
+                  ${c.user_avatar 
+                    ? `<img src="${c.user_avatar}" alt="${c.user_name}" class="comment-avatar" referrerpolicy="no-referrer" />`
+                    : `<div class="comment-avatar fallback">${c.user_name.charAt(0).toUpperCase()}</div>`
+                  }
+                  <div>
+                    <div class="comment-author-name">
+                      <span>${c.user_name}</span>
+                      ${c.provider ? `<span class="comment-provider-badge">${c.provider}</span>` : ''}
+                    </div>
+                    <time class="comment-date">${dateStr}</time>
+                  </div>
+                </div>
+                ${isAuthor ? `<button type="button" class="delete-comment-btn" data-delete-id="${c.id}" title="Delete comment">Delete</button>` : ''}
+              </div>
+              <div class="comment-card-body">
+                <p>${safeContent}</p>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        // Bind delete buttons
+        listEl.querySelectorAll<HTMLButtonElement>('[data-delete-id]').forEach(btn => {
+          btn.addEventListener('click', async () => {
+            const commentId = btn.dataset.deleteId;
+            if (!commentId || !confirm('Are you sure you want to delete this comment?')) return;
+
+            try {
+              const { error } = await supabase
+                .from('post_comments')
+                .delete()
+                .eq('id', commentId);
+
+              if (error) throw error;
+              comments = comments.filter(c => c.id !== commentId);
+              if (countEl) countEl.textContent = comments.length.toString();
+              renderCommentsList();
+            } catch (err) {
+              alert('Could not delete comment.');
+              console.error(err);
+            }
+          });
+        });
+      }
+
+      loadComments();
+    });
+  }
+
+  initComments();
+  document.addEventListener('astro:page-load', initComments);
+</script>
+
+<style is:global>
+  .comments-section {
+    margin: 3.5rem 0 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .comments-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .comments-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .comments-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .comments-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.15rem 0.6rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    background: rgba(217, 119, 6, 0.15);
+    color: var(--accent-default);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+  }
+
+  /* User Auth Pill */
+  .comments-section .user-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--surface-raised);
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    border: 1px solid var(--border-default);
+    font-size: 0.85rem;
+  }
+
+  .comments-section .user-pill-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .comments-section .user-pill-avatar.fallback {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-default);
+    color: #ffffff;
+    font-size: 0.725rem;
+    font-weight: 700;
+  }
+
+  .comments-section .user-pill-name {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .comments-section .user-pill-provider {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-tertiary);
+    background: var(--surface-base);
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid var(--border-subtle);
+  }
+
+  .comments-section .sign-out-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-tertiary);
+    font-size: 0.75rem;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0 0 0 0.4rem;
+  }
+
+  .comments-section .sign-out-btn:hover {
+    color: #ef4444;
+  }
+
+  /* Login Prompt Card */
+  .comments-section .login-prompt-card {
+    background: var(--surface-raised);
+    border: 1.5px solid var(--border-default);
+    border-radius: 12px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .comments-section .login-prompt-text h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 0.3rem;
+    color: var(--text-primary);
+  }
+
+  .comments-section .login-prompt-text p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin: 0;
+    max-width: 480px;
+  }
+
+  .comments-section .oauth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .comments-section .oauth-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1.1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid var(--border-default);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+
+  .comments-section .github-btn {
+    background: #24292e;
+    color: #ffffff;
+    border-color: #24292e;
+  }
+
+  .comments-section .github-btn:hover {
+    background: #1b1f23;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .comments-section .google-btn {
+    background: #ffffff;
+    color: #1f2937;
+    border-color: #d1d5db;
+  }
+
+  .comments-section .google-btn:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Comment Form */
+  .comments-section .comment-form {
+    margin-bottom: 2rem;
+  }
+
+  .comments-section .comment-textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: var(--surface-base);
+    border: 1.5px solid var(--border-default);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.925rem;
+    line-height: 1.5;
+    resize: vertical;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+  }
+
+  .comments-section .comment-textarea:focus {
+    border-color: var(--accent-default);
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.2);
+    background: var(--surface-raised);
+  }
+
+  .comments-section .comment-optin-row {
+    margin-top: 0.65rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--surface-base);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+  }
+
+  .comments-section .comment-optin-label {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.785rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .comments-section .comment-optin-checkbox {
+    width: 15px;
+    height: 15px;
+    accent-color: var(--accent-default);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .comments-section .optin-email {
+    color: var(--accent-default);
+    font-weight: 600;
+  }
+
+  .comments-section .comment-form-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.6rem;
+  }
+
+  .comments-section .char-count {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+  }
+
+  .comments-section .comment-submit-btn {
+    padding: 0.55rem 1.35rem;
+    background: var(--accent-default);
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(217, 119, 6, 0.3);
+  }
+
+  .comments-section .comment-submit-btn:hover {
+    filter: brightness(1.15);
+    transform: translateY(-1px);
+  }
+
+  .comments-section .comment-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  /* Comments Feed */
+  .comments-section .comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .comments-section .comment-card {
+    background: var(--surface-raised);
+    border: 1px solid var(--border-default);
+    border-radius: 10px;
+    padding: 1.25rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+  }
+
+  .comments-section .comment-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+  }
+
+  .comments-section .comment-author-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .comments-section .comment-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .comments-section .comment-avatar.fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-default);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+
+  .comments-section .comment-author-name {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+  }
+
+  .comments-section .comment-provider-badge {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    background: var(--surface-base);
+    padding: 1px 5px;
+    border-radius: 4px;
+    border: 1px solid var(--border-subtle);
+  }
+
+  .comments-section .comment-date {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+  }
+
+  .comments-section .delete-comment-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-tertiary);
+    font-size: 0.75rem;
+    cursor: pointer;
+  }
+
+  .comments-section .delete-comment-btn:hover {
+    color: #ef4444;
+  }
+
+  .comments-section .comment-card-body p {
+    font-size: 0.925rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+    word-break: break-word;
+  }
+
+  .comments-section .comments-empty,
+  .comments-section .comments-loading,
+  .comments-section .comments-unconfigured {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    background: var(--surface-raised);
+    border-radius: 10px;
+    border: 1.5px dashed var(--border-default);
+  }
+
+  .comments-section .comments-unconfigured small {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+  }
+</style>

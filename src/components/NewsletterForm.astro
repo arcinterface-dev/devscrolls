@@ -67,8 +67,9 @@ const formActionUrl = SITE.newsletter.formActionUrl;
           </span>
         </button>
       </div>
+      <p class="newsletter-typo-hint" aria-live="polite" style="display: none;"></p>
       <p class="newsletter-success" aria-live="polite">
-        Thanks — check your inbox for a confirmation link.
+        You're in! Welcome to DevScrolls — look out for our weekly technical dispatch in your inbox.
       </p>
       <p class="newsletter-error" aria-live="polite">
         Something went wrong. Try again, or <a href="mailto:hello@devscrolls.dev">reach out directly</a>.
@@ -76,22 +77,56 @@ const formActionUrl = SITE.newsletter.formActionUrl;
     </form>
 
     <p class="newsletter-privacy">
-      No tracking. No spam. <a href="/privacy/">Privacy policy</a>.
+      No spam. Double-check your address to ensure you receive our weekly dispatches. <a href="/privacy/">Privacy policy</a>.
     </p>
   </div>
 </aside>
 
 <script>
   document.querySelectorAll<HTMLFormElement>('[data-kit-form]').forEach(form => {
+    const button = form.querySelector('.newsletter-button') as HTMLButtonElement;
+    const successMsg = form.querySelector('.newsletter-success') as HTMLElement;
+    const errorMsg = form.querySelector('.newsletter-error') as HTMLElement;
+    const typoHint = form.querySelector('.newsletter-typo-hint') as HTMLElement;
+    const input = form.querySelector('.newsletter-input') as HTMLInputElement;
+
+    const typoMap: Record<string, string> = {
+      'gmial.com': 'gmail.com',
+      'gmai.com': 'gmail.com',
+      'gamil.com': 'gmail.com',
+      'gmaill.com': 'gmail.com',
+      'yaho.com': 'yahoo.com',
+      'hotmial.com': 'hotmail.com',
+      'outlok.com': 'outlook.com',
+    };
+
+    function checkTypo() {
+      if (!input || !typoHint) return;
+      const val = input.value.trim().toLowerCase();
+      const parts = val.split('@');
+      if (parts.length === 2 && typoMap[parts[1]]) {
+        const suggested = `${parts[0]}@${typoMap[parts[1]]}`;
+        typoHint.innerHTML = `Did you mean <strong>${suggested}</strong>? Click to apply.`;
+        typoHint.style.display = 'block';
+        typoHint.onclick = () => {
+          input.value = suggested;
+          typoHint.style.display = 'none';
+        };
+      } else {
+        typoHint.style.display = 'none';
+      }
+    }
+
+    input?.addEventListener('blur', checkTypo);
+    input?.addEventListener('input', () => {
+      if (typoHint.style.display === 'block') typoHint.style.display = 'none';
+    });
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       
-      const button = form.querySelector('.newsletter-button') as HTMLButtonElement;
-      const successMsg = form.querySelector('.newsletter-success') as HTMLElement;
-      const errorMsg = form.querySelector('.newsletter-error') as HTMLElement;
-      const input = form.querySelector('.newsletter-input') as HTMLInputElement;
-
       // Reset states
+      typoHint.style.display = 'none';
       successMsg.classList.remove('visible');
       errorMsg.classList.remove('visible');
       form.classList.add('is-loading');
@@ -302,6 +337,21 @@ const formActionUrl = SITE.newsletter.formActionUrl;
   }
 
   /* — Success / Error messages — */
+  .newsletter-typo-hint {
+    font-size: var(--text-small, 0.85rem);
+    color: var(--accent-default, #d97706);
+    margin: var(--space-2) 0 0;
+    cursor: pointer;
+    background: rgba(217, 119, 6, 0.1);
+    padding: 0.35rem 0.65rem;
+    border-radius: 6px;
+    border: 1px solid rgba(217, 119, 6, 0.25);
+  }
+
+  .newsletter-typo-hint:hover {
+    background: rgba(217, 119, 6, 0.18);
+  }
+
   .newsletter-success,
   .newsletter-error {
     display: none;

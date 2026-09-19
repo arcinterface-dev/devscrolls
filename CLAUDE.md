@@ -60,5 +60,19 @@ When writing new articles or editing draft articles, **always** ensure the follo
 
 - **Internal Linking Mandate**: Whenever drafting or editing an article, ALWAYS inspect existing published posts in `src/content/articles/` and insert contextual internal markdown links (`[Post Title](/articles/<slug>/)`) to existing blog posts whenever relevant concepts, technologies, or past articles are mentioned.
 - **The Emoji Constraint**: NEVER place emojis in section headings (H1, H2, H3, H4) or outline lists. Emojis in headings make content look AI-generated and lower technical credibility. Keep headings clean, text-only, and professional. Emojis may only be used very sparingly in closing lines or social media captions.
+- **Job Board Publishing Protocol (`add-job`)**: Whenever the user pastes a job submission email (from Formspree) or asks to "add this job" / "publish job": 1) Parse the company, title, work email, direct apply URL, region, salary, tech stack, and summary. 2) Run anti-fraud checks: Verify the work email domain matches the hiring company (reject @gmail, @yahoo, etc.), and verify the application link is a direct HTTPS link on the company domain or verified ATS (no shorteners). 3) Prepend the structured job object to `src/data/featured-jobs.json` with `"source": "Featured Employer"`. 4) Run `npm run sync:jobs` and `npm run build` so the role is immediately published to `/jobs/`. 5) Confirm back to the user with the role details and live link.
 
+## Job Board Architecture and Long-Term Scalability Roadmap
 
+### Current Architecture (Edge-Static with Strict TTL)
+1. **Zero-Database Runtime Queries**: Job listings are served statically from edge CDN cache rather than hitting database APIs on every page view. This preserves Core Web Vitals (sub-50ms LCP) and avoids database connection exhaustion.
+2. **30-Day Rolling TTL Pruning**: `scripts/sync-jobs.js` automatically discards scraped jobs older than 30 days (`MAX_JOB_AGE_DAYS = 30`). This prevents dead or ghost links and caps `src/data/jobs.json` to ~250–300 fresh roles (~250KB max). Featured roles expire after 60 days.
+3. **Client-Side Batch Windowing (O(1) DOM Footprint)**: `JobBoard.tsx` renders in 25-card batches with a "Load More" trigger, preventing mobile DOM memory bloat and preserving 60fps scroll performance.
+4. **Daily Cron Workflow**: `.github/workflows/sync-jobs.yml` runs daily at 06:00 UTC, runs `npm run sync:jobs`, and commits changes to trigger automated Vercel deployment.
+
+### Future Architecture Scaling Triggers (TODO Roadmap)
+- **Trigger**: Job volume expands past 1,000+ listings from 10+ feed sources, causing Git repository commit history churn.
+- **Migration Plan**:
+  1. Move the `jobs.json` storage to a dedicated Supabase table (`jobs`).
+  2. The GitHub Action runs `sync-jobs.js` and upserts directly to Supabase (`ON CONFLICT DO UPDATE` + `DELETE WHERE date_posted < NOW() - INTERVAL '30 days'`) instead of committing JSON files to Git.
+  3. Keep Astro's static site generation (SSG) model: fetch the active jobs from Supabase at **build time** during `astro build`. Readers still get static Edge CDN speeds, while Git repository history remains completely clean of automated commits.

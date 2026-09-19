@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import JobBoard from '../../components/jobs/JobBoard.tsx';
+import jobsData from '../../data/jobs.json';
+
+// Generate Schema.org JobPosting structured data for search engine discovery
+const topJobs = jobsData.slice(0, 15);
+const jobSchemaItems = topJobs.map(job => ({
+  "@context": "https://schema.org",
+  "@type": "JobPosting",
+  "title": job.title,
+  "description": job.descriptionSnippet || `${job.title} at ${job.company}. Verified engineering opportunity.`,
+  "datePosted": job.datePosted,
+  "validThrough": new Date(Date.now() + 60 * 24 * 60 * 60 * 1000).toISOString(),
+  "employmentType": "FULL_TIME",
+  "hiringOrganization": {
+    "@type": "Organization",
+    "name": job.company,
+    "sameAs": job.companyLogo ? `https://${job.company.toLowerCase().replace(/[^a-z0-9]/g, '')}.com` : undefined
+  },
+  "jobLocationType": "TELECOMMUTE",
+  "applicantLocationRequirements": {
+    "@type": "Country",
+    "name": job.region === 'US' ? 'United States' : job.region === 'EU' ? 'European Union' : job.region === 'Canada' ? 'Canada' : 'Worldwide'
+  },
+  "directApply": true
+}));
+---
+
+<BaseLayout
+  title="Remote Developer Jobs — US, EU & Canada | DevScrolls"
+  description="Discover curated, high-paying remote Frontend, Full-Stack, and TypeScript developer positions across the US, EU, Canada, and Worldwide. Direct from verified engineering career boards."
+>
+  <!-- Schema.org JobPosting Rich Snippets for Google Jobs -->
+  {jobSchemaItems.map(schema => (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  ))}
+
+  <main>
+    <JobBoard client:load jobs={jobsData} />
+  </main>
+</BaseLayout>
