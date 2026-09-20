@@ -100,3 +100,10 @@ Whenever a new article is drafted or published, a new developer tool is built or
 5. **Contextual Cross-Linking**:
    - Link new articles to relevant developer tools (`/tools/pii-scrubber/`, `/tools/jwt-debugger/`, `/tools/json-formatter/`, `/tools/daily-scroll/`) and the job board (`/jobs/`) whenever relevant topics (security, tokens, logs, remote work, daily workflow) arise.
 
+## Admin Analytics Portal
+
+- **Production URL**: `https://www.devscrolls.dev/admin/analytics` (or `https://devscrolls.dev/admin/analytics`)
+- **Local Dev URL**: `http://localhost:4321/admin/analytics`
+- **Authentication**: Protected via Google OAuth with Supabase Auth and restricted by the `PUBLIC_ADMIN_EMAIL` allowlist env var.
+- **Reference Doc**: See detailed guide in `.dev/ADMIN.md`.
+
