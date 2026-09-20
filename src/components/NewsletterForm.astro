@@ -137,9 +137,11 @@ const formActionUrl = SITE.newsletter.formActionUrl;
         const response = await fetch(form.action, {
           method: 'POST',
           body: formData,
+          mode: 'no-cors',
         });
 
-        if (response.ok || response.status === 200 || response.status === 302) {
+        // In no-cors mode, successful cross-origin dispatch yields response.type === 'opaque'
+        if (response.type === 'opaque' || response.ok || response.status === 200 || response.status === 302) {
           form.classList.remove('is-loading');
           form.classList.add('is-success');
           successMsg.classList.add('visible');

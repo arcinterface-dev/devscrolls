@@ -18,8 +18,6 @@ const notificationUrl = SITE.notifications?.formspreeUrl || '';
 const googleClientId = import.meta.env.PUBLIC_GOOGLE_CLIENT_ID || '';
 ---
 
-<script is:inline src="https://accounts.google.com/gsi/client" async defer></script>
-
 <section 
   class="comments-section" 
   id="comments" 
@@ -68,6 +66,34 @@ const googleClientId = import.meta.env.PUBLIC_GOOGLE_CLIENT_ID || '';
     created_at: string;
   }
 
+  function escapeHtml(str: string | null | undefined): string {
+    return (str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  function sanitizeUrl(url: string | null | undefined): string {
+    if (!url) return '';
+    const trimmed = url.trim();
+    if (/^https?:\/\//i.test(trimmed) || trimmed.startsWith('/')) {
+      return escapeHtml(trimmed);
+    }
+    return '';
+  }
+
+  function loadGoogleGisScript() {
+    if (document.querySelector('script[data-google-gis]')) return;
+    const s = document.createElement('script');
+    s.src = 'https://accounts.google.com/gsi/client';
+    s.async = true;
+    s.defer = true;
+    s.dataset.googleGis = 'true';
+    document.head.appendChild(s);
+  }
+
   function initComments() {
     document.querySelectorAll<HTMLElement>('[data-comments-root]').forEach(async (root) => {
       if (root.dataset.initialized) return;
@@ -103,6 +129,21 @@ const googleClientId = import.meta.env.PUBLIC_GOOGLE_CLIENT_ID || '';
 
       if (window.location.hash.includes('access_token') || window.location.search.includes('code=')) {
         shouldScrollToComments = true;
+      }
+
+      // Lazy load Google GIS only when approaching discussion viewport or returning from auth
+      if (shouldScrollToComments || window.location.hash.includes('comments')) {
+        loadGoogleGisScript();
+      } else if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          if (entries[0].isIntersecting) {
+            loadGoogleGisScript();
+            observer.disconnect();
+          }
+        }, { rootMargin: '400px' });
+        observer.observe(root);
+      } else {
+        loadGoogleGisScript();
       }
 
       function scrollToComments(focusInput = false) {
@@ -208,14 +249,18 @@ const googleClientId = import.meta.env.PUBLIC_GOOGLE_CLIENT_ID || '';
                          '';
           const userEmail = currentUser.email || '';
 
+          const safeName = escapeHtml(name);
+          const safeAvatar = sanitizeUrl(avatar);
+          const safeProvider = escapeHtml(provider);
+
           authStatusEl.innerHTML = `
             <div class="user-pill">
-              ${avatar 
-                ? `<img src="${avatar}" alt="${name}" class="user-pill-avatar" referrerpolicy="no-referrer" onerror="this.style.display='none'" />` 
-                : `<div class="user-pill-avatar fallback">${name.charAt(0).toUpperCase()}</div>`
+              ${safeAvatar 
+                ? `<img src="${safeAvatar}" alt="${safeName}" class="user-pill-avatar" referrerpolicy="no-referrer" onerror="this.style.display='none'" />` 
+                : `<div class="user-pill-avatar fallback">${safeName.charAt(0).toUpperCase()}</div>`
               }
-              <span class="user-pill-name">${name}</span>
-              <span class="user-pill-provider">${provider}</span>
+              <span class="user-pill-name">${safeName}</span>
+              <span class="user-pill-provider">${safeProvider}</span>
               <button type="button" class="sign-out-btn" data-sign-out>Sign out</button>
             </div>
           `;
@@ -385,6 +430,7 @@ const googleClientId = import.meta.env.PUBLIC_GOOGLE_CLIENT_ID || '';
           `;
 
           // Setup Google Identity Services (Client-side ID Token)
+          let attempts = 0;
           function setupGoogleIdentity() {
             const container = boxWrapperEl?.querySelector<HTMLElement>('#google-gis-container');
             const fallbackBtn = boxWrapperEl?.querySelector<HTMLElement>('#google-fallback-btn');
@@ -395,8 +441,17 @@ const googleClientId = import.meta.env.PUBLIC_GOOGLE_CLIENT_ID || '';
               return;
             }
 
+            loadGoogleGisScript();
+
+            attempts++;
             const g = (window as any).google;
             if (!g?.accounts?.id) {
+              if (attempts > 20) {
+                // GIS failed to load or was blocked by privacy extension / adblocker - activate fallback
+                if (fallbackBtn) fallbackBtn.style.display = 'inline-flex';
+                if (container) container.style.display = 'none';
+                return;
+              }
               setTimeout(setupGoogleIdentity, 150);
               return;
             }
@@ -507,26 +562,23 @@ const googleClientId = import.meta.env.PUBLIC_GOOGLE_CLIENT_ID || '';
             day: 'numeric',
           });
 
-          // Basic HTML escape
-          const safeContent = c.content
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;')
-            .replace(/\n/g, '<br/>');
+          const safeName = escapeHtml(c.user_name || 'Anonymous');
+          const safeAvatar = sanitizeUrl(c.user_avatar);
+          const safeProvider = escapeHtml(c.provider || '');
+          const safeContent = escapeHtml(c.content).replace(/\n/g, '<br/>');
 
           return `
             <div class="comment-card" data-comment-id="${c.id}">
               <div class="comment-card-header">
                 <div class="comment-author-info">
-                  ${c.user_avatar 
-                    ? `<img src="${c.user_avatar}" alt="${c.user_name}" class="comment-avatar" referrerpolicy="no-referrer" />`
-                    : `<div class="comment-avatar fallback">${c.user_name.charAt(0).toUpperCase()}</div>`
+                  ${safeAvatar 
+                    ? `<img src="${safeAvatar}" alt="${safeName}" class="comment-avatar" referrerpolicy="no-referrer" onerror="this.style.display='none'" />`
+                    : `<div class="comment-avatar fallback">${safeName.charAt(0).toUpperCase()}</div>`
                   }
                   <div>
                     <div class="comment-author-name">
-                      <span>${c.user_name}</span>
-                      ${c.provider ? `<span class="comment-provider-badge">${c.provider}</span>` : ''}
+                      <span>${safeName}</span>
+                      ${safeProvider ? `<span class="comment-provider-badge">${safeProvider}</span>` : ''}
                     </div>
                     <time class="comment-date">${dateStr}</time>
                   </div>
@@ -946,6 +998,8 @@ const googleClientId = import.meta.env.PUBLIC_GOOGLE_CLIENT_ID || '';
     color: var(--text-secondary);
     margin: 0;
     word-break: break-word;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
   }
 
   .comments-section .comments-empty,
