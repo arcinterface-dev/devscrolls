@@ -15,7 +15,10 @@ export interface Props {
 const { slug } = Astro.props;
 const newsletterUrl = SITE.newsletter.enabled ? SITE.newsletter.formActionUrl : '';
 const notificationUrl = SITE.notifications?.formspreeUrl || '';
+const googleClientId = import.meta.env.PUBLIC_GOOGLE_CLIENT_ID || '';
 ---
+
+<script is:inline src="https://accounts.google.com/gsi/client" async defer></script>
 
 <section 
   class="comments-section" 
@@ -24,6 +27,7 @@ const notificationUrl = SITE.notifications?.formspreeUrl || '';
   data-slug={slug} 
   data-newsletter-url={newsletterUrl}
   data-notification-url={notificationUrl}
+  data-google-client-id={googleClientId}
   aria-label="Article Discussion"
 >
   <div class="comments-header">
@@ -74,6 +78,7 @@ const notificationUrl = SITE.notifications?.formspreeUrl || '';
 
       const newsletterUrl = root.dataset.newsletterUrl || '';
       const notificationUrl = root.dataset.notificationUrl || '';
+      const googleClientId = root.dataset.googleClientId || '';
       const authStatusEl = root.querySelector<HTMLElement>('[data-auth-status]');
       const boxWrapperEl = root.querySelector<HTMLElement>('[data-comment-box-wrapper]');
       const listEl = root.querySelector<HTMLElement>('[data-comments-list]');
@@ -362,7 +367,8 @@ const notificationUrl = SITE.notifications?.formspreeUrl || '';
                   </svg>
                   <span>Sign in with GitHub</span>
                 </button>
-                <button type="button" class="oauth-btn google-btn" data-oauth="google">
+                <div id="google-gis-container" class="google-gis-container"></div>
+                <button type="button" class="oauth-btn google-btn" data-oauth="google" id="google-fallback-btn" style="display: none;">
                   <svg width="18" height="18" viewBox="0 0 24 24">
                     <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                     <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -375,7 +381,70 @@ const notificationUrl = SITE.notifications?.formspreeUrl || '';
             </div>
           `;
 
-          // Bind OAuth actions
+          // Setup Google Identity Services (Client-side ID Token)
+          function setupGoogleIdentity() {
+            const container = boxWrapperEl?.querySelector<HTMLElement>('#google-gis-container');
+            const fallbackBtn = boxWrapperEl?.querySelector<HTMLElement>('#google-fallback-btn');
+
+            if (!googleClientId) {
+              if (fallbackBtn) fallbackBtn.style.display = 'inline-flex';
+              if (container) container.style.display = 'none';
+              return;
+            }
+
+            const g = (window as any).google;
+            if (!g?.accounts?.id) {
+              setTimeout(setupGoogleIdentity, 150);
+              return;
+            }
+
+            try {
+              g.accounts.id.initialize({
+                client_id: googleClientId,
+                callback: async (res: { credential?: string }) => {
+                  if (!res.credential) return;
+
+                  try {
+                    const { data, error } = await supabase.auth.signInWithIdToken({
+                      provider: 'google',
+                      token: res.credential,
+                    });
+
+                    if (error) throw error;
+                  } catch (err: any) {
+                    console.error('Google ID Token Sign-In error:', err);
+                    alert('Google Sign-In failed: ' + (err.message || 'Please try again.'));
+                  }
+                },
+                auto_select: false,
+                cancel_on_tap_outside: true,
+              });
+
+              if (container) {
+                const isDark = document.documentElement.getAttribute('data-theme') === 'dark' || 
+                  (!document.documentElement.hasAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+                g.accounts.id.renderButton(container, {
+                  type: 'standard',
+                  shape: 'rectangular',
+                  theme: isDark ? 'filled_black' : 'outline',
+                  text: 'signin_with',
+                  size: 'large',
+                  logo_alignment: 'left',
+                });
+                container.style.display = 'inline-flex';
+                if (fallbackBtn) fallbackBtn.style.display = 'none';
+              }
+            } catch (err) {
+              console.warn('GIS error, falling back:', err);
+              if (fallbackBtn) fallbackBtn.style.display = 'inline-flex';
+              if (container) container.style.display = 'none';
+            }
+          }
+
+          setupGoogleIdentity();
+
+          // Bind fallback & GitHub OAuth actions
           boxWrapperEl.querySelectorAll<HTMLButtonElement>('[data-oauth]').forEach(btn => {
             btn.addEventListener('click', async () => {
               const provider = btn.dataset.oauth as 'github' | 'google';
