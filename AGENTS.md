@@ -76,3 +76,27 @@ When writing new articles or editing draft articles, **always** ensure the follo
   1. Move the `jobs.json` storage to a dedicated Supabase table (`jobs`).
   2. The GitHub Action runs `sync-jobs.js` and upserts directly to Supabase (`ON CONFLICT DO UPDATE` + `DELETE WHERE date_posted < NOW() - INTERVAL '30 days'`) instead of committing JSON files to Git.
   3. Keep Astro's static site generation (SSG) model: fetch the active jobs from Supabase at **build time** during `astro build`. Readers still get static Edge CDN speeds, while Git repository history remains completely clean of automated commits.
+
+## AI Optimization & GEO (Generative Engine Optimization) Protocol
+
+Whenever a new article is drafted or published, a new developer tool is built or updated, or the job board undergoes feature or architectural changes, the AI agent **MUST** automatically perform the following maintenance steps:
+
+1. **Update `public/llms.txt`**:
+   - Keep the concise manifest synchronized.
+   - For new articles: add the title, canonical link (`https://devscrolls.dev/articles/<slug>/`), and a 1-sentence high-signal description.
+   - For new/updated tools: verify the tool name, canonical link (`https://devscrolls.dev/tools/<slug>/`), and zero-egress/privacy guarantees are accurate.
+   - For job board: ensure the 30-day TTL, direct apply, and supported regions/stacks are accurately described.
+
+2. **Update `public/llms-full.txt`**:
+   - Update the machine-readable deep-context file with the technical specifications, problem-solution pairs, regexes/algorithms, and architectural trade-offs so LLMs (ChatGPT Search, Claude, Perplexity, Cursor, Gemini) can cite DevScrolls accurately.
+
+3. **Verify AI Crawler Directives in `public/robots.txt`**:
+   - Ensure all major AI search bots (`GPTBot`, `OAI-SearchBot`, `ChatGPT-User`, `ClaudeBot`, `PerplexityBot`, `Google-Extended`, `Googleother`, `Applebot-Extended`, `cohere-ai`) are explicitly allowed.
+   - Ensure directives for `Sitemap`, `llms-txt`, and `llms-full-txt` are present.
+
+4. **Verify Semantic `<head>` Discovery**:
+   - Ensure all layout templates include `<link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs.txt" />` and `<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLMs-full.txt" />`.
+
+5. **Contextual Cross-Linking**:
+   - Link new articles to relevant developer tools (`/tools/pii-scrubber/`, `/tools/jwt-debugger/`, `/tools/json-formatter/`, `/tools/daily-scroll/`) and the job board (`/jobs/`) whenever relevant topics (security, tokens, logs, remote work, daily workflow) arise.
+

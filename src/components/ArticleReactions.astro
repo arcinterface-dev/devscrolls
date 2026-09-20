@@ -75,8 +75,9 @@ const { slug } = Astro.props;
 </div>
 
 <script>
-  import { supabase, isSupabaseConfigured } from '../lib/supabase';
+  import { supabase, isSupabaseConfigured, isLocalhost } from '../lib/supabase';
   import { getOrCreateVisitorId, hasViewedInSession, markViewedInSession } from '../lib/visitor';
+  import { getApproxCountry } from '../lib/geo';
 
   function initReactions() {
     document.querySelectorAll<HTMLElement>('[data-article-reactions]').forEach(container => {
@@ -167,11 +168,20 @@ const { slug } = Astro.props;
       }
 
       async function recordView() {
+        if (isLocalhost()) {
+          console.debug(`[Article Reactions (Localhost)] Skipped recording view to Supabase for: ${slug}`);
+          return;
+        }
+
         if (!hasViewedInSession(slug)) {
           markViewedInSession(slug);
           if (isSupabaseConfigured) {
             try {
-              const { data } = await supabase.rpc('record_view', { p_slug: slug });
+              const country = await getApproxCountry();
+              const { data } = await supabase.rpc('record_view', { 
+                p_slug: slug,
+                p_country: country
+              });
               if (typeof data === 'number' && viewCountEl) {
                 viewCountEl.textContent = data.toString();
               }
@@ -196,6 +206,12 @@ const { slug } = Astro.props;
           clapBubble.classList.remove('animate');
           void clapBubble.offsetWidth;
           clapBubble.classList.add('animate');
+        }
+
+        // Never update claps in Supabase during local development
+        if (isLocalhost()) {
+          console.debug(`[Article Reactions (Localhost)] Skipped updating claps to Supabase for: ${slug}`);
+          return;
         }
 
         if (isSupabaseConfigured) {
@@ -390,6 +406,8 @@ const { slug } = Astro.props;
       opacity: 1;
       visibility: visible;
     }
+
+
 
     .reactions-dock {
       flex-direction: column;

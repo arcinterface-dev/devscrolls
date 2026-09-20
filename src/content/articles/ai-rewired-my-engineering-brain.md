@@ -78,7 +78,7 @@ After the [whiteboard interview failure](/articles/whiteboard-reality-check/) an
 
 Instead of telling the AI "build this feature," I now tell it *exactly* what I want and *how* I want it done.
 
-The difference matters. In the early days, I would give the agent a generic prompt: "Create a user authentication flow with JWT tokens." The agent would produce a complete implementation, and I would review it and merge it. But I did not always understand the internal decisions it made — why it structured the middleware a certain way, why it chose one validation library over another.
+The difference matters. In the early days, I would give the agent a generic prompt: "Create a user authentication flow with JWT tokens." The agent would produce a complete implementation, and I would review it and merge it. But I did not always understand the internal decisions it made — why it structured the middleware a certain way, why it chose one validation library over another. (Whenever I need to inspect claims or test signatures client-side without exposing auth tokens to an external server, I now use our offline [JWT Inspector & Offline Verifier](/tools/jwt-debugger/)).
 
 Now I break down the feature the same way I would if I was writing the code myself. I ask: what are the steps I would take if I was building this from scratch? Then I write those same steps as instructions for the agent.
 
@@ -103,6 +103,8 @@ The moment you start blindly trusting the agent's output without understanding t
 That might sound harsh, but I have seen what happens when you cross that line. I crossed it, and it cost me an interview. It made me look unprepared on debugging calls. It made me dependent on a tool that can go offline at any time.
 
 The agent is a force multiplier, not a replacement. Use it to type faster, to scaffold boilerplate, to explore solutions you might not have considered. But the architecture, the edge cases, the debugging flow — that still has to live in your head. 
+
+And there is an essential operational rule to remember: never paste raw production logs, database connection strings, or cloud tokens into AI prompts. Before sending diagnostic traces to an LLM, always clean sensitive credentials using an in-browser, zero-egress tool like our [PII & Secret Scrubber](/tools/pii-scrubber/).
 
 I am now making it a habit to write at least one feature per week completely by hand, without any AI assistance. Not because it is faster. It is not. But because it keeps the muscle alive. It keeps me honest about what I actually know versus what I have been outsourcing.
 

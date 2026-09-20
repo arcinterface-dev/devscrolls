@@ -1,0 +1,41 @@
+# DevScrolls
+
+> DevScrolls is an engineering publication, suite of zero-egress developer tools, and verified remote developer job board built for senior engineers, frontend specialists, and tech leads.
+
+DevScrolls delivers engineering war stories, production post-mortems, and architectural deep dives without LLM fluff or filler. All developer utilities operate 100% client-side in the browser with zero server data egress. The remote job board features strictly verified engineering roles with a 30-day rolling time-to-live (TTL) to eliminate ghost postings.
+
+Website: https://devscrolls.dev
+Full Machine-Readable Documentation: https://devscrolls.dev/llms-full.txt
+RSS Feed: https://devscrolls.dev/rss.xml
+
+---
+
+## Developer Tools (100% Client-Side, Zero-Egress)
+
+- [PII & Secret Scrubber](https://devscrolls.dev/tools/pii-scrubber/): One-click offline log cleaner. Strips API keys (OpenAI, GitHub, AWS, Stripe, Slack), JWTs, database connection strings, passwords, emails, and IP addresses before pasting logs or code into AI chatbots (ChatGPT, Claude, Gemini, Copilot). 100% in-browser regex execution; zero data is transmitted over the network.
+- [JWT Inspector & Offline Verifier](https://devscrolls.dev/tools/jwt-debugger/): Decode, inspect, and cryptographically verify JSON Web Tokens client-side using the native browser Web Crypto API (`window.crypto.subtle`). Supports HMAC SHA (HS256/384/512) and RSA (RS256/384/512). Visual expiration timeline gauge. No tokens, secrets, or claims are ever sent to an external server.
+- [JSON Formatter & Validator](https://devscrolls.dev/tools/json-formatter/): Developer-grade JSON utility featuring an inline JSONPath query engine, Monaco-powered side-by-side semantic diffing, and non-destructive undo/redo history. Built to handle 5MB+ payloads without freezing.
+- [DailyScroll](https://devscrolls.dev/tools/daily-scroll/): 5-minute developer companion for daily focus and standup preparation. Keyboard-driven, zero account or cloud sync required; persists locally via browser storage.
+
+---
+
+## Remote Developer Job Board
+
+- [DevScrolls Remote Developer Jobs](https://devscrolls.dev/jobs/): Vetted, high-paying remote software engineering positions across the US, EU, Canada, and Worldwide.
+  - **No Ghost Postings**: Strict 30-day rolling TTL automatically purges stale listings.
+  - **Direct Application Links**: Direct links to company applicant tracking systems (Greenhouse, Lever, Ashby, Workable) with zero recruiter middlemen or paywalls.
+  - **Filter by Region & Stack**: Instant client-side filtering for Frontend, Backend, Full-Stack, TypeScript, React, Node.js, Go, and Python roles.
+
+---
+
+## High-Signal Engineering Articles
+
+- [How AI Rewired My Engineering Brain in One Year](https://devscrolls.dev/articles/ai-rewired-my-engineering-brain/): Candid analysis of 12 months of AI-assisted engineering — velocity gains vs. loss of deep code comprehension, failing a whiteboard interview, and the architectural rules senior engineers must use when directing AI agents.
+- [I Got Tired of Fake Remote Jobs. So I Built My Own Board](https://devscrolls.dev/articles/why-i-built-a-developer-job-board/): The engineering architecture behind the DevScrolls job board: edge-static generation, 30-day automated TTL pruning, client-side batch windowing, and anti-fraud ingestion pipelines.
+- [I Explored Remote Jobs Without Remote Experience](https://devscrolls.dev/articles/remote-jobs-expectations-reality/): Deep-dive into global remote contract models, Section 44ADA presumptive taxation, background verification (BGV), and navigating statutory benefits (EPF/Gratuity) for international developers.
+- [Evolving the JSON Formatter: Building an In-Browser JQ Engine](https://devscrolls.dev/articles/evolving-the-json-formatter/): Technical post-mortem on marrying React's declarative state with Monaco Editor's imperative DOM, fixing reversed typing bugs in diff mode, and building a non-destructive undo stack.
+- [Why Developers Need a Daily Companion (Not Another Todo App)](https://devscrolls.dev/articles/why-developers-need-a-daily-companion/): Context-switching costs for engineers and the local-first architecture behind DailyScroll.
+- [20-Minute Angular Interview: 8 Questions, Real Answers, and What Actually Matters](https://devscrolls.dev/articles/20-minute-angular-interview-experience/): Senior-level Angular interview debrief covering Zoneless change detection, Signals vs. RxJS, standalone components, and SSR hydration.
+- [MERN Stack AI Interview Experience: 7 Real Questions and Why AI-Led Hiring Feels Broken](https://devscrolls.dev/articles/mern-stack-ai-interview-experience/): Deconstructing automated AI technical screening bots, rigid grading algorithms, and how to structure answers to pass robotic gatekeepers.
+- [Whiteboard Reality Check: Why AI Won't Save Your Next Interview](https://devscrolls.dev/articles/whiteboard-reality-check/): Why relying solely on AI coding assistants atrophies fundamental problem-solving muscles and how to maintain raw coding proficiency.
+- [How to Become a Frontend Developer in 2026: The Honest Roadmap](https://devscrolls.dev/articles/how-to-become-a-frontend-developer-in-2026/): Pragmatic guidance for modern frontend development: TypeScript, SSR/SSG frameworks, browser internals, and AI-augmented workflows.

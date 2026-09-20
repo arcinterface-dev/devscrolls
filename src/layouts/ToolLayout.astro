@@ -17,6 +17,8 @@ const { title, description, toolName } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs.txt" />
+    <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLMs-full.txt" />
     
     <script is:inline>
       (function() {
@@ -72,6 +74,7 @@ const { title, description, toolName } = Astro.props;
     display: flex;
     flex-direction: column;
     height: 100vh;
+    height: 100dvh;
     overflow: hidden; /* App-like full bleed */
     background-color: var(--surface-base);
   }
@@ -93,12 +96,15 @@ const { title, description, toolName } = Astro.props;
     gap: var(--space-2);
     font-size: var(--text-small);
     font-weight: 500;
+    min-width: 0;
+    overflow: hidden;
   }
 
   .tool-logo {
     display: flex;
     color: var(--accent-default);
     transition: color 0.2s;
+    flex-shrink: 0;
   }
   
   .tool-logo svg {
@@ -112,12 +118,14 @@ const { title, description, toolName } = Astro.props;
 
   .tool-header-divider {
     color: var(--border-strong);
+    flex-shrink: 0;
   }
 
   .tool-nav-link {
     color: var(--text-muted);
     text-decoration: none;
     transition: color 0.2s;
+    flex-shrink: 0;
   }
 
   .tool-nav-link:hover {
@@ -127,6 +135,16 @@ const { title, description, toolName } = Astro.props;
   .tool-current-name {
     color: var(--text-primary);
     font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 240px;
+  }
+
+  @media (max-width: 480px) {
+    .tool-current-name {
+      max-width: 140px;
+    }
   }
 
   .tool-header-right {
@@ -141,5 +159,9 @@ const { title, description, toolName } = Astro.props;
     min-height: 0; /* important for nested flex scrolling */
     overflow-y: auto;
     scrollbar-gutter: stable;
+  }
+
+  astro-island {
+    display: contents;
   }
 </style>

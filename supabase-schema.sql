@@ -7,8 +7,13 @@
 create table if not exists public.post_stats (
   post_slug text primary key,
   claps_count integer default 0,
-  views_count integer default 0
+  views_count integer default 0,
+  country_views jsonb default '{}'::jsonb
 );
+
+-- Ensure migration compatibility for existing tables:
+alter table if exists public.post_stats add column if not exists country_views jsonb default '{}'::jsonb;
+
 
 -- 2. Anonymous claps table (Medium-style: up to 10 claps per visitor per post)
 create table if not exists public.post_claps (
@@ -110,18 +115,28 @@ begin
 end;
 $$;
 
--- 7. Atomic RPC Function: Unique Views Counter
-create or replace function public.record_view(p_slug text)
+-- 7. Atomic RPC Function: Unique Views Counter with Geographic Tracking
+drop function if exists public.record_view(text);
+drop function if exists public.record_view(text, text);
+
+create or replace function public.record_view(p_slug text, p_country text default 'UNKNOWN')
 returns integer
 language plpgsql
 security definer
 as $$
 declare
   v_count integer;
+  v_c text := upper(coalesce(nullif(trim(p_country), ''), 'UNKNOWN'));
 begin
-  insert into public.post_stats (post_slug, views_count, claps_count)
-  values (p_slug, 1, 0)
-  on conflict (post_slug) do update set views_count = public.post_stats.views_count + 1
+  insert into public.post_stats (post_slug, views_count, claps_count, country_views)
+  values (p_slug, 1, 0, jsonb_build_object(v_c, 1))
+  on conflict (post_slug) do update set 
+    views_count = public.post_stats.views_count + 1,
+    country_views = jsonb_set(
+      coalesce(public.post_stats.country_views, '{}'::jsonb),
+      array[v_c],
+      to_jsonb(coalesce((public.post_stats.country_views->>v_c)::integer, 0) + 1)
+    )
   returning views_count into v_count;
   
   return v_count;
@@ -129,5 +144,154 @@ end;
 $$;
 
 -- 8. Grant Execution to anon & authenticated roles for atomic functions
-grant execute on function public.add_clap to anon, authenticated;
-grant execute on function public.record_view to anon, authenticated;
+grant execute on function public.add_clap(text, text) to anon, authenticated;
+grant execute on function public.record_view(text, text) to anon, authenticated;
+
+
+-- ==============================================================================
+-- 9. Developer Tools Usage Analytics & Insights (Free-Tier Safe & Throttled)
+-- ==============================================================================
+
+-- 9.1 Raw Tool Events (Insert-only via RPC, rate-limited)
+create table if not exists public.tool_events (
+  id uuid default gen_random_uuid() primary key,
+  tool_slug text not null,              -- 'pii-scrubber', 'jwt-debugger', 'json-formatter', 'daily-scroll'
+  event_type text not null,             -- 'page_view', 'action'
+  event_action text,                    -- 'scrub_text', 'copy_scrubbed', 'decode_jwt', 'verify_signature', etc.
+  visitor_id text not null,             -- anonymous visitor UUID
+  metadata jsonb default '{}',          -- { char_count: 1420, secrets_found: { api_key: 2, email: 4 } }
+  created_at timestamptz default now()
+);
+
+-- 9.2 Aggregated Tool Lifetime Stats (Instant O(1) queries for dashboards)
+create table if not exists public.tool_stats (
+  tool_slug text primary key,
+  total_views integer default 0,
+  total_actions integer default 0,
+  unique_visitors integer default 0,
+  country_actions jsonb default '{}'::jsonb,
+  last_used_at timestamptz default now()
+);
+
+-- Ensure migration compatibility for existing tables:
+alter table if exists public.tool_stats add column if not exists country_actions jsonb default '{}'::jsonb;
+
+-- 9.3 Tool Daily Rollups (for 30-day trend lines without scanning raw events)
+create table if not exists public.tool_daily_stats (
+  id uuid default gen_random_uuid() primary key,
+  tool_slug text not null,
+  date date not null default current_date,
+  views integer default 0,
+  actions integer default 0,
+  unique (tool_slug, date)
+);
+
+-- Indexes for lightning fast queries
+create index if not exists idx_tool_events_slug_created on public.tool_events(tool_slug, created_at desc);
+create index if not exists idx_tool_events_visitor_created on public.tool_events(visitor_id, created_at desc);
+create index if not exists idx_tool_daily_stats_date on public.tool_daily_stats(date desc);
+
+-- Row Level Security
+alter table public.tool_events enable row level security;
+alter table public.tool_stats enable row level security;
+alter table public.tool_daily_stats enable row level security;
+
+-- Public can read aggregated stats for UI badges/counts
+drop policy if exists "Public read tool stats" on public.tool_stats;
+create policy "Public read tool stats" on public.tool_stats for select using (true);
+
+drop policy if exists "Public read tool daily stats" on public.tool_daily_stats;
+create policy "Public read tool daily stats" on public.tool_daily_stats for select using (true);
+
+-- Authenticated users (admin) can read raw events for granular dashboard reports
+drop policy if exists "Authenticated read tool events" on public.tool_events;
+create policy "Authenticated read tool events" on public.tool_events for select to authenticated using (true);
+
+-- 9.4 Atomic & Throttled RPC Function with Geographic Tracking
+drop function if exists public.track_tool_event(text, text, text, text, jsonb);
+drop function if exists public.track_tool_event(text, text, text, text, jsonb, text);
+
+create or replace function public.track_tool_event(
+  p_tool_slug text,
+  p_event_type text,
+  p_event_action text default null,
+  p_visitor_id text default '',
+  p_metadata jsonb default '{}',
+  p_country text default 'UNKNOWN'
+)
+returns void
+language plpgsql
+security definer
+as $$
+declare
+  v_last_event_time timestamptz;
+  v_today date := current_date;
+  v_c text := upper(coalesce(nullif(trim(p_country), ''), 'UNKNOWN'));
+begin
+  -- Validate tool slug
+  if p_tool_slug not in ('pii-scrubber', 'jwt-debugger', 'json-formatter', 'daily-scroll') then
+    return;
+  end if;
+
+  -- Validate event type
+  if p_event_type not in ('page_view', 'action') then
+    return;
+  end if;
+
+  -- Free-Tier Rate Limiting: drop bursts if same visitor triggered within last 3 seconds
+  select created_at into v_last_event_time 
+  from public.tool_events 
+  where visitor_id = p_visitor_id and tool_slug = p_tool_slug 
+  order by created_at desc 
+  limit 1;
+
+  if v_last_event_time is not null and (now() - v_last_event_time) < interval '3 seconds' then
+    return; -- silently drop burst to protect DB storage
+  end if;
+
+  -- Insert raw event log
+  insert into public.tool_events (tool_slug, event_type, event_action, visitor_id, metadata)
+  values (p_tool_slug, p_event_type, p_event_action, p_visitor_id, p_metadata);
+
+  -- Upsert Lifetime Rollup with Country Tracking
+  insert into public.tool_stats (tool_slug, total_views, total_actions, unique_visitors, country_actions, last_used_at)
+  values (
+    p_tool_slug,
+    case when p_event_type = 'page_view' then 1 else 0 end,
+    case when p_event_type = 'action' then 1 else 0 end,
+    1,
+    case when p_event_type = 'action' then jsonb_build_object(v_c, 1) else '{}'::jsonb end,
+    now()
+  )
+  on conflict (tool_slug) do update set
+    total_views = tool_stats.total_views + case when p_event_type = 'page_view' then 1 else 0 end,
+    total_actions = tool_stats.total_actions + case when p_event_type = 'action' then 1 else 0 end,
+    country_actions = case 
+      when p_event_type = 'action' then
+        jsonb_set(
+          coalesce(tool_stats.country_actions, '{}'::jsonb),
+          array[v_c],
+          to_jsonb(coalesce((tool_stats.country_actions->>v_c)::integer, 0) + 1)
+        )
+      else tool_stats.country_actions
+    end,
+    last_used_at = now();
+
+  -- Upsert Daily Rollup
+  insert into public.tool_daily_stats (tool_slug, date, views, actions)
+  values (
+    p_tool_slug,
+    v_today,
+    case when p_event_type = 'page_view' then 1 else 0 end,
+    case when p_event_type = 'action' then 1 else 0 end
+  )
+  on conflict (tool_slug, date) do update set
+    views = tool_daily_stats.views + case when p_event_type = 'page_view' then 1 else 0 end,
+    actions = tool_daily_stats.actions + case when p_event_type = 'action' then 1 else 0 end;
+end;
+$$;
+
+grant execute on function public.track_tool_event(text, text, text, text, jsonb, text) to anon, authenticated;
+
+
+

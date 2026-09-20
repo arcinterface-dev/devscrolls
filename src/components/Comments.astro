@@ -52,7 +52,7 @@ const googleClientId = import.meta.env.PUBLIC_GOOGLE_CLIENT_ID || '';
 </section>
 
 <script>
-  import { supabase, isSupabaseConfigured } from '../lib/supabase';
+  import { supabase, isSupabaseConfigured, isLocalhost } from '../lib/supabase';
   import type { User } from '@supabase/supabase-js';
 
   interface CommentItem {
@@ -320,6 +320,31 @@ const googleClientId = import.meta.env.PUBLIC_GOOGLE_CLIENT_ID || '';
             if (submitBtn) {
               submitBtn.disabled = true;
               submitBtn.textContent = 'Posting...';
+            }
+
+            // In local development, do not insert comments into Supabase or trigger production webhooks
+            if (isLocalhost()) {
+              console.debug('[Comments (Localhost)] Mocking comment locally; skipped Supabase update:', content);
+              const mockComment: CommentItem = {
+                id: 'local_' + Date.now(),
+                post_slug: slug,
+                user_id: currentUser.id,
+                user_name: name,
+                user_avatar: avatar || null,
+                provider: provider,
+                content: content,
+                created_at: new Date().toISOString()
+              };
+              comments.push(mockComment);
+              if (countEl) countEl.textContent = comments.length.toString();
+              input.value = '';
+              if (charCount) charCount.textContent = '0/1000';
+              renderCommentsList();
+              if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Post Comment';
+              }
+              return;
             }
 
             try {

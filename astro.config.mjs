@@ -7,7 +7,26 @@ import react from '@astrojs/react';
 
 export default defineConfig({
   site: 'https://devscrolls.dev',
-  integrations: [sitemap(), react()],
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes('/admin')
+    }),
+    react()
+  ],
+  vite: {
+    optimizeDeps: {
+      include: [
+        'react',
+        'react-dom',
+        'react-dom/client',
+        'react/jsx-runtime',
+        'react/jsx-dev-runtime'
+      ]
+    },
+    resolve: {
+      dedupe: ['react', 'react-dom']
+    }
+  },
   markdown: {
     processor: unified({
       remarkPlugins: [remarkReadingTime],

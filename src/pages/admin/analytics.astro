@@ -1,0 +1,60 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import ToolAnalytics from '../../components/admin/ToolAnalytics.tsx';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Strict Anti-SEO / Privacy Cloaking -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet" />
+    <title>Private Analytics & Monetization — DevScrolls</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <script is:inline>
+      (function() {
+        const getTheme = () => {
+          if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+            return localStorage.getItem('theme');
+          }
+          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        };
+        const theme = getTheme();
+        if (theme === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
+  </head>
+  <body style="background-color: var(--surface-base); min-height: 100vh; margin: 0;">
+    <header style="height: 48px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; background: var(--surface-raised); border-bottom: 1px solid var(--border-subtle);">
+      <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600;">
+        <a href="/" style="display: flex; align-items: center; color: var(--accent-brand); text-decoration: none;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 2v20M2 4h4M2 20h4M20 2v20M18 4h4M18 20h4M4 6c4-1 12-1 16 0M4 18c4 1 12 1 16 0M8.5 9.5L6 12l2.5 2.5M15.5 9.5l2.5 2.5-2.5 2.5M13 8.5l-2 7" />
+          </svg>
+        </a>
+        <span style="color: var(--border-strong);">/</span>
+        <span style="color: var(--text-muted);">Admin</span>
+        <span style="color: var(--border-strong);">/</span>
+        <span style="color: var(--text-primary);">Executive Analytics</span>
+      </div>
+      <div>
+        <a href="/" style="font-size: 12px; color: var(--text-muted); text-decoration: none;">← Exit to Site</a>
+      </div>
+    </header>
+
+    <main>
+      <ToolAnalytics client:only="react" />
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  @import '../../styles/global.css';
+</style>

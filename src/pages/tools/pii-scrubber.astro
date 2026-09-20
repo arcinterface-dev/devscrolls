@@ -1,0 +1,60 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+import PiiScrubber from '../../components/tools/PiiScrubber/index.tsx';
+---
+
+<ToolLayout 
+  title="PII & Secret Scrubber — Clean Logs for AI Chatbots | DevScrolls" 
+  description="One-click offline log scrubber. Automatically redacts API keys, JWTs, AWS credentials, database connection strings, emails, and IPs before pasting into ChatGPT, Claude, or Copilot. 100% client-side."
+  toolName="PII & Secret Scrubber"
+>
+  <StructuredData 
+    type="SoftwareApplication"
+    data={{
+      name: "PII & Secret Scrubber",
+      applicationCategory: "DeveloperApplication",
+      operatingSystem: "Any",
+      description: "Fast in-browser utility to scrub sensitive PII, API tokens, JWTs, AWS secrets, and database passwords from server logs before sharing with AI chatbots.",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD"
+      }
+    }}
+  />
+
+  <StructuredData 
+    type="FAQPage"
+    data={{
+      mainEntity: [
+        {
+          "@type": "Question",
+          "name": "Does this tool send my logs or API keys to any server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The PII Scrubber executes 100% locally in your browser using client-side regular expressions. No log snippets, tokens, or credentials ever touch an external server or persistent local storage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which credentials and secret types are automatically redacted?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It identifies and redacts JWTs, OpenAI keys (sk-proj-), Stripe tokens, AWS Access Keys (AKIA) and secret keys, GitHub tokens (ghp_), Slack tokens, database connection URLs (Postgres, Mongo, MySQL), private cryptographic keys, emails, IPv4/IPv6 addresses, phone numbers, and credit card numbers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why shouldn't I paste raw logs directly into AI chatbots?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Commercial AI chatbots store prompt histories and may ingest training or conversation telemetry. Leaking production database URLs, user PII, or cloud credentials violates GDPR/SOC2 compliance and creates severe security breach vectors."
+          }
+        }
+      ]
+    }}
+  />
+
+  <PiiScrubber client:only="react" />
+</ToolLayout>

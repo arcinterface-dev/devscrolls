@@ -47,6 +47,7 @@ export default function DailyScroll() {
   const [currentDateStr, setCurrentDateStr] = useState<string>(getLocalDateStr());
   const [inputValue, setInputValue] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
+  const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
   const [filter, setFilter] = useState<'all' | 'pending' | 'high'>('all');
   const [copied, setCopied] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -1650,8 +1651,37 @@ export default function DailyScroll() {
           {/* Mobile-only compact week strip */}
           <div className={styles.mobileTimelineSection}>
             <div className={styles.mobileTimelineHeader}>
-              <span>📅 Timeline</span>
-              <span className={styles.mobileTimelineCurrent}>{getDayName(currentDateStr).substring(0, 3)}, {currentDateStr.substring(8, 10)}</span>
+              <div className={styles.mobileTimelineHeaderLeft}>
+                <span>📅 Timeline</span>
+                <span className={styles.mobileTimelineCurrent}>{getDayName(currentDateStr).substring(0, 3)}, {currentDateStr.substring(8, 10)}</span>
+              </div>
+              <div className={styles.mobileTimelineHeaderActions}>
+                <button 
+                  type="button" 
+                  className={styles.mobileActionBtn}
+                  onClick={openStandupModal}
+                  title="Export Standup"
+                  aria-label="Export Standup"
+                >
+                  <span className={styles.mobileActionIcon}>🚀</span>
+                  <span>Standup</span>
+                </button>
+                <button 
+                  type="button" 
+                  className={styles.mobileActionBtn}
+                  onClick={() => {
+                    setImportError(null);
+                    setImportSuccess(null);
+                    setShowDeleteConfirm(false);
+                    setShowSettingsModal(true);
+                  }}
+                  title="Backup, Data Portability & Reset"
+                  aria-label="Backup & Data"
+                >
+                  <span className={styles.mobileActionIcon}>⚙️</span>
+                  <span>Data</span>
+                </button>
+              </div>
             </div>
             <nav className={styles.mobileWeekStrip}>
               {weekDays.map(dateStr => {
@@ -1790,7 +1820,7 @@ export default function DailyScroll() {
               </div>
             )}
 
-            {/* Action Row: Task Input (left) + Search Input (right) */}
+            {/* Action Row: Task Input + Search Controls */}
             <div className={styles.actionRow}>
               <form onSubmit={addTask} className={styles.inputForm}>
                 <div className={styles.inputWrapper}>
@@ -1817,6 +1847,27 @@ export default function DailyScroll() {
                 </div>
               </form>
 
+              {/* Mobile Search Toggle Icon Button (visible only on mobile) */}
+              <button
+                type="button"
+                className={`${styles.mobileSearchToggleBtn} ${(isMobileSearchOpen || searchQuery) ? styles.mobileSearchToggleBtnActive : ''}`}
+                onClick={() => {
+                  const next = !isMobileSearchOpen;
+                  setIsMobileSearchOpen(next);
+                  if (!next) {
+                    setSearchQuery('');
+                  }
+                }}
+                title={isMobileSearchOpen ? "Close Search" : "Search Tasks"}
+                aria-label="Toggle Search"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </button>
+
+              {/* Desktop Search Wrapper (always visible on desktop, hidden on mobile) */}
               <div className={styles.searchWrapper}>
                 <svg className={styles.searchIcon} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <circle cx="11" cy="11" r="8"></circle>
@@ -1842,6 +1893,47 @@ export default function DailyScroll() {
                 )}
               </div>
             </div>
+
+            {/* Mobile Search Input (appears only when search is toggled open on mobile) */}
+            {(isMobileSearchOpen || searchQuery) && (
+              <div className={styles.mobileSearchDropdown}>
+                <div className={styles.mobileSearchInputWrapper}>
+                  <svg className={styles.searchIcon} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                  <input 
+                    type="text" 
+                    className={styles.mobileSearchInputField}
+                    placeholder="Search tasks..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    autoFocus
+                  />
+                  {searchQuery && (
+                    <button 
+                      type="button" 
+                      className={styles.searchClearBtn} 
+                      onClick={() => setSearchQuery('')} 
+                      title="Clear search text"
+                    >
+                      ✕
+                    </button>
+                  )}
+                  <button
+                    type="button"
+                    className={styles.mobileSearchCloseBtn}
+                    onClick={() => {
+                      setSearchQuery('');
+                      setIsMobileSearchOpen(false);
+                    }}
+                    title="Close search"
+                  >
+                    Done
+                  </button>
+                </div>
+              </div>
+            )}
 
             {/* Combined Toolbar: Filters on left + Quick Syntax on right */}
             <div className={styles.toolbarRow}>
@@ -1912,6 +2004,15 @@ export default function DailyScroll() {
                   <button 
                     type="button" 
                     className={styles.hotkeysBtn} 
+                    onClick={openStandupModal}
+                    title="Daily Standup Generator"
+                    aria-label="Daily Standup Generator"
+                  >
+                    <span className={styles.hotkeysBtnIcon}>🚀</span>
+                  </button>
+                  <button 
+                    type="button" 
+                    className={styles.hotkeysBtn} 
                     onClick={() => setShowShortcutsModal(true)}
                     title="View Keyboard Shortcuts (?)"
                   >
@@ -1940,7 +2041,9 @@ export default function DailyScroll() {
         <div className={styles.taskList}>
           {pendingTasks.length === 0 && completedTasks.length === 0 ? (
             <div className={styles.emptyState}>
-              <p>No tasks found. Press <kbd>N</kbd> to plan your mission.</p>
+              <p>
+                No tasks found. <span className={styles.desktopOnly}>Press <kbd>N</kbd></span><span className={styles.mobileOnly}>Add a task above</span> to plan your mission.
+              </p>
             </div>
           ) : (
             <>

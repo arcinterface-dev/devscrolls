@@ -9,6 +9,25 @@ export const isSupabaseConfigured = Boolean(
   !supabaseUrl.includes('your-project-id')
 );
 
+/**
+ * Detect whether the current client is running in local development mode (localhost/127.0.0.1/Vite dev).
+ * Used to suppress tracking events and database updates during local development.
+ */
+export function isLocalhost(): boolean {
+  if (import.meta.env.DEV) return true;
+  if (typeof window !== 'undefined') {
+    const host = window.location.hostname;
+    return (
+      host === 'localhost' ||
+      host === '127.0.0.1' ||
+      host === '[::1]' ||
+      host.endsWith('.local') ||
+      host === ''
+    );
+  }
+  return false;
+}
+
 // Graceful client creation: if keys aren't provided, create a mock-safe or dummy instance
 export const supabase = isSupabaseConfigured
   ? createClient(supabaseUrl, supabaseAnonKey, {

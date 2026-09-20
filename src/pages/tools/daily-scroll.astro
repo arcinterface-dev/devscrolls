@@ -24,4 +24,10 @@ import DailyScroll from '../../components/tools/DailyScroll/index.tsx';
   />
   
   <DailyScroll client:only="react" />
+
+  <script>
+    import { trackToolPageView } from '../../lib/analytics';
+    trackToolPageView('daily-scroll');
+  </script>
 </ToolLayout>
+

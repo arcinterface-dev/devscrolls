@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Editor, { DiffEditor, loader } from '@monaco-editor/react';
 import { parseAndFormatJson, queryJsonPath, getSampleJson, sortJsonKeys } from './utils';
+import { trackToolPageView, trackToolEvent } from '../../../lib/analytics';
 
 // Configure Monaco loader to use local self-hosted assets
 if (typeof window !== 'undefined') {
@@ -31,8 +32,32 @@ export default function JsonFormatter() {
   const [validationError, setValidationError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
   const [fontsReady, setFontsReady] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [linkCopied, setLinkCopied] = useState(false);
+  const [forceFullIde, setForceFullIde] = useState(false);
   
   const editorRef = useRef<any>(null);
+  const diffEditorRef = useRef<any>(null);
+  const diffModifiedRef = useRef<string>('');
+
+  // Responsive mobile detection
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Cleanup DiffEditor models on unmount to prevent Monaco TextModel disposal errors
+  useEffect(() => {
+    return () => {
+      if (diffEditorRef.current) {
+        try {
+          diffEditorRef.current.setModel(null);
+        } catch (_) {}
+      }
+    };
+  }, []);
 
   // Keep input synchronized with localStorage
   useEffect(() => {
@@ -61,6 +86,7 @@ export default function JsonFormatter() {
   // Wait for system fonts to load before mounting Monaco
   useEffect(() => {
     document.fonts.ready.then(() => setFontsReady(true));
+    trackToolPageView('json-formatter');
   }, []);
 
   // Calculate initial metrics for loaded content on mount
@@ -126,31 +152,47 @@ export default function JsonFormatter() {
   const handleFormat = () => {
     if (!input.trim()) return;
     const result = parseAndFormatJson(input);
-    if (result.formatted && editorRef.current && mode === 'edit') {
-      applyEditorChange(editorRef.current, result.formatted);
+    if (result.formatted) {
+      if (editorRef.current && mode === 'edit') {
+        applyEditorChange(editorRef.current, result.formatted);
+      } else {
+        setInput(result.formatted);
+        updateMetrics(result.formatted);
+      }
     }
   };
 
   const handleMinify = () => {
     if (!input.trim()) return;
     const result = parseAndFormatJson(input, 0);
-    if (result.formatted && editorRef.current && mode === 'edit') {
-      applyEditorChange(editorRef.current, result.formatted);
+    if (result.formatted) {
+      if (editorRef.current && mode === 'edit') {
+        applyEditorChange(editorRef.current, result.formatted);
+      } else {
+        setInput(result.formatted);
+        updateMetrics(result.formatted);
+      }
     }
   };
 
   const handleSortKeys = () => {
     if (!input.trim()) return;
     const result = sortJsonKeys(input);
-    if (result.formatted && editorRef.current && mode === 'edit') {
-      applyEditorChange(editorRef.current, result.formatted);
+    if (result.formatted) {
+      if (editorRef.current && mode === 'edit') {
+        applyEditorChange(editorRef.current, result.formatted);
+      } else {
+        setInput(result.formatted);
+        updateMetrics(result.formatted);
+      }
     }
   };
 
   const handleCopy = async () => {
-    if (!input) return;
+    const textToCopy = mode === 'diff' && diffModifiedRef.current ? diffModifiedRef.current : input;
+    if (!textToCopy) return;
     try {
-      await navigator.clipboard.writeText(input);
+      await navigator.clipboard.writeText(textToCopy);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
@@ -191,9 +233,10 @@ export default function JsonFormatter() {
     if (result.formatted) {
       if (editorRef.current && mode === 'edit') {
         applyEditorChange(editorRef.current, result.formatted);
+        setValidationError(null);
       }
     } else if (result.error) {
-      alert(result.error);
+      setValidationError(result.error);
     }
   };
 
@@ -216,8 +259,26 @@ export default function JsonFormatter() {
   const switchMode = (newMode: 'edit' | 'diff') => {
     if (newMode === 'diff') {
       setDiffOriginalInit(input);
+      diffModifiedRef.current = input;
+    } else if (mode === 'diff') {
+      if (diffEditorRef.current) {
+        try {
+          const val = diffModifiedRef.current || diffEditorRef.current.getModifiedEditor()?.getValue() || input;
+          setInput(val);
+          updateMetrics(val);
+          diffEditorRef.current.setModel(null);
+        } catch (_) {}
+      }
     }
     setMode(newMode);
+  };
+
+  const copyDesktopLink = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      setLinkCopied(true);
+      setTimeout(() => setLinkCopied(false), 2000);
+    } catch (_) {}
   };
 
   const formatSize = (bytes: number) => {
@@ -249,6 +310,91 @@ export default function JsonFormatter() {
       horizontalScrollbarSize: 10,
     }
   };
+
+  if (isMobile && !forceFullIde) {
+    return (
+      <div className="json-formatter-container vscode-style jf-mobile-container">
+        {/* Desktop Recommendation Banner */}
+        <div className="jf-mobile-banner">
+          <div className="jf-mobile-banner-badge">Workstation Tool</div>
+          <h2 className="jf-mobile-banner-title">Desktop Recommended</h2>
+          <p className="jf-mobile-banner-text">
+            Side-by-side diffing, deep JSONPath queries, and Monaco syntax highlighting are engineered for desktop viewports.
+          </p>
+          <div className="jf-mobile-banner-actions">
+            <button className="jf-mobile-btn-primary" onClick={copyDesktopLink}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+              {linkCopied ? 'Link Copied! 📋' : 'Copy Desktop Link'}
+            </button>
+            <button className="jf-mobile-btn-secondary" onClick={() => setForceFullIde(true)}>
+              Try Full IDE
+            </button>
+          </div>
+        </div>
+
+        {/* Quick Emergency Mobile Formatter */}
+        <div className="jf-mobile-workbench">
+          <div className="jf-mobile-header">
+            <span className="jf-mobile-header-title">Quick Mobile Formatter</span>
+            <div className="jf-mobile-header-actions">
+              <button className="jf-mobile-action-btn jf-mobile-action-primary" onClick={handleFormat}>Beautify</button>
+              <button className="jf-mobile-action-btn" onClick={handleMinify}>Minify</button>
+              <button className="jf-mobile-action-btn" onClick={handleSortKeys}>Sort</button>
+              <button className="jf-mobile-action-btn" onClick={handleCopy}>{copied ? 'Copied!' : 'Copy'}</button>
+              <button className="jf-mobile-action-btn jf-mobile-btn-clear" onClick={handleClear}>Clear</button>
+            </div>
+          </div>
+
+          <textarea
+            className="jf-mobile-textarea"
+            placeholder="Paste JSON payload here..."
+            value={input}
+            onChange={(e) => {
+              setInput(e.target.value);
+              updateMetrics(e.target.value);
+            }}
+            spellCheck={false}
+          />
+
+          <div className="jf-mobile-samples">
+            <span className="jf-mobile-sample-label">Sample:</span>
+            <button className="jf-mobile-sample-btn" onClick={() => loadSample('simple')}>Simple</button>
+            <button className="jf-mobile-sample-btn" onClick={() => loadSample('nested')}>Nested</button>
+            <button className="jf-mobile-sample-btn" onClick={() => loadSample('large')}>API Response</button>
+          </div>
+        </div>
+
+        {/* Mobile Status Bar */}
+        <div className={`jf-status-bar ${validationError ? 'has-error' : ''}`}>
+          <div className="jf-status-left">
+            {validationError ? (
+              <span className="jf-status-error" title={validationError}>
+                ⚠️ {validationError}
+              </span>
+            ) : metrics ? (
+              <span className="jf-status-success">
+                ✓ Valid JSON ({formatSize(metrics.size)})
+              </span>
+            ) : (
+              <span className="jf-status-success">Ready</span>
+            )}
+          </div>
+          <div className="jf-status-right">
+            <a 
+              href="#formatter-guide" 
+              className="jf-status-docs-link"
+              onClick={() => {
+                const el = document.getElementById('formatter-guide') as HTMLDetailsElement | null;
+                if (el) el.open = true;
+              }}
+            >
+              Docs ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="json-formatter-container vscode-style">
@@ -310,15 +456,15 @@ export default function JsonFormatter() {
                 <>
                   <button className="jf-btn-modern" onClick={handleFormat} title="Beautify & Auto-Fix (Shift+Alt+F)">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z"/><path d="m14 7 3 3"/><path d="M5 6v4"/><path d="M19 14v4"/><path d="M10 2v2"/><path d="M7 8H3"/><path d="M21 16h-4"/><path d="M11 3H9"/></svg>
-                    Beautify
+                    <span className="jf-btn-label">Beautify</span>
                   </button>
                   <button className="jf-btn-modern" onClick={handleMinify} title="Minify JSON">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/></svg>
-                    Minify
+                    <span className="jf-btn-label">Minify</span>
                   </button>
                   <button className="jf-btn-modern" onClick={handleSortKeys} title="Sort Keys Alphabetically">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 16h10M3 12h14M3 8h18M3 4h21"/></svg>
-                    Sort Keys
+                    <span className="jf-btn-label">Sort Keys</span>
                   </button>
                   <div className="jf-toolbar-divider"></div>
                 </>
@@ -355,10 +501,9 @@ export default function JsonFormatter() {
                 original={diffOriginalInit}
                 modified={input}
                 onMount={(editor) => {
+                  diffEditorRef.current = editor;
                   editor.getModifiedEditor().onDidChangeModelContent(() => {
-                     const val = editor.getModifiedEditor().getValue();
-                     setInput(val);
-                     updateMetrics(val);
+                    diffModifiedRef.current = editor.getModifiedEditor().getValue();
                   });
                 }}
                 options={{
@@ -403,6 +548,18 @@ export default function JsonFormatter() {
           ) : (
             <span>UTF-8 <span className="jf-status-divider">|</span> JSON</span>
           )}
+          <span className="jf-status-divider">|</span>
+          <a 
+            href="#formatter-guide" 
+            className="jf-status-docs-link"
+            onClick={() => {
+              const el = document.getElementById('formatter-guide') as HTMLDetailsElement | null;
+              if (el) el.open = true;
+            }}
+            title="Read Guide & FAQs"
+          >
+            Docs ↗
+          </a>
         </div>
       </div>
       
@@ -410,10 +567,13 @@ export default function JsonFormatter() {
         .json-formatter-container {
           display: flex;
           flex-direction: column;
-          min-height: calc(100vh - 48px);
+          height: calc(100vh - 48px);
+          height: calc(100dvh - 48px);
+          max-height: calc(100dvh - 48px);
           flex-shrink: 0;
           width: 100%;
           background: var(--surface-base);
+          overflow: hidden;
         }
 
         .jf-toolbar {
@@ -425,6 +585,13 @@ export default function JsonFormatter() {
           background: var(--surface-raised);
           border-bottom: 1px solid var(--border-subtle);
           flex-shrink: 0;
+          overflow-x: auto;
+          scrollbar-width: none;
+          -webkit-overflow-scrolling: touch;
+        }
+
+        .jf-toolbar::-webkit-scrollbar {
+          display: none;
         }
 
         .jf-toolbar-left {
@@ -667,9 +834,231 @@ export default function JsonFormatter() {
           z-index: 10;
         }
 
-        @keyframes jfFadeIn {
-          from { opacity: 0; transform: translateX(-50%) translateY(0); }
-          to { opacity: 1; transform: translateX(-50%) translateY(-4px); }
+        .jf-status-docs-link {
+          color: #ffffff;
+          text-decoration: none;
+          opacity: 0.85;
+          font-weight: 500;
+          transition: opacity 0.2s;
+        }
+
+        .jf-status-docs-link:hover {
+          opacity: 1;
+          text-decoration: underline;
+        }
+
+        /* Mobile Dedicated Experience */
+        .jf-mobile-container {
+          padding: var(--space-3);
+          gap: var(--space-3);
+          height: calc(100vh - 48px);
+          height: calc(100dvh - 48px);
+          background: var(--surface-base);
+          box-sizing: border-box;
+          overflow-y: auto;
+        }
+
+        .jf-mobile-banner {
+          background: var(--surface-raised);
+          border: 1px solid var(--border-subtle);
+          border-radius: var(--radius-md);
+          padding: var(--space-4);
+          display: flex;
+          flex-direction: column;
+          gap: var(--space-2);
+          flex-shrink: 0;
+        }
+
+        .jf-mobile-banner-badge {
+          display: inline-flex;
+          align-self: flex-start;
+          font-size: 10px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          padding: 2px 6px;
+          border-radius: var(--radius-sm);
+          background: rgba(217, 119, 6, 0.15);
+          color: #d97706;
+          border: 1px solid rgba(217, 119, 6, 0.3);
+        }
+
+        .jf-mobile-banner-title {
+          font-size: var(--text-base);
+          font-weight: 700;
+          color: var(--text-primary);
+          margin: 0;
+        }
+
+        .jf-mobile-banner-text {
+          font-size: var(--text-xs);
+          color: var(--text-muted);
+          line-height: 1.5;
+          margin: 0;
+        }
+
+        .jf-mobile-banner-actions {
+          display: flex;
+          gap: var(--space-2);
+          margin-top: var(--space-2);
+          flex-wrap: wrap;
+        }
+
+        .jf-mobile-btn-primary {
+          display: inline-flex;
+          align-items: center;
+          gap: var(--space-2);
+          background: var(--accent-default);
+          color: #ffffff;
+          border: none;
+          font-family: inherit;
+          font-size: var(--text-xs);
+          font-weight: 600;
+          padding: 8px 14px;
+          border-radius: var(--radius-sm);
+          cursor: pointer;
+          transition: background 0.2s;
+        }
+
+        .jf-mobile-btn-primary:active {
+          opacity: 0.9;
+        }
+
+        .jf-mobile-btn-secondary {
+          background: var(--surface-sunken);
+          color: var(--text-secondary);
+          border: 1px solid var(--border-subtle);
+          font-family: inherit;
+          font-size: var(--text-xs);
+          font-weight: 500;
+          padding: 8px 12px;
+          border-radius: var(--radius-sm);
+          cursor: pointer;
+        }
+
+        .jf-mobile-workbench {
+          background: var(--surface-raised);
+          border: 1px solid var(--border-subtle);
+          border-radius: var(--radius-md);
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+          min-height: 240px;
+          overflow: hidden;
+        }
+
+        .jf-mobile-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: var(--space-2) var(--space-3);
+          border-bottom: 1px solid var(--border-subtle);
+          background: var(--surface-raised);
+          flex-wrap: wrap;
+          gap: var(--space-2);
+        }
+
+        .jf-mobile-header-title {
+          font-size: var(--text-xs);
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          color: var(--text-muted);
+        }
+
+        .jf-mobile-header-actions {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+
+        .jf-mobile-action-btn {
+          background: var(--surface-sunken);
+          border: 1px solid var(--border-subtle);
+          color: var(--text-primary);
+          font-family: inherit;
+          font-size: 11px;
+          font-weight: 600;
+          padding: 4px 8px;
+          border-radius: var(--radius-sm);
+          cursor: pointer;
+        }
+
+        .jf-mobile-action-primary {
+          background: var(--accent-default);
+          color: #ffffff;
+          border-color: var(--accent-default);
+        }
+
+        .jf-mobile-btn-clear {
+          color: var(--status-error);
+        }
+
+        .jf-mobile-textarea {
+          flex: 1;
+          width: 100%;
+          min-height: 180px;
+          background: var(--surface-base);
+          color: var(--text-primary);
+          border: none;
+          padding: var(--space-3);
+          font-family: var(--font-mono);
+          font-size: 13px;
+          line-height: 1.5;
+          resize: none;
+          outline: none;
+          box-sizing: border-box;
+          white-space: pre;
+          overflow-wrap: normal;
+          overflow-x: auto;
+        }
+
+        .jf-mobile-samples {
+          display: flex;
+          align-items: center;
+          gap: var(--space-2);
+          padding: var(--space-2) var(--space-3);
+          border-top: 1px solid var(--border-subtle);
+          background: var(--surface-raised);
+          font-size: 11px;
+        }
+
+        .jf-mobile-sample-label {
+          color: var(--text-muted);
+          font-weight: 600;
+        }
+
+        .jf-mobile-sample-btn {
+          background: transparent;
+          border: none;
+          color: var(--accent-default);
+          font-size: 11px;
+          font-weight: 600;
+          cursor: pointer;
+          padding: 2px 6px;
+          border-radius: var(--radius-sm);
+        }
+
+        @media (max-width: 640px) {
+          .jf-toolbar {
+            padding: 0 var(--space-2);
+            gap: var(--space-2);
+          }
+          .jf-query-input {
+            width: 120px;
+          }
+          .jf-btn-label {
+            display: none;
+          }
+          .jf-btn-modern {
+            padding: var(--space-1) var(--space-2);
+          }
+          .jf-pane-title {
+            display: none;
+          }
+          .jf-sample-dropdown .jf-label {
+            display: none;
+          }
         }
       `}</style>
     </div>

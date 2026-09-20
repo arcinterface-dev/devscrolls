@@ -1,0 +1,60 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+import JwtDebugger from '../../components/tools/JwtDebugger/index.tsx';
+---
+
+<ToolLayout 
+  title="JWT Inspector & Offline Verifier — Free Client-Side Tool | DevScrolls" 
+  description="Decode, inspect, and verify JSON Web Tokens (JWT) client-side using the native browser Web Crypto API. Zero tokens or secrets are ever sent to any remote server."
+  toolName="JWT Inspector & Verifier"
+>
+  <StructuredData 
+    type="SoftwareApplication"
+    data={{
+      name: "JWT Inspector & Offline Verifier",
+      applicationCategory: "DeveloperApplication",
+      operatingSystem: "Any",
+      description: "Fast offline JWT debugging utility to inspect headers, payload claims, and verify cryptographic signatures with Web Crypto API.",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD"
+      }
+    }}
+  />
+
+  <StructuredData 
+    type="FAQPage"
+    data={{
+      mainEntity: [
+        {
+          "@type": "Question",
+          "name": "Are my JWTs and secrets sent over the internet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Unlike legacy JWT debuggers that parse tokens on external backends, this inspector operates 100% locally in your browser using window.crypto.subtle. No sensitive tokens, keys, or claims are ever transmitted."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which cryptographic algorithms are supported for verification?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The offline verifier supports HMAC SHA algorithms (HS256, HS384, HS512) and RSA public key algorithms (RS256, RS384, RS512) using native Web Crypto primitives."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can this tool parse expired tokens?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The tool parses expired tokens and highlights expiration status with a visual timeline gauge showing exactly when the token was issued, when it expired, and how much time has passed."
+          }
+        }
+      ]
+    }}
+  />
+
+  <JwtDebugger client:only="react" />
+</ToolLayout>

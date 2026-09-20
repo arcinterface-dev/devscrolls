@@ -4,16 +4,30 @@ import StructuredData from '../../components/StructuredData.astro';
 
 const tools = [
   {
+    title: "PII & Secret Scrubber",
+    description: "One-click regex cleaner to scrub API keys, JWTs, AWS credentials, emails, and IPs before pasting logs into AI chatbots.",
+    href: "/tools/pii-scrubber/",
+    icon: "🛡",
+    isNew: true
+  },
+  {
+    title: "JWT Inspector & Offline Verifier",
+    description: "Client-side JWT decoding and cryptographic signature verification using native browser Web Crypto API.",
+    href: "/tools/jwt-debugger/",
+    icon: "🔑",
+    isNew: true
+  },
+  {
+    title: "JSON Formatter & Validator",
+    description: "Format, validate, query with JSONPath, diff compare, and sort keys in a VS Code-style editor.",
+    href: "/tools/json-formatter/",
+    icon: "{}"
+  },
+  {
     title: "DailyScroll",
     description: "A frictionless daily companion for developers. Track today's work, prepare for standup.",
     href: "/tools/daily-scroll/",
     icon: "✓"
-  },
-  {
-    title: "JSON Formatter & Validator",
-    description: "Format, validate, query, and generate types from JSON payloads.",
-    href: "/tools/json-formatter/",
-    icon: "{}"
   }
 ];
 ---
@@ -34,7 +48,7 @@ const tools = [
       <h1 class="tools-title">Developer Tools</h1>
       <p class="tools-description">
         Fast, pure client-side utilities built for daily developer workflows. 
-        No tracking, no backend processing, and absolutely no data leaves your browser.
+        Zero log harvesting, 100% offline-capable, and absolutely no sensitive data leaves your browser.
       </p>
     </header>
 
@@ -43,7 +57,10 @@ const tools = [
         <a href={tool.href} class="tool-card">
           <div class="tool-icon">{tool.icon}</div>
           <div class="tool-content">
-            <h2 class="tool-name">{tool.title}</h2>
+            <div class="tool-name-row">
+              <h2 class="tool-name">{tool.title}</h2>
+              {tool.isNew && <span class="tool-badge-new">NEW</span>}
+            </div>
             <p class="tool-desc">{tool.description}</p>
           </div>
         </a>
@@ -82,7 +99,7 @@ const tools = [
 
   .tools-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
     gap: var(--space-6);
   }
 
@@ -132,6 +149,26 @@ const tools = [
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
+    flex: 1;
+  }
+
+  .tool-name-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+
+  .tool-badge-new {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    background: rgba(217, 119, 6, 0.15);
+    color: var(--accent-brand);
+    border: 1px solid rgba(217, 119, 6, 0.3);
   }
 
   .tool-name {

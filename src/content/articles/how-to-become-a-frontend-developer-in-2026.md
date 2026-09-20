@@ -95,9 +95,13 @@ Ahaa! that's what am talking about... actually writing code is the best way to l
 
 ---
 
-## Conclusion
+## Moving Forward
 
 Frontend development is not going away — it is becoming more architectural. You don't need to memorize every CSS property, but you must understand how layouts fit together, how components hydrate, and how users interact with your interfaces. 
+
+If you want to keep your daily focus sharp while managing engineering tasks, try our lightweight [DailyScroll](/tools/daily-scroll/) companion. And if you're curious about how generative AI changes your engineering habits, read my breakdown on [how AI rewired my engineering brain in one year](/articles/ai-rewired-my-engineering-brain/).
+
+Once you have built your portfolio and are ready to apply for positions, browse verified remote roles on the [DevScrolls Remote Job Board](/jobs/).
 
 Keep practicing, learn to guide your AI assistants effectively, and focus on delivering accessible and performant UIs. 
 
