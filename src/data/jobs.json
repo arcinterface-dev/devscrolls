@@ -1,5 +1,152 @@
 [
   {
+    "id": "jobicy-151260",
+    "slug": "luxury-presence-generative-media-engineer-ai-social-us",
+    "title": "Generative Media Engineer, AI Social - US",
+    "company": "Luxury Presence",
+    "companyLogo": "https://jobicy.com/data/server-nyc0409/galaxy/mercury/2022/05/f2b241fb769140fff2f70e8efaf5c0ff.jpg",
+    "location": "Remote (USA)",
+    "region": "US",
+    "workplaceType": "Remote",
+    "tags": [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Staff/Lead"
+    ],
+    "applyUrl": "https://jobicy.com/jobs/151260-generative-media-engineer-ai-social-us",
+    "datePosted": "2026-09-20T05:00:12.000Z",
+    "source": "Jobicy Verified",
+    "descriptionSnippet": "Luxury Presence is building the AI growth platform for real estate. Backed by Bessemer Venture Partners and other top investors, we're a Series C company that has hit $100M in annu..."
+  },
+  {
+    "id": "jobicy-151239",
+    "slug": "clickup-staff-backend-engineer-hierarchy",
+    "title": "Staff Backend Engineer, Hierarchy",
+    "company": "ClickUp",
+    "companyLogo": "https://jobicy.com/data/server-nyc0409/galaxy/mercury/2025/06/cd5be0ef-221.jpg",
+    "location": "Remote (USA)",
+    "region": "US",
+    "workplaceType": "Remote",
+    "tags": [
+      "Frontend",
+      "Backend",
+      "AI / ML",
+      "React"
+    ],
+    "applyUrl": "https://jobicy.com/jobs/151239-staff-backend-engineer-hierarchy",
+    "datePosted": "2026-09-20T04:55:14.000Z",
+    "source": "Jobicy Verified",
+    "descriptionSnippet": "At ClickUp, we're building the future of work: the first truly converged AI workspace unifying tasks, docs, chat, calendar, and enterprise search, all supercharged by context-drive..."
+  },
+  {
+    "id": "jobicy-151229",
+    "slug": "aviatrix-principal-engineer-tl-m-software-development-paas",
+    "title": "Principal Engineer TL/M - Software Development (PaaS)",
+    "company": "Aviatrix",
+    "companyLogo": "https://jobicy.com/data/server-nyc0409/galaxy/mercury/2025/06/c783b38c-221.jpeg",
+    "location": "Remote (USA)",
+    "region": "US",
+    "workplaceType": "Remote",
+    "tags": [
+      "Go",
+      "Staff/Lead"
+    ],
+    "applyUrl": "https://jobicy.com/jobs/151229-principal-engineer-tl-m-software-development-paas",
+    "datePosted": "2026-09-20T04:55:05.000Z",
+    "source": "Jobicy Verified",
+    "descriptionSnippet": "WHO WE ARE: Aviatrix® is pioneering the Cloud Native Security Fabric — the architecture the Containment Era requires. The Cloud Native Security Fabric governs every workload commun..."
+  },
+  {
+    "id": "jobicy-146760",
+    "slug": "welo-global-norwegian-tech-linguistic-tester",
+    "title": "Norwegian Tech Linguistic Tester",
+    "company": "Welo Global",
+    "companyLogo": "https://jobicy.com/data/server-nyc0409/galaxy/mercury/2026/06/83c40f94-221.webp",
+    "location": "Remote (Anywhere)",
+    "region": "Worldwide",
+    "workplaceType": "Remote",
+    "tags": [
+      "AI / ML"
+    ],
+    "applyUrl": "https://jobicy.com/jobs/146760-norwegian-tech-linguistic-tester",
+    "datePosted": "2026-09-20T04:50:25.000Z",
+    "source": "Jobicy Verified",
+    "descriptionSnippet": "As a trusted global transformation partner, Welocalize accelerates the global business journey by enabling brands and companies to reach, engage, and grow international audiences...."
+  },
+  {
+    "id": "jobicy-147000",
+    "slug": "gainwell-technologies-experienced-information-systems-architect",
+    "title": "Experienced Information Systems Architect",
+    "company": "Gainwell Technologies",
+    "companyLogo": "https://jobicy.com/data/server-nyc0409/galaxy/mercury/2025/06/65f8901c-221.jpeg",
+    "location": "Remote (USA)",
+    "region": "US",
+    "workplaceType": "Remote",
+    "tags": [
+      "Staff/Lead"
+    ],
+    "applyUrl": "https://jobicy.com/jobs/147000-experienced-information-systems-architect",
+    "datePosted": "2026-09-20T04:45:32.000Z",
+    "source": "Jobicy Verified",
+    "descriptionSnippet": "Be part of a team that unleashes the power of leading-edge technologies to help improve the health and well-being of those most vulnerable in our country and communities. Working a..."
+  },
+  {
+    "id": "jobicy-147066",
+    "slug": "alphasense-staff-android-engineer",
+    "title": "Staff Android Engineer",
+    "company": "AlphaSense",
+    "companyLogo": "https://jobicy.com/data/server-nyc0409/galaxy/mercury/2025/06/01960e94-221.jpg",
+    "location": "Remote (Europe,  UK)",
+    "region": "EU",
+    "workplaceType": "Remote",
+    "tags": [
+      "Backend",
+      "UI/UX",
+      "Staff/Lead"
+    ],
+    "applyUrl": "https://jobicy.com/jobs/147066-staff-android-engineer",
+    "datePosted": "2026-09-20T04:45:25.000Z",
+    "source": "Jobicy Verified",
+    "descriptionSnippet": "About AlphaSense:  The world’s most sophisticated companies rely on AlphaSense to remove uncertainty from decision-making. With market intelligence and search built on proven AI, A..."
+  },
+  {
+    "id": "jobicy-147050",
+    "slug": "tripleten-ai-systems-engineering-expert",
+    "title": "AI Systems Engineering Expert",
+    "company": "TripleTen",
+    "companyLogo": "https://jobicy.com/data/server-nyc0409/galaxy/mercury/2025/06/69106838-221.jpeg",
+    "location": "Remote (USA)",
+    "region": "US",
+    "workplaceType": "Remote",
+    "tags": [
+      "Backend",
+      "Staff/Lead"
+    ],
+    "applyUrl": "https://jobicy.com/jobs/147050-ai-systems-engineering-expert",
+    "datePosted": "2026-09-20T04:45:24.000Z",
+    "source": "Jobicy Verified",
+    "descriptionSnippet": "DescriptionAt TripleTen, we're building an international platform of digital re-skilling products to help people from diverse backgrounds learn new professions and build sustainabl..."
+  },
+  {
+    "id": "jobicy-146976",
+    "slug": "fivetran-principal-software-engineer-data-lakes",
+    "title": "Principal Software Engineer - Data Lakes",
+    "company": "Fivetran",
+    "companyLogo": "https://jobicy.com/data/server-nyc0409/galaxy/mercury/2025/06/3b8e4532-221-1.jpg",
+    "location": "Remote (EMEA,  Germany)",
+    "region": "EU",
+    "workplaceType": "Remote",
+    "tags": [
+      "Java",
+      "Staff/Lead"
+    ],
+    "applyUrl": "https://jobicy.com/jobs/146976-principal-software-engineer-data-lakes",
+    "datePosted": "2026-09-20T04:45:13.000Z",
+    "source": "Jobicy Verified",
+    "descriptionSnippet": "From Fivetran’s founding until now, our mission has remained the same: to make access to data as simple and reliable as electricity. With Fivetran, customer data arrives in their w..."
+  },
+  {
     "id": "jobicy-153679",
     "slug": "tenable-product-engineering-future-opportunities",
     "title": "Product Engineering - Future Opportunities",
@@ -260,23 +407,6 @@
     "descriptionSnippet": "With more than 10 billion pulls, Canonical's container images are trusted by developers worldwide to build and run software securely and at scale. That trust rests on our commitmen..."
   },
   {
-    "id": "jobicy-146757",
-    "slug": "welo-global-finnish-tech-linguistic-tester",
-    "title": "Finnish Tech Linguistic Tester",
-    "company": "Welo Global",
-    "companyLogo": "https://jobicy.com/data/server-nyc0409/galaxy/mercury/2026/06/83c40f94-221.webp",
-    "location": "Remote (Anywhere)",
-    "region": "Worldwide",
-    "workplaceType": "Remote",
-    "tags": [
-      "AI / ML"
-    ],
-    "applyUrl": "https://jobicy.com/jobs/146757-finnish-tech-linguistic-tester",
-    "datePosted": "2026-09-19T08:50:05.000Z",
-    "source": "Jobicy Verified",
-    "descriptionSnippet": "As a trusted global transformation partner, Welocalize accelerates the global business journey by enabling brands and companies to reach, engage, and grow international audiences...."
-  },
-  {
     "id": "jobicy-150366",
     "slug": "autodesk-senior-full-stack-software-engineer",
     "title": "Senior Full-Stack Software Engineer",
@@ -369,61 +499,6 @@
     "descriptionSnippet": "Explore this Systems Engineering, Metrics and Alerting role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "jobicy-153592",
-    "slug": "bayesian-health-software-engineer-analytics",
-    "title": "Software Engineer, Analytics",
-    "company": "Bayesian Health",
-    "companyLogo": "https://jobicy.com/data/server-nyc0409/galaxy/mercury/2025/08/f74593d8-221.png",
-    "location": "Remote (USA)",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "AI / ML",
-      "Python",
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://jobicy.com/jobs/153592-software-engineer-analytics",
-    "datePosted": "2026-09-18T14:40:05.000Z",
-    "source": "Jobicy Verified",
-    "descriptionSnippet": "Software Engineer, Analytics In Brief We’re an early-stage startup on a mission to make healthcare proactive by empowering physicians, nurses, and care team members with real-time..."
-  },
-  {
-    "id": "jobicy-153564",
-    "slug": "databricks-senior-solutions-architect-data-ai",
-    "title": "Senior Solutions Architect (Data & AI)",
-    "company": "Databricks",
-    "companyLogo": "https://jobicy.com/data/server-nyc0409/galaxy/mercury/2021/12/4e3f864ba9cf3c62d471e1c62414d098.jpg",
-    "location": "Remote (UK)",
-    "region": "EU",
-    "workplaceType": "Remote",
-    "tags": [
-      "Python",
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://jobicy.com/jobs/153564-senior-solutions-architect-data-ai",
-    "datePosted": "2026-09-18T12:09:16.000Z",
-    "source": "Jobicy Verified",
-    "descriptionSnippet": "JOB ID: FEQ427R333 Location: Leeds/Manchester, United Kingdom - remote contract Industry: Enterprise Retail or CPG (UKI Enterprise) The Role As a Sr. Solutions Architect, you are a..."
-  },
-  {
-    "id": "jobicy-153567",
-    "slug": "lastpass-senior-backend-engineer-net",
-    "title": "Senior Backend Engineer (.NET)",
-    "company": "LastPass",
-    "companyLogo": "https://jobicy.com/data/server-nyc0409/galaxy/mercury/2025/06/13842160-221.png",
-    "location": "Remote (Portugal)",
-    "region": "Worldwide",
-    "workplaceType": "Remote",
-    "tags": [
-      "Backend",
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://jobicy.com/jobs/153567-senior-backend-engineer-net",
-    "datePosted": "2026-09-18T12:09:13.000Z",
-    "source": "Jobicy Verified",
-    "descriptionSnippet": "About LastPassLastPass delivers Secure Access Essentials, helping individuals and organizations manage and protect access to AI, applications, and credentials straight from the bro..."
-  },
-  {
     "id": "ashby-sentry-c796cd46-d80c-4ea8-9b0d-0eecbfc1353e",
     "slug": "sentry-senior-software-engineer-agent-tracing",
     "title": "Senior Software Engineer, Agent Tracing",
@@ -473,7 +548,7 @@
       "TypeScript"
     ],
     "applyUrl": "https://remotive.com/remote-jobs/software-development/senior-net-full-stack-developer-2091130",
-    "datePosted": "2026-09-17T07:52:05.000Z",
+    "datePosted": "2026-09-17T13:22:05.000Z",
     "source": "Remotive",
     "descriptionSnippet": "Are you a talented Senior Developer looking for a remote job that lets you show your skills and get decent compensation? Look no further than Lemon.io — the marketplace that connec..."
   },
@@ -508,7 +583,7 @@
     ],
     "salary": "$90 - $150 /hour",
     "applyUrl": "https://remotive.com/remote-jobs/software-development/senior-independent-software-developer-1919265",
-    "datePosted": "2026-09-16T04:40:59.000Z",
+    "datePosted": "2026-09-16T10:10:59.000Z",
     "source": "Remotive",
     "descriptionSnippet": "You must be located in the Americas, Europe, or Israel to apply.A·Team is a VC-backed, stealth, application-only home on the internet for senior independent software builders to te..."
   },
@@ -546,7 +621,7 @@
     ],
     "salary": "$170k - $200k",
     "applyUrl": "https://remotive.com/remote-jobs/software-development/tech-lead-full-stack-rails-engineer-2069746",
-    "datePosted": "2026-09-14T15:03:27.000Z",
+    "datePosted": "2026-09-14T20:33:27.000Z",
     "source": "Remotive",
     "descriptionSnippet": "About Mitre Media\nMitre Media is redefining FinTech with AI-driven tools that empower millions of investors. Our portfolio, including Dividend.com and MutualFunds.com, leverages LL..."
   },
@@ -581,7 +656,7 @@
     ],
     "salary": "$31,2k- $52k",
     "applyUrl": "https://remotive.com/remote-jobs/marketing/remote-office-assistant-1680495",
-    "datePosted": "2026-09-11T14:46:48.000Z",
+    "datePosted": "2026-09-11T20:16:48.000Z",
     "source": "Remotive",
     "descriptionSnippet": "Coalition Technologies is seeking a reliable, detail-oriented, and highly organized Remote Office Assistant to support administrative, bookkeeping, billing, reporting, data entry,..."
   },
@@ -598,9 +673,66 @@
       "Staff/Lead"
     ],
     "applyUrl": "https://remotive.com/remote-jobs/information-technology/tier-iii-service-desk-engineer-2091045",
-    "datePosted": "2026-09-06T19:40:43.000Z",
+    "datePosted": "2026-09-07T01:10:43.000Z",
     "source": "Remotive",
     "descriptionSnippet": "Unió Digital is an Arizona-based managed service provider (MSP) delivering Managed IT Services, Low Voltage Cabling, Access Control, Video Surveillance, and Intrusion Services. We..."
+  },
+  {
+    "id": "jobicy-151258",
+    "slug": "luxury-presence-generative-media-engineer-ai-social-canada",
+    "title": "Generative Media Engineer, AI Social - CANADA",
+    "company": "Luxury Presence",
+    "companyLogo": "https://jobicy.com/data/server-nyc0409/galaxy/mercury/2022/05/f2b241fb769140fff2f70e8efaf5c0ff.jpg",
+    "location": "Remote (Canada)",
+    "region": "Canada",
+    "workplaceType": "Remote",
+    "tags": [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Staff/Lead"
+    ],
+    "applyUrl": "https://jobicy.com/jobs/151258-generative-media-engineer-ai-social-canada",
+    "datePosted": "2026-09-20T05:00:09.000Z",
+    "source": "Jobicy Verified",
+    "descriptionSnippet": "Luxury Presence is building the AI growth platform for real estate. Backed by Bessemer Venture Partners and other top investors, we're a Series C company that has hit $100M in annu..."
+  },
+  {
+    "id": "jobicy-151253",
+    "slug": "clickup-senior-backend-engineer",
+    "title": "Senior Backend Engineer",
+    "company": "ClickUp",
+    "companyLogo": "https://jobicy.com/data/server-nyc0409/galaxy/mercury/2025/06/cd5be0ef-221.jpg",
+    "location": "Remote (Czechia,  Hungary,  Ukraine)",
+    "region": "EU",
+    "workplaceType": "Remote",
+    "tags": [
+      "Backend",
+      "AI / ML",
+      "TypeScript",
+      "Node.js"
+    ],
+    "applyUrl": "https://jobicy.com/jobs/151253-senior-backend-engineer-2",
+    "datePosted": "2026-09-20T04:50:10.000Z",
+    "source": "Jobicy Verified",
+    "descriptionSnippet": "At ClickUp, we're building the future of work: the first truly converged AI workspace unifying tasks, docs, chat, calendar, and enterprise search, all supercharged by context-drive..."
+  },
+  {
+    "id": "jobicy-146757",
+    "slug": "welo-global-finnish-tech-linguistic-tester",
+    "title": "Finnish Tech Linguistic Tester",
+    "company": "Welo Global",
+    "companyLogo": "https://jobicy.com/data/server-nyc0409/galaxy/mercury/2026/06/83c40f94-221.webp",
+    "location": "Remote (Anywhere)",
+    "region": "Worldwide",
+    "workplaceType": "Remote",
+    "tags": [
+      "AI / ML"
+    ],
+    "applyUrl": "https://jobicy.com/jobs/146757-finnish-tech-linguistic-tester",
+    "datePosted": "2026-09-19T08:50:05.000Z",
+    "source": "Jobicy Verified",
+    "descriptionSnippet": "As a trusted global transformation partner, Welocalize accelerates the global business journey by enabling brands and companies to reach, engage, and grow international audiences...."
   },
   {
     "id": "jobicy-151153",
@@ -743,26 +875,6 @@
     "descriptionSnippet": "Explore this Software Engineer, Enterprise Integrations role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "jobicy-153596",
-    "slug": "bayesian-health-software-engineer-application-integration",
-    "title": "Software Engineer, Application Integration",
-    "company": "Bayesian Health",
-    "companyLogo": "https://jobicy.com/data/server-nyc0409/galaxy/mercury/2025/08/f74593d8-221.png",
-    "location": "Remote (USA)",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "Full-Stack",
-      "AI / ML",
-      "React",
-      "TypeScript"
-    ],
-    "applyUrl": "https://jobicy.com/jobs/153596-software-engineer-application-integration",
-    "datePosted": "2026-09-18T14:40:04.000Z",
-    "source": "Jobicy Verified",
-    "descriptionSnippet": "Software Engineer, Application Integration In Brief We're a rapidly growing startup on a mission to make healthcare proactive by empowering physicians, nurses, and care team member..."
-  },
-  {
     "id": "ashby-sentry-92f30f40-9596-4b66-9fd0-7ca5203f629d",
     "slug": "sentry-senior-software-engineer-issue-detection",
     "title": "Senior Software Engineer, Issue Detection",
@@ -812,7 +924,7 @@
       "Python"
     ],
     "applyUrl": "https://remotive.com/remote-jobs/data/senior-data-scientist-2091129",
-    "datePosted": "2026-09-16T07:05:28.000Z",
+    "datePosted": "2026-09-16T12:35:28.000Z",
     "source": "Remotive",
     "descriptionSnippet": "Are you a talented Senior Data Scientist looking for a remote job that lets you show your skills and get decent compensation? Look no further than Lemon.io — the marketplace that c..."
   },
@@ -848,7 +960,7 @@
     ],
     "salary": "$120 - $170 /hour",
     "applyUrl": "https://remotive.com/remote-jobs/software-development/senior-independent-ai-engineer-architect-1919266",
-    "datePosted": "2026-09-16T04:40:53.000Z",
+    "datePosted": "2026-09-16T10:10:53.000Z",
     "source": "Remotive",
     "descriptionSnippet": "Senior Independent AI Engineer / Architect\nRemote | Americas, Europe, or Israel\n \nMost AI engineers can find work.\n \nFinding work worth doing is harder.\n \nA.Team is an invite-only..."
   },
@@ -888,6 +1000,46 @@
     "descriptionSnippet": "Join Perplexity AI as a Member of Technical Staff (Applied AI Engineer, Agent Capabilities). Building high-performance software with modern engineering standards."
   },
   {
+    "id": "jobicy-151251",
+    "slug": "luxury-presence-engineering-manager-maps-search-us",
+    "title": "Engineering Manager, Maps & Search - US",
+    "company": "Luxury Presence",
+    "companyLogo": "https://jobicy.com/data/server-nyc0409/galaxy/mercury/2022/05/f2b241fb769140fff2f70e8efaf5c0ff.jpg",
+    "location": "Remote (USA)",
+    "region": "US",
+    "workplaceType": "Remote",
+    "tags": [
+      "Frontend",
+      "Backend",
+      "Full-Stack",
+      "React"
+    ],
+    "applyUrl": "https://jobicy.com/jobs/151251-engineering-manager-maps-search-us",
+    "datePosted": "2026-09-20T04:50:28.000Z",
+    "source": "Jobicy Verified",
+    "descriptionSnippet": "Luxury Presence is building the AI growth platform for real estate. Backed by Bessemer Venture Partners and other top investors, we're a Series C company that has hit $100M in annu..."
+  },
+  {
+    "id": "jobicy-151249",
+    "slug": "clickup-engineering-manager-frontend",
+    "title": "Engineering Manager (Frontend)",
+    "company": "ClickUp",
+    "companyLogo": "https://jobicy.com/data/server-nyc0409/galaxy/mercury/2025/06/cd5be0ef-221.jpg",
+    "location": "Remote (USA)",
+    "region": "US",
+    "workplaceType": "Remote",
+    "tags": [
+      "Frontend",
+      "AI / ML",
+      "Node.js",
+      "Staff/Lead"
+    ],
+    "applyUrl": "https://jobicy.com/jobs/151249-engineering-manager-frontend",
+    "datePosted": "2026-09-20T04:50:08.000Z",
+    "source": "Jobicy Verified",
+    "descriptionSnippet": "At ClickUp, we're building the future of work: the first truly converged AI workspace unifying tasks, docs, chat, calendar, and enterprise search, all supercharged by context-drive..."
+  },
+  {
     "id": "gh-datadog-7947683",
     "slug": "datadog-senior-platform-product-manager-ai-sdlc-trusted-throughput",
     "title": "Senior Platform Product Manager - AI SDLC Trusted Throughput",
@@ -923,9 +1075,9 @@
     "descriptionSnippet": "Explore this Staff Backend Engineer, Core DevOps role at GitLab. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-cloudflare-8212060",
-    "slug": "cloudflare-software-engineer",
-    "title": "Software Engineer",
+    "id": "gh-cloudflare-8071056",
+    "slug": "cloudflare-systems-engineer",
+    "title": "Systems Engineer",
     "company": "Cloudflare",
     "companyLogo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
     "location": "Hybrid",
@@ -934,10 +1086,10 @@
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8212060?gh_jid=8212060",
-    "datePosted": "2026-09-18T09:11:42.000Z",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8071056?gh_jid=8071056",
+    "datePosted": "2026-09-18T10:26:13.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Systems Engineer role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "ashby-sentry-f7b4f37b-4293-433d-910e-9033bf10d6d4",
@@ -957,21 +1109,21 @@
     "descriptionSnippet": "Join Sentry as a Senior Software Engineer, Billing Platform. Building high-performance software with modern engineering standards."
   },
   {
-    "id": "gh-stripe-8131144",
-    "slug": "stripe-backend-engineer-link",
-    "title": "Backend Engineer, Link",
+    "id": "gh-stripe-8128744",
+    "slug": "stripe-software-engineer-new-grad",
+    "title": "Software Engineer, New Grad",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "NYC, Sea, SF, Tor",
-    "region": "Worldwide",
+    "location": "San Francisco, Seattle, New York",
+    "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Backend"
+      "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8131144",
-    "datePosted": "2026-09-17T21:34:44.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8128744",
+    "datePosted": "2026-09-17T23:06:55.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Backend Engineer, Link role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, New Grad role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "remotive-2091101",
@@ -989,7 +1141,7 @@
       "React"
     ],
     "applyUrl": "https://remotive.com/remote-jobs/software-development/senior-react-full-stack-developer-2091101",
-    "datePosted": "2026-08-27T09:06:09.000Z",
+    "datePosted": "2026-08-27T14:36:09.000Z",
     "source": "Remotive",
     "descriptionSnippet": "Are you a talented Senior Developer looking for a remote job that lets you show your skills and get decent compensation? Look no further than Lemon.io — the marketplace that connec..."
   },
@@ -1045,6 +1197,26 @@
     "descriptionSnippet": "Join Perplexity AI as a Member of Technical Staff (General Software Engineer, Infrastructure). Building high-performance software with modern engineering standards."
   },
   {
+    "id": "jobicy-151246",
+    "slug": "luxury-presence-engineering-manager-maps-search-canada",
+    "title": "Engineering Manager, Maps & Search - CANADA",
+    "company": "Luxury Presence",
+    "companyLogo": "https://jobicy.com/data/server-nyc0409/galaxy/mercury/2022/05/f2b241fb769140fff2f70e8efaf5c0ff.jpg",
+    "location": "Remote (Canada)",
+    "region": "Canada",
+    "workplaceType": "Remote",
+    "tags": [
+      "Frontend",
+      "Backend",
+      "Full-Stack",
+      "React"
+    ],
+    "applyUrl": "https://jobicy.com/jobs/151246-engineering-manager-maps-search-canada",
+    "datePosted": "2026-09-20T04:50:27.000Z",
+    "source": "Jobicy Verified",
+    "descriptionSnippet": "Luxury Presence is building the AI growth platform for real estate. Backed by Bessemer Venture Partners and other top investors, we're a Series C company that has hit $100M in annu..."
+  },
+  {
     "id": "gh-datadog-3851935",
     "slug": "datadog-senior-software-engineer",
     "title": "Senior Software Engineer ",
@@ -1080,9 +1252,9 @@
     "descriptionSnippet": "Explore this Senior Backend Engineer - Platform Integrations (Monetization) role at GitLab. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-cloudflare-8207326",
-    "slug": "cloudflare-systems-engineer-mcp-portals",
-    "title": "Systems Engineer, MCP Portals",
+    "id": "gh-cloudflare-8212060",
+    "slug": "cloudflare-software-engineer",
+    "title": "Software Engineer",
     "company": "Cloudflare",
     "companyLogo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
     "location": "Hybrid",
@@ -1091,10 +1263,10 @@
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8207326?gh_jid=8207326",
-    "datePosted": "2026-09-18T08:47:58.000Z",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8212060?gh_jid=8212060",
+    "datePosted": "2026-09-18T09:11:42.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Systems Engineer, MCP Portals role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "ashby-sentry-bf150464-a7bc-4357-beb7-341535538370",
@@ -1114,21 +1286,21 @@
     "descriptionSnippet": "Join Sentry as a Senior Software Engineer, Telemetry Experience. Building high-performance software with modern engineering standards."
   },
   {
-    "id": "gh-stripe-7746721",
-    "slug": "stripe-senior-staff-software-engineer-stripe-dashboard",
-    "title": "Senior Staff Software Engineer, Stripe Dashboard",
+    "id": "gh-stripe-8131144",
+    "slug": "stripe-backend-engineer-link",
+    "title": "Backend Engineer, Link",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Seattle",
-    "region": "US",
+    "location": "NYC, Sea, SF, Tor",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Staff/Lead"
+      "Backend"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7746721",
-    "datePosted": "2026-09-17T17:41:58.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8131144",
+    "datePosted": "2026-09-17T21:34:44.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Staff Software Engineer, Stripe Dashboard role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Backend Engineer, Link role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "remotive-2091100",
@@ -1146,7 +1318,7 @@
       "Python"
     ],
     "applyUrl": "https://remotive.com/remote-jobs/qa/senior-qa-engineer-2091100",
-    "datePosted": "2026-08-26T07:40:58.000Z",
+    "datePosted": "2026-08-26T13:10:58.000Z",
     "source": "Remotive",
     "descriptionSnippet": "Are you a talented QA looking for a remote job that lets you show your skills and get better compensation and career growth? Look no further than Lemon.io - the marketplace that co..."
   },
@@ -1219,23 +1391,21 @@
     "descriptionSnippet": "Explore this Engineering Manager, Trusted Agentic Development role at GitLab. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-cloudflare-7463793",
-    "slug": "cloudflare-senior-software-engineer-egress-go-rust",
-    "title": "Senior Software Engineer - Egress (Go/Rust)",
+    "id": "gh-cloudflare-8207326",
+    "slug": "cloudflare-systems-engineer-mcp-portals",
+    "title": "Systems Engineer, MCP Portals",
     "company": "Cloudflare",
     "companyLogo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
     "location": "Hybrid",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Go",
-      "Rust",
-      "Senior"
+      "Software Engineer"
     ],
-    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/7463793?gh_jid=7463793",
-    "datePosted": "2026-09-18T08:34:43.000Z",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8207326?gh_jid=8207326",
+    "datePosted": "2026-09-18T08:47:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Software Engineer - Egress (Go/Rust) role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Systems Engineer, MCP Portals role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "ashby-sentry-f345b525-b2e9-4dc1-bec1-85fb4c3b3cf2",
@@ -1255,21 +1425,21 @@
     "descriptionSnippet": "Join Sentry as a Software Engineer, New Grad (2027). Building high-performance software with modern engineering standards."
   },
   {
-    "id": "gh-stripe-7988264",
-    "slug": "stripe-backend-engineer-intelligent-commerce",
-    "title": "Backend Engineer, Intelligent Commerce",
+    "id": "gh-stripe-7746721",
+    "slug": "stripe-senior-staff-software-engineer-stripe-dashboard",
+    "title": "Senior Staff Software Engineer, Stripe Dashboard",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Seattle, San Francisco, New York",
+    "location": "Seattle",
     "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Backend"
+      "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7988264",
-    "datePosted": "2026-09-16T15:56:00.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7746721",
+    "datePosted": "2026-09-17T17:41:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Backend Engineer, Intelligent Commerce role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Staff Software Engineer, Stripe Dashboard role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "remotive-2091099",
@@ -1287,7 +1457,7 @@
       "Python"
     ],
     "applyUrl": "https://remotive.com/remote-jobs/devops/senior-devops-engineer-2091099",
-    "datePosted": "2026-08-25T08:27:53.000Z",
+    "datePosted": "2026-08-25T13:57:53.000Z",
     "source": "Remotive",
     "descriptionSnippet": "Are you a talented Senior DevOps looking for a remote job that lets you show your skills and get decent compensation? Look no further than Lemon.io — the marketplace that connects..."
   },
@@ -1362,9 +1532,9 @@
     "descriptionSnippet": "Explore this Senior Backend Engineer, Trusted Agentic Development role at GitLab. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-cloudflare-7793013",
-    "slug": "cloudflare-senior-software-engineer-network-connectivity-go-rust",
-    "title": "Senior Software Engineer - Network Connectivity (Go/Rust)",
+    "id": "gh-cloudflare-7463793",
+    "slug": "cloudflare-senior-software-engineer-egress-go-rust",
+    "title": "Senior Software Engineer - Egress (Go/Rust)",
     "company": "Cloudflare",
     "companyLogo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
     "location": "Hybrid",
@@ -1375,10 +1545,10 @@
       "Rust",
       "Senior"
     ],
-    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/7793013?gh_jid=7793013",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/7463793?gh_jid=7463793",
     "datePosted": "2026-09-18T08:34:43.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Software Engineer - Network Connectivity (Go/Rust) role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Software Engineer - Egress (Go/Rust) role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "ashby-sentry-fa522ac5-fc9f-4ce1-a191-842496a235a2",
@@ -1398,21 +1568,21 @@
     "descriptionSnippet": "Join Sentry as a Software Engineer, Intern (Summer 2027). Building high-performance software with modern engineering standards."
   },
   {
-    "id": "gh-stripe-6692166",
-    "slug": "stripe-backend-engineer-payments",
-    "title": "Backend Engineer, Payments",
+    "id": "gh-stripe-7988264",
+    "slug": "stripe-backend-engineer-intelligent-commerce",
+    "title": "Backend Engineer, Intelligent Commerce",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Toronto, Canada Remote",
-    "region": "Canada",
-    "workplaceType": "Remote",
+    "location": "Seattle, San Francisco, New York",
+    "region": "US",
+    "workplaceType": "Hybrid/Remote",
     "tags": [
       "Backend"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=6692166",
-    "datePosted": "2026-09-15T20:51:57.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7988264",
+    "datePosted": "2026-09-16T15:56:00.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Backend Engineer, Payments role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Backend Engineer, Intelligent Commerce role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "ashby-cursor-1d6dbbb2-a5af-41a6-a70a-ca97690d9313",
@@ -1483,9 +1653,9 @@
     "descriptionSnippet": "Explore this Principal Engineer, Duo Agent Platform role at GitLab. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-cloudflare-8195746",
-    "slug": "cloudflare-software-engineer-egress-go-rust",
-    "title": "Software Engineer - Egress (Go/Rust)",
+    "id": "gh-cloudflare-7793013",
+    "slug": "cloudflare-senior-software-engineer-network-connectivity-go-rust",
+    "title": "Senior Software Engineer - Network Connectivity (Go/Rust)",
     "company": "Cloudflare",
     "companyLogo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
     "location": "Hybrid",
@@ -1493,29 +1663,30 @@
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Go",
-      "Rust"
+      "Rust",
+      "Senior"
     ],
-    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8195746?gh_jid=8195746",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/7793013?gh_jid=7793013",
     "datePosted": "2026-09-18T08:34:43.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer - Egress (Go/Rust) role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Software Engineer - Network Connectivity (Go/Rust) role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7232592",
-    "slug": "stripe-backend-engineer-payments-and-risk",
-    "title": "Backend Engineer, Payments and Risk",
+    "id": "gh-stripe-6692166",
+    "slug": "stripe-backend-engineer-payments",
+    "title": "Backend Engineer, Payments",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "US",
-    "region": "Worldwide",
-    "workplaceType": "Hybrid/Remote",
+    "location": "Toronto, Canada Remote",
+    "region": "Canada",
+    "workplaceType": "Remote",
     "tags": [
       "Backend"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7232592",
-    "datePosted": "2026-09-15T20:51:33.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=6692166",
+    "datePosted": "2026-09-15T20:51:57.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Backend Engineer, Payments and Risk role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Backend Engineer, Payments role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "ashby-cursor-0320a8db-cb1b-407b-bd62-b23734b83330",
@@ -1552,18 +1723,18 @@
     "descriptionSnippet": "Join Perplexity AI as a Member of Technical Staff (Software Engineer, API Platform). Building high-performance software with modern engineering standards."
   },
   {
-    "id": "gh-datadog-3851927",
+    "id": "gh-datadog-4599111",
     "slug": "datadog-senior-software-engineer-distributed-systems",
     "title": "Senior Software Engineer - Distributed Systems",
     "company": "Datadog",
     "companyLogo": "https://www.google.com/s2/favicons?domain=datadog.com&sz=128",
-    "location": "Boston, Massachusetts, USA; New York, New York, USA",
-    "region": "US",
+    "location": "Bordeaux, France; Grenoble, France; Lyon, France; Madrid, Spain; Montpellier, France; Nantes, France; Paris, France; Sophia Antipolis, France; Tel Aviv, Israel",
+    "region": "EU",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Senior"
     ],
-    "applyUrl": "https://careers.datadoghq.com/detail/3851927/?gh_jid=3851927",
+    "applyUrl": "https://careers.datadoghq.com/detail/4599111/?gh_jid=4599111",
     "datePosted": "2026-09-18T18:57:30.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Software Engineer - Distributed Systems role at Datadog. Direct company career opening with high-impact engineering opportunities."
@@ -1586,38 +1757,39 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, NLP role at GitLab. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-cloudflare-8023395",
-    "slug": "cloudflare-principal-engineer-cloudforce-one",
-    "title": "Principal Engineer - Cloudforce One",
+    "id": "gh-cloudflare-8195746",
+    "slug": "cloudflare-software-engineer-egress-go-rust",
+    "title": "Software Engineer - Egress (Go/Rust)",
     "company": "Cloudflare",
     "companyLogo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
     "location": "Hybrid",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Staff/Lead"
+      "Go",
+      "Rust"
     ],
-    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8023395?gh_jid=8023395",
-    "datePosted": "2026-09-17T11:30:22.000Z",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8195746?gh_jid=8195746",
+    "datePosted": "2026-09-18T08:34:43.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Principal Engineer - Cloudforce One role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer - Egress (Go/Rust) role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8205280",
-    "slug": "stripe-engineering-manager-machine-learning-credit-risk",
-    "title": "Engineering Manager, Machine Learning - Credit Risk",
+    "id": "gh-stripe-7232592",
+    "slug": "stripe-backend-engineer-payments-and-risk",
+    "title": "Backend Engineer, Payments and Risk",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "N/A",
+    "location": "US",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "AI / ML"
+      "Backend"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8205280",
-    "datePosted": "2026-09-15T20:51:21.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7232592",
+    "datePosted": "2026-09-15T20:51:33.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Engineering Manager, Machine Learning - Credit Risk role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Backend Engineer, Payments and Risk role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "ashby-perplexity-b00cbb00-f672-4909-a7be-bbd02c7d7b5f",
@@ -1672,39 +1844,38 @@
     "descriptionSnippet": "Explore this AI Engineer role at GitLab. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-cloudflare-8188899",
-    "slug": "cloudflare-software-engineer-cdn-configuration-group",
-    "title": "Software Engineer, CDN Configuration Group",
+    "id": "gh-cloudflare-8023395",
+    "slug": "cloudflare-principal-engineer-cloudforce-one",
+    "title": "Principal Engineer - Cloudforce One",
     "company": "Cloudflare",
     "companyLogo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
     "location": "Hybrid",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Software Engineer"
-    ],
-    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8188899?gh_jid=8188899",
-    "datePosted": "2026-09-17T11:10:18.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, CDN Configuration Group role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-stripe-7716032",
-    "slug": "stripe-staff-backend-engineer-api-platform",
-    "title": "Staff Backend Engineer - API Platform",
-    "company": "Stripe",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Dublin",
-    "region": "EU",
-    "workplaceType": "Hybrid/Remote",
-    "tags": [
-      "Backend",
       "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7716032",
-    "datePosted": "2026-09-15T16:04:48.000Z",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8023395?gh_jid=8023395",
+    "datePosted": "2026-09-17T11:30:22.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Backend Engineer - API Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Principal Engineer - Cloudforce One role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
+  },
+  {
+    "id": "gh-stripe-8205280",
+    "slug": "stripe-engineering-manager-machine-learning-credit-risk",
+    "title": "Engineering Manager, Machine Learning - Credit Risk",
+    "company": "Stripe",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
+    "location": "N/A",
+    "region": "Worldwide",
+    "workplaceType": "Hybrid/Remote",
+    "tags": [
+      "AI / ML"
+    ],
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8205280",
+    "datePosted": "2026-09-15T20:51:21.000Z",
+    "source": "Direct ATS",
+    "descriptionSnippet": "Explore this Engineering Manager, Machine Learning - Credit Risk role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "ashby-perplexity-7dedcdea-42be-4bb0-b603-791146ff73f0",
@@ -1759,6 +1930,76 @@
     "descriptionSnippet": "Explore this Backend Engineer, AI Engineering: Duo Chat role at GitLab. Direct company career opening with high-impact engineering opportunities."
   },
   {
+    "id": "gh-cloudflare-8188899",
+    "slug": "cloudflare-software-engineer-cdn-configuration-group",
+    "title": "Software Engineer, CDN Configuration Group",
+    "company": "Cloudflare",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
+    "location": "Hybrid",
+    "region": "Worldwide",
+    "workplaceType": "Hybrid/Remote",
+    "tags": [
+      "Software Engineer"
+    ],
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8188899?gh_jid=8188899",
+    "datePosted": "2026-09-17T11:10:18.000Z",
+    "source": "Direct ATS",
+    "descriptionSnippet": "Explore this Software Engineer, CDN Configuration Group role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
+  },
+  {
+    "id": "gh-stripe-7716032",
+    "slug": "stripe-staff-backend-engineer-api-platform",
+    "title": "Staff Backend Engineer - API Platform",
+    "company": "Stripe",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
+    "location": "Dublin",
+    "region": "EU",
+    "workplaceType": "Hybrid/Remote",
+    "tags": [
+      "Backend",
+      "Staff/Lead"
+    ],
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7716032",
+    "datePosted": "2026-09-15T16:04:48.000Z",
+    "source": "Direct ATS",
+    "descriptionSnippet": "Explore this Staff Backend Engineer - API Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
+  },
+  {
+    "id": "gh-datadog-7959962",
+    "slug": "datadog-senior-software-engineer-redapl-graph-engine",
+    "title": "Senior Software Engineer - REDAPL Graph Engine",
+    "company": "Datadog",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=datadog.com&sz=128",
+    "location": "Dublin, Ireland; Madrid, Spain; Paris, France",
+    "region": "EU",
+    "workplaceType": "Hybrid/Remote",
+    "tags": [
+      "Senior"
+    ],
+    "applyUrl": "https://careers.datadoghq.com/detail/7959962/?gh_jid=7959962",
+    "datePosted": "2026-09-18T18:57:30.000Z",
+    "source": "Direct ATS",
+    "descriptionSnippet": "Explore this Senior Software Engineer - REDAPL Graph Engine role at Datadog. Direct company career opening with high-impact engineering opportunities."
+  },
+  {
+    "id": "gh-gitlab-8620720002",
+    "slug": "gitlab-backend-engineer-ruby-ai-engineering-agent-observability",
+    "title": "Backend Engineer (Ruby), AI Engineering: Agent Observability",
+    "company": "GitLab",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=gitlab.com&sz=128",
+    "location": "Remote, Canada",
+    "region": "Canada",
+    "workplaceType": "Remote",
+    "tags": [
+      "Backend",
+      "AI / ML"
+    ],
+    "applyUrl": "https://job-boards.greenhouse.io/gitlab/jobs/8620720002",
+    "datePosted": "2026-09-14T20:01:39.000Z",
+    "source": "Direct ATS",
+    "descriptionSnippet": "Explore this Backend Engineer (Ruby), AI Engineering: Agent Observability role at GitLab. Direct company career opening with high-impact engineering opportunities."
+  },
+  {
     "id": "gh-cloudflare-8207509",
     "slug": "cloudflare-systems-engineer-email-service",
     "title": "Systems Engineer, Email Service",
@@ -1791,75 +2032,6 @@
     "datePosted": "2026-09-15T10:36:39.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Backend/API Engineer, Money as a Service (Product)  role at Stripe. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-datadog-7959967",
-    "slug": "datadog-senior-software-engineer-redapl-graph-engine",
-    "title": "Senior Software Engineer - REDAPL Graph Engine",
-    "company": "Datadog",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=datadog.com&sz=128",
-    "location": "Lisbon, Portugal",
-    "region": "Worldwide",
-    "workplaceType": "Hybrid/Remote",
-    "tags": [
-      "Senior"
-    ],
-    "applyUrl": "https://careers.datadoghq.com/detail/7959967/?gh_jid=7959967",
-    "datePosted": "2026-09-18T18:57:30.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Software Engineer - REDAPL Graph Engine role at Datadog. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-gitlab-8620720002",
-    "slug": "gitlab-backend-engineer-ruby-ai-engineering-agent-observability",
-    "title": "Backend Engineer (Ruby), AI Engineering: Agent Observability",
-    "company": "GitLab",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=gitlab.com&sz=128",
-    "location": "Remote, Canada",
-    "region": "Canada",
-    "workplaceType": "Remote",
-    "tags": [
-      "Backend",
-      "AI / ML"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/gitlab/jobs/8620720002",
-    "datePosted": "2026-09-14T20:01:39.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Backend Engineer (Ruby), AI Engineering: Agent Observability role at GitLab. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-cloudflare-8168623",
-    "slug": "cloudflare-software-engineer-platforms-productivity",
-    "title": "Software Engineer - Platforms & Productivity",
-    "company": "Cloudflare",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
-    "location": "Hybrid",
-    "region": "Worldwide",
-    "workplaceType": "Hybrid/Remote",
-    "tags": [
-      "Software Engineer"
-    ],
-    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8168623?gh_jid=8168623",
-    "datePosted": "2026-09-17T06:29:48.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer - Platforms & Productivity role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-stripe-8198280",
-    "slug": "stripe-software-engineer-backend",
-    "title": "Software Engineer, Backend",
-    "company": "Stripe",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Seattle, WA",
-    "region": "US",
-    "workplaceType": "Hybrid/Remote",
-    "tags": [
-      "Backend"
-    ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8198280",
-    "datePosted": "2026-09-14T22:11:13.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Backend role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-datadog-7993551",
@@ -1898,38 +2070,38 @@
     "descriptionSnippet": "Explore this Fullstack Engineer (TypeScript), AI Engineering: Duo Client SDK role at GitLab. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-cloudflare-7377424",
-    "slug": "cloudflare-software-engineer-workers-deploy-config",
-    "title": "Software Engineer, Workers Deploy & Config",
+    "id": "gh-cloudflare-8168623",
+    "slug": "cloudflare-software-engineer-platforms-productivity",
+    "title": "Software Engineer - Platforms & Productivity",
     "company": "Cloudflare",
     "companyLogo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
-    "location": "In-Office",
+    "location": "Hybrid",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/7377424?gh_jid=7377424",
-    "datePosted": "2026-09-16T15:03:28.000Z",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8168623?gh_jid=8168623",
+    "datePosted": "2026-09-17T06:29:48.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Workers Deploy & Config role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer - Platforms & Productivity role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8198207",
-    "slug": "stripe-software-engineer-payins-card-networks",
-    "title": "Software Engineer, Payins Card Networks",
+    "id": "gh-stripe-8198280",
+    "slug": "stripe-software-engineer-backend",
+    "title": "Software Engineer, Backend",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
     "location": "Seattle, WA",
     "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Software Engineer"
+      "Backend"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8198207",
-    "datePosted": "2026-09-14T21:46:08.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8198280",
+    "datePosted": "2026-09-14T22:11:13.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Payins Card Networks role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Backend role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-datadog-8035492",
@@ -1966,26 +2138,26 @@
     "descriptionSnippet": "Explore this Intermediate Backend Engineer, AMER role at GitLab. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-cloudflare-8055320",
-    "slug": "cloudflare-principal-software-engineer-workers-deploy-config",
-    "title": "Principal Software Engineer, Workers Deploy & Config",
+    "id": "gh-cloudflare-7377424",
+    "slug": "cloudflare-software-engineer-workers-deploy-config",
+    "title": "Software Engineer, Workers Deploy & Config",
     "company": "Cloudflare",
     "companyLogo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
     "location": "In-Office",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Staff/Lead"
+      "Software Engineer"
     ],
-    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8055320?gh_jid=8055320",
-    "datePosted": "2026-09-16T15:02:32.000Z",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/7377424?gh_jid=7377424",
+    "datePosted": "2026-09-16T15:03:28.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Principal Software Engineer, Workers Deploy & Config role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Workers Deploy & Config role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8197135",
-    "slug": "stripe-software-engineer-high-availability-and-disaster-recovery",
-    "title": "Software Engineer, High Availability and Disaster Recovery",
+    "id": "gh-stripe-8198207",
+    "slug": "stripe-software-engineer-payins-card-networks",
+    "title": "Software Engineer, Payins Card Networks",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
     "location": "Seattle, WA",
@@ -1994,10 +2166,10 @@
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8197135",
-    "datePosted": "2026-09-14T21:21:04.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8198207",
+    "datePosted": "2026-09-14T21:46:08.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, High Availability and Disaster Recovery role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Payins Card Networks role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-datadog-6960503",
@@ -2035,38 +2207,38 @@
     "descriptionSnippet": "Explore this Intermediate Backend Engineer - Database Change Management role at GitLab. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-cloudflare-8203784",
-    "slug": "cloudflare-systems-engineer",
-    "title": "Systems Engineer",
+    "id": "gh-cloudflare-8055320",
+    "slug": "cloudflare-principal-software-engineer-workers-deploy-config",
+    "title": "Principal Software Engineer, Workers Deploy & Config",
     "company": "Cloudflare",
     "companyLogo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
-    "location": "Hybrid",
+    "location": "In-Office",
     "region": "Worldwide",
+    "workplaceType": "Hybrid/Remote",
+    "tags": [
+      "Staff/Lead"
+    ],
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8055320?gh_jid=8055320",
+    "datePosted": "2026-09-16T15:02:32.000Z",
+    "source": "Direct ATS",
+    "descriptionSnippet": "Explore this Principal Software Engineer, Workers Deploy & Config role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
+  },
+  {
+    "id": "gh-stripe-8197135",
+    "slug": "stripe-software-engineer-high-availability-and-disaster-recovery",
+    "title": "Software Engineer, High Availability and Disaster Recovery",
+    "company": "Stripe",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
+    "location": "Seattle, WA",
+    "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8203784?gh_jid=8203784",
-    "datePosted": "2026-09-16T13:36:13.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8197135",
+    "datePosted": "2026-09-14T21:21:04.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Systems Engineer role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-stripe-8044460",
-    "slug": "stripe-ai-engineer",
-    "title": "AI Engineer",
-    "company": "Stripe",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Chicago",
-    "region": "US",
-    "workplaceType": "Hybrid/Remote",
-    "tags": [
-      "AI / ML"
-    ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8044460",
-    "datePosted": "2026-09-14T14:31:25.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this AI Engineer role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, High Availability and Disaster Recovery role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-datadog-5608424",
@@ -2086,18 +2258,18 @@
     "descriptionSnippet": "Explore this Senior Staff Software Engineer  role at Datadog. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-gitlab-8778279002",
+    "id": "gh-gitlab-8775415002",
     "slug": "gitlab-intermediate-backend-engineer-emea",
     "title": "Intermediate Backend Engineer, EMEA",
     "company": "GitLab",
     "companyLogo": "https://www.google.com/s2/favicons?domain=gitlab.com&sz=128",
-    "location": "Remote, United Kingdom",
+    "location": "Remote, Poland",
     "region": "EU",
     "workplaceType": "Remote",
     "tags": [
       "Backend"
     ],
-    "applyUrl": "https://job-boards.greenhouse.io/gitlab/jobs/8778279002",
+    "applyUrl": "https://job-boards.greenhouse.io/gitlab/jobs/8775415002",
     "datePosted": "2026-09-14T20:01:39.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Intermediate Backend Engineer, EMEA role at GitLab. Direct company career opening with high-impact engineering opportunities."
@@ -2120,35 +2292,35 @@
     "descriptionSnippet": "Explore this Distributed Systems Engineer - Data Platform (Delivery, Database, Retrieval) role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8197891",
-    "slug": "stripe-software-engineer-online-database-infrastructure",
-    "title": "Software Engineer, Online Database Infrastructure",
+    "id": "gh-stripe-8044460",
+    "slug": "stripe-ai-engineer",
+    "title": "AI Engineer",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Seattle, WA",
+    "location": "Chicago",
     "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Software Engineer"
+      "AI / ML"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8197891",
-    "datePosted": "2026-09-11T20:59:16.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8044460",
+    "datePosted": "2026-09-14T14:31:25.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Online Database Infrastructure role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this AI Engineer role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-datadog-8114161",
+    "id": "gh-datadog-8114186",
     "slug": "datadog-software-engineering-intern",
     "title": "Software Engineering Intern",
     "company": "Datadog",
     "companyLogo": "https://www.google.com/s2/favicons?domain=datadog.com&sz=128",
-    "location": "Madrid, Spain",
+    "location": "Paris, France",
     "region": "EU",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://careers.datadoghq.com/detail/8114161/?gh_jid=8114161",
+    "applyUrl": "https://careers.datadoghq.com/detail/8114186/?gh_jid=8114186",
     "datePosted": "2026-09-18T18:57:30.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Software Engineering Intern role at Datadog. Direct company career opening with high-impact engineering opportunities."
@@ -2188,21 +2360,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer - Quicksilver - Distributed Key Value role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8194328",
-    "slug": "stripe-senior-software-engineer-product-velocity",
-    "title": "Senior Software Engineer, Product Velocity",
+    "id": "gh-stripe-8197891",
+    "slug": "stripe-software-engineer-online-database-infrastructure",
+    "title": "Software Engineer, Online Database Infrastructure",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
     "location": "Seattle, WA",
     "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Senior"
+      "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8194328",
-    "datePosted": "2026-09-11T00:19:20.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8197891",
+    "datePosted": "2026-09-11T20:59:16.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Software Engineer, Product Velocity role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Online Database Infrastructure role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-datadog-8052118",
@@ -2256,21 +2428,21 @@
     "descriptionSnippet": "Explore this Software Engineer, Deploy at Scale role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7217048",
-    "slug": "stripe-backend-engineer-billing-tax",
-    "title": "Backend Engineer, Billing/Tax",
+    "id": "gh-stripe-8194328",
+    "slug": "stripe-senior-software-engineer-product-velocity",
+    "title": "Senior Software Engineer, Product Velocity",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "N/A",
-    "region": "Worldwide",
+    "location": "Seattle, WA",
+    "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Backend"
+      "Senior"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7217048",
-    "datePosted": "2026-09-10T17:11:58.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8194328",
+    "datePosted": "2026-09-11T00:19:20.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Backend Engineer, Billing/Tax role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Software Engineer, Product Velocity role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-datadog-8128450",
@@ -2325,21 +2497,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Deploy at Scale role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-6042172",
-    "slug": "stripe-backend-engineer-core-technology",
-    "title": "Backend Engineer, Core Technology",
+    "id": "gh-stripe-7217048",
+    "slug": "stripe-backend-engineer-billing-tax",
+    "title": "Backend Engineer, Billing/Tax",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "US-Remote, Chicago, Seattle, San Francisco",
-    "region": "US",
-    "workplaceType": "Remote",
+    "location": "N/A",
+    "region": "Worldwide",
+    "workplaceType": "Hybrid/Remote",
     "tags": [
       "Backend"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=6042172",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7217048",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Backend Engineer, Core Technology role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Backend Engineer, Billing/Tax role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-datadog-8139279",
@@ -2395,21 +2567,21 @@
     "descriptionSnippet": "Explore this Software Engineer, Rulesets role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7557899",
-    "slug": "stripe-backend-engineer-developer-end-user-experience-platform",
-    "title": "Backend Engineer, Developer & End-user Experience Platform",
+    "id": "gh-stripe-6042172",
+    "slug": "stripe-backend-engineer-core-technology",
+    "title": "Backend Engineer, Core Technology",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Toronto, NY, SEA, SF",
-    "region": "Canada",
-    "workplaceType": "Hybrid/Remote",
+    "location": "US-Remote, Chicago, Seattle, San Francisco",
+    "region": "US",
+    "workplaceType": "Remote",
     "tags": [
       "Backend"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7557899",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=6042172",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Backend Engineer, Developer & End-user Experience Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Backend Engineer, Core Technology role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-datadog-8119493",
@@ -2464,21 +2636,21 @@
     "descriptionSnippet": "Explore this Senior Systems Engineer, Identity & Access Management role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7895287",
-    "slug": "stripe-backend-engineer-payments-experiences",
-    "title": "Backend Engineer, Payments Experiences",
+    "id": "gh-stripe-7557899",
+    "slug": "stripe-backend-engineer-developer-end-user-experience-platform",
+    "title": "Backend Engineer, Developer & End-user Experience Platform",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Sao Paulo",
-    "region": "Worldwide",
+    "location": "Toronto, NY, SEA, SF",
+    "region": "Canada",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Backend"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7895287",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7557899",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Backend Engineer, Payments Experiences role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Backend Engineer, Developer & End-user Experience Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-datadog-8043560",
@@ -2534,21 +2706,21 @@
     "descriptionSnippet": "Explore this Software Engineer, Cloudflare Network Interconnect role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7235875",
-    "slug": "stripe-backend-engineer-privy",
-    "title": "Backend Engineer, Privy",
+    "id": "gh-stripe-7895287",
+    "slug": "stripe-backend-engineer-payments-experiences",
+    "title": "Backend Engineer, Payments Experiences",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "NYC-Privy",
+    "location": "Sao Paulo",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Backend"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7235875",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7895287",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Backend Engineer, Privy role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Backend Engineer, Payments Experiences role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-datadog-7974511",
@@ -2604,21 +2776,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Internal Fraud Platform role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8069506",
-    "slug": "stripe-engineering-manager-machine-learning-fraud-detection",
-    "title": "Engineering Manager, Machine Learning - Fraud Detection",
+    "id": "gh-stripe-7235875",
+    "slug": "stripe-backend-engineer-privy",
+    "title": "Backend Engineer, Privy",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "N/A",
+    "location": "NYC-Privy",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "AI / ML"
+      "Backend"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8069506",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7235875",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Engineering Manager, Machine Learning - Fraud Detection role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Backend Engineer, Privy role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-datadog-3210217",
@@ -2673,21 +2845,21 @@
     "descriptionSnippet": "Explore this Threat Intelligence Software Engineer, Cloudforce One role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7644950",
-    "slug": "stripe-frontend-engineer-expansion",
-    "title": "Frontend Engineer, Expansion",
+    "id": "gh-stripe-8069506",
+    "slug": "stripe-engineering-manager-machine-learning-fraud-detection",
+    "title": "Engineering Manager, Machine Learning - Fraud Detection",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
     "location": "N/A",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Frontend"
+      "AI / ML"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7644950",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8069506",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Frontend Engineer, Expansion role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Engineering Manager, Machine Learning - Fraud Detection role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-datadog-8105372",
@@ -2742,9 +2914,9 @@
     "descriptionSnippet": "Explore this Software Engineer, R2 Gateway role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7325252",
-    "slug": "stripe-frontend-engineer-payments-risk",
-    "title": "Frontend Engineer, Payments & Risk",
+    "id": "gh-stripe-7644950",
+    "slug": "stripe-frontend-engineer-expansion",
+    "title": "Frontend Engineer, Expansion",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
     "location": "N/A",
@@ -2753,10 +2925,10 @@
     "tags": [
       "Frontend"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7325252",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7644950",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Frontend Engineer, Payments & Risk role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Frontend Engineer, Expansion role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-datadog-8202699",
@@ -2813,21 +2985,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, R2 Gateway role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-6786324",
-    "slug": "stripe-full-stack-engineer-billing",
-    "title": "Full Stack Engineer, Billing",
+    "id": "gh-stripe-7325252",
+    "slug": "stripe-frontend-engineer-payments-risk",
+    "title": "Frontend Engineer, Payments & Risk",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
     "location": "N/A",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Software Engineer"
+      "Frontend"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=6786324",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7325252",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Full Stack Engineer, Billing role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Frontend Engineer, Payments & Risk role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-datadog-7635298",
@@ -2882,21 +3054,21 @@
     "descriptionSnippet": "Explore this Systems Engineer, Network Protocols & Distributed Systems role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8142764",
-    "slug": "stripe-full-stack-engineer-bridge",
-    "title": "Full Stack Engineer, Bridge",
+    "id": "gh-stripe-6786324",
+    "slug": "stripe-full-stack-engineer-billing",
+    "title": "Full Stack Engineer, Billing",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "San Francisco, NYC",
-    "region": "US",
+    "location": "N/A",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8142764",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=6786324",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Full Stack Engineer, Bridge role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Full Stack Engineer, Billing role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-datadog-7743369",
@@ -2951,21 +3123,21 @@
     "descriptionSnippet": "Explore this Senior Distributed Systems Engineer - Cache role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-6567104",
-    "slug": "stripe-full-stack-engineer-developer-end-user-experience-platform",
-    "title": "Full Stack Engineer, Developer & End User Experience Platform",
+    "id": "gh-stripe-8142764",
+    "slug": "stripe-full-stack-engineer-bridge",
+    "title": "Full Stack Engineer, Bridge",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "N/A",
-    "region": "Worldwide",
+    "location": "San Francisco, NYC",
+    "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=6567104",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8142764",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Full Stack Engineer, Developer & End User Experience Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Full Stack Engineer, Bridge role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-datadog-7107437",
@@ -3021,9 +3193,9 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Security Rules role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8118929",
-    "slug": "stripe-full-stack-engineer-enterprise-ecosystem",
-    "title": "Full Stack Engineer, Enterprise & Ecosystem",
+    "id": "gh-stripe-6567104",
+    "slug": "stripe-full-stack-engineer-developer-end-user-experience-platform",
+    "title": "Full Stack Engineer, Developer & End User Experience Platform",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
     "location": "N/A",
@@ -3032,24 +3204,24 @@
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8118929",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=6567104",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Full Stack Engineer, Enterprise & Ecosystem role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Full Stack Engineer, Developer & End User Experience Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-datadog-8007598",
+    "id": "gh-datadog-8007589",
     "slug": "datadog-staff-software-engineer-security-agent",
     "title": "Staff Software Engineer - Security Agent",
     "company": "Datadog",
     "companyLogo": "https://www.google.com/s2/favicons?domain=datadog.com&sz=128",
-    "location": "France, Remote; Germany, Remote; Ireland, Remote; Italy, Remote; Spain, Remote",
+    "location": "Paris, France",
     "region": "EU",
-    "workplaceType": "Remote",
+    "workplaceType": "Hybrid/Remote",
     "tags": [
       "Staff/Lead"
     ],
-    "applyUrl": "https://careers.datadoghq.com/detail/8007598/?gh_jid=8007598",
+    "applyUrl": "https://careers.datadoghq.com/detail/8007589/?gh_jid=8007589",
     "datePosted": "2026-09-18T18:57:30.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Staff Software Engineer - Security Agent role at Datadog. Direct company career opening with high-impact engineering opportunities."
@@ -3090,21 +3262,21 @@
     "descriptionSnippet": "Explore this Software Engineer, Security Rules role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7964956",
-    "slug": "stripe-full-stack-engineer-growth",
-    "title": "Full Stack Engineer, Growth",
+    "id": "gh-stripe-8118929",
+    "slug": "stripe-full-stack-engineer-enterprise-ecosystem",
+    "title": "Full Stack Engineer, Enterprise & Ecosystem",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Singapore",
+    "location": "N/A",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7964956",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8118929",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Full Stack Engineer, Growth role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Full Stack Engineer, Enterprise & Ecosystem role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-gitlab-8621620002",
@@ -3143,21 +3315,21 @@
     "descriptionSnippet": "Explore this Systems Engineer - Database Platform role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8062305",
-    "slug": "stripe-full-stack-engineer-link",
-    "title": "Full Stack Engineer, Link",
+    "id": "gh-stripe-7964956",
+    "slug": "stripe-full-stack-engineer-growth",
+    "title": "Full Stack Engineer, Growth",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "New York, New York",
-    "region": "US",
+    "location": "Singapore",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8062305",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7964956",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Full Stack Engineer, Link role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Full Stack Engineer, Growth role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-gitlab-8682707002",
@@ -3195,21 +3367,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Durable Objects (DO) role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-6606581",
-    "slug": "stripe-full-stack-engineer-money-as-a-service",
-    "title": "Full Stack Engineer, Money as a Service",
+    "id": "gh-stripe-8062305",
+    "slug": "stripe-full-stack-engineer-link",
+    "title": "Full Stack Engineer, Link",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "N/A",
-    "region": "Worldwide",
+    "location": "New York, New York",
+    "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=6606581",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8062305",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Full Stack Engineer, Money as a Service role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Full Stack Engineer, Link role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-gitlab-8682860002",
@@ -3247,21 +3419,21 @@
     "descriptionSnippet": "Explore this Full Stack Engineer - Internal Audit role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8039548",
-    "slug": "stripe-full-stack-engineer-support-experience-greater-china-support",
-    "title": "Full Stack Engineer, Support Experience (Greater China Support)",
+    "id": "gh-stripe-6606581",
+    "slug": "stripe-full-stack-engineer-money-as-a-service",
+    "title": "Full Stack Engineer, Money as a Service",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "US",
+    "location": "N/A",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8039548",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=6606581",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Full Stack Engineer, Support Experience (Greater China Support) role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Full Stack Engineer, Money as a Service role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-gitlab-8716138002",
@@ -3299,21 +3471,21 @@
     "descriptionSnippet": "Explore this Incident Response Analyst - React role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7436086",
-    "slug": "stripe-full-stack-engineer-web-presence-and-platform",
-    "title": "Full Stack Engineer, Web Presence and Platform",
+    "id": "gh-stripe-8039548",
+    "slug": "stripe-full-stack-engineer-support-experience-greater-china-support",
+    "title": "Full Stack Engineer, Support Experience (Greater China Support)",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "N/A",
+    "location": "US",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7436086",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8039548",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Full Stack Engineer, Web Presence and Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Full Stack Engineer, Support Experience (Greater China Support) role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-gitlab-8636539002",
@@ -3351,21 +3523,21 @@
     "descriptionSnippet": "Explore this Principal Software Engineer, Data role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7895284",
-    "slug": "stripe-full-stack-software-engineer-brazil",
-    "title": "Full Stack Software Engineer, Brazil",
+    "id": "gh-stripe-7436086",
+    "slug": "stripe-full-stack-engineer-web-presence-and-platform",
+    "title": "Full Stack Engineer, Web Presence and Platform",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Sao Paulo",
+    "location": "N/A",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7895284",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7436086",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Full Stack Software Engineer, Brazil role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Full Stack Engineer, Web Presence and Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-gitlab-8721124002",
@@ -3402,21 +3574,21 @@
     "descriptionSnippet": "Explore this Principal Software Engineer: Distributed Systems (Config, Test, & Deployment) role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7896151",
-    "slug": "stripe-internal-product-engineer-developer-productivity-ai",
-    "title": "Internal Product Engineer, Developer Productivity AI ",
+    "id": "gh-stripe-7895284",
+    "slug": "stripe-full-stack-software-engineer-brazil",
+    "title": "Full Stack Software Engineer, Brazil",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Toronto, Canada ",
-    "region": "Canada",
+    "location": "Sao Paulo",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7896151",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7895284",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Internal Product Engineer, Developer Productivity AI  role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Full Stack Software Engineer, Brazil role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-gitlab-8614945002",
@@ -3454,21 +3626,21 @@
     "descriptionSnippet": "Explore this Principal Systems Engineer, DevTools role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8014859",
-    "slug": "stripe-machine-learning-engineer",
-    "title": "Machine Learning Engineer",
+    "id": "gh-stripe-7896151",
+    "slug": "stripe-internal-product-engineer-developer-productivity-ai",
+    "title": "Internal Product Engineer, Developer Productivity AI ",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Toronto",
+    "location": "Toronto, Canada ",
     "region": "Canada",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "AI / ML"
+      "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8014859",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7896151",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Machine Learning Engineer role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Internal Product Engineer, Developer Productivity AI  role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-gitlab-8738225002",
@@ -3505,36 +3677,36 @@
     "descriptionSnippet": "Explore this Senior Data Engineer role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8022713",
-    "slug": "stripe-ml-engineer-manager-ai-conversation-platform",
-    "title": "ML Engineer Manager, AI Conversation Platform",
+    "id": "gh-stripe-8014859",
+    "slug": "stripe-machine-learning-engineer",
+    "title": "Machine Learning Engineer",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Toronto, Canada",
+    "location": "Toronto",
     "region": "Canada",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "AI / ML"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8022713",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8014859",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this ML Engineer Manager, AI Conversation Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Machine Learning Engineer role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-gitlab-8749952002",
+    "id": "gh-gitlab-8693103002",
     "slug": "gitlab-senior-software-engineer-typescript-ai-clients-duo-cli",
     "title": "Senior Software Engineer (Typescript), AI Clients: Duo CLI",
     "company": "GitLab",
     "companyLogo": "https://www.google.com/s2/favicons?domain=gitlab.com&sz=128",
-    "location": "Remote, Poland",
+    "location": "Remote, United Kingdom",
     "region": "EU",
     "workplaceType": "Remote",
     "tags": [
       "TypeScript",
       "Senior"
     ],
-    "applyUrl": "https://job-boards.greenhouse.io/gitlab/jobs/8749952002",
+    "applyUrl": "https://job-boards.greenhouse.io/gitlab/jobs/8693103002",
     "datePosted": "2026-09-14T20:01:39.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Software Engineer (Typescript), AI Clients: Duo CLI role at GitLab. Direct company career opening with high-impact engineering opportunities."
@@ -3557,21 +3729,21 @@
     "descriptionSnippet": "Explore this Senior Distributed Systems Engineer role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8175099",
-    "slug": "stripe-senior-software-engineer",
-    "title": "Senior Software Engineer",
+    "id": "gh-stripe-8022713",
+    "slug": "stripe-ml-engineer-manager-ai-conversation-platform",
+    "title": "ML Engineer Manager, AI Conversation Platform",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "South San Francisco, CA",
-    "region": "US",
+    "location": "Toronto, Canada",
+    "region": "Canada",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Senior"
+      "AI / ML"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8175099",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8022713",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Software Engineer role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this ML Engineer Manager, AI Conversation Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-gitlab-8773381002",
@@ -3610,21 +3782,21 @@
     "descriptionSnippet": "Explore this Senior Incident Response Analyst - REACT  role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8177860",
-    "slug": "stripe-senior-software-engineer-docs-product",
-    "title": "Senior Software Engineer, Docs Product",
+    "id": "gh-stripe-8175099",
+    "slug": "stripe-senior-software-engineer",
+    "title": "Senior Software Engineer",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "New York, NY",
+    "location": "South San Francisco, CA",
     "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Senior"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8177860",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8175099",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Software Engineer, Docs Product role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Software Engineer role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-gitlab-8646544002",
@@ -3663,21 +3835,21 @@
     "descriptionSnippet": "Explore this Senior Machine Learning Engineer role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8137972",
-    "slug": "stripe-software-engineer",
-    "title": "Software Engineer",
+    "id": "gh-stripe-8177860",
+    "slug": "stripe-senior-software-engineer-docs-product",
+    "title": "Senior Software Engineer, Docs Product",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Chicago, IL",
+    "location": "New York, NY",
     "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Software Engineer"
+      "Senior"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8137972",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8177860",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Software Engineer, Docs Product role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-gitlab-8770702002",
@@ -3716,21 +3888,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer - Addressing Team role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7277110",
-    "slug": "stripe-software-engineer-bridge",
-    "title": "Software Engineer, Bridge",
+    "id": "gh-stripe-8137972",
+    "slug": "stripe-software-engineer",
+    "title": "Software Engineer",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "San Francisco, NY, Seattle",
+    "location": "Chicago, IL",
     "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7277110",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8137972",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Bridge role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-gitlab-8716271002",
@@ -3768,36 +3940,36 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Cloudflare Queues role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8078337",
-    "slug": "stripe-software-engineer-connect-tax-reporting",
-    "title": "Software Engineer, Connect Tax Reporting",
+    "id": "gh-stripe-7277110",
+    "slug": "stripe-software-engineer-bridge",
+    "title": "Software Engineer, Bridge",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Bucharest, Romania",
-    "region": "Worldwide",
+    "location": "San Francisco, NY, Seattle",
+    "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8078337",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7277110",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Connect Tax Reporting role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Bridge role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-gitlab-8777342002",
+    "id": "gh-gitlab-8775039002",
     "slug": "gitlab-staff-backend-engineer-emea",
     "title": "Staff Backend Engineer, EMEA",
     "company": "GitLab",
     "companyLogo": "https://www.google.com/s2/favicons?domain=gitlab.com&sz=128",
-    "location": "Remote, Poland",
+    "location": "Remote, United Kingdom",
     "region": "EU",
     "workplaceType": "Remote",
     "tags": [
       "Backend",
       "Staff/Lead"
     ],
-    "applyUrl": "https://job-boards.greenhouse.io/gitlab/jobs/8777342002",
+    "applyUrl": "https://job-boards.greenhouse.io/gitlab/jobs/8775039002",
     "datePosted": "2026-09-14T20:01:39.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Staff Backend Engineer, EMEA role at GitLab. Direct company career opening with high-impact engineering opportunities."
@@ -3820,21 +3992,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Distributed Databases role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7975725",
-    "slug": "stripe-software-engineer-core-infrastructure",
-    "title": "Software Engineer, Core Infrastructure",
+    "id": "gh-stripe-8078337",
+    "slug": "stripe-software-engineer-connect-tax-reporting",
+    "title": "Software Engineer, Connect Tax Reporting",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Sydney, Australia",
+    "location": "Bucharest, Romania",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7975725",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8078337",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Core Infrastructure role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Connect Tax Reporting role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-gitlab-8463922002",
@@ -3872,21 +4044,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer - Fintech role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7230670",
-    "slug": "stripe-software-engineer-data-orchestration",
-    "title": "Software Engineer, Data Orchestration",
+    "id": "gh-stripe-7975725",
+    "slug": "stripe-software-engineer-core-infrastructure",
+    "title": "Software Engineer, Core Infrastructure",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "N/A",
+    "location": "Sydney, Australia",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7230670",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7975725",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Data Orchestration role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Core Infrastructure role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-gitlab-8488961002",
@@ -3925,21 +4097,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Network On-Ramps role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8031833",
-    "slug": "stripe-software-engineer-intern",
-    "title": "Software Engineer, Intern",
+    "id": "gh-stripe-7230670",
+    "slug": "stripe-software-engineer-data-orchestration",
+    "title": "Software Engineer, Data Orchestration",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Bengaluru",
+    "location": "N/A",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8031833",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7230670",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Intern role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Data Orchestration role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-gitlab-8646573002",
@@ -3978,21 +4150,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Network Performance & Reliability role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7543868",
-    "slug": "stripe-software-engineer-internal-systems",
-    "title": "Software Engineer, Internal Systems",
+    "id": "gh-stripe-8031833",
+    "slug": "stripe-software-engineer-intern",
+    "title": "Software Engineer, Intern",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Bengaluru, India",
+    "location": "Bengaluru",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7543868",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8031833",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Internal Systems role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Intern role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-gitlab-8638295002",
@@ -4029,21 +4201,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer - Network Platforms role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8128745",
-    "slug": "stripe-software-engineer-intern-summer-or-winter",
-    "title": "Software Engineer, Intern (Summer or Winter)",
+    "id": "gh-stripe-7543868",
+    "slug": "stripe-software-engineer-internal-systems",
+    "title": "Software Engineer, Internal Systems",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "San Francisco, Seattle, New York City",
-    "region": "US",
+    "location": "Bengaluru, India",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8128745",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7543868",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Intern (Summer or Winter) role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Internal Systems role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-gitlab-8739391002",
@@ -4081,21 +4253,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, R2 Metadata role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7737237",
-    "slug": "stripe-software-engineer-metronome-infrastructure",
-    "title": "Software Engineer, Metronome Infrastructure",
+    "id": "gh-stripe-8128745",
+    "slug": "stripe-software-engineer-intern-summer-or-winter",
+    "title": "Software Engineer, Intern (Summer or Winter)",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Toronto, Vancouver, Canada-Remote",
-    "region": "Canada",
-    "workplaceType": "Remote",
+    "location": "San Francisco, Seattle, New York City",
+    "region": "US",
+    "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7737237",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8128745",
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Metronome Infrastructure role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Intern (Summer or Winter) role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-gitlab-8632446002",
@@ -4132,6 +4304,40 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Workers Runtime role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
+    "id": "gh-stripe-7737237",
+    "slug": "stripe-software-engineer-metronome-infrastructure",
+    "title": "Software Engineer, Metronome Infrastructure",
+    "company": "Stripe",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
+    "location": "Toronto, Vancouver, Canada-Remote",
+    "region": "Canada",
+    "workplaceType": "Remote",
+    "tags": [
+      "Software Engineer"
+    ],
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7737237",
+    "datePosted": "2026-09-10T17:11:58.000Z",
+    "source": "Direct ATS",
+    "descriptionSnippet": "Explore this Software Engineer, Metronome Infrastructure role at Stripe. Direct company career opening with high-impact engineering opportunities."
+  },
+  {
+    "id": "gh-cloudflare-8087792",
+    "slug": "cloudflare-senior-systems-engineer",
+    "title": "Senior Systems Engineer",
+    "company": "Cloudflare",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
+    "location": "Hybrid",
+    "region": "Worldwide",
+    "workplaceType": "Hybrid/Remote",
+    "tags": [
+      "Senior"
+    ],
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8087792?gh_jid=8087792",
+    "datePosted": "2026-09-04T14:59:17.000Z",
+    "source": "Direct ATS",
+    "descriptionSnippet": "Explore this Senior Systems Engineer role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
+  },
+  {
     "id": "gh-stripe-7208537",
     "slug": "stripe-software-engineer-money-movement",
     "title": "Software Engineer, Money Movement ",
@@ -4147,40 +4353,6 @@
     "datePosted": "2026-09-10T17:11:58.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Software Engineer, Money Movement  role at Stripe. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-cloudflare-8066589",
-    "slug": "cloudflare-senior-systems-engineer",
-    "title": "Senior Systems Engineer",
-    "company": "Cloudflare",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
-    "location": "In-Office",
-    "region": "Worldwide",
-    "workplaceType": "Hybrid/Remote",
-    "tags": [
-      "Senior"
-    ],
-    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8066589?gh_jid=8066589",
-    "datePosted": "2026-09-04T14:59:17.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Systems Engineer role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-stripe-8130930",
-    "slug": "stripe-software-engineer-new-grad",
-    "title": "Software Engineer, New Grad",
-    "company": "Stripe",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "London",
-    "region": "EU",
-    "workplaceType": "Hybrid/Remote",
-    "tags": [
-      "Software Engineer"
-    ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8130930",
-    "datePosted": "2026-09-10T17:11:58.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, New Grad role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-7560174",
