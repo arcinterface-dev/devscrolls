@@ -158,10 +158,13 @@ export default function ToolAnalytics() {
   // Auth Handlers
   const handleSignIn = async (provider: 'github' | 'google') => {
     try {
+      if (typeof window !== 'undefined') {
+        sessionStorage.setItem('auth_redirect_target', '/admin/analytics');
+      }
       await supabase.auth.signInWithOAuth({
         provider,
         options: {
-          redirectTo: window.location.href
+          redirectTo: typeof window !== 'undefined' ? `${window.location.origin}/admin/analytics` : undefined
         }
       });
     } catch (err) {

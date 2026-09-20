@@ -34,6 +34,14 @@ const { title, description, toolName } = Astro.props;
         } else {
           document.documentElement.setAttribute('data-theme', 'light');
         }
+
+        // Supabase OAuth Hash Forwarder: If OAuth drops to root Site URL, forward hash to intended page
+        if (window.location.hash && window.location.hash.includes('access_token=')) {
+          const target = sessionStorage.getItem('auth_redirect_target') || sessionStorage.getItem('auth_redirect_after_login');
+          if (target && window.location.pathname !== target) {
+            window.location.replace(target + window.location.hash);
+          }
+        }
       })();
     </script>
 
