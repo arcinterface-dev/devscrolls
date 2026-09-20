@@ -6,60 +6,118 @@ import '../styles/prose.css';
 
 <BaseLayout 
   title="Privacy Policy — DevScrolls" 
-  description="Privacy Policy for DevScrolls, detailing cookies, logging, and Google AdSense compliance."
+  description="Privacy Policy for DevScrolls, detailing authentication (OAuth), Supabase storage, comments, newsletters, cookies, and data protection rights."
 >
   <div class="privacy-container">
     <header class="privacy-header">
       <h1 class="privacy-title">Privacy Policy</h1>
-      <p class="privacy-subtitle">Last updated: July 1, 2026</p>
+      <p class="privacy-subtitle">Last updated: September 20, 2026</p>
     </header>
 
     <article class="prose privacy-prose">
-      <p class="lead">At DevScrolls, accessible from devscrolls.dev, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by DevScrolls and how we use it.</p>
+      <p class="lead">At DevScrolls, accessible from devscrolls.dev, we respect your privacy and are committed to protecting the personal information you share with us. This Privacy Policy explains what data we collect, how it is processed and stored, and your rights regarding your information.</p>
       
-      <p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us at <a href="mailto:santhanakrishnanstark@gmail.com">santhanakrishnanstark@gmail.com</a>.</p>
+      <p>If you have questions or require more information about our Privacy Policy or data practices, contact us directly at <a href="mailto:santhanakrishnanstark@gmail.com">santhanakrishnanstark@gmail.com</a>.</p>
 
-      <h2>1. Log Files</h2>
-      <p>DevScrolls follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this as part of hosting services' analytics. The information collected by log files includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information.</p>
+      <h2>1. Information We Collect</h2>
+      <p>Depending on how you interact with DevScrolls, we collect information in the following categories:</p>
 
-      <h2>2. Cookies and Web Beacons</h2>
-      <p>Like any other website, DevScrolls uses "cookies". These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.</p>
-
-      <h2>3. Google DoubleClick DART Cookie</h2>
-      <p>Google is one of the third-party vendors on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to devscrolls.dev and other sites on the internet. However, visitors may choose to decline the use of DART cookies by visiting the Google ad and content network Privacy Policy at the following URL: <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">https://policies.google.com/technologies/ads</a>.</p>
-
-      <h2>4. Advertising Partners Privacy Policies</h2>
-      <p>Third-party ad servers or ad networks use technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on DevScrolls, which are sent directly to users' browser. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on websites that you visit.</p>
-      <p>Note that DevScrolls has no access to or control over these cookies that are used by third-party advertisers.</p>
-
-      <h2>5. Third Party Privacy Policies</h2>
-      <p>DevScrolls' Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.</p>
-      <p>You can choose to disable cookies through your individual browser options. To know more detailed information about cookie management with specific web browsers, it can be found at the browsers' respective websites.</p>
-
-      <h2>6. CCPA Privacy Rights (Do Not Sell My Personal Information)</h2>
-      <p>Under the CCPA, among other rights, California consumers have the right to:</p>
+      <h3>Account and Authentication Data</h3>
+      <p>To participate in article discussions, comment threads, and community reactions, you may authenticate using third-party identity providers: <strong>Google Identity Services</strong> or <strong>GitHub OAuth</strong>.</p>
+      <p>When you authenticate via these providers, we receive basic public profile information provided by the respective OAuth service:</p>
       <ul>
-        <li>Request that a business that collects a consumer's personal data disclose the categories and specific pieces of personal data that a business has collected about consumers.</li>
-        <li>Request that a business delete any personal data about the consumer that a business has collected.</li>
-        <li>Request that a business that sells a consumer's personal data, not sell the consumer's personal data.</li>
+        <li><strong>Full name / display name</strong> (used to attribute your comments and replies)</li>
+        <li><strong>Email address</strong> (used for account identification, spam prevention, and optional subscription preferences)</li>
+        <li><strong>Profile picture / avatar URL</strong> (displayed alongside your public comments)</li>
+        <li><strong>Unique provider ID</strong> (to securely link your session across visits)</li>
       </ul>
-      <p>If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</p>
+      <p>We do not collect, process, or store passwords for external OAuth accounts.</p>
 
-      <h2>7. GDPR Data Protection Rights</h2>
-      <p>We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:</p>
+      <h3>Google API Services User Data Policy</h3>
+      <p>DevScrolls' use and transfer of information received from Google APIs to any other app adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Google API Services User Data Policy</a>, including the Limited Use requirements. Specifically:</p>
       <ul>
-        <li><strong>The right to access</strong> – You have the right to request copies of your personal data.</li>
-        <li><strong>The right to rectification</strong> – You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete the information you believe is incomplete.</li>
-        <li><strong>The right to erasure</strong> – You have the right to request that we erase your personal data, under certain conditions.</li>
-        <li><strong>The right to restrict processing</strong> – You have the right to request that we restrict the processing of your personal data, under certain conditions.</li>
-        <li><strong>The right to object to processing</strong> – You have the right to object to our processing of your personal data, under certain conditions.</li>
-        <li><strong>The right to data portability</strong> – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</li>
+        <li>We only request authentication scopes necessary to identify you (name, email, profile picture) for the commenting platform.</li>
+        <li>We do not sell, rent, or transfer your Google user data to any advertising platforms, data brokers, or information resellers.</li>
+        <li>We do not use your Google user data to serve personalized advertisements or train artificial intelligence or machine learning models.</li>
       </ul>
-      <p>If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.</p>
+
+      <h3>User-Generated Content</h3>
+      <p>When you post a comment, reply to a thread, or react to an article, that content (including comment text, timestamps, article identifiers, and vote counts) is stored in our database. Your display name and avatar will be publicly associated with your published comments.</p>
+
+      <h3>Newsletter Subscriptions</h3>
+      <p>When you subscribe to the DevScrolls newsletter (either via our newsletter subscription forms or by checking the optional subscription box when posting a comment), we collect your email address and first name. This information is processed by our email distribution provider, Kit (ConvertKit), solely to deliver technical articles and engineering deep dives.</p>
+
+      <h3>Contact and Moderation Forms</h3>
+      <p>When you submit messages through our contact form or post new comments, submission details (name, email address, message or comment body) are dispatched to Formspree to alert site maintainers for review and spam moderation.</p>
+
+      <h3>Server Logs and Analytics</h3>
+      <p>Like most websites, our hosting provider (Vercel) automatically logs standard network requests, including IP addresses, browser user agent, operating system, referrer URLs, and request timestamps for infrastructure reliability and security defense.</p>
+      <p>For site performance and traffic insights, we use <strong>Umami Analytics</strong>. Umami is a cookieless, privacy-first analytics tool that does not collect personally identifiable information (PII), does not track visitors across websites, and complies with GDPR, CCPA, and PECR without requiring cookie banners.</p>
+
+      <h2>2. How We Store and Protect Your Data</h2>
+      <p>We implement strict data architecture practices to safeguard your personal information:</p>
+      <ul>
+        <li><strong>Database and Authentication:</strong> Authentication sessions, user profiles, comments, and claps are managed through <strong>Supabase</strong>, hosted on secure cloud infrastructure. All data in transit is encrypted using modern TLS (HTTPS), and data at rest is encrypted using industry-standard AES-256 encryption.</li>
+        <li><strong>Row-Level Security (RLS):</strong> Our database employs PostgreSQL Row-Level Security policies ensuring that authenticated users can only edit or delete their own comments.</li>
+        <li><strong>Session Tokens:</strong> Authentication tokens are stored locally in your browser's local storage or secure cookies to keep you signed in. You can terminate your session at any time by clicking "Sign Out" in the discussion header.</li>
+      </ul>
+
+      <h2>3. Third-Party Service Providers</h2>
+      <p>We work with trusted third-party services that process data strictly on our behalf under defined contractual terms:</p>
+      <ul>
+        <li><strong>Supabase Inc.</strong> — Backend database hosting, authentication management, and PostgreSQL Row-Level Security.</li>
+        <li><strong>Google LLC</strong> — Identity Services for authentication via Google accounts.</li>
+        <li><strong>GitHub Inc. (Microsoft)</strong> — OAuth authentication via GitHub accounts.</li>
+        <li><strong>Kit (ConvertKit)</strong> — Email newsletter distribution, list management, and automated subscription management.</li>
+        <li><strong>Formspree Inc.</strong> — Contact form handling and discussion notification alerts for moderation.</li>
+        <li><strong>Umami</strong> — Privacy-first, cookieless analytics.</li>
+        <li><strong>Vercel Inc.</strong> — Global Content Delivery Network (CDN) and edge hosting.</li>
+      </ul>
+
+      <h2>4. Cookies and Local Storage</h2>
+      <p>DevScrolls uses minimal browser storage required for core functionality:</p>
+      <ul>
+        <li><strong>Essential Storage:</strong> Browser local storage and cookies used by Supabase to maintain your authenticated login session and remember your selected theme (dark or light mode).</li>
+        <li><strong>Advertising Cookies (if applicable):</strong> Google and third-party vendors may use cookies, such as DoubleClick DART cookies, to serve relevant advertisements based on prior visits to this and other websites. You may opt out of personalized advertising by visiting <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">Google Ads Settings</a>.</li>
+      </ul>
+      <p>You can manage or disable cookies through your web browser preferences at any time.</p>
+
+      <h2>5. Data Retention and Deletion Rights</h2>
+      <p>We retain your information only as long as necessary to provide our services and maintain community discussions:</p>
+      <ul>
+        <li><strong>Self-Service Comment Deletion:</strong> You can delete any comment you have authored directly in the discussion section on any article page by clicking the delete option on your comment while signed in.</li>
+        <li><strong>Account Deletion:</strong> If you wish to delete your entire account profile, associated authentication records, and discussion history, send an email from your authenticated email address to <a href="mailto:santhanakrishnanstark@gmail.com">santhanakrishnanstark@gmail.com</a>. We will process and purge your account data within 30 days.</li>
+        <li><strong>Newsletter Unsubscribe:</strong> Every newsletter email sent via Kit contains an instant, one-click unsubscribe link in the footer. You can opt out at any time.</li>
+      </ul>
+
+      <h2>6. CCPA / CPRA Privacy Rights (California Residents)</h2>
+      <p>Under the California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA), California residents have the right to:</p>
+      <ul>
+        <li>Request disclosure of the categories and specific pieces of personal data collected about you.</li>
+        <li>Request deletion of your personal data held by us.</li>
+        <li>Request correction of inaccurate personal data.</li>
+        <li>Opt out of the sale or sharing of your personal data. (DevScrolls does not sell or share personal data with data brokers or advertisers).</li>
+        <li>Receive equal service and pricing without discrimination for exercising privacy rights.</li>
+      </ul>
+      <p>To exercise these rights, please email <a href="mailto:santhanakrishnanstark@gmail.com">santhanakrishnanstark@gmail.com</a>. We will acknowledge and verify your request within 45 days.</p>
+
+      <h2>7. GDPR Data Protection Rights (EEA and UK Residents)</h2>
+      <p>Under the General Data Protection Regulation (GDPR), users located in the European Economic Area (EEA) and United Kingdom hold the following rights:</p>
+      <ul>
+        <li><strong>Right to access:</strong> You may request copies of the personal data we hold about you.</li>
+        <li><strong>Right to rectification:</strong> You may request that we correct any inaccurate or incomplete information.</li>
+        <li><strong>Right to erasure ("Right to be forgotten"):</strong> You may request the deletion of your personal data and account records.</li>
+        <li><strong>Right to restrict processing:</strong> You may request that we limit the processing of your personal data under certain conditions.</li>
+        <li><strong>Right to object:</strong> You may object to our processing of your personal data based on legitimate interests or direct communications.</li>
+        <li><strong>Right to data portability:</strong> You may request a machine-readable export of the data you provided to us.</li>
+      </ul>
+      <p>To exercise any of these rights, contact us at <a href="mailto:santhanakrishnanstark@gmail.com">santhanakrishnanstark@gmail.com</a>. We respond to all verified requests within one month.</p>
 
       <h2>8. Children's Information</h2>
-      <p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.</p>
-      <p>DevScrolls does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>
+      <p>DevScrolls is a professional engineering publication designed for developers and technologists. We do not knowingly collect or solicit personal information from children under the age of 13. If you believe that a child has provided personal information on our site, please contact us immediately so we can promptly delete the data from our systems.</p>
+
+      <h2>9. Updates to This Policy</h2>
+      <p>We may update this Privacy Policy periodically to reflect architectural changes, new platform integrations, or legal requirements. Any modifications will be posted on this page with an updated "Last updated" date. Continued use of DevScrolls after updates constitutes acceptance of the revised policy.</p>
     </article>
   </div>
 </BaseLayout>
