@@ -12,7 +12,7 @@
     "astro": "astro",
     "sync:jobs": "node scripts/sync-jobs.js",
     "add:job": "node scripts/add-job.js",
-    "postinstall": "node -e \"const fs = require('fs'); fs.cpSync('node_modules/monaco-editor/min/vs', 'public/monaco/vs', { recursive: true });\""
+    "postinstall": "node -e \"const fs = require('fs'); fs.cpSync('node_modules/monaco-editor/min/vs', 'public/monaco/vs', { recursive: true }); try { fs.copyFileSync('node_modules/pdfjs-dist/build/pdf.worker.min.mjs', 'public/pdf.worker.min.mjs'); fs.copyFileSync('node_modules/mammoth/mammoth.browser.min.js', 'public/mammoth.browser.min.js'); } catch(e){}\""
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.2.0",
@@ -28,8 +28,10 @@
     "@types/react-dom": "^19.2.3",
     "astro": "^7.0.4",
     "jsonpath-plus": "^10.4.0",
+    "mammoth": "^1.12.3",
     "mdast-util-to-string": "^4.0.0",
     "monaco-editor": "^0.55.1",
+    "pdfjs-dist": "^6.3.289",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "reading-time": "^1.5.0",

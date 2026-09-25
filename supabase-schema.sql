@@ -229,7 +229,7 @@ declare
   v_c text := upper(coalesce(nullif(trim(p_country), ''), 'UNKNOWN'));
 begin
   -- Validate tool slug
-  if p_tool_slug not in ('pii-scrubber', 'jwt-debugger', 'json-formatter', 'daily-scroll') then
+  if p_tool_slug not in ('pii-scrubber', 'jwt-debugger', 'json-formatter', 'daily-scroll', 'ats-checker') then
     return;
   end if;
 

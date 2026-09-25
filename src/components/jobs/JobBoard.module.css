@@ -93,6 +93,31 @@
 .headerRight {
   display: flex;
   align-items: center;
+  gap: 0.625rem;
+  flex-wrap: wrap;
+}
+
+.atsCheckerBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(217, 119, 6, 0.08);
+  color: var(--accent-default) !important;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.55rem 0.95rem;
+  border-radius: 8px;
+  border: 1.5px solid rgba(217, 119, 6, 0.3);
+  text-decoration: none;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.atsCheckerBtn:hover {
+  background: rgba(217, 119, 6, 0.16);
+  border-color: var(--accent-default);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(217, 119, 6, 0.15);
 }
 
 .postRoleBtn {

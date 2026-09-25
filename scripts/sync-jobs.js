@@ -208,51 +208,88 @@ async function fetchAshby(company, boardName) {
   }
 }
 
-// Fetch Jobicy (US / EU / Canada remote tech)
-async function fetchJobicy() {
+// Fetch Lever boards (100% Direct ATS apply URLs)
+async function fetchLever(company, boardName) {
   try {
-    const res = await fetch('https://jobicy.com/api/v2/remote-jobs?count=40&industry=engineering', {
+    const res = await fetch(`https://api.lever.co/v0/postings/${company}?mode=json`, {
       headers: { 'User-Agent': 'DevScrolls-Job-Sync/1.0' },
       signal: AbortSignal.timeout(8000)
     });
     if (!res.ok) return [];
     const data = await res.json();
-    if (!data.jobs || !Array.isArray(data.jobs)) return [];
+    if (!Array.isArray(data)) return [];
 
     const jobs = [];
-    for (const j of data.jobs) {
-      const title = j.jobTitle || '';
-      const desc = j.jobDescription || '';
+    for (const j of data) {
+      const title = j.text || '';
+      const location = j.categories?.location || (j.workplaceType === 'remote' ? 'Remote' : 'Hybrid');
+      const desc = j.descriptionPlain || '';
       if (!isRelevantJob(title, desc)) continue;
 
-      const location = j.jobGeo || 'Remote';
       const region = normalizeRegion(location);
-      let salary = undefined;
-      if (j.annualSalaryMin && j.annualSalaryMax) {
-        salary = `$${Math.round(j.annualSalaryMin / 1000)}k – $${Math.round(j.annualSalaryMax / 1000)}k ${j.salaryCurrency || 'USD'}`;
-      }
-
       jobs.push({
-        id: `jobicy-${j.id}`,
-        slug: createSlug(title, j.companyName || 'tech'),
+        id: `lever-${company}-${j.id}`,
+        slug: createSlug(title, boardName),
         title,
-        company: j.companyName || 'Remote Tech Co',
-        companyLogo: j.companyLogo || undefined,
-        location: j.jobGeo ? `Remote (${j.jobGeo})` : 'Remote',
+        company: boardName,
+        companyLogo: `https://www.google.com/s2/favicons?domain=${company}.com&sz=128`,
+        location: location.toLowerCase().includes('remote') ? location : `Remote (${location})`,
         region,
-        workplaceType: 'Remote',
+        workplaceType: j.workplaceType === 'remote' || location.toLowerCase().includes('remote') ? 'Remote' : 'Hybrid',
         tags: extractTags(title, desc),
-        salary,
-        applyUrl: j.url,
-        datePosted: j.pubDate ? new Date(j.pubDate).toISOString() : new Date().toISOString(),
-        source: 'Jobicy Verified',
-        descriptionSnippet: (j.jobExcerpt || desc.replace(/<[^>]*>?/gm, ''))
-          .slice(0, 180).trim() + '...'
+        applyUrl: j.applyUrl || j.hostedUrl,
+        datePosted: j.createdAt ? new Date(j.createdAt).toISOString() : new Date().toISOString(),
+        source: 'Direct ATS',
+        descriptionSnippet: desc.slice(0, 180).trim() + '...'
       });
     }
     return jobs;
   } catch (err) {
-    console.warn('Jobicy fetch skipped:', err.message);
+    console.warn(`Lever [${company}] skipped:`, err.message);
+    return [];
+  }
+}
+
+// Fetch Arbeitnow (Clean developer remote jobs without sign-up gates)
+async function fetchArbeitnow() {
+  try {
+    const res = await fetch('https://www.arbeitnow.com/api/job-board-api', {
+      headers: { 'User-Agent': 'DevScrolls-Job-Sync/1.0' },
+      signal: AbortSignal.timeout(8000)
+    });
+    if (!res.ok) return [];
+    const data = await res.json();
+    if (!data.data || !Array.isArray(data.data)) return [];
+
+    const jobs = [];
+    for (const j of data.data) {
+      if (!j.remote) continue; // Remote only
+      const title = j.title || '';
+      const desc = (j.description || '').replace(/<[^>]*>?/gm, '');
+      if (!isRelevantJob(title, desc)) continue;
+
+      const location = j.location || 'Remote';
+      const region = normalizeRegion(location);
+
+      jobs.push({
+        id: `arbeitnow-${j.slug || Math.random().toString(36).substring(7)}`,
+        slug: createSlug(title, j.company_name || 'remote'),
+        title,
+        company: j.company_name || 'Tech Co',
+        companyLogo: `https://www.google.com/s2/favicons?domain=${(j.company_name || '').toLowerCase().replace(/[^a-z0-9]/g, '')}.com&sz=128`,
+        location: location.toLowerCase().includes('remote') ? location : `Remote (${location})`,
+        region,
+        workplaceType: 'Remote',
+        tags: extractTags(title, desc),
+        applyUrl: j.url,
+        datePosted: j.created_at ? new Date(j.created_at * 1000).toISOString() : new Date().toISOString(),
+        source: 'Arbeitnow',
+        descriptionSnippet: desc.slice(0, 180).trim() + '...'
+      });
+    }
+    return jobs;
+  } catch (err) {
+    console.warn('Arbeitnow fetch skipped:', err.message);
     return [];
   }
 }
@@ -347,7 +384,17 @@ async function main() {
     { slug: 'cloudflare', name: 'Cloudflare' },
     { slug: 'gitlab', name: 'GitLab' },
     { slug: 'stripe', name: 'Stripe' },
-    { slug: 'datadog', name: 'Datadog' }
+    { slug: 'datadog', name: 'Datadog' },
+    { slug: 'figma', name: 'Figma' },
+    { slug: 'reddit', name: 'Reddit' },
+    { slug: 'discord', name: 'Discord' },
+    { slug: 'airbnb', name: 'Airbnb' },
+    { slug: 'coinbase', name: 'Coinbase' },
+    { slug: 'mozilla', name: 'Mozilla' },
+    { slug: 'elastic', name: 'Elastic' },
+    { slug: 'twilio', name: 'Twilio' },
+    { slug: 'dropbox', name: 'Dropbox' },
+    { slug: 'pinterest', name: 'Pinterest' }
   ];
 
   const ashbyCompanies = [
@@ -355,7 +402,14 @@ async function main() {
     { slug: 'perplexity', name: 'Perplexity AI' },
     { slug: 'ramp', name: 'Ramp' },
     { slug: 'sentry', name: 'Sentry' },
-    { slug: 'cursor', name: 'Cursor (Anysphere)' }
+    { slug: 'cursor', name: 'Cursor (Anysphere)' },
+    { slug: 'notion', name: 'Notion' },
+    { slug: 'supabase', name: 'Supabase' },
+    { slug: 'replit', name: 'Replit' }
+  ];
+
+  const leverCompanies = [
+    { slug: 'spotify', name: 'Spotify' }
   ];
 
   const allJobs = [];
@@ -374,12 +428,19 @@ async function main() {
     allJobs.push(...jobs);
   }
 
-  // 3. Fetch Jobicy
-  console.log('Fetching Jobicy Engineering...');
-  const jobicyJobs = await fetchJobicy();
-  allJobs.push(...jobicyJobs);
+  // 3. Fetch Lever
+  for (const c of leverCompanies) {
+    console.log(`Fetching Lever: ${c.name}...`);
+    const jobs = await fetchLever(c.slug, c.name);
+    allJobs.push(...jobs);
+  }
 
-  // 4. Fetch Remotive
+  // 4. Fetch Arbeitnow
+  console.log('Fetching Arbeitnow Remote Dev...');
+  const arbeitnowJobs = await fetchArbeitnow();
+  allJobs.push(...arbeitnowJobs);
+
+  // 5. Fetch Remotive
   console.log('Fetching Remotive Software Dev...');
   const remotiveJobs = await fetchRemotive();
   allJobs.push(...remotiveJobs);

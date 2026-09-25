@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import StructuredData from '../components/StructuredData.astro';
+import AtsChecker from '../components/tools/AtsChecker/index.tsx';
+---
+
+<BaseLayout 
+  title="ATS Scroll — Free In-Browser ATS Resume Checker | DevScrolls" 
+  description="Audit your engineering resume against Workday, Greenhouse, and Lever ATS parsers with 100% in-browser privacy. Instant compatibility score, action verb density, keyword analysis, and matched remote developer jobs."
+  canonical="https://devscrolls.dev/ats-checker/"
+>
+  <StructuredData 
+    type="SoftwareApplication"
+    data={{
+      name: "ATS Scroll",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Any",
+      url: "https://devscrolls.dev/ats-checker/",
+      description: "Free in-browser ATS resume compatibility auditor. Checks formatting traps, action verb density, quantifiable metrics, and extracts technical stacks with zero server data storage.",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD"
+      }
+    }}
+  />
+
+  <StructuredData 
+    type="FAQPage"
+    data={{
+      mainEntity: [
+        {
+          "@type": "Question",
+          "name": "Is my resume uploaded to a remote server or stored in a database?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Unlike traditional ATS resume checkers that upload your resume and contact information to third-party cloud servers, ATS Scroll executes 100% locally in your browser using client-side Web Workers. Your personal details, phone numbers, and employment history never leave your computer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which applicant tracking systems (ATS) are evaluated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ATS Scroll evaluates your resume against the parsing behaviors of Workday, Greenhouse, Lever, and Ashby, specifically checking for multi-column text scrambling, missing standard section headers, and unparsed contact blocks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do ATS parsers reject two-column or graphic resumes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Legacy enterprise parsers (particularly Workday and Taleo) read text layers horizontally across the entire page width. When a resume has two columns, the parser reads across the column divide, mixing job titles from the left column with dates or descriptions from the right column."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the Google X-Y-Z formula for resume bullet points?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Google X-Y-Z formula states: 'Accomplished [X], as measured by [Y], by doing [Z]'. Example: 'Reduced API response latency from 450ms to 85ms (81% decrease) by introducing Redis caching and SQL indexing.' ATS scoring algorithms reward high density of quantifiable numbers and engineering action verbs."
+          }
+        }
+      ]
+    }}
+  />
+
+  <AtsChecker client:only="react" />
+</BaseLayout>

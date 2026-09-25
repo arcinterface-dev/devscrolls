@@ -4,8 +4,9 @@ import ThemeToggle from './ThemeToggle.astro';
 const navItems = [
   { label: 'Home', href: '/' },
   { label: 'Articles', href: '/articles/' },
-  { label: 'Tools', href: '/tools/' },
   { label: 'Jobs', href: '/jobs/' },
+  { label: 'ATS Checker', href: '/ats-checker/', badge: 'Free' },
+  { label: 'Tools', href: '/tools/' },
   { label: 'About', href: '/about/' },
   { label: 'Contact', href: '/contact/' }
 ];
@@ -45,7 +46,8 @@ const currentPath = Astro.url.pathname;
                 class={`nav-link ${isActive ? 'active' : ''}`}
                 aria-current={isActive ? 'page' : undefined}
               >
-                {item.label}
+                <span class="nav-label">{item.label}</span>
+                {item.badge && <span class="nav-badge">{item.badge}</span>}
               </a>
             </li>
           );
@@ -84,7 +86,8 @@ const currentPath = Astro.url.pathname;
               class={`mobile-nav-link ${isActive ? 'active' : ''}`}
               aria-current={isActive ? 'page' : undefined}
             >
-              {item.label}
+              <span>{item.label}</span>
+              {item.badge && <span class="nav-badge">{item.badge}</span>}
             </a>
           </li>
         );
@@ -135,9 +138,16 @@ const currentPath = Astro.url.pathname;
   
   .nav-list {
     display: flex;
-    gap: var(--space-8);
+    gap: var(--space-6);
     list-style: none;
+    align-items: center;
   }
+  @media (max-width: 960px) {
+    .nav-list {
+      gap: var(--space-4);
+    }
+  }
+
   .nav-link {
     text-decoration: none;
     color: var(--text-muted);
@@ -146,11 +156,17 @@ const currentPath = Astro.url.pathname;
     padding: var(--space-1) 0;
     position: relative;
     transition: color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
   }
-  .nav-link::after {
+  .nav-label {
+    position: relative;
+  }
+  .nav-label::after {
     content: '';
     position: absolute;
-    bottom: -2px;
+    bottom: -4px;
     left: 0;
     width: 0;
     height: 2px;
@@ -161,14 +177,28 @@ const currentPath = Astro.url.pathname;
   .nav-link:hover, .nav-link:focus {
     color: var(--text-primary);
   }
-  .nav-link:hover::after {
+  .nav-link:hover .nav-label::after,
+  .nav-link:focus .nav-label::after,
+  .nav-link.active .nav-label::after {
     width: 100%;
   }
   .nav-link.active {
     color: var(--text-primary);
   }
-  .nav-link.active::after {
-    width: 100%;
+
+  .nav-badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 1px 6px;
+    border-radius: 999px;
+    background: rgba(217, 119, 6, 0.14);
+    color: var(--accent-default);
+    border: 1px solid rgba(217, 119, 6, 0.32);
+    line-height: 1.25;
   }
 
   .header-controls {
