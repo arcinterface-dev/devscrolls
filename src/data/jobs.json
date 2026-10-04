@@ -1,5 +1,78 @@
 [
   {
+    "id": "arbeitnow-remote-senior-web-compatibility-engineer-426717",
+    "slug": "duck-duck-go-senior-web-compatibility-engineer",
+    "title": "Senior Web Compatibility Engineer",
+    "company": "Duck Duck Go",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=duckduckgo.com&sz=128",
+    "location": "Remote",
+    "region": "Worldwide",
+    "workplaceType": "Remote",
+    "tags": [
+      "Python",
+      "Staff/Lead"
+    ],
+    "applyUrl": "https://www.arbeitnow.com/jobs/companies/duck-duck-go/remote-senior-web-compatibility-engineer-426717",
+    "datePosted": "2026-10-04T08:40:10.000Z",
+    "source": "Arbeitnow",
+    "descriptionSnippet": "Who We AreHi, we're DuckDuckGo, the online protection company and remote-first team of 300+ on a mission to raise the standard of trust online. Founded in 2008 and profitable since..."
+  },
+  {
+    "id": "arbeitnow-remote-qa-engineer-mobile-berlin-166747",
+    "slug": "scholarshipowl-qa-engineer-mobile",
+    "title": "QA Engineer Mobile",
+    "company": "ScholarshipOwl",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=scholarshipowl.com&sz=128",
+    "location": "Remote job",
+    "region": "Worldwide",
+    "workplaceType": "Remote",
+    "tags": [
+      "Backend",
+      "TypeScript",
+      "UI/UX",
+      "Staff/Lead"
+    ],
+    "applyUrl": "https://www.arbeitnow.com/jobs/companies/scholarshipowl/remote-qa-engineer-mobile-berlin-166747",
+    "datePosted": "2026-10-04T08:30:08.000Z",
+    "source": "Arbeitnow",
+    "descriptionSnippet": "About ScholarshipOwlScholarshipOwl is the largest scholarship marketplace in the US, using AI to connect 14 million students who are looking for scholarships with companies that ar..."
+  },
+  {
+    "id": "arbeitnow-remote-senior-it-architect-karlsruhe-411236",
+    "slug": "virtual7-gmbh-senior-it-architect-m-w-d",
+    "title": "Senior IT Architect (m/w/d)",
+    "company": "virtual7 GmbH",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=virtual7gmbh.com&sz=128",
+    "location": "Remote (Homeoffice)",
+    "region": "Worldwide",
+    "workplaceType": "Remote",
+    "tags": [
+      "Java",
+      "Staff/Lead"
+    ],
+    "applyUrl": "https://www.arbeitnow.com/jobs/companies/virtual7-gmbh/remote-senior-it-architect-karlsruhe-411236",
+    "datePosted": "2026-10-04T05:30:30.000Z",
+    "source": "Arbeitnow",
+    "descriptionSnippet": "Als IT-Dienstleister treiben wir die Digitalisierung des öffentlichen Sektors voran und schaffen echten Mehrwert für Millionen Menschen in Deutschland. Wir können vieles richtig gu..."
+  },
+  {
+    "id": "ashby-sentry-c00e77f5-bd58-49da-b4a8-3b6249529747",
+    "slug": "sentry-staff-software-engineer-ai-developer-tooling",
+    "title": "Staff Software Engineer, AI Developer Tooling",
+    "company": "Sentry",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=sentry.com&sz=128",
+    "location": "San Francisco, California",
+    "region": "US",
+    "workplaceType": "Remote",
+    "tags": [
+      "Staff/Lead"
+    ],
+    "applyUrl": "https://jobs.ashbyhq.com/sentry/c00e77f5-bd58-49da-b4a8-3b6249529747",
+    "datePosted": "2026-10-04T03:45:38.493Z",
+    "source": "Direct ATS",
+    "descriptionSnippet": "Join Sentry as a Staff Software Engineer, AI Developer Tooling. Building high-performance software with modern engineering standards."
+  },
+  {
     "id": "gh-reddit-8175520",
     "slug": "reddit-senior-frontend-engineer-ads-creative",
     "title": "Senior Frontend Engineer, Ads Creative",
@@ -13,9 +86,26 @@
       "Senior"
     ],
     "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8175520",
-    "datePosted": "2026-10-03T00:07:45.000Z",
+    "datePosted": "2026-10-04T00:08:55.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Frontend Engineer, Ads Creative role at Reddit. Direct company career opening with high-impact engineering opportunities."
+  },
+  {
+    "id": "gh-stripe-8127182",
+    "slug": "stripe-software-engineer-revenue-and-financial-automation",
+    "title": "Software Engineer, Revenue and Financial Automation",
+    "company": "Stripe",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
+    "location": "San Francisco, New York City, Seattle, Chicago, US-Remote",
+    "region": "US",
+    "workplaceType": "Remote",
+    "tags": [
+      "Software Engineer"
+    ],
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8127182",
+    "datePosted": "2026-10-03T20:18:56.000Z",
+    "source": "Direct ATS",
+    "descriptionSnippet": "Explore this Software Engineer, Revenue and Financial Automation role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "arbeitnow-remote-controller-104271",
@@ -52,43 +142,6 @@
     "datePosted": "2026-10-02T23:30:30.000Z",
     "source": "Arbeitnow",
     "descriptionSnippet": "Alle reden von Digitalisierung – Wir machen es. Als Hersteller von Europas #1 CRM/CX-Plattform entwickeln wir innovative Softwareprodukte in den Bereichen Kundenbeziehungsmanagemen..."
-  },
-  {
-    "id": "gh-stripe-8076616",
-    "slug": "stripe-software-engineer-revenue-and-financial-automation",
-    "title": "Software Engineer, Revenue and Financial Automation",
-    "company": "Stripe",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "N/A",
-    "region": "Worldwide",
-    "workplaceType": "Hybrid/Remote",
-    "tags": [
-      "Software Engineer"
-    ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8076616",
-    "datePosted": "2026-10-02T23:20:36.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Revenue and Financial Automation role at Stripe. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "arbeitnow-senior-software-engineer-data-search-remote-europe-paris-389109",
-    "slug": "modash-senior-software-engineer-data-search-remote-europe",
-    "title": "Senior Software Engineer - Data Search (remote, Europe)",
-    "company": "Modash",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=modash.com&sz=128",
-    "location": "Remote (Paris, France)",
-    "region": "EU",
-    "workplaceType": "Remote",
-    "tags": [
-      "Backend",
-      "TypeScript",
-      "Node.js",
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://www.arbeitnow.fr/jobs/companies/modash/senior-software-engineer-data-search-remote-europe-paris-389109",
-    "datePosted": "2026-10-02T22:20:13.000Z",
-    "source": "Arbeitnow",
-    "descriptionSnippet": "Hey, I'm Adrian. I’m hiring a Senior Software Engineer to join the Data Search team at Modash.Modash helps brands find, understand, and work with creators across Instagram, TikTok,..."
   },
   {
     "id": "gh-coinbase-8154342",
@@ -159,23 +212,6 @@
     "descriptionSnippet": "Explore this Software Engineer, Mobile SDK role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "ashby-sentry-f7b4f37b-4293-433d-910e-9033bf10d6d4",
-    "slug": "sentry-senior-software-engineer-billing-platform",
-    "title": "Senior Software Engineer, Billing Platform",
-    "company": "Sentry",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=sentry.com&sz=128",
-    "location": "San Francisco, California",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "Senior"
-    ],
-    "applyUrl": "https://jobs.ashbyhq.com/sentry/f7b4f37b-4293-433d-910e-9033bf10d6d4",
-    "datePosted": "2026-10-02T17:43:19.474Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Join Sentry as a Senior Software Engineer, Billing Platform. Building high-performance software with modern engineering standards."
-  },
-  {
     "id": "gh-discord-8299493002",
     "slug": "discord-senior-data-engineer-ads",
     "title": "Senior Data Engineer, Ads",
@@ -244,19 +280,19 @@
     "descriptionSnippet": "Explore this Senior/Staff Applied Research Software Engineer role at Twilio. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-elastic-8249192",
+    "id": "gh-elastic-8208048",
     "slug": "elastic-senior-software-engineer-security-integrations-prompt-engineering",
     "title": "Senior Software Engineer - Security Integrations - Prompt Engineering",
     "company": "Elastic",
     "companyLogo": "https://www.google.com/s2/favicons?domain=elastic.com&sz=128",
-    "location": "Canada",
-    "region": "Canada",
+    "location": "United States",
+    "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Senior"
     ],
-    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8249192&gh_jid=8249192",
-    "datePosted": "2026-10-02T14:26:09.000Z",
+    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8208048&gh_jid=8208048",
+    "datePosted": "2026-10-02T14:25:57.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Software Engineer - Security Integrations - Prompt Engineering role at Elastic. Direct company career opening with high-impact engineering opportunities."
   },
@@ -276,6 +312,26 @@
     "datePosted": "2026-10-02T13:54:24.827Z",
     "source": "Direct ATS",
     "descriptionSnippet": "..."
+  },
+  {
+    "id": "remotive-2091133",
+    "slug": "lemon-io-senior-react-full-stack-developer",
+    "title": "Senior React Full-stack Developer",
+    "company": "Lemon.io",
+    "companyLogo": "https://remotive.com/job/2091133/logo",
+    "location": "Remote (Europe, USA, Canada, APAC)",
+    "region": "Canada",
+    "workplaceType": "Remote",
+    "tags": [
+      "Full-Stack",
+      "AI / ML",
+      "React",
+      "TypeScript"
+    ],
+    "applyUrl": "https://remotive.com/remote-jobs/software-development/senior-react-full-stack-developer-2091133",
+    "datePosted": "2026-10-02T13:30:06.000Z",
+    "source": "Remotive",
+    "descriptionSnippet": "Are you a talented Senior Developer looking for a remote job that lets you show your skills and get decent compensation? Look no further than Lemon.io — the marketplace that connec..."
   },
   {
     "id": "gh-gitlab-8845277002",
@@ -298,24 +354,6 @@
     "descriptionSnippet": "Explore this Staff Fullstack Engineer, Data Products (Golang / Node) role at GitLab. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "arbeitnow-remote-senior-product-designer-design-systems-117305",
-    "slug": "duck-duck-go-senior-product-designer-design-systems",
-    "title": "Senior Product Designer, Design Systems",
-    "company": "Duck Duck Go",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=duckduckgo.com&sz=128",
-    "location": "Remote",
-    "region": "Worldwide",
-    "workplaceType": "Remote",
-    "tags": [
-      "UI/UX",
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://www.arbeitnow.ch/jobs/companies/duck-duck-go/remote-senior-product-designer-design-systems-117305",
-    "datePosted": "2026-10-02T02:40:13.000Z",
-    "source": "Arbeitnow",
-    "descriptionSnippet": "Who We Are Hi, we're DuckDuckGo, the online protection company and remote-first team of 300+ on a mission to raise the standard of trust online. Founded in 2008 and profitable sinc..."
-  },
-  {
     "id": "ashby-notion-d82a0b31-59b8-4699-ae8d-6fb3fe47518c",
     "slug": "notion-software-engineer-mobile-core-android",
     "title": "Software Engineer, Mobile Core (Android)",
@@ -331,26 +369,6 @@
     "datePosted": "2026-10-01T18:43:46.346Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Join Notion as a Software Engineer, Mobile Core (Android). Building high-performance software with modern engineering standards."
-  },
-  {
-    "id": "remotive-2091132",
-    "slug": "lemon-io-senior-back-end-engineer",
-    "title": "Senior back-end Engineer",
-    "company": "Lemon.io",
-    "companyLogo": "https://remotive.com/job/2091132/logo",
-    "location": "Remote (Europe, USA, UK, Canada, Australia, Ireland, Switzerland, Singapore, Mexico, Iceland, Norway)",
-    "region": "Canada",
-    "workplaceType": "Remote",
-    "tags": [
-      "Backend",
-      "AI / ML",
-      "React",
-      "TypeScript"
-    ],
-    "applyUrl": "https://remotive.com/remote-jobs/software-development/senior-back-end-engineer-2091132",
-    "datePosted": "2026-09-30T13:15:26.000Z",
-    "source": "Remotive",
-    "descriptionSnippet": "Senior Developer? Work Remote. Get Paid Well. Build What Matters.\n \nLemon.io connects hand-picked senior developers with vetted startups across the US and Europe — no bidding wars,..."
   },
   {
     "id": "ashby-replit-659a8e1e-69ba-44c0-a632-96665051a3e8",
@@ -555,21 +573,40 @@
     "descriptionSnippet": "Unió Digital is an Arizona-based managed service provider (MSP) delivering Managed IT Services, Low Voltage Cabling, Access Control, Video Surveillance, and Intrusion Services. We..."
   },
   {
-    "id": "gh-dropbox-6330377",
-    "slug": "dropbox-infrastructure-software-engineer",
-    "title": "Infrastructure Software Engineer",
-    "company": "Dropbox",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=dropbox.com&sz=128",
-    "location": "Remote - Poland",
-    "region": "EU",
+    "id": "arbeitnow-remote-senior-privacy-engineer-115042",
+    "slug": "duck-duck-go-senior-privacy-engineer",
+    "title": "Senior Privacy Engineer",
+    "company": "Duck Duck Go",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=duckduckgo.com&sz=128",
+    "location": "Remote",
+    "region": "Worldwide",
     "workplaceType": "Remote",
     "tags": [
-      "Software Engineer"
+      "Python",
+      "Node.js",
+      "Staff/Lead"
     ],
-    "applyUrl": "https://jobs.dropbox.com/listing/6330377?gh_jid=6330377",
-    "datePosted": "2026-09-03T13:40:01.000Z",
+    "applyUrl": "https://www.arbeitnow.com/jobs/companies/duck-duck-go/remote-senior-privacy-engineer-115042",
+    "datePosted": "2026-10-04T08:40:10.000Z",
+    "source": "Arbeitnow",
+    "descriptionSnippet": "Who We AreHi, we're DuckDuckGo, the online protection company and remote-first team of 300+ on a mission to raise the standard of trust online. Founded in 2008 and profitable since..."
+  },
+  {
+    "id": "ashby-sentry-f7b4f37b-4293-433d-910e-9033bf10d6d4",
+    "slug": "sentry-senior-software-engineer-billing-platform",
+    "title": "Senior Software Engineer, Billing Platform",
+    "company": "Sentry",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=sentry.com&sz=128",
+    "location": "San Francisco, California",
+    "region": "US",
+    "workplaceType": "Remote",
+    "tags": [
+      "Senior"
+    ],
+    "applyUrl": "https://jobs.ashbyhq.com/sentry/f7b4f37b-4293-433d-910e-9033bf10d6d4",
+    "datePosted": "2026-10-02T17:43:19.474Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Infrastructure Software Engineer role at Dropbox. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Join Sentry as a Senior Software Engineer, Billing Platform. Building high-performance software with modern engineering standards."
   },
   {
     "id": "gh-reddit-8029120",
@@ -585,26 +622,26 @@
       "Senior"
     ],
     "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8029120",
-    "datePosted": "2026-10-03T00:07:45.000Z",
+    "datePosted": "2026-10-04T00:08:54.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Machine Learning Engineer, Ads Optimization role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8234357",
-    "slug": "stripe-full-stack-engineer-revenue",
-    "title": "Full Stack Engineer, Revenue",
+    "id": "gh-stripe-6717520",
+    "slug": "stripe-software-engineer-payments-and-risk",
+    "title": "Software Engineer, Payments and Risk",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "N/A",
-    "region": "Worldwide",
+    "location": "Dublin, Ireland",
+    "region": "EU",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8234357",
-    "datePosted": "2026-10-02T22:15:23.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=6717520",
+    "datePosted": "2026-10-03T15:53:06.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Full Stack Engineer, Revenue role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Payments and Risk role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8248766",
@@ -673,24 +710,6 @@
     "datePosted": "2026-10-02T19:35:35.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Vulnerability Defense Software Engineer, Cloudforce One role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "ashby-sentry-81f09568-da7d-4ed1-8283-614f846c9b00",
-    "slug": "sentry-staff-machine-learning-engineer-ai",
-    "title": "Staff Machine Learning Engineer, AI",
-    "company": "Sentry",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=sentry.com&sz=128",
-    "location": "San Francisco, California",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "AI / ML",
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://jobs.ashbyhq.com/sentry/81f09568-da7d-4ed1-8283-614f846c9b00",
-    "datePosted": "2026-09-22T18:21:27.232Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Join Sentry as a Staff Machine Learning Engineer, AI. Building high-performance software with modern engineering standards."
   },
   {
     "id": "gh-discord-8856467002",
@@ -796,6 +815,26 @@
     "descriptionSnippet": "The Personalization team makes deciding what to play next easier and more enjoyable for every listener. From Blend to Discover Weekly, we're behind some of Spotify's most-loved fea..."
   },
   {
+    "id": "remotive-2091132",
+    "slug": "lemon-io-senior-back-end-engineer",
+    "title": "Senior back-end Engineer",
+    "company": "Lemon.io",
+    "companyLogo": "https://remotive.com/job/2091132/logo",
+    "location": "Remote (Europe, USA, UK, Canada, Australia, Ireland, Switzerland, Singapore, Mexico, Iceland, Norway)",
+    "region": "Canada",
+    "workplaceType": "Remote",
+    "tags": [
+      "Backend",
+      "AI / ML",
+      "React",
+      "TypeScript"
+    ],
+    "applyUrl": "https://remotive.com/remote-jobs/software-development/senior-back-end-engineer-2091132",
+    "datePosted": "2026-09-30T13:15:26.000Z",
+    "source": "Remotive",
+    "descriptionSnippet": "Senior Developer? Work Remote. Get Paid Well. Build What Matters.\n \nLemon.io connects hand-picked senior developers with vetted startups across the US and Europe — no bidding wars,..."
+  },
+  {
     "id": "gh-gitlab-8704363002",
     "slug": "gitlab-backend-engineer-python-ai-engineering-agent-foundations",
     "title": "Backend Engineer (Python),AI Engineering: Agent Foundations",
@@ -830,26 +869,6 @@
     "datePosted": "2026-10-01T14:00:20.638Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Join Notion as a Software Engineer, Mobile Platform (iOS). Building high-performance software with modern engineering standards."
-  },
-  {
-    "id": "remotive-2091131",
-    "slug": "lemon-io-senior-ai-engineer",
-    "title": "Senior AI Engineer",
-    "company": "Lemon.io",
-    "companyLogo": "https://remotive.com/job/2091131/logo",
-    "location": "Remote (Northern America, LATAM, Europe, APAC)",
-    "region": "EU",
-    "workplaceType": "Remote",
-    "tags": [
-      "AI / ML",
-      "React",
-      "TypeScript",
-      "Python"
-    ],
-    "applyUrl": "https://remotive.com/remote-jobs/artificial-intelligence/senior-ai-engineer-2091131",
-    "datePosted": "2026-09-18T12:23:56.000Z",
-    "source": "Remotive",
-    "descriptionSnippet": "Are you a talented Senior AI Engineer looking for a remote job that lets you show your skills and get decent compensation? Look no further than Lemon.io — the marketplace that conn..."
   },
   {
     "id": "ashby-replit-4df82fb0-0bcb-4034-89ce-09e679b00fe7",
@@ -956,21 +975,22 @@
     "descriptionSnippet": "Join Cursor (Anysphere) as a Full Stack Engineer, ML Research Tools. Building high-performance software with modern engineering standards."
   },
   {
-    "id": "gh-dropbox-6333181",
-    "slug": "dropbox-senior-infrastructure-software-engineer",
-    "title": "Senior Infrastructure Software Engineer",
-    "company": "Dropbox",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=dropbox.com&sz=128",
-    "location": "Remote - Poland",
-    "region": "EU",
+    "id": "ashby-sentry-81f09568-da7d-4ed1-8283-614f846c9b00",
+    "slug": "sentry-staff-machine-learning-engineer-ai",
+    "title": "Staff Machine Learning Engineer, AI",
+    "company": "Sentry",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=sentry.com&sz=128",
+    "location": "San Francisco, California",
+    "region": "US",
     "workplaceType": "Remote",
     "tags": [
-      "Senior"
+      "AI / ML",
+      "Staff/Lead"
     ],
-    "applyUrl": "https://jobs.dropbox.com/listing/6333181?gh_jid=6333181",
-    "datePosted": "2026-09-03T13:40:01.000Z",
+    "applyUrl": "https://jobs.ashbyhq.com/sentry/81f09568-da7d-4ed1-8283-614f846c9b00",
+    "datePosted": "2026-09-22T18:21:27.232Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Infrastructure Software Engineer role at Dropbox. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Join Sentry as a Staff Machine Learning Engineer, AI. Building high-performance software with modern engineering standards."
   },
   {
     "id": "gh-reddit-7980795",
@@ -985,14 +1005,14 @@
       "Senior"
     ],
     "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/7980795",
-    "datePosted": "2026-10-03T00:07:44.000Z",
+    "datePosted": "2026-10-04T00:08:54.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Software Engineer, Agentic Ads Experience role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-6567104",
-    "slug": "stripe-full-stack-engineer-developer-end-user-experience-platform",
-    "title": "Full Stack Engineer, Developer & End User Experience Platform",
+    "id": "gh-stripe-8234357",
+    "slug": "stripe-full-stack-engineer-revenue",
+    "title": "Full Stack Engineer, Revenue",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
     "location": "N/A",
@@ -1001,10 +1021,10 @@
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=6567104",
-    "datePosted": "2026-10-02T22:12:39.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8234357",
+    "datePosted": "2026-10-02T22:15:23.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Full Stack Engineer, Developer & End User Experience Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Full Stack Engineer, Revenue role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8234278",
@@ -1075,23 +1095,6 @@
     "descriptionSnippet": "Explore this Distributed Systems Engineer - Data Platform (Delivery, Database, Retrieval) role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "ashby-sentry-af7fab29-5d68-4041-9794-de4de3f41953",
-    "slug": "sentry-senior-staff-software-engineer-platform",
-    "title": "Senior Staff Software Engineer, Platform",
-    "company": "Sentry",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=sentry.com&sz=128",
-    "location": "San Francisco, California",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953",
-    "datePosted": "2026-09-22T18:07:31.325Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Join Sentry as a Senior Staff Software Engineer, Platform. Building high-performance software with modern engineering standards."
-  },
-  {
     "id": "gh-discord-8656854002",
     "slug": "discord-senior-software-engineer-application-security",
     "title": "Senior Software Engineer, Application Security",
@@ -1126,21 +1129,21 @@
     "descriptionSnippet": "Explore this Staff Software Engineer, Web Application Services role at Mozilla. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-datadog-8052118",
-    "slug": "datadog-software-engineering-intern-summer",
-    "title": "Software Engineering Intern (Summer)",
+    "id": "gh-datadog-8247566",
+    "slug": "datadog-senior-software-engineer-incident-insights-readiness",
+    "title": "Senior Software Engineer - Incident Insights & Readiness",
     "company": "Datadog",
     "companyLogo": "https://www.google.com/s2/favicons?domain=datadog.com&sz=128",
     "location": "Boston, Massachusetts, USA; New York, New York, USA",
     "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Software Engineer"
+      "Senior"
     ],
-    "applyUrl": "https://careers.datadoghq.com/detail/8052118/?gh_jid=8052118",
-    "datePosted": "2026-09-30T18:31:55.000Z",
+    "applyUrl": "https://careers.datadoghq.com/detail/8247566/?gh_jid=8247566",
+    "datePosted": "2026-10-01T19:24:44.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineering Intern (Summer) role at Datadog. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Software Engineer - Incident Insights & Readiness role at Datadog. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-twilio-7716279",
@@ -1194,6 +1197,26 @@
     "descriptionSnippet": "..."
   },
   {
+    "id": "remotive-2091131",
+    "slug": "lemon-io-senior-ai-engineer",
+    "title": "Senior AI Engineer",
+    "company": "Lemon.io",
+    "companyLogo": "https://remotive.com/job/2091131/logo",
+    "location": "Remote (Northern America, LATAM, Europe, APAC)",
+    "region": "EU",
+    "workplaceType": "Remote",
+    "tags": [
+      "AI / ML",
+      "React",
+      "TypeScript",
+      "Python"
+    ],
+    "applyUrl": "https://remotive.com/remote-jobs/artificial-intelligence/senior-ai-engineer-2091131",
+    "datePosted": "2026-09-18T12:23:56.000Z",
+    "source": "Remotive",
+    "descriptionSnippet": "Are you a talented Senior AI Engineer looking for a remote job that lets you show your skills and get decent compensation? Look no further than Lemon.io — the marketplace that conn..."
+  },
+  {
     "id": "gh-gitlab-8620720002",
     "slug": "gitlab-backend-engineer-ruby-ai-engineering-agent-foundations",
     "title": "Backend Engineer (Ruby), AI Engineering: Agent Foundations",
@@ -1227,26 +1250,6 @@
     "datePosted": "2026-09-24T19:58:11.492Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Join Notion as a Software Engineer Intern, Mobile (Winter 2027). Building high-performance software with modern engineering standards."
-  },
-  {
-    "id": "remotive-2091130",
-    "slug": "lemon-io-senior-net-full-stack-developer",
-    "title": "Senior .NET Full-stack Developer",
-    "company": "Lemon.io",
-    "companyLogo": "https://remotive.com/job/2091130/logo",
-    "location": "Remote (Northern America, LATAM, Europe, APAC)",
-    "region": "EU",
-    "workplaceType": "Remote",
-    "tags": [
-      "Full-Stack",
-      "AI / ML",
-      "React",
-      "TypeScript"
-    ],
-    "applyUrl": "https://remotive.com/remote-jobs/software-development/senior-net-full-stack-developer-2091130",
-    "datePosted": "2026-09-17T13:22:05.000Z",
-    "source": "Remotive",
-    "descriptionSnippet": "Are you a talented Senior Developer looking for a remote job that lets you show your skills and get decent compensation? Look no further than Lemon.io — the marketplace that connec..."
   },
   {
     "id": "ashby-replit-22e99380-e48c-4bc3-a870-721411b22957",
@@ -1335,21 +1338,21 @@
     "descriptionSnippet": "Join Cursor (Anysphere) as a Software Engineer, RL Data . Building high-performance software with modern engineering standards."
   },
   {
-    "id": "gh-dropbox-8090062",
-    "slug": "dropbox-senior-manager-data-engineering",
-    "title": "Senior Manager, Data Engineering",
-    "company": "Dropbox",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=dropbox.com&sz=128",
-    "location": "Remote - US: Select locations",
+    "id": "ashby-sentry-af7fab29-5d68-4041-9794-de4de3f41953",
+    "slug": "sentry-sr-staff-software-engineer-platform",
+    "title": "Sr Staff Software Engineer, Platform",
+    "company": "Sentry",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=sentry.com&sz=128",
+    "location": "San Francisco, California",
     "region": "US",
     "workplaceType": "Remote",
     "tags": [
-      "Senior"
+      "Staff/Lead"
     ],
-    "applyUrl": "https://jobs.dropbox.com/listing/8090062?gh_jid=8090062",
-    "datePosted": "2026-09-03T13:40:01.000Z",
+    "applyUrl": "https://jobs.ashbyhq.com/sentry/af7fab29-5d68-4041-9794-de4de3f41953",
+    "datePosted": "2026-09-22T18:07:31.325Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Manager, Data Engineering role at Dropbox. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Join Sentry as a Sr Staff Software Engineer, Platform. Building high-performance software with modern engineering standards."
   },
   {
     "id": "gh-reddit-8250389",
@@ -1365,26 +1368,26 @@
       "Staff/Lead"
     ],
     "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8250389",
-    "datePosted": "2026-10-03T00:07:44.000Z",
+    "datePosted": "2026-10-04T00:08:54.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Staff Machine Learning Engineer, Ads Creative Effectiveness role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8080799",
-    "slug": "stripe-staff-software-engineer-infrastructure",
-    "title": "Staff Software Engineer, Infrastructure",
+    "id": "gh-stripe-6567104",
+    "slug": "stripe-full-stack-engineer-developer-end-user-experience-platform",
+    "title": "Full Stack Engineer, Developer & End User Experience Platform",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Seattle, San Francisco ",
-    "region": "US",
+    "location": "N/A",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Staff/Lead"
+      "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8080799",
-    "datePosted": "2026-10-02T20:11:16.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=6567104",
+    "datePosted": "2026-10-02T22:12:39.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Software Engineer, Infrastructure role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Full Stack Engineer, Developer & End User Experience Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8238716",
@@ -1456,23 +1459,6 @@
     "descriptionSnippet": "Explore this Full Stack Engineer - Internal Audit role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "ashby-sentry-c796cd46-d80c-4ea8-9b0d-0eecbfc1353e",
-    "slug": "sentry-senior-software-engineer-agent-tracing",
-    "title": "Senior Software Engineer, Agent Tracing",
-    "company": "Sentry",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=sentry.com&sz=128",
-    "location": "Vienna, Austria",
-    "region": "Worldwide",
-    "workplaceType": "Remote",
-    "tags": [
-      "Senior"
-    ],
-    "applyUrl": "https://jobs.ashbyhq.com/sentry/c796cd46-d80c-4ea8-9b0d-0eecbfc1353e",
-    "datePosted": "2026-09-18T10:46:31.912Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Join Sentry as a Senior Software Engineer, Agent Tracing. Building high-performance software with modern engineering standards."
-  },
-  {
     "id": "gh-discord-8498984002",
     "slug": "discord-staff-software-engineer-data-platform",
     "title": "Staff Software Engineer, Data Platform",
@@ -1507,21 +1493,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer role at Mozilla. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-datadog-8242722",
-    "slug": "datadog-senior-software-engineer-chaos-engineering",
-    "title": "Senior Software Engineer, Chaos Engineering",
+    "id": "gh-datadog-8052118",
+    "slug": "datadog-software-engineering-intern-summer",
+    "title": "Software Engineering Intern (Summer)",
     "company": "Datadog",
     "companyLogo": "https://www.google.com/s2/favicons?domain=datadog.com&sz=128",
-    "location": "Paris, France",
-    "region": "EU",
+    "location": "Boston, Massachusetts, USA; New York, New York, USA",
+    "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Senior"
+      "Software Engineer"
     ],
-    "applyUrl": "https://careers.datadoghq.com/detail/8242722/?gh_jid=8242722",
-    "datePosted": "2026-09-30T13:09:47.000Z",
+    "applyUrl": "https://careers.datadoghq.com/detail/8052118/?gh_jid=8052118",
+    "datePosted": "2026-09-30T18:31:55.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Software Engineer, Chaos Engineering role at Datadog. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineering Intern (Summer) role at Datadog. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-twilio-8015771",
@@ -1575,6 +1561,26 @@
     "descriptionSnippet": "The Music Mission team owns Spotify's end to end proposition for music creators and the experiences they create for fans. The organization is dedicated to building tools and servic..."
   },
   {
+    "id": "remotive-2091130",
+    "slug": "lemon-io-senior-net-full-stack-developer",
+    "title": "Senior .NET Full-stack Developer",
+    "company": "Lemon.io",
+    "companyLogo": "https://remotive.com/job/2091130/logo",
+    "location": "Remote (Northern America, LATAM, Europe, APAC)",
+    "region": "EU",
+    "workplaceType": "Remote",
+    "tags": [
+      "Full-Stack",
+      "AI / ML",
+      "React",
+      "TypeScript"
+    ],
+    "applyUrl": "https://remotive.com/remote-jobs/software-development/senior-net-full-stack-developer-2091130",
+    "datePosted": "2026-09-17T13:22:05.000Z",
+    "source": "Remotive",
+    "descriptionSnippet": "Are you a talented Senior Developer looking for a remote job that lets you show your skills and get decent compensation? Look no further than Lemon.io — the marketplace that connec..."
+  },
+  {
     "id": "gh-gitlab-8682860002",
     "slug": "gitlab-intermediate-senior-backend-engineer-ruby-plan-spec-driven-development",
     "title": "Intermediate-Senior Backend Engineer (Ruby), Plan: Spec-Driven Development",
@@ -1608,26 +1614,6 @@
     "datePosted": "2026-09-23T23:30:04.563Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Join Notion as a Software Engineer, Model Capabilities. Building high-performance software with modern engineering standards."
-  },
-  {
-    "id": "remotive-2091129",
-    "slug": "lemon-io-senior-data-scientist",
-    "title": "Senior Data Scientist",
-    "company": "Lemon.io",
-    "companyLogo": "https://remotive.com/job/2091129/logo",
-    "location": "Remote (Northern America, LATAM, Europe, APAC)",
-    "region": "EU",
-    "workplaceType": "Remote",
-    "tags": [
-      "AI / ML",
-      "React",
-      "TypeScript",
-      "Python"
-    ],
-    "applyUrl": "https://remotive.com/remote-jobs/data/senior-data-scientist-2091129",
-    "datePosted": "2026-09-16T12:35:28.000Z",
-    "source": "Remotive",
-    "descriptionSnippet": "Are you a talented Senior Data Scientist looking for a remote job that lets you show your skills and get decent compensation? Look no further than Lemon.io — the marketplace that c..."
   },
   {
     "id": "ashby-replit-790afe73-238a-489c-875e-ac4e15780112",
@@ -1715,39 +1701,55 @@
     "descriptionSnippet": "Join Cursor (Anysphere) as a Software Engineer, New Grad 2027. Building high-performance software with modern engineering standards."
   },
   {
-    "id": "gh-reddit-8201359",
-    "slug": "reddit-senior-staff-machine-learning-engineer-ads-ranking",
-    "title": "Senior Staff Machine Learning Engineer, Ads Ranking ",
+    "id": "ashby-sentry-c796cd46-d80c-4ea8-9b0d-0eecbfc1353e",
+    "slug": "sentry-senior-software-engineer-agent-tracing",
+    "title": "Senior Software Engineer, Agent Tracing",
+    "company": "Sentry",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=sentry.com&sz=128",
+    "location": "Vienna, Austria",
+    "region": "Worldwide",
+    "workplaceType": "Remote",
+    "tags": [
+      "Senior"
+    ],
+    "applyUrl": "https://jobs.ashbyhq.com/sentry/c796cd46-d80c-4ea8-9b0d-0eecbfc1353e",
+    "datePosted": "2026-09-18T10:46:31.912Z",
+    "source": "Direct ATS",
+    "descriptionSnippet": "Join Sentry as a Senior Software Engineer, Agent Tracing. Building high-performance software with modern engineering standards."
+  },
+  {
+    "id": "gh-reddit-8194576",
+    "slug": "reddit-frontend-engineer-ads",
+    "title": "Frontend Engineer, Ads",
     "company": "Reddit",
     "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
     "location": "Remote - United States",
     "region": "US",
     "workplaceType": "Remote",
     "tags": [
-      "AI / ML",
-      "Staff/Lead"
+      "Frontend"
     ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8201359",
-    "datePosted": "2026-10-03T00:07:43.000Z",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8194576",
+    "datePosted": "2026-10-04T00:08:53.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Staff Machine Learning Engineer, Ads Ranking  role at Reddit. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Frontend Engineer, Ads role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8076151",
-    "slug": "stripe-staff-software-engineer-dashboard-product",
-    "title": "Staff Software Engineer, Dashboard Product",
+    "id": "gh-stripe-8080799",
+    "slug": "stripe-staff-software-engineer-infrastructure",
+    "title": "Staff Software Engineer, Infrastructure",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "San Francisco",
+    "location": "Seattle, San Francisco ",
     "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8076151",
-    "datePosted": "2026-10-02T19:19:28.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8080799",
+    "datePosted": "2026-10-02T20:11:16.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Software Engineer, Dashboard Product role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Software Engineer, Infrastructure role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-7891045",
@@ -1819,23 +1821,6 @@
     "descriptionSnippet": "Explore this Hardware Systems Engineer role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "ashby-sentry-92f30f40-9596-4b66-9fd0-7ca5203f629d",
-    "slug": "sentry-senior-software-engineer-issue-detection",
-    "title": "Senior Software Engineer, Issue Detection",
-    "company": "Sentry",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=sentry.com&sz=128",
-    "location": "San Francisco, California",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "Senior"
-    ],
-    "applyUrl": "https://jobs.ashbyhq.com/sentry/92f30f40-9596-4b66-9fd0-7ca5203f629d",
-    "datePosted": "2026-09-14T21:25:00.682Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Join Sentry as a Senior Software Engineer, Issue Detection. Building high-performance software with modern engineering standards."
-  },
-  {
     "id": "gh-discord-8846732002",
     "slug": "discord-software-engineer-consumer-revenue",
     "title": "Software Engineer, Consumer Revenue",
@@ -1870,21 +1855,21 @@
     "descriptionSnippet": "Explore this Contract Software Engineer - DOM Core Firefox/Gecko role at Mozilla. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-datadog-7536402",
-    "slug": "datadog-datadog-for-startups-founding-engineering-lead",
-    "title": "Datadog for Startups Founding Engineering Lead",
+    "id": "gh-datadog-8242722",
+    "slug": "datadog-senior-software-engineer-chaos-engineering",
+    "title": "Senior Software Engineer, Chaos Engineering",
     "company": "Datadog",
     "companyLogo": "https://www.google.com/s2/favicons?domain=datadog.com&sz=128",
-    "location": "San Francisco, California, USA",
-    "region": "US",
+    "location": "Paris, France",
+    "region": "EU",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Staff/Lead"
+      "Senior"
     ],
-    "applyUrl": "https://careers.datadoghq.com/detail/7536402/?gh_jid=7536402",
-    "datePosted": "2026-09-29T17:18:57.000Z",
+    "applyUrl": "https://careers.datadoghq.com/detail/8242722/?gh_jid=8242722",
+    "datePosted": "2026-09-30T13:09:47.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Datadog for Startups Founding Engineering Lead role at Datadog. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Software Engineer, Chaos Engineering role at Datadog. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-twilio-8007455",
@@ -1937,6 +1922,26 @@
     "datePosted": "2026-09-28T10:19:51.162Z",
     "source": "Direct ATS",
     "descriptionSnippet": "..."
+  },
+  {
+    "id": "remotive-2091129",
+    "slug": "lemon-io-senior-data-scientist",
+    "title": "Senior Data Scientist",
+    "company": "Lemon.io",
+    "companyLogo": "https://remotive.com/job/2091129/logo",
+    "location": "Remote (Northern America, LATAM, Europe, APAC)",
+    "region": "EU",
+    "workplaceType": "Remote",
+    "tags": [
+      "AI / ML",
+      "React",
+      "TypeScript",
+      "Python"
+    ],
+    "applyUrl": "https://remotive.com/remote-jobs/data/senior-data-scientist-2091129",
+    "datePosted": "2026-09-16T12:35:28.000Z",
+    "source": "Remotive",
+    "descriptionSnippet": "Are you a talented Senior Data Scientist looking for a remote job that lets you show your skills and get decent compensation? Look no further than Lemon.io — the marketplace that c..."
   },
   {
     "id": "gh-gitlab-8698314002",
@@ -2025,39 +2030,55 @@
     "descriptionSnippet": "Join Ramp as a Software Engineer, Frontend, Growth. Building high-performance software with modern engineering standards."
   },
   {
-    "id": "gh-reddit-8187652",
-    "slug": "reddit-staff-machine-learning-engineer-app-ads-modeling",
-    "title": "Staff Machine Learning Engineer, App Ads Modeling",
+    "id": "ashby-sentry-92f30f40-9596-4b66-9fd0-7ca5203f629d",
+    "slug": "sentry-senior-software-engineer-issue-detection",
+    "title": "Senior Software Engineer, Issue Detection",
+    "company": "Sentry",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=sentry.com&sz=128",
+    "location": "San Francisco, California",
+    "region": "US",
+    "workplaceType": "Remote",
+    "tags": [
+      "Senior"
+    ],
+    "applyUrl": "https://jobs.ashbyhq.com/sentry/92f30f40-9596-4b66-9fd0-7ca5203f629d",
+    "datePosted": "2026-09-14T21:25:00.682Z",
+    "source": "Direct ATS",
+    "descriptionSnippet": "Join Sentry as a Senior Software Engineer, Issue Detection. Building high-performance software with modern engineering standards."
+  },
+  {
+    "id": "gh-reddit-8240716",
+    "slug": "reddit-frontend-engineer-ads-campaign-manager",
+    "title": "Frontend Engineer, Ads Campaign Manager",
     "company": "Reddit",
     "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
     "location": "Remote - United States",
     "region": "US",
     "workplaceType": "Remote",
     "tags": [
-      "AI / ML",
-      "Staff/Lead"
+      "Frontend"
     ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8187652",
-    "datePosted": "2026-10-03T00:07:43.000Z",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8240716",
+    "datePosted": "2026-10-04T00:08:53.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Machine Learning Engineer, App Ads Modeling role at Reddit. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Frontend Engineer, Ads Campaign Manager role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8249901",
-    "slug": "stripe-software-engineer",
-    "title": "Software Engineer",
+    "id": "gh-stripe-8076151",
+    "slug": "stripe-staff-software-engineer-dashboard-product",
+    "title": "Staff Software Engineer, Dashboard Product",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Seattle, WA",
+    "location": "San Francisco",
     "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Software Engineer"
+      "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8249901",
-    "datePosted": "2026-10-02T18:52:10.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8076151",
+    "datePosted": "2026-10-02T19:19:28.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Software Engineer, Dashboard Product role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8211452",
@@ -2131,23 +2152,6 @@
     "descriptionSnippet": "Explore this Incident Response Analyst - React role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "ashby-sentry-ee90f315-6ff3-4e63-a11d-1dcfa2a863b4",
-    "slug": "sentry-senior-software-engineer-ios-sdk",
-    "title": "Senior Software Engineer (iOS), SDK",
-    "company": "Sentry",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=sentry.com&sz=128",
-    "location": "Vienna, Austria",
-    "region": "Worldwide",
-    "workplaceType": "Remote",
-    "tags": [
-      "Senior"
-    ],
-    "applyUrl": "https://jobs.ashbyhq.com/sentry/ee90f315-6ff3-4e63-a11d-1dcfa2a863b4",
-    "datePosted": "2026-09-14T12:12:00.786Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Join Sentry as a Senior Software Engineer (iOS), SDK. Building high-performance software with modern engineering standards."
-  },
-  {
     "id": "gh-discord-8464570002",
     "slug": "discord-staff-software-engineer-consumer-revenue",
     "title": "Staff Software Engineer - Consumer Revenue",
@@ -2182,21 +2186,21 @@
     "descriptionSnippet": "Explore this Contract Software Engineer - WebCompat Tooling (Dashboards and Reporting), Firefox role at Mozilla. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-datadog-7947683",
-    "slug": "datadog-senior-platform-product-manager-ai-sdlc-trusted-throughput",
-    "title": "Senior Platform Product Manager - AI SDLC Trusted Throughput",
+    "id": "gh-datadog-7536402",
+    "slug": "datadog-datadog-for-startups-founding-engineering-lead",
+    "title": "Datadog for Startups Founding Engineering Lead",
     "company": "Datadog",
     "companyLogo": "https://www.google.com/s2/favicons?domain=datadog.com&sz=128",
-    "location": "New York, New York, USA",
+    "location": "San Francisco, California, USA",
     "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Senior"
+      "Staff/Lead"
     ],
-    "applyUrl": "https://careers.datadoghq.com/detail/7947683/?gh_jid=7947683",
+    "applyUrl": "https://careers.datadoghq.com/detail/7536402/?gh_jid=7536402",
     "datePosted": "2026-09-29T17:18:57.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Platform Product Manager - AI SDLC Trusted Throughput role at Datadog. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Datadog for Startups Founding Engineering Lead role at Datadog. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-twilio-8081530",
@@ -2335,38 +2339,56 @@
     "descriptionSnippet": "Join Ramp as a Software Engineer, International. Building high-performance software with modern engineering standards."
   },
   {
-    "id": "gh-reddit-8194576",
-    "slug": "reddit-frontend-engineer-ads",
-    "title": "Frontend Engineer, Ads",
+    "id": "ashby-sentry-ee90f315-6ff3-4e63-a11d-1dcfa2a863b4",
+    "slug": "sentry-senior-software-engineer-ios-sdk",
+    "title": "Senior Software Engineer (iOS), SDK",
+    "company": "Sentry",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=sentry.com&sz=128",
+    "location": "Vienna, Austria",
+    "region": "Worldwide",
+    "workplaceType": "Remote",
+    "tags": [
+      "Senior"
+    ],
+    "applyUrl": "https://jobs.ashbyhq.com/sentry/ee90f315-6ff3-4e63-a11d-1dcfa2a863b4",
+    "datePosted": "2026-09-14T12:12:00.786Z",
+    "source": "Direct ATS",
+    "descriptionSnippet": "Join Sentry as a Senior Software Engineer (iOS), SDK. Building high-performance software with modern engineering standards."
+  },
+  {
+    "id": "gh-reddit-8201359",
+    "slug": "reddit-senior-staff-machine-learning-engineer-ads-ranking",
+    "title": "Senior Staff Machine Learning Engineer, Ads Ranking ",
     "company": "Reddit",
     "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
     "location": "Remote - United States",
     "region": "US",
     "workplaceType": "Remote",
     "tags": [
-      "Frontend"
+      "AI / ML",
+      "Staff/Lead"
     ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8194576",
-    "datePosted": "2026-10-03T00:07:42.000Z",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8201359",
+    "datePosted": "2026-10-04T00:08:53.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Frontend Engineer, Ads role at Reddit. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Staff Machine Learning Engineer, Ads Ranking  role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8241260",
-    "slug": "stripe-high-school-internship-software-engineering-summer-2027",
-    "title": "High School Internship, Software Engineering (Summer 2027)",
+    "id": "gh-stripe-8249901",
+    "slug": "stripe-software-engineer",
+    "title": "Software Engineer",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Seattle, San Francisco",
+    "location": "Seattle, WA",
     "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8241260",
-    "datePosted": "2026-10-02T03:54:21.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8249901",
+    "datePosted": "2026-10-02T18:52:10.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this High School Internship, Software Engineering (Summer 2027) role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-7991839",
@@ -2438,23 +2460,6 @@
     "descriptionSnippet": "Explore this Principal Engineer - Cloudforce One role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "ashby-sentry-bf150464-a7bc-4357-beb7-341535538370",
-    "slug": "sentry-senior-software-engineer-telemetry-experience",
-    "title": "Senior Software Engineer, Telemetry Experience",
-    "company": "Sentry",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=sentry.com&sz=128",
-    "location": "Vienna, Austria",
-    "region": "Worldwide",
-    "workplaceType": "Remote",
-    "tags": [
-      "Senior"
-    ],
-    "applyUrl": "https://jobs.ashbyhq.com/sentry/bf150464-a7bc-4357-beb7-341535538370",
-    "datePosted": "2026-09-11T10:27:25.998Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Join Sentry as a Senior Software Engineer, Telemetry Experience. Building high-performance software with modern engineering standards."
-  },
-  {
     "id": "gh-discord-8642087002",
     "slug": "discord-senior-software-engineer-growth",
     "title": "Senior Software Engineer, Growth ",
@@ -2489,21 +2494,21 @@
     "descriptionSnippet": "Explore this Contract Staff Front End Engineer (Web Conference/Screen Sharing) role at Mozilla. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-datadog-3851935",
-    "slug": "datadog-senior-software-engineer",
-    "title": "Senior Software Engineer ",
+    "id": "gh-datadog-7947683",
+    "slug": "datadog-senior-platform-product-manager-ai-sdlc-trusted-throughput",
+    "title": "Senior Platform Product Manager - AI SDLC Trusted Throughput",
     "company": "Datadog",
     "companyLogo": "https://www.google.com/s2/favicons?domain=datadog.com&sz=128",
-    "location": "Boston, Massachusetts, USA; New York, New York, USA",
+    "location": "New York, New York, USA",
     "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Senior"
     ],
-    "applyUrl": "https://careers.datadoghq.com/detail/3851935/?gh_jid=3851935",
+    "applyUrl": "https://careers.datadoghq.com/detail/7947683/?gh_jid=7947683",
     "datePosted": "2026-09-29T17:18:57.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Software Engineer  role at Datadog. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Platform Product Manager - AI SDLC Trusted Throughput role at Datadog. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-twilio-8065043",
@@ -2609,38 +2614,56 @@
     "descriptionSnippet": "Join Ramp as a Systems Engineer, Corporate Security. Building high-performance software with modern engineering standards."
   },
   {
-    "id": "gh-reddit-8240716",
-    "slug": "reddit-frontend-engineer-ads-campaign-manager",
-    "title": "Frontend Engineer, Ads Campaign Manager",
+    "id": "ashby-sentry-bf150464-a7bc-4357-beb7-341535538370",
+    "slug": "sentry-senior-software-engineer-telemetry-experience",
+    "title": "Senior Software Engineer, Telemetry Experience",
+    "company": "Sentry",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=sentry.com&sz=128",
+    "location": "Vienna, Austria",
+    "region": "Worldwide",
+    "workplaceType": "Remote",
+    "tags": [
+      "Senior"
+    ],
+    "applyUrl": "https://jobs.ashbyhq.com/sentry/bf150464-a7bc-4357-beb7-341535538370",
+    "datePosted": "2026-09-11T10:27:25.998Z",
+    "source": "Direct ATS",
+    "descriptionSnippet": "Join Sentry as a Senior Software Engineer, Telemetry Experience. Building high-performance software with modern engineering standards."
+  },
+  {
+    "id": "gh-reddit-8187652",
+    "slug": "reddit-staff-machine-learning-engineer-app-ads-modeling",
+    "title": "Staff Machine Learning Engineer, App Ads Modeling",
     "company": "Reddit",
     "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
     "location": "Remote - United States",
     "region": "US",
     "workplaceType": "Remote",
     "tags": [
-      "Frontend"
+      "AI / ML",
+      "Staff/Lead"
     ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8240716",
-    "datePosted": "2026-10-03T00:07:42.000Z",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8187652",
+    "datePosted": "2026-10-04T00:08:53.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Frontend Engineer, Ads Campaign Manager role at Reddit. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Machine Learning Engineer, App Ads Modeling role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7235875",
-    "slug": "stripe-backend-engineer-privy",
-    "title": "Backend Engineer, Privy",
+    "id": "gh-stripe-8241260",
+    "slug": "stripe-high-school-internship-software-engineering-summer-2027",
+    "title": "High School Internship, Software Engineering (Summer 2027)",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "NYC-Privy",
-    "region": "Worldwide",
+    "location": "Seattle, San Francisco",
+    "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Backend"
+      "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7235875",
-    "datePosted": "2026-10-01T19:50:27.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8241260",
+    "datePosted": "2026-10-02T03:54:21.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Backend Engineer, Privy role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this High School Internship, Software Engineering (Summer 2027) role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8247401",
@@ -2712,23 +2735,6 @@
     "descriptionSnippet": "Explore this Principal Software Engineer, Data role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "ashby-sentry-f345b525-b2e9-4dc1-bec1-85fb4c3b3cf2",
-    "slug": "sentry-software-engineer-new-grad-2027",
-    "title": "Software Engineer, New Grad (2027)",
-    "company": "Sentry",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=sentry.com&sz=128",
-    "location": "Vienna, Austria",
-    "region": "Worldwide",
-    "workplaceType": "Remote",
-    "tags": [
-      "Software Engineer"
-    ],
-    "applyUrl": "https://jobs.ashbyhq.com/sentry/f345b525-b2e9-4dc1-bec1-85fb4c3b3cf2",
-    "datePosted": "2026-09-10T15:39:23.649Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Join Sentry as a Software Engineer, New Grad (2027). Building high-performance software with modern engineering standards."
-  },
-  {
     "id": "gh-discord-8642085002",
     "slug": "discord-senior-full-stack-software-engineer-growth",
     "title": "Senior Full-Stack Software Engineer, Growth ",
@@ -2764,21 +2770,21 @@
     "descriptionSnippet": "Explore this Contract Staff Software Engineer-FireFox Layout  role at Mozilla. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-datadog-8102624",
-    "slug": "datadog-senior-software-engineer-action-platform",
-    "title": "Senior Software Engineer - Action Platform",
+    "id": "gh-datadog-3851935",
+    "slug": "datadog-senior-software-engineer",
+    "title": "Senior Software Engineer ",
     "company": "Datadog",
     "companyLogo": "https://www.google.com/s2/favicons?domain=datadog.com&sz=128",
-    "location": "Paris, France",
-    "region": "EU",
+    "location": "Boston, Massachusetts, USA; New York, New York, USA",
+    "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Senior"
     ],
-    "applyUrl": "https://careers.datadoghq.com/detail/8102624/?gh_jid=8102624",
+    "applyUrl": "https://careers.datadoghq.com/detail/3851935/?gh_jid=3851935",
     "datePosted": "2026-09-29T17:18:57.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Software Engineer - Action Platform role at Datadog. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Software Engineer  role at Datadog. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-twilio-7944264",
@@ -2884,6 +2890,23 @@
     "descriptionSnippet": "Join Ramp as a Software Engineer, Forward Deployed. Building high-performance software with modern engineering standards."
   },
   {
+    "id": "ashby-sentry-f345b525-b2e9-4dc1-bec1-85fb4c3b3cf2",
+    "slug": "sentry-software-engineer-new-grad-2027",
+    "title": "Software Engineer, New Grad (2027)",
+    "company": "Sentry",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=sentry.com&sz=128",
+    "location": "Vienna, Austria",
+    "region": "Worldwide",
+    "workplaceType": "Remote",
+    "tags": [
+      "Software Engineer"
+    ],
+    "applyUrl": "https://jobs.ashbyhq.com/sentry/f345b525-b2e9-4dc1-bec1-85fb4c3b3cf2",
+    "datePosted": "2026-09-10T15:39:23.649Z",
+    "source": "Direct ATS",
+    "descriptionSnippet": "Join Sentry as a Software Engineer, New Grad (2027). Building high-performance software with modern engineering standards."
+  },
+  {
     "id": "gh-reddit-8157275",
     "slug": "reddit-senior-staff-machine-learning-systems-engineer-ads-ml-platform",
     "title": "Senior Staff Machine Learning Systems Engineer, Ads ML Platform",
@@ -2897,26 +2920,26 @@
       "Staff/Lead"
     ],
     "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8157275",
-    "datePosted": "2026-10-03T00:07:42.000Z",
+    "datePosted": "2026-10-04T00:08:52.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Staff Machine Learning Systems Engineer, Ads ML Platform role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8232358",
-    "slug": "stripe-software-engineer-stripe-tax",
-    "title": " Software Engineer, Stripe Tax",
+    "id": "gh-stripe-7235875",
+    "slug": "stripe-backend-engineer-privy",
+    "title": "Backend Engineer, Privy",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Barcelona",
+    "location": "NYC-Privy",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Software Engineer"
+      "Backend"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8232358",
-    "datePosted": "2026-10-01T09:59:51.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7235875",
+    "datePosted": "2026-10-01T19:50:27.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this  Software Engineer, Stripe Tax role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Backend Engineer, Privy role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8243517",
@@ -2988,23 +3011,6 @@
     "descriptionSnippet": "Explore this Principal Software Engineer: Distributed Systems (Config, Test, & Deployment) role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "ashby-sentry-fa522ac5-fc9f-4ce1-a191-842496a235a2",
-    "slug": "sentry-software-engineer-intern-summer-2027",
-    "title": "Software Engineer, Intern (Summer 2027)",
-    "company": "Sentry",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=sentry.com&sz=128",
-    "location": "Vienna, Austria",
-    "region": "Worldwide",
-    "workplaceType": "Remote",
-    "tags": [
-      "Software Engineer"
-    ],
-    "applyUrl": "https://jobs.ashbyhq.com/sentry/fa522ac5-fc9f-4ce1-a191-842496a235a2",
-    "datePosted": "2026-09-10T15:39:22.153Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Join Sentry as a Software Engineer, Intern (Summer 2027). Building high-performance software with modern engineering standards."
-  },
-  {
     "id": "gh-discord-8460791002",
     "slug": "discord-senior-software-engineer-consumer-revenue",
     "title": "Senior Software Engineer, Consumer Revenue",
@@ -3040,22 +3046,21 @@
     "descriptionSnippet": "Explore this Contract Staff Software Engineer - Performance Graphics (C++,Rust, WebGL) role at Mozilla. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-datadog-4599148",
-    "slug": "datadog-senior-software-engineer-backend",
-    "title": "Senior Software Engineer - Backend ",
+    "id": "gh-datadog-8102624",
+    "slug": "datadog-senior-software-engineer-action-platform",
+    "title": "Senior Software Engineer - Action Platform",
     "company": "Datadog",
     "companyLogo": "https://www.google.com/s2/favicons?domain=datadog.com&sz=128",
-    "location": "Bordeaux, France; Paris, France",
+    "location": "Paris, France",
     "region": "EU",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Backend",
       "Senior"
     ],
-    "applyUrl": "https://careers.datadoghq.com/detail/4599148/?gh_jid=4599148",
+    "applyUrl": "https://careers.datadoghq.com/detail/8102624/?gh_jid=8102624",
     "datePosted": "2026-09-29T17:18:57.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Software Engineer - Backend  role at Datadog. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Software Engineer - Action Platform role at Datadog. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-twilio-7996776",
@@ -3146,6 +3151,23 @@
     "descriptionSnippet": "Explore this Software Engineer Intern (London, United Kingdom) (Summer 2027)  role at Figma. Direct company career opening with high-impact engineering opportunities."
   },
   {
+    "id": "ashby-sentry-fa522ac5-fc9f-4ce1-a191-842496a235a2",
+    "slug": "sentry-software-engineer-intern-summer-2027",
+    "title": "Software Engineer, Intern (Summer 2027)",
+    "company": "Sentry",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=sentry.com&sz=128",
+    "location": "Vienna, Austria",
+    "region": "Worldwide",
+    "workplaceType": "Remote",
+    "tags": [
+      "Software Engineer"
+    ],
+    "applyUrl": "https://jobs.ashbyhq.com/sentry/fa522ac5-fc9f-4ce1-a191-842496a235a2",
+    "datePosted": "2026-09-10T15:39:22.153Z",
+    "source": "Direct ATS",
+    "descriptionSnippet": "Join Sentry as a Software Engineer, Intern (Summer 2027). Building high-performance software with modern engineering standards."
+  },
+  {
     "id": "gh-reddit-8178085",
     "slug": "reddit-staff-machine-learning-engineer-retrieval",
     "title": "Staff Machine Learning Engineer, Retrieval",
@@ -3159,26 +3181,26 @@
       "Staff/Lead"
     ],
     "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8178085",
-    "datePosted": "2026-10-03T00:07:42.000Z",
+    "datePosted": "2026-10-04T00:08:52.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Staff Machine Learning Engineer, Retrieval role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8231439",
-    "slug": "stripe-software-engineer-metronome-infrastructure",
-    "title": "Software Engineer, Metronome Infrastructure",
+    "id": "gh-stripe-8232358",
+    "slug": "stripe-software-engineer-stripe-tax",
+    "title": " Software Engineer, Stripe Tax",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Toronto, Vancouver, Canada-Remote",
-    "region": "Canada",
-    "workplaceType": "Remote",
+    "location": "Barcelona",
+    "region": "Worldwide",
+    "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8231439",
-    "datePosted": "2026-09-30T18:44:16.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8232358",
+    "datePosted": "2026-10-01T09:59:51.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Metronome Infrastructure role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this  Software Engineer, Stripe Tax role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8241720",
@@ -3284,21 +3306,22 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Add-Ons role at Mozilla. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-datadog-8095166",
-    "slug": "datadog-senior-software-engineer-bazel-tools",
-    "title": "Senior Software Engineer - Bazel Tools",
+    "id": "gh-datadog-4599148",
+    "slug": "datadog-senior-software-engineer-backend",
+    "title": "Senior Software Engineer - Backend ",
     "company": "Datadog",
     "companyLogo": "https://www.google.com/s2/favicons?domain=datadog.com&sz=128",
-    "location": "Atlanta, Georgia, USA; Boston, Massachusetts, USA; New York, New York, USA",
-    "region": "US",
+    "location": "Bordeaux, France; Paris, France",
+    "region": "EU",
     "workplaceType": "Hybrid/Remote",
     "tags": [
+      "Backend",
       "Senior"
     ],
-    "applyUrl": "https://careers.datadoghq.com/detail/8095166/?gh_jid=8095166",
+    "applyUrl": "https://careers.datadoghq.com/detail/4599148/?gh_jid=4599148",
     "datePosted": "2026-09-29T17:18:57.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Software Engineer - Bazel Tools role at Datadog. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Software Engineer - Backend  role at Datadog. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-twilio-8026207",
@@ -3404,21 +3427,21 @@
     "descriptionSnippet": "Explore this iOS Software Engineer, Consumer Engineering role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8175656",
-    "slug": "stripe-software-engineer-security-business-enablement",
-    "title": "Software Engineer, Security Business Enablement",
+    "id": "gh-stripe-8231439",
+    "slug": "stripe-software-engineer-metronome-infrastructure",
+    "title": "Software Engineer, Metronome Infrastructure",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Dublin",
-    "region": "EU",
-    "workplaceType": "Hybrid/Remote",
+    "location": "Toronto, Vancouver, Canada-Remote",
+    "region": "Canada",
+    "workplaceType": "Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8175656",
-    "datePosted": "2026-09-30T15:40:42.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8231439",
+    "datePosted": "2026-09-30T18:44:16.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Security Business Enablement role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Metronome Infrastructure role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8241724",
@@ -3507,21 +3530,21 @@
     "descriptionSnippet": "Explore this Software Engineer, Notifications role at Discord. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-datadog-8223819",
-    "slug": "datadog-senior-software-engineer-ci-cd-security",
-    "title": "Senior Software Engineer - CI/CD Security",
+    "id": "gh-datadog-8095166",
+    "slug": "datadog-senior-software-engineer-bazel-tools",
+    "title": "Senior Software Engineer - Bazel Tools",
     "company": "Datadog",
     "companyLogo": "https://www.google.com/s2/favicons?domain=datadog.com&sz=128",
-    "location": "New York, New York, USA",
+    "location": "Atlanta, Georgia, USA; Boston, Massachusetts, USA; New York, New York, USA",
     "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Senior"
     ],
-    "applyUrl": "https://careers.datadoghq.com/detail/8223819/?gh_jid=8223819",
+    "applyUrl": "https://careers.datadoghq.com/detail/8095166/?gh_jid=8095166",
     "datePosted": "2026-09-29T17:18:57.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Software Engineer - CI/CD Security role at Datadog. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Software Engineer - Bazel Tools role at Datadog. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-twilio-7966928",
@@ -3611,21 +3634,21 @@
     "descriptionSnippet": "Explore this Senior Backend Engineer, Compliance Engineering role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8222459",
-    "slug": "stripe-staff-engineer-revenue-experiences",
-    "title": "Staff Engineer, Revenue Experiences",
+    "id": "gh-stripe-8175656",
+    "slug": "stripe-software-engineer-security-business-enablement",
+    "title": "Software Engineer, Security Business Enablement",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Bengaluru",
-    "region": "Worldwide",
+    "location": "Dublin",
+    "region": "EU",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Staff/Lead"
+      "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8222459",
-    "datePosted": "2026-09-30T09:47:45.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8175656",
+    "datePosted": "2026-09-30T15:40:42.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Engineer, Revenue Experiences role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Security Business Enablement role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8241752",
@@ -3714,21 +3737,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Ads role at Discord. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-datadog-3851927",
-    "slug": "datadog-senior-software-engineer-distributed-systems",
-    "title": "Senior Software Engineer - Distributed Systems",
+    "id": "gh-datadog-8223819",
+    "slug": "datadog-senior-software-engineer-ci-cd-security",
+    "title": "Senior Software Engineer - CI/CD Security",
     "company": "Datadog",
     "companyLogo": "https://www.google.com/s2/favicons?domain=datadog.com&sz=128",
-    "location": "Boston, Massachusetts, USA; New York, New York, USA",
+    "location": "New York, New York, USA",
     "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Senior"
     ],
-    "applyUrl": "https://careers.datadoghq.com/detail/3851927/?gh_jid=3851927",
+    "applyUrl": "https://careers.datadoghq.com/detail/8223819/?gh_jid=8223819",
     "datePosted": "2026-09-29T17:18:57.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Software Engineer - Distributed Systems role at Datadog. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Software Engineer - CI/CD Security role at Datadog. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-twilio-7595407",
@@ -3817,21 +3840,21 @@
     "descriptionSnippet": "Explore this Staff Machine Learning Engineer, AI Security role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-6717520",
-    "slug": "stripe-fullstack-engineer-payments-and-risk",
-    "title": "Fullstack Engineer, Payments and Risk",
+    "id": "gh-stripe-8222459",
+    "slug": "stripe-staff-engineer-revenue-experiences",
+    "title": "Staff Engineer, Revenue Experiences",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Dublin, Ireland",
-    "region": "EU",
+    "location": "Bengaluru",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Full-Stack"
+      "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=6717520",
-    "datePosted": "2026-09-30T06:58:46.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8222459",
+    "datePosted": "2026-09-30T09:47:45.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Fullstack Engineer, Payments and Risk role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Engineer, Revenue Experiences role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8241748",
@@ -3921,21 +3944,21 @@
     "descriptionSnippet": "Explore this Senior Full-Stack Software Engineer, Ads role at Discord. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-datadog-8094111",
-    "slug": "datadog-senior-software-engineer-incident-insights-readiness",
-    "title": "Senior Software Engineer - Incident Insights & Readiness",
+    "id": "gh-datadog-4599111",
+    "slug": "datadog-senior-software-engineer-distributed-systems",
+    "title": "Senior Software Engineer - Distributed Systems",
     "company": "Datadog",
     "companyLogo": "https://www.google.com/s2/favicons?domain=datadog.com&sz=128",
-    "location": "Paris, France",
+    "location": "Bordeaux, France; Grenoble, France; Lyon, France; Madrid, Spain; Montpellier, France; Nantes, France; Paris, France; Sophia Antipolis, France",
     "region": "EU",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Senior"
     ],
-    "applyUrl": "https://careers.datadoghq.com/detail/8094111/?gh_jid=8094111",
+    "applyUrl": "https://careers.datadoghq.com/detail/4599111/?gh_jid=4599111",
     "datePosted": "2026-09-29T17:18:57.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Software Engineer - Incident Insights & Readiness role at Datadog. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Software Engineer - Distributed Systems role at Datadog. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-twilio-7434770",
@@ -4126,18 +4149,18 @@
     "descriptionSnippet": "Explore this Engineering Manager, Machine Learning (Safety) role at Discord. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-datadog-7959967",
+    "id": "gh-datadog-7959966",
     "slug": "datadog-senior-software-engineer-redapl-graph-engine",
     "title": "Senior Software Engineer - REDAPL Graph Engine",
     "company": "Datadog",
     "companyLogo": "https://www.google.com/s2/favicons?domain=datadog.com&sz=128",
-    "location": "Lisbon, Portugal",
-    "region": "Worldwide",
-    "workplaceType": "Hybrid/Remote",
+    "location": "France, Remote; Germany, Remote; Italy, Remote; Spain, Remote; Switzerland, Remote; United Kingdom, Remote",
+    "region": "EU",
+    "workplaceType": "Remote",
     "tags": [
       "Senior"
     ],
-    "applyUrl": "https://careers.datadoghq.com/detail/7959967/?gh_jid=7959967",
+    "applyUrl": "https://careers.datadoghq.com/detail/7959966/?gh_jid=7959966",
     "datePosted": "2026-09-29T17:18:57.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Software Engineer - REDAPL Graph Engine role at Datadog. Direct company career opening with high-impact engineering opportunities."
@@ -4160,18 +4183,18 @@
     "descriptionSnippet": "Explore this Software Engineer - Video role at Twilio. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-elastic-8162465",
+    "id": "gh-elastic-8162476",
     "slug": "elastic-principal-software-engineer-search-algorithms-elasticsearch",
     "title": "Principal Software Engineer - Search Algorithms - Elasticsearch",
     "company": "Elastic",
     "companyLogo": "https://www.google.com/s2/favicons?domain=elastic.com&sz=128",
-    "location": "Ireland",
+    "location": "Switzerland",
     "region": "EU",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Staff/Lead"
     ],
-    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8162465&gh_jid=8162465",
+    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8162476&gh_jid=8162476",
     "datePosted": "2026-10-01T16:57:36.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Principal Software Engineer - Search Algorithms - Elasticsearch role at Elastic. Direct company career opening with high-impact engineering opportunities."
@@ -4229,7 +4252,7 @@
     "descriptionSnippet": "Explore this Machine Learning Engineer role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8214616",
+    "id": "gh-stripe-8214618",
     "slug": "stripe-full-stack-engineer-enterprise-engineering",
     "title": "Full Stack Engineer, Enterprise Engineering",
     "company": "Stripe",
@@ -4240,8 +4263,8 @@
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8214616",
-    "datePosted": "2026-09-29T02:54:32.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8214618",
+    "datePosted": "2026-09-29T02:57:48.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Full Stack Engineer, Enterprise Engineering role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
@@ -4923,18 +4946,18 @@
     "descriptionSnippet": "Explore this Senior Staff Software Engineer  role at Datadog. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-elastic-8162406",
+    "id": "gh-elastic-8162404",
     "slug": "elastic-principal-software-engineer-vector-search-elasticsearch",
     "title": "Principal Software Engineer - Vector Search - Elasticsearch",
     "company": "Elastic",
     "companyLogo": "https://www.google.com/s2/favicons?domain=elastic.com&sz=128",
-    "location": "Romania",
+    "location": "Norway",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Staff/Lead"
     ],
-    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8162406&gh_jid=8162406",
+    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8162404&gh_jid=8162404",
     "datePosted": "2026-10-01T16:57:36.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Principal Software Engineer - Vector Search - Elasticsearch role at Elastic. Direct company career opening with high-impact engineering opportunities."
@@ -5079,18 +5102,18 @@
     "descriptionSnippet": "Explore this Senior Full-Stack Software Engineer, Developer Success role at Discord. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-datadog-8114161",
+    "id": "gh-datadog-8114186",
     "slug": "datadog-software-engineering-intern",
     "title": "Software Engineering Intern",
     "company": "Datadog",
     "companyLogo": "https://www.google.com/s2/favicons?domain=datadog.com&sz=128",
-    "location": "Madrid, Spain",
+    "location": "Paris, France",
     "region": "EU",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://careers.datadoghq.com/detail/8114161/?gh_jid=8114161",
+    "applyUrl": "https://careers.datadoghq.com/detail/8114186/?gh_jid=8114186",
     "datePosted": "2026-09-29T17:18:57.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Software Engineering Intern role at Datadog. Direct company career opening with high-impact engineering opportunities."
@@ -5598,18 +5621,18 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Safety Processing role at Discord. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-datadog-8139279",
+    "id": "gh-datadog-8139277",
     "slug": "datadog-staff-engineer-compute",
     "title": "Staff Engineer, Compute",
     "company": "Datadog",
     "companyLogo": "https://www.google.com/s2/favicons?domain=datadog.com&sz=128",
-    "location": "Lisbon, Portugal",
-    "region": "Worldwide",
+    "location": "Dublin, Ireland; Madrid, Spain; Paris, France",
+    "region": "EU",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Staff/Lead"
     ],
-    "applyUrl": "https://careers.datadoghq.com/detail/8139279/?gh_jid=8139279",
+    "applyUrl": "https://careers.datadoghq.com/detail/8139277/?gh_jid=8139277",
     "datePosted": "2026-09-29T17:18:57.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Staff Engineer, Compute role at Datadog. Direct company career opening with high-impact engineering opportunities."
@@ -5771,18 +5794,18 @@
     "descriptionSnippet": "Explore this Staff Data Engineer - Data Infrastructure role at Discord. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-datadog-8119496",
+    "id": "gh-datadog-8119493",
     "slug": "datadog-staff-engineer-data-platform-experience",
     "title": "Staff Engineer - Data Platform Experience",
     "company": "Datadog",
     "companyLogo": "https://www.google.com/s2/favicons?domain=datadog.com&sz=128",
-    "location": "Lisbon, Portugal",
-    "region": "Worldwide",
+    "location": "Dublin, Ireland; Madrid, Spain; Paris, France",
+    "region": "EU",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Staff/Lead"
     ],
-    "applyUrl": "https://careers.datadoghq.com/detail/8119496/?gh_jid=8119496",
+    "applyUrl": "https://careers.datadoghq.com/detail/8119493/?gh_jid=8119493",
     "datePosted": "2026-09-29T17:18:57.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Staff Engineer - Data Platform Experience role at Datadog. Direct company career opening with high-impact engineering opportunities."
@@ -5965,19 +5988,19 @@
     "descriptionSnippet": "Explore this Staff GenAI Engineer - Application Performance Monitoring (APM) role at Datadog. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-elastic-8001166",
+    "id": "gh-elastic-8001190",
     "slug": "elastic-senior-java-engineer-distributed-systems-serverless-elasticsearch",
     "title": "Senior Java Engineer - Distributed Systems, Serverless - Elasticsearch",
     "company": "Elastic",
     "companyLogo": "https://www.google.com/s2/favicons?domain=elastic.com&sz=128",
-    "location": "Greece",
+    "location": "Portugal",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Java",
       "Senior"
     ],
-    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8001166&gh_jid=8001166",
+    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8001190&gh_jid=8001190",
     "datePosted": "2026-10-01T16:57:36.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Java Engineer - Distributed Systems, Serverless - Elasticsearch role at Elastic. Direct company career opening with high-impact engineering opportunities."
@@ -6309,18 +6332,18 @@
     "descriptionSnippet": "Explore this Staff Software Engineer - Frontend role at Datadog. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-elastic-8099226",
+    "id": "gh-elastic-8173332",
     "slug": "elastic-senior-software-engineer-edr-workflows-security",
     "title": "Senior Software Engineer - EDR Workflows - Security",
     "company": "Elastic",
     "companyLogo": "https://www.google.com/s2/favicons?domain=elastic.com&sz=128",
-    "location": "United States",
-    "region": "US",
+    "location": "Canada",
+    "region": "Canada",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Senior"
     ],
-    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8099226&gh_jid=8099226",
+    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8173332&gh_jid=8173332",
     "datePosted": "2026-10-01T16:57:36.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Software Engineer - EDR Workflows - Security role at Elastic. Direct company career opening with high-impact engineering opportunities."
@@ -6464,18 +6487,18 @@
     "descriptionSnippet": "Explore this Staff Software Engineer - Logs Observability Pipelines  role at Datadog. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-elastic-8239653",
+    "id": "gh-elastic-8131023",
     "slug": "elastic-senior-software-engineer-integrations-3p-platform",
     "title": "Senior Software Engineer - Integrations 3P - Platform",
     "company": "Elastic",
     "companyLogo": "https://www.google.com/s2/favicons?domain=elastic.com&sz=128",
-    "location": "Poland",
-    "region": "EU",
+    "location": "Greece",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Senior"
     ],
-    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8239653&gh_jid=8239653",
+    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8131023&gh_jid=8131023",
     "datePosted": "2026-10-01T16:57:36.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Software Engineer - Integrations 3P - Platform role at Elastic. Direct company career opening with high-impact engineering opportunities."
@@ -6620,18 +6643,18 @@
     "descriptionSnippet": "Explore this Staff Software Engineer - ML Observability role at Datadog. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-elastic-8207678",
+    "id": "gh-elastic-8167769",
     "slug": "elastic-senior-software-engineer-observability-managed-inputs",
     "title": "Senior Software Engineer -Observability, Managed Inputs ",
     "company": "Elastic",
     "companyLogo": "https://www.google.com/s2/favicons?domain=elastic.com&sz=128",
-    "location": "Romania",
-    "region": "Worldwide",
+    "location": "Spain",
+    "region": "EU",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Senior"
     ],
-    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8207678&gh_jid=8207678",
+    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8167769&gh_jid=8167769",
     "datePosted": "2026-10-01T16:57:36.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Software Engineer -Observability, Managed Inputs  role at Elastic. Direct company career opening with high-impact engineering opportunities."
@@ -6671,21 +6694,21 @@
     "descriptionSnippet": "Explore this Staff Software Engineer, Consumer Engineering role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8162185",
-    "slug": "stripe-staff-engineer-support-experiences",
-    "title": "Staff Engineer, Support Experiences",
+    "id": "gh-stripe-8212517",
+    "slug": "stripe-software-engineer-early-career-immediate-start",
+    "title": "Software Engineer, Early Career — Immediate Start",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Bengaluru",
-    "region": "Worldwide",
+    "location": "Toronto",
+    "region": "Canada",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Staff/Lead"
+      "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8162185",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8212517",
     "datePosted": "2026-09-25T20:44:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Engineer, Support Experiences role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Early Career — Immediate Start role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-7985187",
@@ -6808,22 +6831,21 @@
     "descriptionSnippet": "Explore this Staff Software Engineer - Ingestion Platform  role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8148653",
-    "slug": "stripe-staff-machine-learning-engineer-financial-connections",
-    "title": "Staff Machine Learning Engineer, Financial Connections",
+    "id": "gh-stripe-8162185",
+    "slug": "stripe-staff-engineer-support-experiences",
+    "title": "Staff Engineer, Support Experiences",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "New York",
-    "region": "US",
+    "location": "Bengaluru",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "AI / ML",
       "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8148653",
-    "datePosted": "2026-09-25T20:44:57.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8162185",
+    "datePosted": "2026-09-25T20:44:58.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Machine Learning Engineer, Financial Connections role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Engineer, Support Experiences role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8211490",
@@ -6895,18 +6917,18 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Network Performance & Reliability role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-elastic-8204978",
+    "id": "gh-elastic-8168938",
     "slug": "elastic-senior-software-engineer-prism-security",
     "title": "Senior Software Engineer - Prism - Security",
     "company": "Elastic",
     "companyLogo": "https://www.google.com/s2/favicons?domain=elastic.com&sz=128",
-    "location": "Spain",
+    "location": "United Kingdom",
     "region": "EU",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Senior"
     ],
-    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8204978&gh_jid=8204978",
+    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8168938&gh_jid=8168938",
     "datePosted": "2026-10-01T16:57:36.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Software Engineer - Prism - Security role at Elastic. Direct company career opening with high-impact engineering opportunities."
@@ -6947,21 +6969,22 @@
     "descriptionSnippet": "Explore this Staff Software Engineer, Media Foundations role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8146271",
-    "slug": "stripe-staff-software-engineer-startup-products",
-    "title": "Staff Software Engineer, Startup Products",
+    "id": "gh-stripe-8148653",
+    "slug": "stripe-staff-machine-learning-engineer-financial-connections",
+    "title": "Staff Machine Learning Engineer, Financial Connections",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "N/A",
-    "region": "Worldwide",
+    "location": "New York",
+    "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
+      "AI / ML",
       "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8146271",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8148653",
     "datePosted": "2026-09-25T20:44:57.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Software Engineer, Startup Products role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Machine Learning Engineer, Financial Connections role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8144836",
@@ -7085,21 +7108,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Home Experience role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8142764",
-    "slug": "stripe-full-stack-engineer-bridge",
-    "title": "Full Stack Engineer, Bridge",
+    "id": "gh-stripe-8146271",
+    "slug": "stripe-staff-software-engineer-startup-products",
+    "title": "Staff Software Engineer, Startup Products",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "San Francisco, NYC",
-    "region": "US",
+    "location": "N/A",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Software Engineer"
+      "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8142764",
-    "datePosted": "2026-09-25T20:44:56.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8146271",
+    "datePosted": "2026-09-25T20:44:57.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Full Stack Engineer, Bridge role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Software Engineer, Startup Products role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8104873",
@@ -7170,18 +7193,18 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, PKI & Cryptographic Systems role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-elastic-8161437",
+    "id": "gh-elastic-8161432",
     "slug": "elastic-senior-software-engineer-search-algorithms-elasticsearch",
     "title": "Senior Software Engineer - Search Algorithms - Elasticsearch",
     "company": "Elastic",
     "companyLogo": "https://www.google.com/s2/favicons?domain=elastic.com&sz=128",
-    "location": "Switzerland",
+    "location": "Poland",
     "region": "EU",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Senior"
     ],
-    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8161437&gh_jid=8161437",
+    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8161432&gh_jid=8161432",
     "datePosted": "2026-10-01T16:57:36.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Software Engineer - Search Algorithms - Elasticsearch role at Elastic. Direct company career opening with high-impact engineering opportunities."
@@ -7222,21 +7245,21 @@
     "descriptionSnippet": "Explore this Software Engineer, Consumer Engineering role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8142952",
-    "slug": "stripe-staff-software-engineer-link-bank-connections",
-    "title": "Staff Software Engineer, Link - Bank Connections",
+    "id": "gh-stripe-8142764",
+    "slug": "stripe-full-stack-engineer-bridge",
+    "title": "Full Stack Engineer, Bridge",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "San Francisco, Seattle, New York",
+    "location": "San Francisco, NYC",
     "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Staff/Lead"
+      "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8142952",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8142764",
     "datePosted": "2026-09-25T20:44:56.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Software Engineer, Link - Bank Connections role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Full Stack Engineer, Bridge role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8174949",
@@ -7308,18 +7331,18 @@
     "descriptionSnippet": "Explore this Senior Software Engineer - Quicksilver - Distributed Key Value role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-elastic-8111965",
+    "id": "gh-elastic-8111966",
     "slug": "elastic-senior-software-engineer-ssc",
     "title": "Senior Software Engineer - SSC",
     "company": "Elastic",
     "companyLogo": "https://www.google.com/s2/favicons?domain=elastic.com&sz=128",
-    "location": "Ireland",
-    "region": "EU",
+    "location": "Portugal",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Senior"
     ],
-    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8111965&gh_jid=8111965",
+    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8111966&gh_jid=8111966",
     "datePosted": "2026-10-01T16:57:36.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Software Engineer - SSC role at Elastic. Direct company career opening with high-impact engineering opportunities."
@@ -7361,21 +7384,21 @@
     "descriptionSnippet": "Explore this Principal UX Engineer, Ads role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8212508",
-    "slug": "stripe-software-engineer-early-career-immediate-start",
-    "title": "Software Engineer, Early Career — Immediate Start",
+    "id": "gh-stripe-8142952",
+    "slug": "stripe-staff-software-engineer-link-bank-connections",
+    "title": "Staff Software Engineer, Link - Bank Connections",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
     "location": "San Francisco, Seattle, New York",
     "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Software Engineer"
+      "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8212508",
-    "datePosted": "2026-09-25T20:44:55.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8142952",
+    "datePosted": "2026-09-25T20:44:56.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Early Career — Immediate Start role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Software Engineer, Link - Bank Connections role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-7964410",
@@ -7447,18 +7470,18 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, R2 Gateway role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-elastic-8074889",
+    "id": "gh-elastic-8074886",
     "slug": "elastic-senior-software-engineer-storage-engine-elasticsearch",
     "title": "Senior Software Engineer - Storage Engine - Elasticsearch",
     "company": "Elastic",
     "companyLogo": "https://www.google.com/s2/favicons?domain=elastic.com&sz=128",
-    "location": "Portugal",
+    "location": "Greece",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Senior"
     ],
-    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8074889&gh_jid=8074889",
+    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8074886&gh_jid=8074886",
     "datePosted": "2026-10-01T16:57:36.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Software Engineer - Storage Engine - Elasticsearch role at Elastic. Direct company career opening with high-impact engineering opportunities."
@@ -7500,21 +7523,21 @@
     "descriptionSnippet": "Explore this Senior Machine Learning Manager, Video Ranking  role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8130867",
-    "slug": "stripe-software-engineer-intern",
-    "title": "Software Engineer, Intern",
+    "id": "gh-stripe-8130805",
+    "slug": "stripe-software-engineer-intern-summer-or-winter",
+    "title": "Software Engineer, Intern (Summer or Winter)",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "London",
-    "region": "EU",
+    "location": "Toronto",
+    "region": "Canada",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8130867",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8130805",
     "datePosted": "2026-09-25T20:44:55.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Intern role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Intern (Summer or Winter) role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-7964398",
@@ -7586,18 +7609,18 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, R2 Metadata role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-elastic-8161511",
+    "id": "gh-elastic-8161695",
     "slug": "elastic-senior-software-engineer-vector-search-elasticsearch",
     "title": "Senior Software Engineer - Vector Search - Elasticsearch",
     "company": "Elastic",
     "companyLogo": "https://www.google.com/s2/favicons?domain=elastic.com&sz=128",
-    "location": "United States",
-    "region": "US",
+    "location": "Romania",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Senior"
     ],
-    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8161511&gh_jid=8161511",
+    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8161695&gh_jid=8161695",
     "datePosted": "2026-10-01T16:57:36.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Software Engineer - Vector Search - Elasticsearch role at Elastic. Direct company career opening with high-impact engineering opportunities."
@@ -7639,21 +7662,21 @@
     "descriptionSnippet": "Explore this Staff Software Engineer , Observability role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8130881",
-    "slug": "stripe-software-engineer-new-grad",
-    "title": "Software Engineer, New Grad",
+    "id": "gh-stripe-8130927",
+    "slug": "stripe-software-engineer-new-grad-frontend",
+    "title": "Software Engineer, New Grad - Frontend",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Dublin",
-    "region": "EU",
+    "location": "Barcelona",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Software Engineer"
+      "Frontend"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8130881",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8130927",
     "datePosted": "2026-09-25T20:44:55.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, New Grad role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, New Grad - Frontend role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8179210",
@@ -7724,18 +7747,18 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Security Rules role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-elastic-8173299",
+    "id": "gh-elastic-8173301",
     "slug": "elastic-software-engineer-ii-edr-workflows-security",
     "title": "Software Engineer II - EDR Workflows - Security",
     "company": "Elastic",
     "companyLogo": "https://www.google.com/s2/favicons?domain=elastic.com&sz=128",
-    "location": "Greece",
-    "region": "Worldwide",
+    "location": "Poland",
+    "region": "EU",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8173299&gh_jid=8173299",
+    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8173301&gh_jid=8173301",
     "datePosted": "2026-10-01T16:57:36.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Software Engineer II - EDR Workflows - Security role at Elastic. Direct company career opening with high-impact engineering opportunities."
@@ -7775,21 +7798,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Media Creation role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8130927",
-    "slug": "stripe-software-engineer-new-grad-frontend",
-    "title": "Software Engineer, New Grad - Frontend",
+    "id": "gh-stripe-8128744",
+    "slug": "stripe-software-engineer-new-grad",
+    "title": "Software Engineer, New Grad",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Barcelona",
-    "region": "Worldwide",
+    "location": "San Francisco, Seattle, New York",
+    "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Frontend"
+      "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8130927",
-    "datePosted": "2026-09-25T20:44:55.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8128744",
+    "datePosted": "2026-09-25T20:44:54.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, New Grad - Frontend role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, New Grad role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8100066",
@@ -8136,21 +8159,21 @@
     "descriptionSnippet": "Explore this Machine Learning Manager, Feed Ecosystems role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8097801",
-    "slug": "stripe-software-engineer-intern-summer-or-winter",
-    "title": "Software Engineer, Intern (Summer or Winter)",
+    "id": "gh-stripe-8078337",
+    "slug": "stripe-software-engineer-connect-tax-reporting",
+    "title": "Software Engineer, Connect Tax Reporting",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Dublin",
-    "region": "EU",
+    "location": "Bucharest, Romania",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8097801",
-    "datePosted": "2026-09-25T20:44:52.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8078337",
+    "datePosted": "2026-09-25T20:44:51.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Intern (Summer or Winter) role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Connect Tax Reporting role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8003605",
@@ -8221,21 +8244,21 @@
     "descriptionSnippet": "Explore this Machine Learning Manager, Feed Relevance (Retrieval) role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8078337",
-    "slug": "stripe-software-engineer-connect-tax-reporting",
-    "title": "Software Engineer, Connect Tax Reporting",
+    "id": "gh-stripe-8089353",
+    "slug": "stripe-software-engineer-vulnerability-management",
+    "title": "Software Engineer, Vulnerability Management",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Bucharest, Romania",
+    "location": "US - Remote",
     "region": "Worldwide",
-    "workplaceType": "Hybrid/Remote",
+    "workplaceType": "Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8078337",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8089353",
     "datePosted": "2026-09-25T20:44:51.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Connect Tax Reporting role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Vulnerability Management role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8008569",
@@ -8308,21 +8331,22 @@
     "descriptionSnippet": "Explore this Senior Backend Engineer, Safety role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8089353",
-    "slug": "stripe-software-engineer-vulnerability-management",
-    "title": "Software Engineer, Vulnerability Management",
+    "id": "gh-stripe-8089815",
+    "slug": "stripe-staff-backend-engineer-ci-services",
+    "title": "Staff Backend Engineer - CI Services  ",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "US - Remote",
-    "region": "Worldwide",
-    "workplaceType": "Remote",
+    "location": "Dublin",
+    "region": "EU",
+    "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Software Engineer"
+      "Backend",
+      "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8089353",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8089815",
     "datePosted": "2026-09-25T20:44:51.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Vulnerability Management role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Backend Engineer - CI Services   role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8024814",
@@ -8393,22 +8417,21 @@
     "descriptionSnippet": "Explore this Staff Software Engineer - Site Defense role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8089815",
-    "slug": "stripe-staff-backend-engineer-ci-services",
-    "title": "Staff Backend Engineer - CI Services  ",
+    "id": "gh-stripe-8082847",
+    "slug": "stripe-staff-software-engineer-link",
+    "title": "Staff Software Engineer, Link",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Dublin",
-    "region": "EU",
+    "location": "N/A",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Backend",
       "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8089815",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8082847",
     "datePosted": "2026-09-25T20:44:51.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Backend Engineer - CI Services   role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Software Engineer, Link role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-7739592",
@@ -8480,21 +8503,21 @@
     "descriptionSnippet": "Explore this Ads Conversion Modeling, Machine Learning Engineering Manager role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8082847",
-    "slug": "stripe-staff-software-engineer-link",
-    "title": "Staff Software Engineer, Link",
+    "id": "gh-stripe-8205280",
+    "slug": "stripe-engineering-manager-machine-learning-credit-risk",
+    "title": "Engineering Manager, Machine Learning - Credit Risk",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
     "location": "N/A",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Staff/Lead"
+      "AI / ML"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8082847",
-    "datePosted": "2026-09-25T20:44:51.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8205280",
+    "datePosted": "2026-09-25T20:44:50.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Software Engineer, Link role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Engineering Manager, Machine Learning - Credit Risk role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-7483221",
@@ -8566,9 +8589,9 @@
     "descriptionSnippet": "Explore this Staff Machine Learning Engineer, Ads Foundational Representations role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8205280",
-    "slug": "stripe-engineering-manager-machine-learning-credit-risk",
-    "title": "Engineering Manager, Machine Learning - Credit Risk",
+    "id": "gh-stripe-8069506",
+    "slug": "stripe-engineering-manager-machine-learning-fraud-detection",
+    "title": "Engineering Manager, Machine Learning - Fraud Detection",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
     "location": "N/A",
@@ -8577,10 +8600,10 @@
     "tags": [
       "AI / ML"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8205280",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8069506",
     "datePosted": "2026-09-25T20:44:50.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Engineering Manager, Machine Learning - Credit Risk role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Engineering Manager, Machine Learning - Fraud Detection role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8105437",
@@ -8652,21 +8675,21 @@
     "descriptionSnippet": "Explore this Senior Machine Learning Engineer role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8069506",
-    "slug": "stripe-engineering-manager-machine-learning-fraud-detection",
-    "title": "Engineering Manager, Machine Learning - Fraud Detection",
+    "id": "gh-stripe-8070949",
+    "slug": "stripe-staff-engineer-core-infrastructure",
+    "title": "Staff Engineer, Core Infrastructure",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "N/A",
+    "location": "Bengaluru, India",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "AI / ML"
+      "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8069506",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8070949",
     "datePosted": "2026-09-25T20:44:50.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Engineering Manager, Machine Learning - Fraud Detection role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Engineer, Core Infrastructure role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8177946",
@@ -8737,21 +8760,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Ads role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8070949",
-    "slug": "stripe-staff-engineer-core-infrastructure",
-    "title": "Staff Engineer, Core Infrastructure",
+    "id": "gh-stripe-8055701",
+    "slug": "stripe-staff-software-engineer-api-platform",
+    "title": "Staff Software Engineer, API Platform",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Bengaluru, India",
-    "region": "Worldwide",
+    "location": "San Francisco, Seattle",
+    "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8070949",
-    "datePosted": "2026-09-25T20:44:50.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8055701",
+    "datePosted": "2026-09-25T20:44:49.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Engineer, Core Infrastructure role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Software Engineer, API Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8155366",
@@ -8822,21 +8845,21 @@
     "descriptionSnippet": "Explore this Software Engineer, Ads role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8055701",
-    "slug": "stripe-staff-software-engineer-api-platform",
-    "title": "Staff Software Engineer, API Platform",
+    "id": "gh-stripe-8090141",
+    "slug": "stripe-staff-software-engineer-service-infrastructure",
+    "title": "Staff Software Engineer, Service Infrastructure",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "San Francisco, Seattle",
-    "region": "US",
+    "location": "AMER",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8055701",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8090141",
     "datePosted": "2026-09-25T20:44:49.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Software Engineer, API Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Software Engineer, Service Infrastructure role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8094196",
@@ -8907,21 +8930,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer - DevX role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8090141",
-    "slug": "stripe-staff-software-engineer-service-infrastructure",
-    "title": "Staff Software Engineer, Service Infrastructure",
+    "id": "gh-stripe-8171539",
+    "slug": "stripe-staff-software-engineer-storage-abstractions",
+    "title": "Staff Software Engineer, Storage Abstractions",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "AMER",
-    "region": "Worldwide",
+    "location": "San Francisco, Seattle",
+    "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8090141",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8171539",
     "datePosted": "2026-09-25T20:44:49.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Software Engineer, Service Infrastructure role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Software Engineer, Storage Abstractions role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8175441",
@@ -8993,21 +9016,21 @@
     "descriptionSnippet": "Explore this Senior Frontend Software Engineer, Consumer Engineering role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8171539",
-    "slug": "stripe-staff-software-engineer-storage-abstractions",
-    "title": "Staff Software Engineer, Storage Abstractions",
+    "id": "gh-stripe-8044460",
+    "slug": "stripe-ai-engineer",
+    "title": "AI Engineer",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "San Francisco, Seattle",
+    "location": "Chicago",
     "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Staff/Lead"
+      "AI / ML"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8171539",
-    "datePosted": "2026-09-25T20:44:49.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8044460",
+    "datePosted": "2026-09-25T20:44:48.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Software Engineer, Storage Abstractions role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this AI Engineer role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8175459",
@@ -9078,21 +9101,21 @@
     "descriptionSnippet": "Explore this Front End Software Engineer, Consumer Engineering role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8044460",
-    "slug": "stripe-ai-engineer",
-    "title": "AI Engineer",
+    "id": "gh-stripe-8062305",
+    "slug": "stripe-full-stack-engineer-link",
+    "title": "Full Stack Engineer, Link",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Chicago",
+    "location": "New York, New York",
     "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "AI / ML"
+      "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8044460",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8062305",
     "datePosted": "2026-09-25T20:44:48.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this AI Engineer role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Full Stack Engineer, Link role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8180833",
@@ -9163,21 +9186,21 @@
     "descriptionSnippet": "Explore this Trust and Safety Policy, Ads Policy,  Lead role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8062305",
-    "slug": "stripe-full-stack-engineer-link",
-    "title": "Full Stack Engineer, Link",
+    "id": "gh-stripe-8031833",
+    "slug": "stripe-software-engineer-intern",
+    "title": "Software Engineer, Intern",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "New York, New York",
-    "region": "US",
+    "location": "Bengaluru",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8062305",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8031833",
     "datePosted": "2026-09-25T20:44:48.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Full Stack Engineer, Link role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Intern role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-5412514",
@@ -9641,21 +9664,22 @@
     "descriptionSnippet": "Explore this Systems Engineer role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7895287",
-    "slug": "stripe-backend-engineer-payments-experiences",
-    "title": "Backend Engineer, Payments Experiences",
+    "id": "gh-stripe-7939868",
+    "slug": "stripe-staff-software-engineer-machine-learning-platform",
+    "title": "Staff Software Engineer, Machine Learning Platform",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Sao Paulo",
-    "region": "Worldwide",
+    "location": "San Francisco, Seattle",
+    "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Backend"
+      "AI / ML",
+      "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7895287",
-    "datePosted": "2026-09-25T20:44:41.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7939868",
+    "datePosted": "2026-09-25T20:44:44.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Backend Engineer, Payments Experiences role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Software Engineer, Machine Learning Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8158016",
@@ -9675,21 +9699,21 @@
     "descriptionSnippet": "Explore this Systems Engineer - Database Platform role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7895284",
-    "slug": "stripe-full-stack-software-engineer-brazil",
-    "title": "Full Stack Software Engineer, Brazil",
+    "id": "gh-stripe-7895287",
+    "slug": "stripe-backend-engineer-payments-experiences",
+    "title": "Backend Engineer, Payments Experiences",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
     "location": "Sao Paulo",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Software Engineer"
+      "Backend"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7895284",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7895287",
     "datePosted": "2026-09-25T20:44:41.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Full Stack Software Engineer, Brazil role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Backend Engineer, Payments Experiences role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8050813",
@@ -9709,21 +9733,21 @@
     "descriptionSnippet": "Explore this Systems Engineer, Data Intelligence & Analytics Team role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7746721",
-    "slug": "stripe-senior-staff-software-engineer-stripe-dashboard",
-    "title": "Senior Staff Software Engineer, Stripe Dashboard",
+    "id": "gh-stripe-7895284",
+    "slug": "stripe-full-stack-software-engineer-brazil",
+    "title": "Full Stack Software Engineer, Brazil",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Seattle",
-    "region": "US",
+    "location": "Sao Paulo",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Staff/Lead"
+      "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7746721",
-    "datePosted": "2026-09-25T20:44:39.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7895284",
+    "datePosted": "2026-09-25T20:44:41.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Staff Software Engineer, Stripe Dashboard role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Full Stack Software Engineer, Brazil role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8175620",
@@ -9743,21 +9767,21 @@
     "descriptionSnippet": "Explore this Systems Engineer, Growth Engineering role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7761694",
-    "slug": "stripe-software-engineer-product-security-data-platforms",
-    "title": "Software Engineer, Product Security Data Platforms",
+    "id": "gh-stripe-7746721",
+    "slug": "stripe-senior-staff-software-engineer-stripe-dashboard",
+    "title": "Senior Staff Software Engineer, Stripe Dashboard",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
     "location": "Seattle",
     "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Software Engineer"
+      "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7761694",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7746721",
     "datePosted": "2026-09-25T20:44:39.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Product Security Data Platforms role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Staff Software Engineer, Stripe Dashboard role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8119184",
@@ -9777,22 +9801,21 @@
     "descriptionSnippet": "Explore this Systems Engineering, Metrics and Alerting role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7716032",
-    "slug": "stripe-staff-backend-engineer-api-platform",
-    "title": "Staff Backend Engineer - API Platform",
+    "id": "gh-stripe-7761694",
+    "slug": "stripe-software-engineer-product-security-data-platforms",
+    "title": "Software Engineer, Product Security Data Platforms",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Dublin",
-    "region": "EU",
+    "location": "Seattle",
+    "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Backend",
-      "Staff/Lead"
+      "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7716032",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7761694",
     "datePosted": "2026-09-25T20:44:39.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Backend Engineer - API Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Product Security Data Platforms role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8207326",
@@ -9812,22 +9835,22 @@
     "descriptionSnippet": "Explore this Systems Engineer, MCP Portals role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7712852",
-    "slug": "stripe-staff-software-engineer-machine-learning-platform",
-    "title": "Staff Software Engineer, Machine Learning Platform",
+    "id": "gh-stripe-7716032",
+    "slug": "stripe-staff-backend-engineer-api-platform",
+    "title": "Staff Backend Engineer - API Platform",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Toronto",
-    "region": "Canada",
+    "location": "Dublin",
+    "region": "EU",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "AI / ML",
+      "Backend",
       "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7712852",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7716032",
     "datePosted": "2026-09-25T20:44:39.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Software Engineer, Machine Learning Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Backend Engineer - API Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8142261",
@@ -9983,21 +10006,21 @@
     "descriptionSnippet": "Explore this Technical Support Engineer, Zero Trust role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7476555",
-    "slug": "stripe-backend-engineer-developer-end-user-experience-platform",
-    "title": "Backend Engineer, Developer & End-user Experience Platform",
+    "id": "gh-stripe-7436086",
+    "slug": "stripe-full-stack-engineer-web-presence-and-platform",
+    "title": "Full Stack Engineer, Web Presence and Platform",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "SEA, SF, NY, Toronto",
-    "region": "Canada",
+    "location": "N/A",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Backend"
+      "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7476555",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7436086",
     "datePosted": "2026-09-25T20:44:36.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Backend Engineer, Developer & End-user Experience Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Full Stack Engineer, Web Presence and Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-7309174",
@@ -10017,21 +10040,21 @@
     "descriptionSnippet": "Explore this Threat Intelligence Software Engineer, Cloudforce One role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7436086",
-    "slug": "stripe-full-stack-engineer-web-presence-and-platform",
-    "title": "Full Stack Engineer, Web Presence and Platform",
+    "id": "gh-stripe-7369269",
+    "slug": "stripe-staff-software-engineer-issuing",
+    "title": "Staff Software Engineer, Issuing ",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "N/A",
-    "region": "Worldwide",
+    "location": "NYC, SEA, San Francisco",
+    "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Software Engineer"
+      "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7436086",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7369269",
     "datePosted": "2026-09-25T20:44:36.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Full Stack Engineer, Web Presence and Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Software Engineer, Issuing  role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8172404",
@@ -10051,21 +10074,21 @@
     "descriptionSnippet": "Explore this Trust & Safety Investigator II, Singapore role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7369269",
-    "slug": "stripe-staff-software-engineer-issuing",
-    "title": "Staff Software Engineer, Issuing ",
+    "id": "gh-stripe-7557899",
+    "slug": "stripe-backend-engineer-developer-end-user-experience-platform",
+    "title": "Backend Engineer, Developer & End-user Experience Platform",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "NYC, SEA, San Francisco",
-    "region": "US",
+    "location": "Toronto, NY, SEA, SF",
+    "region": "Canada",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Staff/Lead"
+      "Backend"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7369269",
-    "datePosted": "2026-09-25T20:44:36.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7557899",
+    "datePosted": "2026-09-25T20:44:35.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Software Engineer, Issuing  role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Backend Engineer, Developer & End-user Experience Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8212088",
