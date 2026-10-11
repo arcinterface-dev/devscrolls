@@ -1,5 +1,25 @@
 [
   {
+    "id": "arbeitnow-remote-backend-engineer-agentic-ai-berlin-376827",
+    "slug": "getpress-gmbh-backend-engineer-agentic-ai-m-w-d",
+    "title": "Backend Engineer - Agentic AI (m/w/d)",
+    "company": "Getpress Gmbh",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=getpressgmbh.com&sz=128",
+    "location": "Remote (Berlin)",
+    "region": "EU",
+    "workplaceType": "Remote",
+    "tags": [
+      "Backend",
+      "Full-Stack",
+      "TypeScript",
+      "Python"
+    ],
+    "applyUrl": "https://www.arbeitnow.com/jobs/companies/getpress-gmbh/remote-backend-engineer-agentic-ai-berlin-376827",
+    "datePosted": "2026-10-11T08:09:37.000Z",
+    "source": "Arbeitnow",
+    "descriptionSnippet": "Overviewgetpress entwickelt eine eigene KI-Agenten-Plattform (LangGraph, PostgreSQL, Next.js) für die PR-BrancheDer Servicemarkt, von Legal über Consulting bis hin zu Agenturen, st..."
+  },
+  {
     "id": "gh-reddit-7792848",
     "slug": "reddit-ads-conversion-modeling-machine-learning-engineering-manager",
     "title": "Ads Conversion Modeling, Machine Learning Engineering Manager",
@@ -12,64 +32,44 @@
       "AI / ML"
     ],
     "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/7792848",
-    "datePosted": "2026-10-10T12:07:53.000Z",
+    "datePosted": "2026-10-11T00:09:46.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Ads Conversion Modeling, Machine Learning Engineering Manager role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "arbeitnow-senior-product-designer-wallets-100-remote-worldwide-united-kindom-293884",
-    "slug": "tether-operations-limited-senior-product-designer-wallets-100-remote-worldwide",
-    "title": "Senior Product Designer (Wallets) - 100% Remote Worldwide",
-    "company": "Tether Operations Limited",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=tetheroperationslimited.com&sz=128",
-    "location": "Remote job",
+    "id": "arbeitnow-remote-value-strategist-187622",
+    "slug": "elevenlabs-value-strategist",
+    "title": "Value Strategist",
+    "company": "ElevenLabs",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=elevenlabs.com&sz=128",
+    "location": "Remote",
     "region": "Worldwide",
     "workplaceType": "Remote",
     "tags": [
-      "UI/UX",
       "Staff/Lead"
     ],
-    "applyUrl": "https://www.arbeitnow.co.uk/jobs/companies/tether-operations-limited/senior-product-designer-wallets-100-remote-worldwide-united-kindom-293884",
-    "datePosted": "2026-10-10T06:30:19.000Z",
+    "applyUrl": "https://www.arbeitnow.ch/jobs/companies/elevenlabs/remote-value-strategist-187622",
+    "datePosted": "2026-10-10T20:40:11.000Z",
     "source": "Arbeitnow",
-    "descriptionSnippet": "Join Tether and Shape the Future of Digital FinanceAt Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower b..."
+    "descriptionSnippet": "About ElevenLabsElevenLabs is an AI research and product company transforming how we interact with technology.We launched in January 2023 with the first human-like AI voice model...."
   },
   {
-    "id": "arbeitnow-remote-software-engineer-java-munchen-garmischer-strasse-455579",
-    "slug": "timetoact-group-software-engineer-java-w-m-d",
-    "title": "Software Engineer - Java (w/m/d)",
-    "company": "Timetoact Group",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=timetoactgroup.com&sz=128",
-    "location": "Remote (München Garmischer Straße)",
+    "id": "arbeitnow-remote-senior-data-scientist-340621",
+    "slug": "duck-duck-go-senior-data-scientist",
+    "title": "Senior Data Scientist",
+    "company": "Duck Duck Go",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=duckduckgo.com&sz=128",
+    "location": "Remote",
     "region": "Worldwide",
     "workplaceType": "Remote",
     "tags": [
-      "Frontend",
-      "Full-Stack",
-      "React",
-      "Java"
+      "Python",
+      "Staff/Lead"
     ],
-    "applyUrl": "https://www.arbeitnow.com/jobs/companies/timetoact-group/remote-software-engineer-java-munchen-garmischer-strasse-455579",
-    "datePosted": "2026-10-10T05:09:22.000Z",
+    "applyUrl": "https://www.arbeitnow.ch/jobs/companies/duck-duck-go/remote-senior-data-scientist-340621",
+    "datePosted": "2026-10-10T02:40:05.000Z",
     "source": "Arbeitnow",
-    "descriptionSnippet": "Begleite unsere Kunden auf ihrem Weg in die Digitalisierung! Wofür wir dich suchen Du willst die digitale Zukunft gestalten? Dann bist du bei uns genau richtig. Für die spannend..."
-  },
-  {
-    "id": "arbeitnow-remote-kubernetes-administrator-private-cloud-engineer-karlsruhe-324107",
-    "slug": "virtual7-gmbh-kubernetes-administrator-private-cloud-engineer-m-w-d",
-    "title": "Kubernetes Administrator/Private Cloud Engineer (m/w/d)",
-    "company": "virtual7 GmbH",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=virtual7gmbh.com&sz=128",
-    "location": "Remote (Homeoffice)",
-    "region": "Worldwide",
-    "workplaceType": "Remote",
-    "tags": [
-      "Software Engineer"
-    ],
-    "applyUrl": "https://www.arbeitnow.com/jobs/companies/virtual7-gmbh/remote-kubernetes-administrator-private-cloud-engineer-karlsruhe-324107",
-    "datePosted": "2026-10-10T02:30:06.000Z",
-    "source": "Arbeitnow",
-    "descriptionSnippet": "Als IT-Dienstleister treiben wir die Digitalisierung des öffentlichen Sektors voran und schaffen echten Mehrwert für Millionen Menschen in Deutschland. Wir können vieles richtig gu..."
+    "descriptionSnippet": "Who We AreHi, we're DuckDuckGo, the online protection company and remote-first team of 300+ on a mission to raise the standard of trust online. Founded in 2008 and profitable since..."
   },
   {
     "id": "gh-gitlab-8738179002",
@@ -89,44 +89,6 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Security Factory: Code Security role at GitLab. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "arbeitnow-full-stack-product-engineer-bling-schule-berlin-399408",
-    "slug": "bling-full-stack-product-engineer-m-w-d-bling-schule",
-    "title": "Full Stack Product Engineer (m/w/d) – Bling Schule",
-    "company": "Bling",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=bling.com&sz=128",
-    "location": "Remote (Berlin)",
-    "region": "EU",
-    "workplaceType": "Remote",
-    "tags": [
-      "React",
-      "TypeScript",
-      "Node.js",
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://www.arbeitnow.com/jobs/companies/bling/full-stack-product-engineer-bling-schule-berlin-399408",
-    "datePosted": "2026-10-10T00:30:36.000Z",
-    "source": "Arbeitnow",
-    "descriptionSnippet": "Deine Mission\nWir bauen den ersten Payment-Dienstleister, mit dem Schulen und Kitas in Deutschland wirklich alles bargeldlos abwickeln können und suchen Verstärkung. Als Product En..."
-  },
-  {
-    "id": "arbeitnow-initiativbewerbung-berlin-16430",
-    "slug": "nitrado-marbis-gmbh-initiativbewerbung-m-w-d",
-    "title": "Initiativbewerbung (m/w/d)",
-    "company": "Nitrado (marbis GmbH)",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=nitradomarbisgmbh.com&sz=128",
-    "location": "Remote (Berlin)",
-    "region": "EU",
-    "workplaceType": "Remote",
-    "tags": [
-      "Frontend",
-      "Backend"
-    ],
-    "applyUrl": "https://www.arbeitnow.com/jobs/companies/nitrado-marbis-gmbh/initiativbewerbung-berlin-16430",
-    "datePosted": "2026-10-10T00:30:33.000Z",
-    "source": "Arbeitnow",
-    "descriptionSnippet": "Einleitung\nEs ist momentan keine für dich passende Stelle ausgeschrieben?Wir sind immer auf der Suche nach motivierten und kreativen Köpfen, die Ihren Beruf mit Leidenschaft machen..."
-  },
-  {
     "id": "gh-coinbase-8269081",
     "slug": "coinbase-senior-software-engineer-certificate-management",
     "title": "Senior Software Engineer, Certificate Management",
@@ -142,24 +104,6 @@
     "datePosted": "2026-10-10T00:07:30.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Software Engineer, Certificate Management role at Coinbase. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "arbeitnow-remote-senior-data-scientist-180788",
-    "slug": "duck-duck-go-senior-data-scientist",
-    "title": "Senior Data Scientist",
-    "company": "Duck Duck Go",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=duckduckgo.com&sz=128",
-    "location": "Remote",
-    "region": "Worldwide",
-    "workplaceType": "Remote",
-    "tags": [
-      "Python",
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://www.arbeitnow.com/jobs/companies/duck-duck-go/remote-senior-data-scientist-180788",
-    "datePosted": "2026-10-09T23:40:02.000Z",
-    "source": "Arbeitnow",
-    "descriptionSnippet": "Who We AreHi, we're DuckDuckGo, the online protection company and remote-first team of 300+ on a mission to raise the standard of trust online. Founded in 2008 and profitable since..."
   },
   {
     "id": "gh-twilio-7944264",
@@ -384,44 +328,6 @@
     "descriptionSnippet": "Explore this Sr. Staff Software Engineer, Browser (New Products) role at Mozilla. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "arbeitnow-remote-applied-ai-engineer-404690",
-    "slug": "elevenlabs-applied-ai-engineer",
-    "title": "Applied AI Engineer",
-    "company": "ElevenLabs",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=elevenlabs.com&sz=128",
-    "location": "Remote",
-    "region": "Worldwide",
-    "workplaceType": "Remote",
-    "tags": [
-      "Full-Stack",
-      "AI / ML",
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://www.arbeitnow.ch/jobs/companies/elevenlabs/remote-applied-ai-engineer-404690",
-    "datePosted": "2026-10-08T20:40:12.000Z",
-    "source": "Arbeitnow",
-    "descriptionSnippet": "About ElevenLabsElevenLabs is an AI research and product company transforming how we interact with technology.We launched in January 2023 with the first human-like AI voice model...."
-  },
-  {
-    "id": "arbeitnow-remote-senior-software-engineer-backend-distributed-systems-417843",
-    "slug": "camunda-senior-software-engineer-backend-distributed-systems",
-    "title": "Senior Software Engineer, Backend - Distributed Systems",
-    "company": "Camunda",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=camunda.com&sz=128",
-    "location": "Remote",
-    "region": "Worldwide",
-    "workplaceType": "Remote",
-    "tags": [
-      "Backend",
-      "Java",
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://www.arbeitnow.ch/jobs/companies/camunda/remote-senior-software-engineer-backend-distributed-systems-417843",
-    "datePosted": "2026-10-08T20:40:09.000Z",
-    "source": "Arbeitnow",
-    "descriptionSnippet": "Camunda is the enterprise platform for agentic orchestration, enabling organizations to coordinate AI agents, people, and systems across complex, end-to-end business processes. Wit..."
-  },
-  {
     "id": "ashby-replit-7c3c9d29-cec2-4367-8564-eadaed165aea",
     "slug": "replit-software-engineering-intern-winter-2027",
     "title": "Software Engineering Intern – Winter 2027 ",
@@ -437,23 +343,6 @@
     "datePosted": "2026-10-08T17:34:51.757Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Join Replit as a Software Engineering Intern – Winter 2027 . Building high-performance software with modern engineering standards."
-  },
-  {
-    "id": "arbeitnow-remote-ios-developer-radiotech-406158",
-    "slug": "gismart-ios-developer-radiotech",
-    "title": "iOS Developer (Radiotech)",
-    "company": "Gismart",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=gismart.com&sz=128",
-    "location": "Remote",
-    "region": "Worldwide",
-    "workplaceType": "Remote",
-    "tags": [
-      "React"
-    ],
-    "applyUrl": "https://www.arbeitnow.ch/jobs/companies/gismart/remote-ios-developer-radiotech-406158",
-    "datePosted": "2026-10-08T05:40:06.000Z",
-    "source": "Arbeitnow",
-    "descriptionSnippet": "About usGismart is a value-driven mobile app developer with a strong presence in the Health &amp; Wellness, Utilities, and Music app markets. We have recently reached an important..."
   },
   {
     "id": "remotive-2091045",
@@ -682,75 +571,61 @@
     "descriptionSnippet": "Coalition Technologies is seeking a reliable, detail-oriented, and highly organized Remote Office Assistant to support administrative, bookkeeping, billing, reporting, data entry,..."
   },
   {
-    "id": "gh-reddit-8159077",
-    "slug": "reddit-trust-and-safety-policy-ads-policy-lead",
-    "title": "Trust and Safety Policy, Ads Policy,  Lead",
+    "id": "arbeitnow-remote-ai-product-engineer-berlin-488060",
+    "slug": "getpress-gmbh-ai-product-engineer-m-w-d",
+    "title": "AI Product Engineer (m/w/d)",
+    "company": "Getpress Gmbh",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=getpressgmbh.com&sz=128",
+    "location": "Remote (Berlin)",
+    "region": "EU",
+    "workplaceType": "Remote",
+    "tags": [
+      "Backend",
+      "Full-Stack",
+      "TypeScript",
+      "Python"
+    ],
+    "applyUrl": "https://www.arbeitnow.com/jobs/companies/getpress-gmbh/remote-ai-product-engineer-berlin-488060",
+    "datePosted": "2026-10-11T08:09:37.000Z",
+    "source": "Arbeitnow",
+    "descriptionSnippet": "Overviewgetpress entwickelt eine eigene KI-Agenten-Plattform (LangGraph, PostgreSQL, Next.js) für die PR-BrancheDer Servicemarkt, von Legal über Consulting bis hin zu Agenturen, st..."
+  },
+  {
+    "id": "gh-reddit-8175520",
+    "slug": "reddit-senior-frontend-engineer-ads-creative",
+    "title": "Senior Frontend Engineer, Ads Creative",
     "company": "Reddit",
     "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
     "location": "Remote - United States",
     "region": "US",
     "workplaceType": "Remote",
     "tags": [
-      "Staff/Lead"
+      "Frontend",
+      "Senior"
     ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8159077",
-    "datePosted": "2026-10-10T12:07:53.000Z",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8175520",
+    "datePosted": "2026-10-11T00:09:46.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Trust and Safety Policy, Ads Policy,  Lead role at Reddit. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Frontend Engineer, Ads Creative role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "arbeitnow-product-engineering-lead-qvac-100-remote-london-457624",
-    "slug": "tether-operations-limited-product-engineering-lead-qvac-100-remote",
-    "title": "Product Engineering Lead (QVAC) (100% remote)",
-    "company": "Tether Operations Limited",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=tetheroperationslimited.com&sz=128",
-    "location": "Remote job",
+    "id": "arbeitnow-remote-applied-ai-engineer-404690",
+    "slug": "elevenlabs-applied-ai-engineer",
+    "title": "Applied AI Engineer",
+    "company": "ElevenLabs",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=elevenlabs.com&sz=128",
+    "location": "Remote",
     "region": "Worldwide",
     "workplaceType": "Remote",
     "tags": [
-      "React",
+      "Full-Stack",
+      "AI / ML",
       "Staff/Lead"
     ],
-    "applyUrl": "https://www.arbeitnow.co.uk/jobs/companies/tether-operations-limited/product-engineering-lead-qvac-100-remote-london-457624",
-    "datePosted": "2026-10-10T06:30:19.000Z",
+    "applyUrl": "https://www.arbeitnow.ch/jobs/companies/elevenlabs/remote-applied-ai-engineer-404690",
+    "datePosted": "2026-10-08T20:40:12.000Z",
     "source": "Arbeitnow",
-    "descriptionSnippet": "Join Tether and Shape the Future of Digital FinanceAt Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower b..."
-  },
-  {
-    "id": "arbeitnow-remote-senior-consultant-data-analytics-koln-75502",
-    "slug": "timetoact-group-senior-consultant-data-analytics-w-m-d",
-    "title": "Senior Consultant Data Analytics (w/m/d)",
-    "company": "Timetoact Group",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=timetoactgroup.com&sz=128",
-    "location": "Remote (Köln)",
-    "region": "Worldwide",
-    "workplaceType": "Remote",
-    "tags": [
-      "Senior"
-    ],
-    "applyUrl": "https://www.arbeitnow.com/jobs/companies/timetoact-group/remote-senior-consultant-data-analytics-koln-75502",
-    "datePosted": "2026-10-10T05:09:22.000Z",
-    "source": "Arbeitnow",
-    "descriptionSnippet": "Wofür wir dich suchen Daten sind überall. Wir machen daraus Entscheidungen mit Wirkung.Die meisten Unternehmen kämpfen nicht mit fehlenden Daten, sondern mit etwas anderem: zu viel..."
-  },
-  {
-    "id": "arbeitnow-remote-ai-solution-architect-nurnberg-mittelfranken-120261",
-    "slug": "virtual7-gmbh-ai-solution-architect-m-w-d",
-    "title": "AI Solution Architect (m/w/d)",
-    "company": "virtual7 GmbH",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=virtual7gmbh.com&sz=128",
-    "location": "Remote (Homeoffice)",
-    "region": "Worldwide",
-    "workplaceType": "Remote",
-    "tags": [
-      "AI / ML",
-      "Python",
-      "Senior"
-    ],
-    "applyUrl": "https://www.arbeitnow.com/jobs/companies/virtual7-gmbh/remote-ai-solution-architect-nurnberg-mittelfranken-120261",
-    "datePosted": "2026-10-10T02:30:06.000Z",
-    "source": "Arbeitnow",
-    "descriptionSnippet": "Als IT-Dienstleister treiben wir die Digitalisierung des öffentlichen Sektors voran und schaffen echten Mehrwert für Millionen Menschen in Deutschland. Wir können vieles richtig gu..."
+    "descriptionSnippet": "About ElevenLabsElevenLabs is an AI research and product company transforming how we interact with technology.We launched in January 2023 with the first human-like AI voice model...."
   },
   {
     "id": "gh-gitlab-8693563002",
@@ -994,26 +869,6 @@
     "descriptionSnippet": "Explore this Staff Software Engineer, Web Application Services role at Mozilla. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "arbeitnow-remote-full-stack-engineer-creative-agents-292788",
-    "slug": "elevenlabs-full-stack-engineer-creative-agents",
-    "title": "Full-stack Engineer - Creative Agents",
-    "company": "ElevenLabs",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=elevenlabs.com&sz=128",
-    "location": "Remote",
-    "region": "Worldwide",
-    "workplaceType": "Remote",
-    "tags": [
-      "Frontend",
-      "Backend",
-      "Full-Stack",
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://www.arbeitnow.ch/jobs/companies/elevenlabs/remote-full-stack-engineer-creative-agents-292788",
-    "datePosted": "2026-10-08T20:40:12.000Z",
-    "source": "Arbeitnow",
-    "descriptionSnippet": "About ElevenLabsElevenLabs is an AI research and product company transforming how we interact with technology.We launched in January 2023 with the first human-like AI voice model...."
-  },
-  {
     "id": "ashby-replit-659a8e1e-69ba-44c0-a632-96665051a3e8",
     "slug": "replit-senior-software-engineer-compute-platform",
     "title": "Senior Software Engineer, Compute Platform",
@@ -1139,40 +994,41 @@
     "descriptionSnippet": "Senior Independent AI Engineer / Architect\nRemote | Americas, Europe, or Israel\n \nMost AI engineers can find work.\n \nFinding work worth doing is harder.\n \nA.Team is an invite-only..."
   },
   {
-    "id": "gh-reddit-8188275",
-    "slug": "reddit-trust-and-safety-policy-ads-policy-lead-europe",
-    "title": "Trust and Safety Policy, Ads Policy,  Lead (Europe)",
+    "id": "gh-reddit-8159077",
+    "slug": "reddit-trust-and-safety-policy-ads-policy-lead",
+    "title": "Trust and Safety Policy, Ads Policy,  Lead",
     "company": "Reddit",
     "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - Ireland",
-    "region": "EU",
+    "location": "Remote - United States",
+    "region": "US",
     "workplaceType": "Remote",
     "tags": [
       "Staff/Lead"
     ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8188275",
-    "datePosted": "2026-10-10T12:07:53.000Z",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8159077",
+    "datePosted": "2026-10-11T00:09:46.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Trust and Safety Policy, Ads Policy,  Lead (Europe) role at Reddit. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Trust and Safety Policy, Ads Policy,  Lead role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "arbeitnow-remote-senior-java-backend-developer-karlsruhe-355121",
-    "slug": "virtual7-gmbh-senior-java-backend-developer-m-w-d",
-    "title": "Senior Java Backend Developer (m/w/d)",
-    "company": "virtual7 GmbH",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=virtual7gmbh.com&sz=128",
-    "location": "Remote (Homeoffice)",
+    "id": "arbeitnow-remote-full-stack-engineer-creative-agents-292788",
+    "slug": "elevenlabs-full-stack-engineer-creative-agents",
+    "title": "Full-stack Engineer - Creative Agents",
+    "company": "ElevenLabs",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=elevenlabs.com&sz=128",
+    "location": "Remote",
     "region": "Worldwide",
     "workplaceType": "Remote",
     "tags": [
+      "Frontend",
       "Backend",
-      "Java",
+      "Full-Stack",
       "Staff/Lead"
     ],
-    "applyUrl": "https://www.arbeitnow.com/jobs/companies/virtual7-gmbh/remote-senior-java-backend-developer-karlsruhe-355121",
-    "datePosted": "2026-10-10T02:30:06.000Z",
+    "applyUrl": "https://www.arbeitnow.ch/jobs/companies/elevenlabs/remote-full-stack-engineer-creative-agents-292788",
+    "datePosted": "2026-10-08T20:40:12.000Z",
     "source": "Arbeitnow",
-    "descriptionSnippet": "Als IT-Dienstleister treiben wir die Digitalisierung des öffentlichen Sektors voran und schaffen echten Mehrwert für Millionen Menschen in Deutschland. Wir können vieles richtig gu..."
+    "descriptionSnippet": "About ElevenLabsElevenLabs is an AI research and product company transforming how we interact with technology.We launched in January 2023 with the first human-like AI voice model...."
   },
   {
     "id": "gh-gitlab-8861748002",
@@ -1416,26 +1272,6 @@
     "descriptionSnippet": "Explore this Staff Product Engineer, Enterprise AI  role at Mozilla. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "arbeitnow-remote-full-stack-engineer-backend-leaning-creative-agents-323217",
-    "slug": "elevenlabs-full-stack-engineer-backend-leaning-creative-agents",
-    "title": "Full-Stack Engineer (Backend Leaning) - Creative Agents",
-    "company": "ElevenLabs",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=elevenlabs.com&sz=128",
-    "location": "Remote",
-    "region": "Worldwide",
-    "workplaceType": "Remote",
-    "tags": [
-      "Frontend",
-      "Backend",
-      "Full-Stack",
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://www.arbeitnow.ch/jobs/companies/elevenlabs/remote-full-stack-engineer-backend-leaning-creative-agents-323217",
-    "datePosted": "2026-10-08T20:40:12.000Z",
-    "source": "Arbeitnow",
-    "descriptionSnippet": "About ElevenLabsElevenLabs is an AI research and product company transforming how we interact with technology.We launched in January 2023 with the first human-like AI voice model...."
-  },
-  {
     "id": "ashby-replit-4df82fb0-0bcb-4034-89ce-09e679b00fe7",
     "slug": "replit-staff-software-engineer-agentic-ads",
     "title": " Staff Software Engineer, Agentic Ads ",
@@ -1541,39 +1377,41 @@
     "descriptionSnippet": "Join Ramp as a Software Engineer Internship, Frontend. Building high-performance software with modern engineering standards."
   },
   {
-    "id": "gh-reddit-8175520",
-    "slug": "reddit-senior-frontend-engineer-ads-creative",
-    "title": "Senior Frontend Engineer, Ads Creative",
+    "id": "gh-reddit-8188275",
+    "slug": "reddit-trust-and-safety-policy-ads-policy-lead-europe",
+    "title": "Trust and Safety Policy, Ads Policy,  Lead (Europe)",
     "company": "Reddit",
     "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - United States",
-    "region": "US",
+    "location": "Remote - Ireland",
+    "region": "EU",
     "workplaceType": "Remote",
     "tags": [
-      "Frontend",
-      "Senior"
+      "Staff/Lead"
     ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8175520",
-    "datePosted": "2026-10-10T12:07:52.000Z",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8188275",
+    "datePosted": "2026-10-11T00:09:46.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Frontend Engineer, Ads Creative role at Reddit. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Trust and Safety Policy, Ads Policy,  Lead (Europe) role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "arbeitnow-remote-senior-oracle-data-engineer-karlsruhe-419481",
-    "slug": "virtual7-gmbh-senior-oracle-data-engineer-m-w-d",
-    "title": "Senior Oracle Data Engineer (m/w/d)",
-    "company": "virtual7 GmbH",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=virtual7gmbh.com&sz=128",
-    "location": "Remote (Homeoffice)",
+    "id": "arbeitnow-remote-full-stack-engineer-backend-leaning-creative-agents-323217",
+    "slug": "elevenlabs-full-stack-engineer-backend-leaning-creative-agents",
+    "title": "Full-Stack Engineer (Backend Leaning) - Creative Agents",
+    "company": "ElevenLabs",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=elevenlabs.com&sz=128",
+    "location": "Remote",
     "region": "Worldwide",
     "workplaceType": "Remote",
     "tags": [
-      "Senior"
+      "Frontend",
+      "Backend",
+      "Full-Stack",
+      "Staff/Lead"
     ],
-    "applyUrl": "https://www.arbeitnow.com/jobs/companies/virtual7-gmbh/remote-senior-oracle-data-engineer-karlsruhe-419481",
-    "datePosted": "2026-10-10T02:30:06.000Z",
+    "applyUrl": "https://www.arbeitnow.ch/jobs/companies/elevenlabs/remote-full-stack-engineer-backend-leaning-creative-agents-323217",
+    "datePosted": "2026-10-08T20:40:12.000Z",
     "source": "Arbeitnow",
-    "descriptionSnippet": "Als IT-Dienstleister treiben wir die Digitalisierung des öffentlichen Sektors voran und schaffen echten Mehrwert für Millionen Menschen in Deutschland. Wir können vieles richtig gu..."
+    "descriptionSnippet": "About ElevenLabsElevenLabs is an AI research and product company transforming how we interact with technology.We launched in January 2023 with the first human-like AI voice model...."
   },
   {
     "id": "gh-gitlab-8687958002",
@@ -1832,24 +1670,6 @@
     "descriptionSnippet": "Join Replit as a Staff Software Engineer, Agentic Commerce & Payments . Building high-performance software with modern engineering standards."
   },
   {
-    "id": "ashby-perplexity-5c561bd0-c180-4ee1-b079-647f3c20bdc0",
-    "slug": "perplexity-ai-member-of-technical-staff-applied-ai-engineer-agent-capabilities",
-    "title": "Member of Technical Staff (Applied AI Engineer, Agent Capabilities)",
-    "company": "Perplexity AI",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=perplexity.com&sz=128",
-    "location": "San Francisco",
-    "region": "US",
-    "workplaceType": "Hybrid",
-    "tags": [
-      "AI / ML",
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://jobs.ashbyhq.com/perplexity/5c561bd0-c180-4ee1-b079-647f3c20bdc0",
-    "datePosted": "2026-09-10T18:49:57.605Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Join Perplexity AI as a Member of Technical Staff (Applied AI Engineer, Agent Capabilities). Building high-performance software with modern engineering standards."
-  },
-  {
     "id": "remotive-2091130",
     "slug": "lemon-io-senior-net-full-stack-developer",
     "title": "Senior .NET Full-stack Developer",
@@ -1933,7 +1753,7 @@
       "Senior"
     ],
     "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/7980795",
-    "datePosted": "2026-10-10T12:07:51.000Z",
+    "datePosted": "2026-10-11T00:09:45.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Software Engineer, Agentic Ads Experience role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
@@ -2266,7 +2086,7 @@
       "Staff/Lead"
     ],
     "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8250389",
-    "datePosted": "2026-10-10T12:07:51.000Z",
+    "datePosted": "2026-10-11T00:09:45.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Staff Machine Learning Engineer, Ads Creative Effectiveness role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
@@ -2547,22 +2367,21 @@
     "descriptionSnippet": "Join Ramp as a Software Engineer, International. Building high-performance software with modern engineering standards."
   },
   {
-    "id": "gh-reddit-8201359",
-    "slug": "reddit-senior-staff-machine-learning-engineer-agentic-ai-platform-ads-ranking",
-    "title": "Senior Staff Machine Learning Engineer, Agentic AI Platform (Ads Ranking) ",
+    "id": "gh-reddit-8194576",
+    "slug": "reddit-frontend-engineer-ads",
+    "title": "Frontend Engineer, Ads",
     "company": "Reddit",
     "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
     "location": "Remote - United States",
     "region": "US",
     "workplaceType": "Remote",
     "tags": [
-      "AI / ML",
-      "Staff/Lead"
+      "Frontend"
     ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8201359",
-    "datePosted": "2026-10-10T12:07:50.000Z",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8194576",
+    "datePosted": "2026-10-11T00:09:44.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Staff Machine Learning Engineer, Agentic AI Platform (Ads Ranking)  role at Reddit. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Frontend Engineer, Ads role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-gitlab-8638295002",
@@ -2822,22 +2641,21 @@
     "descriptionSnippet": "Join Ramp as a Systems Engineer, Corporate Security. Building high-performance software with modern engineering standards."
   },
   {
-    "id": "gh-reddit-8187652",
-    "slug": "reddit-staff-machine-learning-engineer-app-ads-modeling",
-    "title": "Staff Machine Learning Engineer, App Ads Modeling",
+    "id": "gh-reddit-8240716",
+    "slug": "reddit-frontend-engineer-ads-campaign-manager",
+    "title": "Frontend Engineer, Ads Campaign Manager",
     "company": "Reddit",
     "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
     "location": "Remote - United States",
     "region": "US",
     "workplaceType": "Remote",
     "tags": [
-      "AI / ML",
-      "Staff/Lead"
+      "Frontend"
     ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8187652",
-    "datePosted": "2026-10-10T12:07:50.000Z",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8240716",
+    "datePosted": "2026-10-11T00:09:44.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Machine Learning Engineer, App Ads Modeling role at Reddit. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Frontend Engineer, Ads Campaign Manager role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-gitlab-8867725002",
@@ -3080,21 +2898,22 @@
     "descriptionSnippet": "Explore this Software Engineer Intern (London, United Kingdom) (Summer 2027)  role at Figma. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-reddit-8194576",
-    "slug": "reddit-frontend-engineer-ads",
-    "title": "Frontend Engineer, Ads",
+    "id": "gh-reddit-8201359",
+    "slug": "reddit-senior-staff-machine-learning-engineer-agentic-ai-platform-ads-ranking",
+    "title": "Senior Staff Machine Learning Engineer, Agentic AI Platform (Ads Ranking) ",
     "company": "Reddit",
     "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
     "location": "Remote - United States",
     "region": "US",
     "workplaceType": "Remote",
     "tags": [
-      "Frontend"
+      "AI / ML",
+      "Staff/Lead"
     ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8194576",
-    "datePosted": "2026-10-10T12:07:49.000Z",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8201359",
+    "datePosted": "2026-10-11T00:09:44.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Frontend Engineer, Ads role at Reddit. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Staff Machine Learning Engineer, Agentic AI Platform (Ads Ranking)  role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-gitlab-8845277002",
@@ -3325,38 +3144,22 @@
     "descriptionSnippet": "Explore this Contract Staff Software Engineer-FireFox Layout  role at Mozilla. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-figma-5807963004",
-    "slug": "figma-manager-software-engineering-ai-observability",
-    "title": "Manager, Software Engineering - AI Observability",
-    "company": "Figma",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=figma.com&sz=128",
-    "location": "San Francisco, CA • New York, NY • United States",
-    "region": "US",
-    "workplaceType": "Hybrid/Remote",
-    "tags": [
-      "Software Engineer"
-    ],
-    "applyUrl": "https://boards.greenhouse.io/figma/jobs/5807963004?gh_jid=5807963004",
-    "datePosted": "2026-09-10T16:28:11.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Manager, Software Engineering - AI Observability role at Figma. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-reddit-8240716",
-    "slug": "reddit-frontend-engineer-ads-campaign-manager",
-    "title": "Frontend Engineer, Ads Campaign Manager",
+    "id": "gh-reddit-8187652",
+    "slug": "reddit-staff-machine-learning-engineer-app-ads-modeling",
+    "title": "Staff Machine Learning Engineer, App Ads Modeling",
     "company": "Reddit",
     "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
     "location": "Remote - United States",
     "region": "US",
     "workplaceType": "Remote",
     "tags": [
-      "Frontend"
+      "AI / ML",
+      "Staff/Lead"
     ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8240716",
-    "datePosted": "2026-10-10T12:07:49.000Z",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8187652",
+    "datePosted": "2026-10-11T00:09:44.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Frontend Engineer, Ads Campaign Manager role at Reddit. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Machine Learning Engineer, App Ads Modeling role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-gitlab-8704363002",
@@ -3410,23 +3213,6 @@
     "datePosted": "2026-10-09T18:41:17.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Principal Engineer (L5) role at Twilio. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "ashby-sentry-bf150464-a7bc-4357-beb7-341535538370",
-    "slug": "sentry-senior-software-engineer-telemetry-experience",
-    "title": "Senior Software Engineer, Telemetry Experience",
-    "company": "Sentry",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=sentry.com&sz=128",
-    "location": "Vienna, Austria",
-    "region": "Worldwide",
-    "workplaceType": "Remote",
-    "tags": [
-      "Senior"
-    ],
-    "applyUrl": "https://jobs.ashbyhq.com/sentry/bf150464-a7bc-4357-beb7-341535538370",
-    "datePosted": "2026-09-11T10:27:25.998Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Join Sentry as a Senior Software Engineer, Telemetry Experience. Building high-performance software with modern engineering standards."
   },
   {
     "id": "gh-airbnb-8257855",
@@ -3598,7 +3384,7 @@
       "Staff/Lead"
     ],
     "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8178085",
-    "datePosted": "2026-10-10T12:07:49.000Z",
+    "datePosted": "2026-10-11T00:09:44.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Staff Machine Learning Engineer, Retrieval role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
@@ -3653,23 +3439,6 @@
     "datePosted": "2026-10-09T18:41:17.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Principal Software Engineer role at Twilio. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "ashby-sentry-f345b525-b2e9-4dc1-bec1-85fb4c3b3cf2",
-    "slug": "sentry-software-engineer-new-grad-2027",
-    "title": "Software Engineer, New Grad (2027)",
-    "company": "Sentry",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=sentry.com&sz=128",
-    "location": "Vienna, Austria",
-    "region": "Worldwide",
-    "workplaceType": "Remote",
-    "tags": [
-      "Software Engineer"
-    ],
-    "applyUrl": "https://jobs.ashbyhq.com/sentry/f345b525-b2e9-4dc1-bec1-85fb4c3b3cf2",
-    "datePosted": "2026-09-10T15:39:23.649Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Join Sentry as a Software Engineer, New Grad (2027). Building high-performance software with modern engineering standards."
   },
   {
     "id": "gh-airbnb-7528577",
@@ -3839,7 +3608,7 @@
       "Staff/Lead"
     ],
     "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8157275",
-    "datePosted": "2026-10-10T12:07:48.000Z",
+    "datePosted": "2026-10-11T00:09:43.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Staff Machine Learning Systems Engineer, Ads ML Platform role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
@@ -3894,23 +3663,6 @@
     "datePosted": "2026-10-09T18:41:17.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Software Engineer role at Twilio. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "ashby-sentry-fa522ac5-fc9f-4ce1-a191-842496a235a2",
-    "slug": "sentry-software-engineer-intern-summer-2027",
-    "title": "Software Engineer, Intern (Summer 2027)",
-    "company": "Sentry",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=sentry.com&sz=128",
-    "location": "Vienna, Austria",
-    "region": "Worldwide",
-    "workplaceType": "Remote",
-    "tags": [
-      "Software Engineer"
-    ],
-    "applyUrl": "https://jobs.ashbyhq.com/sentry/fa522ac5-fc9f-4ce1-a191-842496a235a2",
-    "datePosted": "2026-09-10T15:39:22.153Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Join Sentry as a Software Engineer, Intern (Summer 2027). Building high-performance software with modern engineering standards."
   },
   {
     "id": "gh-airbnb-8250093",
@@ -4183,24 +3935,6 @@
     "datePosted": "2026-10-02T04:59:41.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Principal Software Engineer I - Platform Billing Core role at Elastic. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "lever-spotify-281e7db9-86ba-4a1c-8773-c23b96ed32dc",
-    "slug": "spotify-staff-machine-learning-engineer-home-surfaces",
-    "title": "Staff Machine Learning Engineer, Home Surfaces",
-    "company": "Spotify",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=spotify.com&sz=128",
-    "location": "Remote (New York, NY)",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "AI / ML",
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://jobs.lever.co/spotify/281e7db9-86ba-4a1c-8773-c23b96ed32dc/apply",
-    "datePosted": "2026-09-10T20:25:45.879Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "..."
   },
   {
     "id": "gh-stripe-8131144",
@@ -9216,23 +8950,6 @@
     "descriptionSnippet": "Explore this Front End Software Engineer, Media Player role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-coinbase-8177946",
-    "slug": "coinbase-software-engineer-money-movement",
-    "title": "Software Engineer- Money Movement ",
-    "company": "Coinbase",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=coinbase.com&sz=128",
-    "location": "Remote - USA",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "Software Engineer"
-    ],
-    "applyUrl": "https://www.coinbase.com/careers/positions/8177946?gh_jid=8177946",
-    "datePosted": "2026-09-10T22:02:58.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer- Money Movement  role at Coinbase. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
     "id": "gh-pinterest-8138034",
     "slug": "pinterest-software-engineering-intern-2027-dublin",
     "title": "Software Engineering Intern 2027 (Dublin)",
@@ -9404,18 +9121,18 @@
     "descriptionSnippet": "Explore this Senior Systems Engineer, Cloudflare Data Platform role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8130883",
+    "id": "gh-stripe-8031833",
     "slug": "stripe-software-engineer-intern",
     "title": "Software Engineer, Intern",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Singapore",
+    "location": "Bengaluru",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8130883",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8031833",
     "datePosted": "2026-10-07T23:02:27.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Software Engineer, Intern role at Stripe. Direct company career opening with high-impact engineering opportunities."
@@ -9745,18 +9462,18 @@
     "descriptionSnippet": "Explore this Software Engineer, CDN Configuration Group role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8130881",
+    "id": "gh-stripe-8130922",
     "slug": "stripe-software-engineer-new-grad",
     "title": "Software Engineer, New Grad",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Dublin",
-    "region": "EU",
+    "location": "Bucharest",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8130881",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8130922",
     "datePosted": "2026-10-07T23:02:27.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Software Engineer, New Grad role at Stripe. Direct company career opening with high-impact engineering opportunities."
@@ -10089,18 +9806,18 @@
     "descriptionSnippet": "Explore this Software Engineer Intern (2027) - Austin, TX role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8076616",
+    "id": "gh-stripe-8127182",
     "slug": "stripe-software-engineer-revenue-and-financial-automation",
     "title": "Software Engineer, Revenue and Financial Automation",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "N/A",
-    "region": "Worldwide",
-    "workplaceType": "Hybrid/Remote",
+    "location": "San Francisco, New York City, Seattle, Chicago, US-Remote",
+    "region": "US",
+    "workplaceType": "Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8076616",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8127182",
     "datePosted": "2026-10-07T23:02:27.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Software Engineer, Revenue and Financial Automation role at Stripe. Direct company career opening with high-impact engineering opportunities."
