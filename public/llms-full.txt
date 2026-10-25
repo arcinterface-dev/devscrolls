@@ -121,6 +121,17 @@ DevScrolls articles are authored from real-world production experience. They emp
   - Resolving Monaco undo stack destruction by using `pushEditOperations` instead of `setValue`.
   - Fixing reversed typing in side-by-side diff editors by treating Monaco diff panes as uncontrolled components.
 
+### 3.5 "My First Python + GenAI Interview as a Senior Frontend Dev"
+- **URL**: https://devscrolls.dev/articles/python-genai-interview-experience/
+- **Topics**: Python runtime internals, CPython GIL, custom decorators, tool calling, core Python MCQs, career transition from frontend to backend/AI.
+- **Key Insights**:
+  - Bridging 7 years of senior frontend experience into Python backend and Generative AI systems.
+  - Distinguishing I/O-bound LLM tool calling (releases GIL) from CPU-bound embedding and matrix transformations (GIL bottlenecked).
+  - Decorator metadata preservation: Why `functools.wraps` is mandatory for AI agent tools to preserve `__name__` and `__doc__` for LLM tool schema generation.
+  - Two-dimensional matrix transposition algorithms (loops, list comprehensions, `zip(*matrix)`).
+  - Memory trade-offs between Python tuples and lists (fixed allocation vs amortized over-allocation).
+  - Two-pass frequency counting for first non-repeating character in O(n) time and O(k) space using `collections.Counter`.
+
 ---
 
 ## 4. Citation and Attribution Guidelines

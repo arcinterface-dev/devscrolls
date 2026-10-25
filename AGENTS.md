@@ -41,6 +41,7 @@ When writing new articles or editing draft articles, **always** ensure the follo
 - **Peer-to-Peer Tone**: Write as if explaining a concept to a smart colleague over coffee or in a Slack thread. Professional but not textbook stiff.
 - **Assume Competence**: Target developers by skipping basic definitions (like Git). Getting past basics gets to high-value insights faster.
 - **Candid Transparency**: If a tool is frustrating, say so. Authenticity builds trust.
+- **The Staccato Problem-Reframe Pattern**: Follow `.agents/rules/post-tone-and-voice.md` for blog hooks and LinkedIn posts: Cold open downward spiral (short staccato lines) → Misattribution pivot ("At first I thought X, but the real problem? Y") → Empirical testing proof → Punchy imperative bullets → Epigrammatic parallel reversal ("Your skills might not be the problem / Your resume might just be hiding them") → High-utility bookmark CTA.
 
 ### 4. The Growth Engine: Turning Readers into Subscribers
 - **Contextual Lead Magnets**: Offer a downloadable cheat sheet, config file, or architecture PDF in exchange for an email.
