@@ -1,0 +1,20 @@
+---
+if (!import.meta.env.DEV) {
+  return Astro.redirect('/games/dev-skribbl/');
+}
+import ArcadeLayout from '../../layouts/ArcadeLayout.astro';
+import { DevTelephone } from '../../components/arcade/DevTelephone/DevTelephone';
+
+const pageTitle = "Dev Telephone — DevScrolls Games";
+const pageDescription = "Gartic Phone style drawing & guessing game for engineers. Prompt -> Draw -> Guess -> Watch the hilarious final album progression!";
+---
+
+<ArcadeLayout
+  title={pageTitle}
+  description={pageDescription}
+  gameName="Dev Telephone"
+  badge="Party"
+>
+  <DevTelephone client:only="react" />
+</ArcadeLayout>
+

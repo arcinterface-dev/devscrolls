@@ -1,0 +1,19 @@
+---
+if (!import.meta.env.DEV) {
+  return Astro.redirect('/games/dev-skribbl/');
+}
+import ArcadeLayout from '../../layouts/ArcadeLayout.astro';
+import { WhoBrokeProd } from '../../components/arcade/WhoBrokeProd/WhoBrokeProd';
+
+const pageTitle = "Who Broke Production? — DevScrolls Games";
+const pageDescription = "Social deduction incident mystery. Question suspects, inspect logs, and discover who pushed the bad commit.";
+---
+
+<ArcadeLayout
+  title={pageTitle}
+  description={pageDescription}
+  gameName="Who Broke Production?"
+  badge="Multiplayer"
+>
+  <WhoBrokeProd client:only="react" />
+</ArcadeLayout>

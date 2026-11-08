@@ -1,0 +1,19 @@
+---
+if (!import.meta.env.DEV) {
+  return Astro.redirect('/games/dev-skribbl/');
+}
+import ArcadeLayout from '../../layouts/ArcadeLayout.astro';
+import { CodeNames } from '../../components/arcade/CodeNames/CodeNames';
+
+const pageTitle = "CodeNames: Tech Edition — DevScrolls Arcade";
+const pageDescription = "Multiplayer team word association on a 5x5 tech matrix. Spymasters give one-word clues, operatives avoid the Outage Assassin.";
+---
+
+<ArcadeLayout
+  title={pageTitle}
+  description={pageDescription}
+  gameName="CodeNames"
+  badge="Multiplayer"
+>
+  <CodeNames client:only="react" />
+</ArcadeLayout>

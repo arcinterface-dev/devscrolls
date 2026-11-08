@@ -1,0 +1,19 @@
+---
+if (!import.meta.env.DEV) {
+  return Astro.redirect('/games/dev-skribbl/');
+}
+import ArcadeLayout from '../../layouts/ArcadeLayout.astro';
+import { TerminalDuel } from '../../components/arcade/TerminalDuel/TerminalDuel';
+
+const pageTitle = "Terminal Duel — DevScrolls Arcade";
+const pageDescription = "1v1 reflex showdown for keyboard warriors. React to randomized terminal alerts with anti-cheat precision.";
+---
+
+<ArcadeLayout
+  title={pageTitle}
+  description={pageDescription}
+  gameName="Terminal Duel"
+  badge="Multiplayer"
+>
+  <TerminalDuel client:only="react" />
+</ArcadeLayout>

@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+import { ArcadeHub } from '../../components/arcade/ArcadeHub';
+
+const pageTitle = "Developer Games — DevScrolls";
+const pageDescription = "Free browser games for developers and engineering teams. Solo code puzzles, chaos DevOps sims, and real-time multiplayer games — zero login required.";
+---
+
+<BaseLayout 
+  title={pageTitle}
+  description={pageDescription}
+>
+  <StructuredData 
+    type="website"
+    title={pageTitle}
+    description={pageDescription}
+    url="https://devscrolls.dev/games/"
+  />
+
+  <ArcadeHub client:load />
+
+  <style is:global>
+    body:has(.games-console-container) .site-main {
+      max-width: 1220px;
+      padding-top: var(--space-3);
+      padding-bottom: var(--space-6);
+    }
+  </style>
+</BaseLayout>

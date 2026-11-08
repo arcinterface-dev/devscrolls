@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { ArcadeHub } from '../../components/arcade/ArcadeHub';
+
+const pageTitle = "Developer Games — DevScrolls";
+const pageDescription = "Free browser games for developers and engineering teams. Solo code puzzles, chaos DevOps sims, and real-time multiplayer games — zero login required.";
+---
+
+<BaseLayout 
+  title={pageTitle}
+  description={pageDescription}
+>
+  <meta http-equiv="refresh" content="0;url=/games/" slot="head" />
+  <link rel="canonical" href="https://devscrolls.dev/games/" slot="head" />
+  <ArcadeHub client:load />
+</BaseLayout>

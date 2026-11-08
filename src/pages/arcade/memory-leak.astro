@@ -1,0 +1,19 @@
+---
+if (!import.meta.env.DEV) {
+  return Astro.redirect('/games/dev-skribbl/');
+}
+import ArcadeLayout from '../../layouts/ArcadeLayout.astro';
+import { MemoryLeak } from '../../components/arcade/MemoryLeak/MemoryLeak';
+
+const pageTitle = "Memory Leak: Chaos Simulator — DevScrolls Arcade";
+const pageDescription = "Chaos engineering survival simulator for developers. Kill runaway zombie processes, balance traffic, and prevent server meltdowns before RAM hits 100%.";
+---
+
+<ArcadeLayout
+  title={pageTitle}
+  description={pageDescription}
+  gameName="Memory Leak"
+  badge="Solo"
+>
+  <MemoryLeak client:only="react" />
+</ArcadeLayout>

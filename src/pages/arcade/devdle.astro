@@ -1,0 +1,20 @@
+---
+if (!import.meta.env.DEV) {
+  return Astro.redirect('/games/dev-skribbl/');
+}
+import ArcadeLayout from '../../layouts/ArcadeLayout.astro';
+import { Devdle } from '../../components/arcade/Devdle/Devdle';
+
+const pageTitle = "Devdle (Tech Wordle) — DevScrolls Games";
+const pageDescription = "Guess the secret 5-letter tech keyword in 6 tries. Daily streaks, instant play, and developer vocabulary.";
+---
+
+<ArcadeLayout
+  title={pageTitle}
+  description={pageDescription}
+  gameName="Devdle"
+  badge="Solo"
+>
+  <Devdle client:only="react" />
+</ArcadeLayout>
+

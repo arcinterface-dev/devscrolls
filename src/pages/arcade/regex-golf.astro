@@ -1,0 +1,19 @@
+---
+if (!import.meta.env.DEV) {
+  return Astro.redirect('/games/dev-skribbl/');
+}
+import ArcadeLayout from '../../layouts/ArcadeLayout.astro';
+import { RegexGolf } from '../../components/arcade/RegexGolf/RegexGolf';
+
+const pageTitle = "Regex Golf — DevScrolls Arcade";
+const pageDescription = "Write the shortest regex pattern to match green targets and reject red traps across dynamic code archetypes.";
+---
+
+<ArcadeLayout
+  title={pageTitle}
+  description={pageDescription}
+  gameName="Regex Golf"
+  badge="Solo"
+>
+  <RegexGolf client:only="react" />
+</ArcadeLayout>

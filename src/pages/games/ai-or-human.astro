@@ -1,0 +1,20 @@
+---
+if (!import.meta.env.DEV) {
+  return Astro.redirect('/games/dev-skribbl/');
+}
+import ArcadeLayout from '../../layouts/ArcadeLayout.astro';
+import { AiOrHuman } from '../../components/arcade/AiOrHuman/AiOrHuman';
+
+const pageTitle = "AI or Human? — DevScrolls Games";
+const pageDescription = "Inspect bizarre bugs, cursed code, and weird commits. Guess whether it was hallucinated by an LLM or written by a human!";
+---
+
+<ArcadeLayout
+  title={pageTitle}
+  description={pageDescription}
+  gameName="AI or Human?"
+  badge="Solo / Party"
+>
+  <AiOrHuman client:only="react" />
+</ArcadeLayout>
+

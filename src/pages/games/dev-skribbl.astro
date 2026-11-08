@@ -1,0 +1,16 @@
+---
+import ArcadeLayout from '../../layouts/ArcadeLayout.astro';
+import { DevSkribbl } from '../../components/arcade/DevSkribbl/DevSkribbl';
+
+const pageTitle = "Dev Skribbl — DevScrolls Games";
+const pageDescription = "Multiplayer tech Pictionary. Draw architecture diagrams, tech jargon, and bugs in real time with vector canvas syncing.";
+---
+
+<ArcadeLayout
+  title={pageTitle}
+  description={pageDescription}
+  gameName="Dev Skribbl"
+  badge="Multiplayer"
+>
+  <DevSkribbl client:only="react" />
+</ArcadeLayout>

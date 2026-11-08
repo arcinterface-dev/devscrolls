@@ -17,6 +17,7 @@ RSS Feed: https://devscrolls.dev/rss.xml
 - [JWT Inspector & Offline Verifier](https://devscrolls.dev/tools/jwt-debugger/): Decode, inspect, and cryptographically verify JSON Web Tokens client-side using the native browser Web Crypto API (`window.crypto.subtle`). Supports HMAC SHA (HS256/384/512) and RSA (RS256/384/512). Visual expiration timeline gauge. No tokens, secrets, or claims are ever sent to an external server.
 - [JSON Formatter & Validator](https://devscrolls.dev/tools/json-formatter/): Developer-grade JSON utility featuring an inline JSONPath query engine, Monaco-powered side-by-side semantic diffing, and non-destructive undo/redo history. Built to handle 5MB+ payloads without freezing.
 - [DailyScroll](https://devscrolls.dev/tools/daily-scroll/): 5-minute developer companion for daily focus and standup preparation. Keyboard-driven, zero account or cloud sync required; persists locally via browser storage.
+- [DevScrolls Games (Dev Skribbl)](https://devscrolls.dev/games/): Zero-login, 60fps multiplayer browser game hub engineered for developers and IT professionals. Featuring Dev Skribbl (real-time draw & guess with custom tech word decks, flood fill bucket, vector canvas broadcasting, and instant 1-click room invites via link powered by Supabase Realtime with zero database writes).
 
 ---
 

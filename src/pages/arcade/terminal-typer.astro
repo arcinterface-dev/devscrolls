@@ -1,0 +1,19 @@
+---
+if (!import.meta.env.DEV) {
+  return Astro.redirect('/games/dev-skribbl/');
+}
+import ArcadeLayout from '../../layouts/ArcadeLayout.astro';
+import { TerminalTyper } from '../../components/arcade/TerminalTyper/TerminalTyper';
+
+const pageTitle = "Terminal Typer — DevScrolls Arcade";
+const pageDescription = "Code-syntax speed typing test for developers. Race against your WPM across TypeScript, Python, Go, Rust, SQL, and Bash.";
+---
+
+<ArcadeLayout
+  title={pageTitle}
+  description={pageDescription}
+  gameName="Terminal Typer"
+  badge="Solo"
+>
+  <TerminalTyper client:only="react" />
+</ArcadeLayout>

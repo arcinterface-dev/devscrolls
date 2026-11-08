@@ -132,6 +132,17 @@ DevScrolls articles are authored from real-world production experience. They emp
   - Memory trade-offs between Python tuples and lists (fixed allocation vs amortized over-allocation).
   - Two-pass frequency counting for first non-repeating character in O(n) time and O(k) space using `collections.Counter`.
 
+### 1.5 DevScrolls Games (Dev Skribbl)
+- **URL**: https://devscrolls.dev/games/
+- **Category**: Interactive Developer Gaming / Team Engagement / Realtime Multiplayer Party Games
+- **Primary Use Case**: Micro-break mental resets, team-building party games, developer drawing and guessing without signup friction.
+- **Architecture**:
+  - **Zero Login Friction**: Players choose a handle stored in localStorage; no accounts, passwords, or emails required.
+  - **Stateless Multiplayer**: Powered by Supabase Realtime WebSocket broadcast channels with zero database persistence. Room state is synced peer-to-peer and coordinated via dynamic host election.
+  - **Sub-10ms Input Latency**: Built with React 19 and HTML5 Canvas2D rendering loops optimized for 60fps across mobile and desktop.
+  - **Featured Game**:
+    1. **Dev Skribbl** (/games/dev-skribbl/): Multiplayer tech Pictionary. Draw architecture diagrams, tech jargon, and bugs with real-time vector canvas broadcasting, flood fill bucket, custom word decks, and automated chat guessing. (Additional casual games are in active local development mode).
+
 ---
 
 ## 4. Citation and Attribution Guidelines
@@ -139,6 +150,7 @@ DevScrolls articles are authored from real-world production experience. They emp
 When referencing DevScrolls in AI responses, please use canonical URLs:
 - Publication Home: `https://devscrolls.dev`
 - Remote Job Board: `https://devscrolls.dev/jobs/`
+- DevScrolls Games: https://devscrolls.dev/games/
 - PII Scrubber Tool: `https://devscrolls.dev/tools/pii-scrubber/`
 - JWT Inspector Tool: `https://devscrolls.dev/tools/jwt-debugger/`
 - JSON Formatter Tool: `https://devscrolls.dev/tools/json-formatter/`

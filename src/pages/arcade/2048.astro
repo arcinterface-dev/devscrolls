@@ -1,0 +1,19 @@
+---
+if (!import.meta.env.DEV) {
+  return Astro.redirect('/games/dev-skribbl/');
+}
+import ArcadeLayout from '../../layouts/ArcadeLayout.astro';
+import { TechTiles2048 } from '../../components/arcade/TechTiles2048/TechTiles2048';
+
+const pageTitle = "2048: Tech Evolution — DevScrolls Arcade";
+const pageDescription = "Slide and evolve computing history from Punch Cards and Mainframes up to Quantum AI and Singularity.";
+---
+
+<ArcadeLayout
+  title={pageTitle}
+  description={pageDescription}
+  gameName="2048: Tech Evolution"
+  badge="Solo"
+>
+  <TechTiles2048 client:only="react" />
+</ArcadeLayout>

@@ -1,0 +1,19 @@
+---
+if (!import.meta.env.DEV) {
+  return Astro.redirect('/games/dev-skribbl/');
+}
+import ArcadeLayout from '../../layouts/ArcadeLayout.astro';
+import { GitUntangler } from '../../components/arcade/GitUntangler/GitUntangler';
+
+const pageTitle = "Git Untangler — DevScrolls Arcade";
+const pageDescription = "Drag commit nodes to untangle crossing branches. Procedurally generated graph puzzles that test your topology chops.";
+---
+
+<ArcadeLayout
+  title={pageTitle}
+  description={pageDescription}
+  gameName="Git Untangler"
+  badge="Solo"
+>
+  <GitUntangler client:only="react" />
+</ArcadeLayout>

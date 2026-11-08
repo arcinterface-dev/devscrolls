@@ -1,0 +1,19 @@
+---
+if (!import.meta.env.DEV) {
+  return Astro.redirect('/games/dev-skribbl/');
+}
+import ArcadeLayout from '../../layouts/ArcadeLayout.astro';
+import { TypeRacer } from '../../components/arcade/TypeRacer/TypeRacer';
+
+const pageTitle = "TypeRacer — DevScrolls Games";
+const pageDescription = "Live multiplayer drag race code typing competition against coworkers and online developers.";
+---
+
+<ArcadeLayout
+  title={pageTitle}
+  description={pageDescription}
+  gameName="TypeRacer"
+  badge="Multiplayer"
+>
+  <TypeRacer client:only="react" />
+</ArcadeLayout>

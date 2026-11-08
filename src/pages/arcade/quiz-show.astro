@@ -1,0 +1,20 @@
+---
+if (!import.meta.env.DEV) {
+  return Astro.redirect('/games/dev-skribbl/');
+}
+import ArcadeLayout from '../../layouts/ArcadeLayout.astro';
+import { QuizShow } from '../../components/arcade/QuizShow/QuizShow';
+
+const pageTitle = "Tech Quiz Show — DevScrolls Games";
+const pageDescription = "Kahoot-style rapid-fire tech trivia with streak multipliers, colorful shape buzzers, and live podium rankings.";
+---
+
+<ArcadeLayout
+  title={pageTitle}
+  description={pageDescription}
+  gameName="Tech Quiz Show"
+  badge="Party"
+>
+  <QuizShow client:only="react" />
+</ArcadeLayout>
+
