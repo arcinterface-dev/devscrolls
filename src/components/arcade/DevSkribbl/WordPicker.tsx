@@ -48,7 +48,6 @@ export const WordPicker: React.FC<WordPickerProps> = ({ words, onSelectWord }) =
               className="word-select-btn"
             >
               <span className="word-text">{w}</span>
-              <span className="word-len">({w.replace(/\s+/g, '').length} chars{w.includes(' ') ? ' • 2 words' : ''})</span>
             </button>
           ))}
         </div>
@@ -134,7 +133,7 @@ export const WordPicker: React.FC<WordPickerProps> = ({ words, onSelectWord }) =
         .word-select-btn {
           display: flex;
           align-items: center;
-          justify-content: space-between;
+          justify-content: center;
           padding: 14px 20px;
           background: var(--surface-sunken);
           border: 1px solid var(--border-default);
@@ -154,14 +153,6 @@ export const WordPicker: React.FC<WordPickerProps> = ({ words, onSelectWord }) =
         .word-text {
           font-size: 16px;
           font-weight: 750;
-        }
-
-        .word-len {
-          font-size: 12px;
-          color: var(--text-muted);
-        }
-        .word-select-btn:hover .word-len {
-          color: rgba(255, 255, 255, 0.85);
         }
       `}</style>
     </div>

@@ -7,8 +7,6 @@ interface HintDisplayProps {
   timeLeft: number;
   currentRound: number;
   totalRounds: number;
-  isMuted?: boolean;
-  onToggleMute?: () => void;
 }
 
 export const HintDisplay: React.FC<HintDisplayProps> = ({
@@ -18,20 +16,14 @@ export const HintDisplay: React.FC<HintDisplayProps> = ({
   timeLeft,
   currentRound,
   totalRounds,
-  isMuted = false,
-  onToggleMute,
 }) => {
   // Parse hintMask into distinct word groups
   // Split on 2 or more spaces to identify distinct words
   const wordGroups = hintMask.trim().split(/\s{2,}/).filter(Boolean);
 
-  // Calculate length of each word group
-  const wordLengths = wordGroups.map((g) => g.split(' ').filter(Boolean).length);
-  const totalLetters = wordLengths.reduce((acc, len) => acc + len, 0);
-
   return (
     <div className="skribbl-hint-bar">
-      {/* Timer, Round and Sound */}
+      {/* Timer and Round */}
       <div className="hint-meta-left">
         <span className={`hint-clock ${timeLeft <= 10 ? 'danger-pulse' : ''}`}>
           ⏱️ {timeLeft}s
@@ -39,16 +31,6 @@ export const HintDisplay: React.FC<HintDisplayProps> = ({
         <span className="round-pill">
           Round {currentRound}/{totalRounds}
         </span>
-        {onToggleMute && (
-          <button
-            type="button"
-            onClick={onToggleMute}
-            className="hint-audio-btn"
-            title={isMuted ? 'Unmute sounds' : 'Mute sounds'}
-          >
-            {isMuted ? '🔇' : '🔊'}
-          </button>
-        )}
       </div>
 
       {/* Word / Hint Area */}
@@ -57,11 +39,6 @@ export const HintDisplay: React.FC<HintDisplayProps> = ({
           <div className="artist-secret-card">
             <span className="artist-tag">DRAW THIS:</span>
             <span className="artist-word-value">{word}</span>
-            {word.includes(' ') && (
-              <span className="artist-words-count">
-                ({word.split(' ').length} words)
-              </span>
-            )}
           </div>
         ) : (
           <div className="guesser-slots-card">
@@ -80,18 +57,9 @@ export const HintDisplay: React.FC<HintDisplayProps> = ({
                         </span>
                       ))}
                     </div>
-                    <span className="cluster-len-label">{chars.length}</span>
                   </div>
                 );
               })}
-            </div>
-
-            <div className="hint-meta-summary">
-              <span>
-                {wordLengths.length > 1
-                  ? `${wordLengths.join(' + ')} = ${totalLetters} letters (${wordLengths.length} words)`
-                  : `${totalLetters} letters`}
-              </span>
             </div>
           </div>
         )}
@@ -146,22 +114,6 @@ export const HintDisplay: React.FC<HintDisplayProps> = ({
           border: 1px solid var(--border-subtle);
           padding: 4px 10px;
           border-radius: var(--radius-full);
-        }
-
-        .hint-audio-btn {
-          background: var(--surface-sunken);
-          border: 1px solid var(--border-subtle);
-          font-size: 13px;
-          cursor: pointer;
-          border-radius: var(--radius-sm);
-          padding: 4px 8px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: background 0.15s;
-        }
-        .hint-audio-btn:hover {
-          background: var(--surface-base);
         }
 
         .hint-display-center {
@@ -252,20 +204,43 @@ export const HintDisplay: React.FC<HintDisplayProps> = ({
           to { transform: scale(1); }
         }
 
-        .cluster-len-label {
-          font-size: 10px;
-          color: var(--text-muted);
-          font-weight: 700;
-        }
-
-        .hint-meta-summary {
-          font-size: 11.5px;
-          color: var(--text-secondary);
-          font-weight: 600;
-          background: var(--surface-sunken);
-          border: 1px solid var(--border-subtle);
-          padding: 3px 8px;
-          border-radius: var(--radius-sm);
+        @media (max-width: 640px) {
+          .skribbl-hint-bar {
+            padding: 6px 8px;
+            gap: 6px;
+            min-height: 44px;
+          }
+          .hint-meta-left {
+            gap: 6px;
+          }
+          .hint-clock {
+            font-size: 12px;
+            padding: 2px 6px;
+          }
+          .round-pill {
+            font-size: 10px;
+            padding: 2px 6px;
+          }
+          .artist-tag {
+            font-size: 9px;
+            padding: 2px 5px;
+          }
+          .artist-word-value {
+            font-size: 14px;
+          }
+          .letter-slot {
+            width: 13px;
+            height: 20px;
+            font-size: 13px;
+            border-bottom-width: 2px;
+          }
+          .slots-row {
+            gap: 3px;
+          }
+          .words-flex-container {
+            gap: 10px;
+            flex-wrap: wrap;
+          }
         }
       `}</style>
     </div>

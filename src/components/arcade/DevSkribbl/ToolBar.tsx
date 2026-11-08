@@ -1,6 +1,5 @@
 import React from 'react';
 import type { DrawingTool } from './DrawingCanvas';
-import { sound } from './audio';
 
 interface ToolBarProps {
   color: string;
@@ -49,10 +48,7 @@ export const ToolBar: React.FC<ToolBarProps> = ({
       <div className="tool-cluster tools-group">
         <button
           type="button"
-          onClick={() => {
-            sound.playPop();
-            onToolChange('pencil');
-          }}
+          onClick={() => onToolChange('pencil')}
           className={`tool-icon-btn ${tool === 'pencil' ? 'active' : ''}`}
           title="Freehand Pencil / Brush"
         >
@@ -62,10 +58,7 @@ export const ToolBar: React.FC<ToolBarProps> = ({
 
         <button
           type="button"
-          onClick={() => {
-            sound.playPop();
-            onToolChange('eraser');
-          }}
+          onClick={() => onToolChange('eraser')}
           className={`tool-icon-btn ${tool === 'eraser' ? 'active' : ''}`}
           title="Eraser"
         >
@@ -75,10 +68,7 @@ export const ToolBar: React.FC<ToolBarProps> = ({
 
         <button
           type="button"
-          onClick={() => {
-            sound.playPop();
-            onToolChange('bucket');
-          }}
+          onClick={() => onToolChange('bucket')}
           className={`tool-icon-btn ${tool === 'bucket' ? 'active' : ''}`}
           title="Paint Bucket (Flood Fill)"
         >
@@ -90,10 +80,7 @@ export const ToolBar: React.FC<ToolBarProps> = ({
 
         <button
           type="button"
-          onClick={() => {
-            sound.playPop();
-            onToolChange('line');
-          }}
+          onClick={() => onToolChange('line')}
           className={`tool-icon-btn ${tool === 'line' ? 'active' : ''}`}
           title="Straight Line"
         >
@@ -416,6 +403,50 @@ export const ToolBar: React.FC<ToolBarProps> = ({
           background: #ef4444;
           border-color: #ef4444;
           color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+          .skribbl-paint-toolbar {
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding: 4px 8px;
+            gap: 6px;
+          }
+          .skribbl-paint-toolbar::-webkit-scrollbar {
+            display: none;
+          }
+          .group-label {
+            display: none;
+          }
+          .tool-icon-btn {
+            width: 28px;
+            height: 28px;
+            font-size: 13px;
+            flex-shrink: 0;
+          }
+          .size-btn {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+          }
+          .color-swatch-btn {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+          }
+          .bg-toggle-btn {
+            width: 22px;
+            height: 22px;
+            font-size: 10px;
+            flex-shrink: 0;
+          }
+          .util-action-btn {
+            padding: 4px 8px;
+            font-size: 11px;
+            flex-shrink: 0;
+          }
         }
       `}</style>
     </div>

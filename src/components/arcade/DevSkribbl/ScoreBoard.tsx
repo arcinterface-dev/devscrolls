@@ -146,6 +146,41 @@ export const ScoreBoard: React.FC<ScoreBoardProps> = ({ players, currentPlayerId
           font-weight: 800;
           color: var(--text-primary);
         }
+
+        @media (max-width: 900px) {
+          .scoreboard-container {
+            height: auto;
+            min-height: 0;
+            min-width: 0;
+            width: 100%;
+            border-radius: var(--radius-sm);
+            box-shadow: none;
+          }
+          .scoreboard-header {
+            display: none;
+          }
+          .scoreboard-list {
+            flex-direction: row;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 4px 6px;
+            gap: 6px;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+          }
+          .scoreboard-list::-webkit-scrollbar {
+            display: none;
+          }
+          .player-score-row {
+            padding: 4px 8px;
+            font-size: 11.5px;
+            flex-shrink: 0;
+            gap: 6px;
+          }
+          .player-name {
+            max-width: 100px;
+          }
+        }
       `}</style>
     </div>
   );

@@ -50,3 +50,4 @@ export const DRAWABLE_WORDS: string[] = [
   'Bridge', 'Statue of Liberty', 'Pyramid', 'Crown', 'Diamond Ring', 'Money Bag',
   'Fire Extinguisher', 'Padlock', 'Handcuffs', 'Lifebuoy', 'Anchor', 'Microscope'
 ];
+

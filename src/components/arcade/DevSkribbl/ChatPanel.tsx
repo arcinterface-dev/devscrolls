@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { sound } from './audio';
 
 export interface ChatMessage {
   id: string;
@@ -45,7 +44,6 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({
   };
 
   const handleReactionClick = (emoji: string) => {
-    sound.playPop();
     onSendReaction?.(emoji);
   };
 

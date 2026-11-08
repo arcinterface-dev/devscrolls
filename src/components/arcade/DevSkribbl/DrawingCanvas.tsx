@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useCallback, useState } from 'react';
-import { sound } from './audio';
 
 export type DrawingTool =
   | 'pencil'
@@ -256,17 +255,19 @@ export const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
     redrawCanvas();
   }, [redrawCanvas]);
 
-  // Handle canvas resize with devicePixelRatio
+  // Handle canvas resize with devicePixelRatio and ResizeObserver
   const resizeCanvas = useCallback(() => {
     const canvas = canvasRef.current;
     const container = containerRef.current;
     if (!canvas || !container) return;
 
     const rect = container.getBoundingClientRect();
+    if (rect.width <= 0 || rect.height <= 0) return;
+
     const dpr = window.devicePixelRatio || 1;
 
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
+    canvas.width = Math.round(rect.width * dpr);
+    canvas.height = Math.round(rect.height * dpr);
     canvas.style.width = `${rect.width}px`;
     canvas.style.height = `${rect.height}px`;
 
@@ -279,30 +280,41 @@ export const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
 
   useEffect(() => {
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-    return () => window.removeEventListener('resize', resizeCanvas);
+
+    const container = containerRef.current;
+    if (!container) return;
+
+    let ro: ResizeObserver | null = null;
+    if (typeof ResizeObserver !== 'undefined') {
+      ro = new ResizeObserver(() => {
+        resizeCanvas();
+      });
+      ro.observe(container);
+    } else {
+      window.addEventListener('resize', resizeCanvas);
+    }
+
+    return () => {
+      if (ro) ro.disconnect();
+      window.removeEventListener('resize', resizeCanvas);
+    };
   }, [resizeCanvas]);
 
-  // Pointer position helper
-  const getCanvasCoords = (e: React.PointerEvent<HTMLCanvasElement>): [number, number] => {
+  // Coordinate mapper from clientX/clientY
+  const getCanvasCoords = useCallback((clientX: number, clientY: number): [number, number] => {
     const canvas = canvasRef.current;
     if (!canvas) return [0, 0];
     const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    const x = clientX - rect.left;
+    const y = clientY - rect.top;
     return [Math.round(x), Math.round(y)];
-  };
+  }, []);
 
-  const handlePointerDown = (e: React.PointerEvent<HTMLCanvasElement>) => {
+  // Central drawing operations
+  const startDrawing = useCallback((coords: [number, number]) => {
     if (!isArtist) return;
-    const canvas = canvasRef.current;
-    if (canvas) canvas.setPointerCapture(e.pointerId);
 
-    const coords = getCanvasCoords(e);
-
-    // If bucket tool, fill immediately and commit stroke
     if (currentTool === 'bucket') {
-      sound.playPop();
       const fillStroke: StrokeData = {
         id: 's_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6),
         points: [coords],
@@ -314,41 +326,33 @@ export const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
       return;
     }
 
-    sound.playPop();
     isDrawingRef.current = true;
     currentPointsRef.current = [coords];
     setLivePreviewPoint(coords);
     redrawCanvas();
-  };
+  }, [isArtist, currentTool, currentColor, onStrokeCompleted, redrawCanvas]);
 
-  const handlePointerMove = (e: React.PointerEvent<HTMLCanvasElement>) => {
+  const moveDrawing = useCallback((coords: [number, number]) => {
     if (!isArtist || !isDrawingRef.current) return;
-    const coords = getCanvasCoords(e);
 
     if (currentTool === 'pencil' || currentTool === 'eraser') {
       currentPointsRef.current.push(coords);
     } else {
-      // For shapes (line, rect, circle), points[0] is start and points[1] is current end
       currentPointsRef.current = [currentPointsRef.current[0], coords];
     }
 
     setLivePreviewPoint(coords);
     redrawCanvas();
-  };
+  }, [isArtist, currentTool, redrawCanvas]);
 
-  const handlePointerUp = (e: React.PointerEvent<HTMLCanvasElement>) => {
+  const endDrawing = useCallback(() => {
     if (!isArtist || !isDrawingRef.current) return;
-    const canvas = canvasRef.current;
-    if (canvas && canvas.hasPointerCapture(e.pointerId)) {
-      canvas.releasePointerCapture(e.pointerId);
-    }
     isDrawingRef.current = false;
     setLivePreviewPoint(null);
 
     const pts = currentPointsRef.current;
     if (pts.length === 0) return;
 
-    // Commit completed stroke
     const newStroke: StrokeData = {
       id: 's_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6),
       points: pts,
@@ -359,6 +363,90 @@ export const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
 
     onStrokeCompleted(newStroke);
     currentPointsRef.current = [];
+  }, [isArtist, currentColor, currentBrushSize, currentTool, onStrokeCompleted]);
+
+  // Native touch listeners with { passive: false } to guarantee smooth mobile drawing & prevent page scroll
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const onTouchStart = (e: TouchEvent) => {
+      if (!isArtist) return;
+      e.preventDefault();
+      if (e.touches.length === 0) return;
+      const touch = e.touches[0];
+      const coords = getCanvasCoords(touch.clientX, touch.clientY);
+      startDrawing(coords);
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      if (!isArtist || !isDrawingRef.current) return;
+      e.preventDefault();
+      if (e.touches.length === 0) return;
+      const touch = e.touches[0];
+      const coords = getCanvasCoords(touch.clientX, touch.clientY);
+      moveDrawing(coords);
+    };
+
+    const onTouchEnd = (e: TouchEvent) => {
+      if (!isArtist || !isDrawingRef.current) return;
+      e.preventDefault();
+      endDrawing();
+    };
+
+    const onTouchCancel = (e: TouchEvent) => {
+      if (!isArtist || !isDrawingRef.current) return;
+      e.preventDefault();
+      endDrawing();
+    };
+
+    canvas.addEventListener('touchstart', onTouchStart, { passive: false });
+    canvas.addEventListener('touchmove', onTouchMove, { passive: false });
+    canvas.addEventListener('touchend', onTouchEnd, { passive: false });
+    canvas.addEventListener('touchcancel', onTouchCancel, { passive: false });
+
+    return () => {
+      canvas.removeEventListener('touchstart', onTouchStart);
+      canvas.removeEventListener('touchmove', onTouchMove);
+      canvas.removeEventListener('touchend', onTouchEnd);
+      canvas.removeEventListener('touchcancel', onTouchCancel);
+    };
+  }, [isArtist, getCanvasCoords, startDrawing, moveDrawing, endDrawing]);
+
+  // Desktop Pointer / Mouse event handlers
+  const handlePointerDown = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    if (e.pointerType === 'touch') return; // Handled by native touch listeners
+    if (!isArtist) return;
+
+    const canvas = canvasRef.current;
+    if (canvas) {
+      try {
+        canvas.setPointerCapture(e.pointerId);
+      } catch (_) {}
+    }
+
+    const coords = getCanvasCoords(e.clientX, e.clientY);
+    startDrawing(coords);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    if (e.pointerType === 'touch') return;
+    if (!isArtist || !isDrawingRef.current) return;
+    const coords = getCanvasCoords(e.clientX, e.clientY);
+    moveDrawing(coords);
+  };
+
+  const handlePointerUp = (e: React.PointerEvent<HTMLCanvasElement>) => {
+    if (e.pointerType === 'touch') return;
+    const canvas = canvasRef.current;
+    if (canvas) {
+      try {
+        if (canvas.hasPointerCapture(e.pointerId)) {
+          canvas.releasePointerCapture(e.pointerId);
+        }
+      } catch (_) {}
+    }
+    endDrawing();
   };
 
   return (
@@ -377,7 +465,7 @@ export const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
         .canvas-container-outer {
           flex: 1;
           width: 100%;
-          min-height: 200px;
+          min-height: 180px;
           height: 100%;
           background: #020617;
           border-radius: var(--radius-lg);
@@ -385,11 +473,20 @@ export const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
           overflow: hidden;
           position: relative;
           box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4);
+          touch-action: none;
+          -webkit-touch-callout: none;
+          user-select: none;
+          -webkit-user-select: none;
         }
 
         .skribbl-canvas {
           display: block;
           touch-action: none;
+          -webkit-touch-callout: none;
+          user-select: none;
+          -webkit-user-select: none;
+          width: 100%;
+          height: 100%;
         }
 
         .skribbl-canvas.artist-active {
