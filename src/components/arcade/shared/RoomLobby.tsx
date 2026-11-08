@@ -537,6 +537,7 @@ const lobbyStyles = `
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 2px;
   }
 
   .config-label {
@@ -545,6 +546,26 @@ const lobbyStyles = `
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--text-secondary);
+  }
+
+  .config-host-pill {
+    font-size: 10px;
+    font-weight: 750;
+    color: var(--accent-default);
+    background: rgba(217, 119, 6, 0.12);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    padding: 2px 7px;
+    border-radius: var(--radius-full);
+  }
+
+  .config-guest-pill {
+    font-size: 10px;
+    font-weight: 750;
+    color: var(--text-muted);
+    background: var(--surface-raised);
+    border: 1px solid var(--border-subtle);
+    padding: 2px 7px;
+    border-radius: var(--radius-full);
   }
 
   .avatar-pick-grid {

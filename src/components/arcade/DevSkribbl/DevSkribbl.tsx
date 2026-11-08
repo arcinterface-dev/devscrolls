@@ -8,10 +8,7 @@ import { HintDisplay } from './HintDisplay';
 import { WordPicker } from './WordPicker';
 import { ScoreBoard, type SkribblPlayer } from './ScoreBoard';
 import { GameOverScreen } from '../shared/GameOverScreen';
-import { TECH_WORDS } from './word-decks/tech';
-import { CASUAL_WORDS } from './word-decks/casual';
-import { DEV_MEMES_WORDS } from './word-decks/dev-memes';
-import { DEV_AVATARS, type DevAvatar } from './avatars';
+import { DRAWABLE_WORDS } from './word-decks/drawable-words';
 import { sound } from './audio';
 import { storage } from '../shared/storage';
 
@@ -57,14 +54,15 @@ export const DevSkribbl: React.FC = () => {
   const [roomId, setRoomId] = useState<string>('');
   const [inviteCode, setInviteCode] = useState<string>('');
   const [displayName, setDisplayName] = useState<string>('');
-  const [selectedAvatar, setSelectedAvatar] = useState<string>('🕶️');
-  const [deck, setDeck] = useState<'tech' | 'memes' | 'casual' | 'custom'>('tech');
   const [customWordInput, setCustomWordInput] = useState<string>('');
   const [customWordsList, setCustomWordsList] = useState<string[]>([]);
   const [customOnly, setCustomOnly] = useState<boolean>(false);
   const [totalRounds, setTotalRounds] = useState<number>(3);
   const [turnDuration, setTurnDuration] = useState<number>(60);
   const [isMuted, setIsMuted] = useState<boolean>(sound.getMuted());
+
+  // Track words used in current match session so players never get repeats
+  const usedWordsRef = useRef<Set<string>>(new Set());
 
   // Read URL query params on mount
   useEffect(() => {
@@ -87,7 +85,7 @@ export const DevSkribbl: React.FC = () => {
     onBroadcast,
   } = useSupabaseRoom({
     roomId,
-    displayName: `${selectedAvatar} ${displayName}`.trim(),
+    displayName: displayName.trim(),
     isHostIntent: !roomId,
   });
 
@@ -116,13 +114,8 @@ export const DevSkribbl: React.FC = () => {
   const isCurrentArtist = currentPlayerId === artistId;
   const hasGuessed = guessedPlayers.has(currentPlayerId);
 
-  // Word pool generator: supports standard decks, custom word additions, or custom words exclusively
+  // Word pool generator: supports 350+ curated tangible words, or custom words exclusively
   const getWordPool = useCallback((activeCustom?: string[]) => {
-    let base: string[] = TECH_WORDS;
-    if (deck === 'memes') base = DEV_MEMES_WORDS;
-    else if (deck === 'casual') base = CASUAL_WORDS;
-    else if (deck === 'custom') base = [];
-
     const custom = (activeCustom && activeCustom.length > 0)
       ? activeCustom
       : (customWordsList.length > 0
@@ -133,22 +126,27 @@ export const DevSkribbl: React.FC = () => {
               .filter((w) => w.length >= 2));
 
     // If host toggled "Custom Words Exclusively" and has at least 3 custom words
-    if ((customOnly || deck === 'custom') && custom.length >= 3) {
+    if (customOnly && custom.length >= 3) {
       return custom;
     }
 
     // If host added custom words and wants to mix them with standard deck
     if (custom.length > 0) {
-      return [...base, ...custom];
+      return [...DRAWABLE_WORDS, ...custom];
     }
 
-    return base.length > 0 ? base : [...TECH_WORDS, ...DEV_MEMES_WORDS];
-  }, [deck, customWordInput, customWordsList, customOnly]);
+    return DRAWABLE_WORDS;
+  }, [customWordInput, customWordsList, customOnly]);
 
-  // Generate 3 choices
+  // Generate 3 random fresh choices, prioritizing unused words to prevent repetition
   const pick3Words = useCallback((activeCustom?: string[]) => {
     const pool = getWordPool(activeCustom);
-    const shuffled = [...pool].sort(() => 0.5 - Math.random());
+    const available = pool.filter((w) => !usedWordsRef.current.has(w.toLowerCase().trim()));
+    const finalPool = available.length >= 3 ? available : pool;
+    if (available.length < 3) {
+      usedWordsRef.current.clear();
+    }
+    const shuffled = [...finalPool].sort(() => 0.5 - Math.random());
     return shuffled.slice(0, 3);
   }, [getWordPool]);
 
@@ -214,7 +212,6 @@ export const DevSkribbl: React.FC = () => {
       round: 1,
       totalRounds,
       turnDuration,
-      deck,
       customWords: parsedCustom,
       customOnly,
     });
@@ -242,6 +239,7 @@ export const DevSkribbl: React.FC = () => {
 
   // Artist selects word
   const handleSelectWord = (chosen: string) => {
+    usedWordsRef.current.add(chosen.toLowerCase().trim());
     setSecretWord(chosen);
     const masked = generateHintMask(chosen, []);
     setHintMask(masked);
@@ -342,7 +340,6 @@ export const DevSkribbl: React.FC = () => {
     const unsubGameStart = onBroadcast('game:start', (payload) => {
       if (payload.turnDuration) setTurnDuration(payload.turnDuration);
       if (payload.totalRounds) setTotalRounds(payload.totalRounds);
-      if (payload.deck) setDeck(payload.deck);
       if (payload.customWords) setCustomWordsList(payload.customWords);
       if (typeof payload.customOnly === 'boolean') setCustomOnly(payload.customOnly);
       setupNewRound(payload.artistId, payload.round, payload.customWords);
@@ -654,36 +651,18 @@ export const DevSkribbl: React.FC = () => {
         status={status}
         customSettings={
           <div className="skribbl-lobby-config">
-            {/* Avatar Persona Selector */}
-            <div className="config-block">
-              <label className="config-label">YOUR DEV PERSONA</label>
-              <div className="avatar-pick-grid">
-                {DEV_AVATARS.map((av) => (
-                  <button
-                    key={av.id}
-                    type="button"
-                    onClick={() => {
-                      sound.playPop();
-                      setSelectedAvatar(av.emoji);
-                    }}
-                    className={`avatar-pick-btn ${selectedAvatar === av.emoji ? 'avatar-active' : ''}`}
-                    title={`${av.name} — ${av.role}`}
-                  >
-                    <span className="av-emoji">{av.emoji}</span>
-                    <span className="av-name">{av.name}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-
             {/* Host Match Settings or Guest Rules Preview */}
             {isHost ? (
               <div className="config-block host-config-block">
-                <label className="config-label">👑 HOST MATCH RULES</label>
+                <div className="config-label-row">
+                  <span className="config-label">MATCH RULES</span>
+                  <span className="config-host-pill">👑 Host Controls</span>
+                </div>
+
                 <div className="rules-grid">
                   <div className="rule-item">
-                    <span className="rule-title">Turn Timer</span>
-                    <div className="pill-options">
+                    <span className="rule-title">Turn Timer:</span>
+                    <div className="segmented-track">
                       {[45, 60, 80].map((t) => (
                         <button
                           key={t}
@@ -692,7 +671,7 @@ export const DevSkribbl: React.FC = () => {
                             sound.playPop();
                             setTurnDuration(t);
                           }}
-                          className={`pill-btn ${turnDuration === t ? 'active' : ''}`}
+                          className={`segmented-pill ${turnDuration === t ? 'active' : ''}`}
                         >
                           {t}s
                         </button>
@@ -701,8 +680,8 @@ export const DevSkribbl: React.FC = () => {
                   </div>
 
                   <div className="rule-item">
-                    <span className="rule-title">Rounds</span>
-                    <div className="pill-options">
+                    <span className="rule-title">Total Rounds:</span>
+                    <div className="segmented-track">
                       {[2, 3, 5].map((r) => (
                         <button
                           key={r}
@@ -711,33 +690,9 @@ export const DevSkribbl: React.FC = () => {
                             sound.playPop();
                             setTotalRounds(r);
                           }}
-                          className={`pill-btn ${totalRounds === r ? 'active' : ''}`}
+                          className={`segmented-pill ${totalRounds === r ? 'active' : ''}`}
                         >
-                          {r}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="rule-item">
-                    <span className="rule-title">Word Deck</span>
-                    <div className="pill-options deck-pill-options">
-                      {[
-                        { id: 'tech', label: '💻 Tech Jargon' },
-                        { id: 'memes', label: '☕ Dev Memes' },
-                        { id: 'casual', label: '🎨 Casual' },
-                        { id: 'custom', label: '📝 Custom' },
-                      ].map((dk) => (
-                        <button
-                          key={dk.id}
-                          type="button"
-                          onClick={() => {
-                            sound.playPop();
-                            setDeck(dk.id as any);
-                          }}
-                          className={`pill-btn ${deck === dk.id ? 'active' : ''}`}
-                        >
-                          {dk.label}
+                          {r} Rounds
                         </button>
                       ))}
                     </div>
@@ -746,7 +701,7 @@ export const DevSkribbl: React.FC = () => {
 
                 <div className="custom-words-input-box">
                   <div className="custom-words-header">
-                    <span className="rule-title">Custom Words</span>
+                    <span className="rule-title">Custom Team Words (Optional)</span>
                     {customWordInput.split(/[\n,]/).map((w) => w.trim()).filter((w) => w.length >= 2).length > 0 && (
                       <span className="custom-count-badge">
                         {customWordInput.split(/[\n,]/).map((w) => w.trim()).filter((w) => w.length >= 2).length} words ready
@@ -756,9 +711,9 @@ export const DevSkribbl: React.FC = () => {
                   <textarea
                     value={customWordInput}
                     onChange={(e) => setCustomWordInput(e.target.value)}
-                    placeholder="Paste team/company words separated by comma or newline (e.g. Apollo, GraphQL, Kafka, John's PR, Friday Deploy)"
+                    placeholder="Add team inside jokes, company terms, or custom words separated by comma or newline (e.g. Apollo, GraphQL, John's PR, Friday Deploy)"
                     className="custom-words-textarea"
-                    rows={2}
+                    rows={3}
                   />
                   {customWordInput.split(/[\n,]/).map((w) => w.trim()).filter((w) => w.length >= 2).length > 0 && (
                     <label className="custom-only-toggle">
@@ -767,14 +722,17 @@ export const DevSkribbl: React.FC = () => {
                         checked={customOnly}
                         onChange={(e) => setCustomOnly(e.target.checked)}
                       />
-                      <span>Use custom words exclusively</span>
+                      <span>Use custom words only (no standard words)</span>
                     </label>
                   )}
                 </div>
               </div>
             ) : (
               <div className="config-block guest-rules-block">
-                <label className="config-label">MATCH RULES (HOST MANAGED)</label>
+                <div className="config-label-row">
+                  <span className="config-label">MATCH RULES</span>
+                  <span className="config-guest-pill">Host Managed</span>
+                </div>
                 <div className="guest-rules-chips">
                   <div className="guest-rule-chip">
                     <span className="chip-label">Turn Timer</span>
@@ -782,12 +740,12 @@ export const DevSkribbl: React.FC = () => {
                   </div>
                   <div className="guest-rule-chip">
                     <span className="chip-label">Total Rounds</span>
-                    <span className="chip-val">🔄 {totalRounds}</span>
+                    <span className="chip-val">🔄 {totalRounds} Rounds</span>
                   </div>
                   <div className="guest-rule-chip">
-                    <span className="chip-label">Word Deck</span>
+                    <span className="chip-label">Word Bank</span>
                     <span className="chip-val">
-                      {deck === 'tech' ? '💻 Tech Jargon' : deck === 'memes' ? '☕ Dev Memes' : deck === 'casual' ? '🎨 Casual' : '📝 Custom Words'}
+                      {customOnly ? '📝 Custom Words Only' : '🎨 350+ Curated Fun Words'}
                     </span>
                   </div>
                 </div>
