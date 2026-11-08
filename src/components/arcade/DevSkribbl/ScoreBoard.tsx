@@ -52,22 +52,23 @@ export const ScoreBoard: React.FC<ScoreBoardProps> = ({ players, currentPlayerId
 
       <style>{`
         .scoreboard-container {
-          background: #0f172a;
-          border: 1px solid #1e293b;
+          background: var(--surface-raised);
+          border: 1px solid var(--border-default);
           border-radius: var(--radius-md);
           display: flex;
           flex-direction: column;
+          height: 100%;
           overflow: hidden;
           min-width: 180px;
         }
 
         .scoreboard-header {
           padding: 8px 12px;
-          background: #1e293b;
-          border-bottom: 1px solid #334155;
+          background: var(--surface-sunken);
+          border-bottom: 1px solid var(--border-subtle);
           font-size: 11px;
           font-weight: 800;
-          color: #94a3b8;
+          color: var(--text-muted);
           letter-spacing: 0.05em;
         }
 
@@ -76,7 +77,7 @@ export const ScoreBoard: React.FC<ScoreBoardProps> = ({ players, currentPlayerId
           display: flex;
           flex-direction: column;
           gap: 4px;
-          max-height: 240px;
+          flex: 1;
           overflow-y: auto;
         }
 
@@ -84,19 +85,20 @@ export const ScoreBoard: React.FC<ScoreBoardProps> = ({ players, currentPlayerId
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 6px 8px;
-          background: #1e293b;
+          padding: 7px 10px;
+          background: var(--surface-sunken);
+          border: 1px solid transparent;
           border-radius: var(--radius-sm);
           font-size: 12px;
         }
 
         .player-me {
-          border-left: 2px solid var(--accent-default);
-          background: color-mix(in srgb, var(--accent-default) 10%, #1e293b);
+          border-left: 3px solid var(--accent-default);
+          background: color-mix(in srgb, var(--accent-default) 10%, var(--surface-sunken));
         }
 
         .player-guessed {
-          border-color: #10b981;
+          border-color: rgba(16, 185, 129, 0.4);
           background: rgba(16, 185, 129, 0.1);
         }
 
@@ -114,16 +116,16 @@ export const ScoreBoard: React.FC<ScoreBoardProps> = ({ players, currentPlayerId
 
         .player-name {
           font-weight: 700;
-          color: #f8fafc;
+          color: var(--text-primary);
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
         }
 
         .artist-indicator {
-          font-size: 9.5px;
-          color: #f59e0b;
-          font-weight: 700;
+          font-size: 10px;
+          color: var(--accent-default);
+          font-weight: 750;
         }
 
         .score-right {
@@ -141,7 +143,8 @@ export const ScoreBoard: React.FC<ScoreBoardProps> = ({ players, currentPlayerId
         .player-pts {
           font-family: var(--font-mono, monospace);
           font-size: 13px;
-          color: #38bdf8;
+          font-weight: 800;
+          color: var(--text-primary);
         }
       `}</style>
     </div>

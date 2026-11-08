@@ -58,7 +58,7 @@ export const WordPicker: React.FC<WordPickerProps> = ({ words, onSelectWord }) =
         .word-picker-overlay {
           position: absolute;
           inset: 0;
-          background: rgba(11, 19, 41, 0.92);
+          background: rgba(0, 0, 0, 0.65);
           backdrop-filter: blur(8px);
           display: flex;
           align-items: center;
@@ -74,8 +74,8 @@ export const WordPicker: React.FC<WordPickerProps> = ({ words, onSelectWord }) =
         }
 
         .word-picker-card {
-          background: #0f172a;
-          border: 1px solid #1e293b;
+          background: var(--surface-raised);
+          border: 1px solid var(--border-default);
           border-radius: var(--radius-xl);
           padding: 28px;
           max-width: 480px;
@@ -85,7 +85,7 @@ export const WordPicker: React.FC<WordPickerProps> = ({ words, onSelectWord }) =
           flex-direction: column;
           align-items: center;
           gap: 14px;
-          box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6);
+          box-shadow: 0 20px 48px rgba(0, 0, 0, 0.3);
         }
 
         .picker-icon {
@@ -97,13 +97,13 @@ export const WordPicker: React.FC<WordPickerProps> = ({ words, onSelectWord }) =
           font-size: 22px;
           font-weight: 850;
           margin: 0;
-          color: #ffffff;
+          color: var(--text-primary);
           letter-spacing: -0.02em;
         }
 
         .picker-subtitle {
           font-size: 13.5px;
-          color: #94a3b8;
+          color: var(--text-muted);
           margin: 0;
         }
 
@@ -116,10 +116,10 @@ export const WordPicker: React.FC<WordPickerProps> = ({ words, onSelectWord }) =
           padding: 4px 12px;
           border-radius: 999px;
           font-size: 12px;
-          color: #f59e0b;
+          color: #d97706;
         }
         .picker-timer-badge strong {
-          color: #fbbf24;
+          color: #d97706;
           font-family: var(--font-mono, monospace);
         }
 
@@ -136,16 +136,17 @@ export const WordPicker: React.FC<WordPickerProps> = ({ words, onSelectWord }) =
           align-items: center;
           justify-content: space-between;
           padding: 14px 20px;
-          background: #1e293b;
-          border: 1px solid #334155;
+          background: var(--surface-sunken);
+          border: 1px solid var(--border-default);
           border-radius: var(--radius-md);
-          color: #ffffff;
+          color: var(--text-primary);
           cursor: pointer;
-          transition: background 0.15s, border-color 0.15s, transform 0.1s;
+          transition: background 0.15s, border-color 0.15s, transform 0.1s, box-shadow 0.15s;
         }
         .word-select-btn:hover {
           background: var(--accent-default);
           border-color: var(--accent-default);
+          color: #ffffff;
           transform: translateY(-2px);
           box-shadow: 0 4px 14px rgba(217, 119, 6, 0.3);
         }
@@ -157,7 +158,7 @@ export const WordPicker: React.FC<WordPickerProps> = ({ words, onSelectWord }) =
 
         .word-len {
           font-size: 12px;
-          color: #94a3b8;
+          color: var(--text-muted);
         }
         .word-select-btn:hover .word-len {
           color: rgba(255, 255, 255, 0.85);

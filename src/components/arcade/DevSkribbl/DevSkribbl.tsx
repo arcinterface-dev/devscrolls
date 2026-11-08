@@ -656,7 +656,7 @@ export const DevSkribbl: React.FC = () => {
           <div className="skribbl-lobby-config">
             {/* Avatar Persona Selector */}
             <div className="config-block">
-              <label className="config-label">YOUR DEV PERSONA:</label>
+              <label className="config-label">YOUR DEV PERSONA</label>
               <div className="avatar-pick-grid">
                 {DEV_AVATARS.map((av) => (
                   <button
@@ -676,13 +676,13 @@ export const DevSkribbl: React.FC = () => {
               </div>
             </div>
 
-            {/* Host Match Settings */}
-            {isHost && (
+            {/* Host Match Settings or Guest Rules Preview */}
+            {isHost ? (
               <div className="config-block host-config-block">
-                <label className="config-label">👑 HOST MATCH RULES:</label>
+                <label className="config-label">👑 HOST MATCH RULES</label>
                 <div className="rules-grid">
                   <div className="rule-item">
-                    <span className="rule-title">Turn Timer:</span>
+                    <span className="rule-title">Turn Timer</span>
                     <div className="pill-options">
                       {[45, 60, 80].map((t) => (
                         <button
@@ -701,7 +701,7 @@ export const DevSkribbl: React.FC = () => {
                   </div>
 
                   <div className="rule-item">
-                    <span className="rule-title">Rounds:</span>
+                    <span className="rule-title">Rounds</span>
                     <div className="pill-options">
                       {[2, 3, 5].map((r) => (
                         <button
@@ -720,8 +720,8 @@ export const DevSkribbl: React.FC = () => {
                   </div>
 
                   <div className="rule-item">
-                    <span className="rule-title">Word Deck:</span>
-                    <div className="pill-options">
+                    <span className="rule-title">Word Deck</span>
+                    <div className="pill-options deck-pill-options">
                       {[
                         { id: 'tech', label: '💻 Tech Jargon' },
                         { id: 'memes', label: '☕ Dev Memes' },
@@ -746,7 +746,7 @@ export const DevSkribbl: React.FC = () => {
 
                 <div className="custom-words-input-box">
                   <div className="custom-words-header">
-                    <span className="rule-title">Custom Words:</span>
+                    <span className="rule-title">Custom Words</span>
                     {customWordInput.split(/[\n,]/).map((w) => w.trim()).filter((w) => w.length >= 2).length > 0 && (
                       <span className="custom-count-badge">
                         {customWordInput.split(/[\n,]/).map((w) => w.trim()).filter((w) => w.length >= 2).length} words ready
@@ -756,7 +756,7 @@ export const DevSkribbl: React.FC = () => {
                   <textarea
                     value={customWordInput}
                     onChange={(e) => setCustomWordInput(e.target.value)}
-                    placeholder="Paste custom team/company words separated by comma or newline (e.g. Apollo, GraphQL, Kafka, John's PR, Friday Deploy)"
+                    placeholder="Paste team/company words separated by comma or newline (e.g. Apollo, GraphQL, Kafka, John's PR, Friday Deploy)"
                     className="custom-words-textarea"
                     rows={2}
                   />
@@ -767,9 +767,29 @@ export const DevSkribbl: React.FC = () => {
                         checked={customOnly}
                         onChange={(e) => setCustomOnly(e.target.checked)}
                       />
-                      <span>Use custom words exclusively (no standard deck words)</span>
+                      <span>Use custom words exclusively</span>
                     </label>
                   )}
+                </div>
+              </div>
+            ) : (
+              <div className="config-block guest-rules-block">
+                <label className="config-label">MATCH RULES (HOST MANAGED)</label>
+                <div className="guest-rules-chips">
+                  <div className="guest-rule-chip">
+                    <span className="chip-label">Turn Timer</span>
+                    <span className="chip-val">⏱️ {turnDuration}s</span>
+                  </div>
+                  <div className="guest-rule-chip">
+                    <span className="chip-label">Total Rounds</span>
+                    <span className="chip-val">🔄 {totalRounds}</span>
+                  </div>
+                  <div className="guest-rule-chip">
+                    <span className="chip-label">Word Deck</span>
+                    <span className="chip-val">
+                      {deck === 'tech' ? '💻 Tech Jargon' : deck === 'memes' ? '☕ Dev Memes' : deck === 'casual' ? '🎨 Casual' : '📝 Custom Words'}
+                    </span>
+                  </div>
                 </div>
               </div>
             )}
@@ -970,58 +990,77 @@ export const DevSkribbl: React.FC = () => {
         .round-end-overlay {
           position: absolute;
           inset: 0;
-          background: rgba(11, 19, 41, 0.88);
-          backdrop-filter: blur(6px);
+          background: rgba(0, 0, 0, 0.65);
+          backdrop-filter: blur(8px);
           display: flex;
           align-items: center;
           justify-content: center;
           z-index: 60;
+          padding: 16px;
         }
 
         .round-end-card {
-          background: #0f172a;
-          border: 1px solid #1e293b;
-          border-radius: var(--radius-lg);
-          padding: 24px 36px;
+          background: var(--surface-raised);
+          border: 1px solid var(--border-default);
+          border-radius: var(--radius-xl);
+          padding: 28px 36px;
           text-align: center;
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 8px;
+          gap: 10px;
+          box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+          max-width: 440px;
+          width: 100%;
         }
 
         .card-trophy {
-          font-size: 36px;
+          font-size: 40px;
+          line-height: 1;
         }
 
         .round-end-card h3 {
-          font-size: 20px;
-          color: #ffffff;
+          font-size: 22px;
+          font-weight: 850;
+          color: var(--text-primary);
+          margin: 0;
+        }
+
+        .round-end-card p {
+          font-size: 13px;
+          color: var(--text-muted);
           margin: 0;
         }
 
         .revealed-word {
           font-size: 28px;
           font-weight: 900;
-          color: #10b981;
+          color: var(--accent-default);
           font-family: var(--font-mono, monospace);
+          letter-spacing: 0.05em;
         }
 
         .download-artwork-btn {
-          margin: 6px 0 10px 0;
-          background: #1e293b;
+          margin: 6px 0 8px 0;
+          background: var(--surface-sunken);
           border: 1px solid var(--accent-default);
-          color: #ffffff;
+          color: var(--text-primary);
           font-size: 13px;
-          font-weight: 700;
-          padding: 8px 16px;
+          font-weight: 750;
+          padding: 9px 18px;
           border-radius: var(--radius-sm);
           cursor: pointer;
           transition: background 0.15s, transform 0.1s;
         }
         .download-artwork-btn:hover {
           background: var(--accent-default);
+          color: #ffffff;
           transform: translateY(-1px);
+        }
+
+        .round-end-card small {
+          color: var(--text-muted);
+          font-size: 11.5px;
         }
 
         .floating-reactions-layer {
@@ -1061,105 +1100,138 @@ export const DevSkribbl: React.FC = () => {
           display: flex;
           flex-direction: column;
           gap: 12px;
-          margin: 10px 0 16px 0;
           text-align: left;
         }
 
         .config-block {
-          background: #131d31;
-          border: 1px solid #1e293b;
-          border-radius: var(--radius-sm);
-          padding: 10px 12px;
+          background: var(--surface-sunken);
+          border: 1px solid var(--border-default);
+          border-radius: var(--radius-md);
+          padding: 12px 14px;
         }
 
         .config-label {
           display: block;
-          font-size: 10px;
+          font-size: 11px;
           font-weight: 800;
-          color: #94a3b8;
+          color: var(--text-muted);
           letter-spacing: 0.05em;
           margin-bottom: 8px;
+          text-transform: uppercase;
         }
 
         .avatar-pick-grid {
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
+          grid-template-columns: repeat(2, 1fr);
           gap: 6px;
         }
 
         .avatar-pick-btn {
           display: flex;
           align-items: center;
-          gap: 6px;
-          background: #1e293b;
-          border: 1px solid #334155;
-          color: #f1f5f9;
-          padding: 6px 8px;
-          border-radius: 4px;
+          gap: 8px;
+          background: var(--surface-raised);
+          border: 1px solid var(--border-subtle);
+          color: var(--text-primary);
+          padding: 7px 10px;
+          border-radius: var(--radius-sm);
           cursor: pointer;
-          font-size: 11px;
-          transition: border-color 0.15s, background 0.15s;
+          font-size: 12px;
+          font-weight: 600;
+          transition: all 0.15s ease;
+          box-sizing: border-box;
+          text-align: left;
         }
         .avatar-pick-btn:hover {
-          background: #334155;
+          background: var(--surface-base);
+          border-color: var(--accent-default);
+          transform: translateY(-1px);
         }
         .avatar-pick-btn.avatar-active {
           border-color: var(--accent-default);
-          background: color-mix(in srgb, var(--accent-default) 15%, #1e293b);
+          background: color-mix(in srgb, var(--accent-default) 14%, var(--surface-raised));
+          box-shadow: 0 0 0 1.5px var(--accent-default);
+          font-weight: 700;
+        }
+
+        .av-emoji {
+          font-size: 15px;
+          line-height: 1;
+        }
+
+        .av-name {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         .rules-grid {
           display: flex;
           flex-direction: column;
-          gap: 8px;
+          gap: 10px;
         }
 
         .rule-item {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          font-size: 12px;
+          font-size: 12.5px;
+          gap: 8px;
+          flex-wrap: wrap;
         }
 
         .rule-title {
-          color: #cbd5e1;
-          font-weight: 600;
+          color: var(--text-primary);
+          font-weight: 650;
         }
 
         .pill-options {
-          display: flex;
-          gap: 4px;
+          display: inline-flex;
+          background: var(--surface-raised);
+          border: 1px solid var(--border-subtle);
+          border-radius: var(--radius-sm);
+          padding: 2px;
+          gap: 2px;
         }
 
         .pill-btn {
-          background: #1e293b;
-          border: 1px solid #334155;
-          color: #94a3b8;
-          font-size: 11px;
+          background: transparent;
+          border: none;
+          color: var(--text-secondary);
+          font-size: 11.5px;
           font-weight: 700;
-          padding: 3px 8px;
+          padding: 5px 10px;
           border-radius: 4px;
           cursor: pointer;
-          transition: all 0.15s;
+          transition: all 0.15s ease;
         }
         .pill-btn:hover {
-          color: #ffffff;
+          color: var(--text-primary);
         }
         .pill-btn.active {
-          border-color: var(--accent-default);
           background: var(--accent-default);
           color: #ffffff;
+          box-shadow: 0 1px 4px rgba(217, 119, 6, 0.3);
+        }
+
+        .deck-pill-options {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          width: 100%;
+          margin-top: 4px;
+        }
+        .deck-pill-options .pill-btn {
+          padding: 6px 8px;
+          text-align: center;
         }
 
         .custom-words-input-box {
           display: flex;
           flex-direction: column;
           gap: 6px;
-          margin-top: 4px;
-          background: rgba(15, 23, 42, 0.6);
-          border: 1px solid #334155;
-          padding: 8px 10px;
-          border-radius: var(--radius-sm);
+          margin-top: 10px;
+          padding-top: 10px;
+          border-top: 1px solid var(--border-subtle);
         }
 
         .custom-words-header {
@@ -1169,39 +1241,69 @@ export const DevSkribbl: React.FC = () => {
         }
 
         .custom-count-badge {
-          font-size: 10px;
-          font-weight: 700;
+          font-size: 10.5px;
+          font-weight: 750;
           color: #10b981;
           background: rgba(16, 185, 129, 0.12);
           border: 1px solid rgba(16, 185, 129, 0.3);
-          padding: 1px 6px;
+          padding: 2px 7px;
           border-radius: var(--radius-full);
         }
 
         .custom-words-textarea {
           width: 100%;
-          background: #0f172a;
-          border: 1px solid #334155;
-          color: #ffffff;
-          padding: 6px 8px;
-          border-radius: 4px;
-          font-size: 11.5px;
+          background: var(--surface-raised);
+          border: 1px solid var(--border-default);
+          color: var(--text-primary);
+          padding: 8px 10px;
+          border-radius: var(--radius-sm);
+          font-size: 12px;
           box-sizing: border-box;
           font-family: inherit;
           resize: vertical;
+          outline: none;
+          transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .custom-words-textarea:focus {
+          border-color: var(--accent-default);
+          box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.16);
         }
 
         .custom-only-toggle {
           display: flex;
           align-items: center;
           gap: 6px;
-          font-size: 11px;
-          color: #94a3b8;
+          font-size: 11.5px;
+          color: var(--text-muted);
           cursor: pointer;
         }
         .custom-only-toggle input {
           accent-color: var(--accent-default);
           cursor: pointer;
+        }
+
+        .guest-rules-chips {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+        .guest-rule-chip {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background: var(--surface-raised);
+          border: 1px solid var(--border-subtle);
+          padding: 6px 10px;
+          border-radius: var(--radius-sm);
+          font-size: 12px;
+        }
+        .guest-rule-chip .chip-label {
+          color: var(--text-muted);
+          font-weight: 600;
+        }
+        .guest-rule-chip .chip-val {
+          color: var(--text-primary);
+          font-weight: 750;
         }
 
         @media (max-width: 900px) {

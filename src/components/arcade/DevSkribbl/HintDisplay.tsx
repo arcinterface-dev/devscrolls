@@ -102,13 +102,14 @@ export const HintDisplay: React.FC<HintDisplayProps> = ({
           display: flex;
           align-items: center;
           justify-content: space-between;
-          background: #0f172a;
-          border: 1px solid #1e293b;
+          background: var(--surface-raised);
+          border: 1px solid var(--border-default);
           border-radius: var(--radius-lg);
           padding: 8px 16px;
           width: 100%;
           box-sizing: border-box;
-          min-height: 54px;
+          min-height: 52px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         .hint-meta-left {
@@ -119,13 +120,17 @@ export const HintDisplay: React.FC<HintDisplayProps> = ({
 
         .hint-clock {
           font-family: var(--font-mono, monospace);
-          font-size: 17px;
+          font-size: 15px;
           font-weight: 850;
-          color: #38bdf8;
+          color: var(--accent-default);
+          background: color-mix(in srgb, var(--accent-default) 10%, transparent);
+          padding: 4px 10px;
+          border-radius: var(--radius-sm);
         }
 
         .danger-pulse {
           color: #ef4444;
+          background: rgba(239, 68, 68, 0.12);
           animation: dangerPulse 0.8s infinite;
         }
 
@@ -136,27 +141,27 @@ export const HintDisplay: React.FC<HintDisplayProps> = ({
         .round-pill {
           font-size: 11px;
           font-weight: 750;
-          color: #94a3b8;
-          background: #1e293b;
-          border: 1px solid #334155;
-          padding: 3px 9px;
+          color: var(--text-secondary);
+          background: var(--surface-sunken);
+          border: 1px solid var(--border-subtle);
+          padding: 4px 10px;
           border-radius: var(--radius-full);
         }
 
         .hint-audio-btn {
-          background: #1e293b;
-          border: 1px solid #334155;
+          background: var(--surface-sunken);
+          border: 1px solid var(--border-subtle);
           font-size: 13px;
           cursor: pointer;
           border-radius: var(--radius-sm);
-          padding: 2px 6px;
+          padding: 4px 8px;
           display: flex;
           align-items: center;
           justify-content: center;
           transition: background 0.15s;
         }
         .hint-audio-btn:hover {
-          background: #334155;
+          background: var(--surface-base);
         }
 
         .hint-display-center {
@@ -170,30 +175,30 @@ export const HintDisplay: React.FC<HintDisplayProps> = ({
         .artist-secret-card {
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: 10px;
         }
 
         .artist-tag {
           font-size: 11px;
           font-weight: 800;
-          color: #d97706;
+          color: var(--accent-default);
           background: rgba(217, 119, 6, 0.12);
           border: 1px solid rgba(217, 119, 6, 0.3);
-          padding: 2px 8px;
+          padding: 3px 9px;
           border-radius: var(--radius-sm);
           letter-spacing: 0.05em;
         }
 
         .artist-word-value {
-          font-size: 18px;
+          font-size: 19px;
           font-weight: 850;
-          color: #ffffff;
+          color: var(--text-primary);
           letter-spacing: 0.04em;
         }
 
         .artist-words-count {
           font-size: 12px;
-          color: #94a3b8;
+          color: var(--text-muted);
         }
 
         /* Guesser Hint View */
@@ -228,17 +233,17 @@ export const HintDisplay: React.FC<HintDisplayProps> = ({
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          border-bottom: 3px solid #38bdf8;
+          border-bottom: 3px solid var(--text-primary);
           font-family: var(--font-mono, monospace);
           font-size: 16px;
           font-weight: 850;
-          color: #ffffff;
+          color: var(--text-primary);
           text-transform: uppercase;
         }
 
         .letter-slot.revealed {
-          color: #f59e0b;
-          border-bottom-color: #f59e0b;
+          color: var(--accent-default);
+          border-bottom-color: var(--accent-default);
           animation: popLetter 0.2s ease-out;
         }
 
@@ -249,15 +254,16 @@ export const HintDisplay: React.FC<HintDisplayProps> = ({
 
         .cluster-len-label {
           font-size: 10px;
-          color: #64748b;
+          color: var(--text-muted);
           font-weight: 700;
         }
 
         .hint-meta-summary {
           font-size: 11.5px;
-          color: #94a3b8;
+          color: var(--text-secondary);
           font-weight: 600;
-          background: #1e293b;
+          background: var(--surface-sunken);
+          border: 1px solid var(--border-subtle);
           padding: 3px 8px;
           border-radius: var(--radius-sm);
         }

@@ -136,8 +136,8 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({
 
       <style>{`
         .chat-panel-container {
-          background: #0f172a;
-          border: 1px solid #1e293b;
+          background: var(--surface-raised);
+          border: 1px solid var(--border-default);
           border-radius: var(--radius-md);
           display: flex;
           flex-direction: column;
@@ -150,15 +150,15 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 6px 10px;
-          background: #1e293b;
-          border-bottom: 1px solid #334155;
+          padding: 8px 12px;
+          background: var(--surface-sunken);
+          border-bottom: 1px solid var(--border-subtle);
           font-size: 11px;
         }
 
         .chat-title {
           font-weight: 800;
-          color: #94a3b8;
+          color: var(--text-muted);
           letter-spacing: 0.05em;
         }
 
@@ -178,41 +178,43 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({
           display: flex;
           flex-direction: column;
           gap: 6px;
-          font-size: 13px;
+          font-size: 12.5px;
         }
 
         .chat-msg {
-          padding: 4px 8px;
-          border-radius: 4px;
-          background: #1e293b;
-          color: #f1f5f9;
+          padding: 6px 9px;
+          border-radius: var(--radius-sm);
+          background: var(--surface-sunken);
+          color: var(--text-primary);
           word-break: break-word;
+          line-height: 1.4;
         }
 
         .sender-name {
-          color: #38bdf8;
+          color: var(--accent-default);
+          font-weight: 750;
           margin-right: 4px;
         }
 
         .msg-correct {
-          background: rgba(16, 185, 129, 0.2);
-          border: 1px solid rgba(16, 185, 129, 0.4);
-          color: #6ee7b7;
-          font-weight: 600;
+          background: rgba(16, 185, 129, 0.12);
+          border: 1px solid rgba(16, 185, 129, 0.35);
+          color: #10b981;
+          font-weight: 700;
         }
 
         .msg-close {
-          background: rgba(245, 158, 11, 0.2);
-          border: 1px solid rgba(245, 158, 11, 0.5);
-          color: #fcd34d;
-          font-weight: 600;
+          background: rgba(245, 158, 11, 0.12);
+          border: 1px solid rgba(245, 158, 11, 0.35);
+          color: #d97706;
+          font-weight: 700;
           animation: pulse 1s ease-in-out;
         }
 
         .msg-solved-chat {
-          background: rgba(59, 130, 246, 0.12);
+          background: rgba(59, 130, 246, 0.1);
           border-left: 2px solid #3b82f6;
-          color: #93c5fd;
+          color: var(--text-primary);
         }
 
         .solved-badge {
@@ -226,17 +228,18 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({
         }
 
         .msg-system {
-          background: rgba(139, 92, 246, 0.15);
-          color: #c4b5fd;
-          font-size: 12px;
+          background: var(--surface-sunken);
+          color: var(--text-muted);
+          font-size: 11.5px;
+          font-style: italic;
         }
 
         .reaction-strip {
           display: flex;
           align-items: center;
           justify-content: space-around;
-          background: #131d31;
-          border-top: 1px solid #1e293b;
+          background: var(--surface-sunken);
+          border-top: 1px solid var(--border-subtle);
           padding: 4px 6px;
         }
 
@@ -245,31 +248,31 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({
           border: none;
           font-size: 16px;
           cursor: pointer;
-          padding: 2px 4px;
+          padding: 3px 6px;
           border-radius: 4px;
           transition: transform 0.15s ease, background 0.15s;
         }
         .reaction-btn:hover {
-          transform: scale(1.3);
-          background: #1e293b;
+          transform: scale(1.25);
+          background: var(--surface-raised);
         }
 
         .chat-input-bar {
           display: flex;
           gap: 6px;
-          padding: 6px 8px;
-          background: #1e293b;
-          border-top: 1px solid #334155;
+          padding: 8px;
+          background: var(--surface-sunken);
+          border-top: 1px solid var(--border-subtle);
         }
 
         .chat-field {
           flex: 1;
-          background: #0f172a;
-          border: 1px solid #334155;
-          color: #ffffff;
-          padding: 6px 10px;
+          background: var(--surface-raised);
+          border: 1px solid var(--border-default);
+          color: var(--text-primary);
+          padding: 7px 10px;
           border-radius: var(--radius-sm);
-          font-size: 12px;
+          font-size: 12.5px;
           outline: none;
         }
 
@@ -283,14 +286,18 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({
         }
 
         .chat-send-btn {
-          padding: 6px 12px;
+          padding: 7px 14px;
           background: var(--accent-default);
           color: #ffffff;
           border: none;
           border-radius: var(--radius-sm);
-          font-size: 12px;
-          font-weight: 700;
+          font-size: 12.5px;
+          font-weight: 750;
           cursor: pointer;
+          transition: filter 0.15s;
+        }
+        .chat-send-btn:hover:not(:disabled) {
+          filter: brightness(1.1);
         }
 
         .chat-send-btn:disabled {

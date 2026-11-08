@@ -301,86 +301,106 @@ export const RoomLobby: React.FC<RoomLobbyProps> = ({
     <div className="lobby-wrap">
       <div className="lobby-card room-live-card">
         <div className="lobby-header">
-          <span className="lobby-game-icon">{gameIcon}</span>
-          <h1 className="lobby-title">{gameTitle}</h1>
-          <p className="lobby-subtitle">
-            {canStart ? 'Ready to launch!' : `Waiting for players (${players.length}/${maxPlayers} joined, minimum ${minPlayers} required)`}
-          </p>
-        </div>
-
-        {/* Share Link Banner */}
-        <div className="lobby-share-box">
-          <ShareRoomLink roomId={currentRoomId} gameTitle={gameTitle} />
-        </div>
-
-        {/* Live Players Section */}
-        <div className="lobby-players-section">
-          <div className="lobby-players-header">
-            <span className="players-count-label">
-              Players in Room ({players.length}/{maxPlayers})
-            </span>
-            {status === 'connected' && (
+          <div className="lobby-header-badge-row">
+            <span className="lobby-game-icon">{gameIcon}</span>
+            {status === 'connected' ? (
               <span className="status-live-tag">
                 <span className="status-pulse"></span> Live Sync
               </span>
+            ) : (
+              <span className="status-connecting-tag">
+                <span className="connecting-pulse"></span> Connecting...
+              </span>
             )}
           </div>
-
-          <div className="players-list">
-            {players.map((p, idx) => {
-              const isMe = p.id === currentPlayerId;
-              return (
-                <div key={p.id} className={`player-badge ${isMe ? 'player-me' : ''}`}>
-                  <div className="player-avatar" style={{ backgroundColor: getAvatarColor(idx) }}>
-                    {p.displayName.slice(0, 2).toUpperCase()}
-                  </div>
-                  <div className="player-info">
-                    <span className="player-name">
-                      {p.displayName} {isMe && <span className="you-pill">(You)</span>}
-                    </span>
-                    {p.isHost && <span className="player-host-tag">👑 Room Host</span>}
-                  </div>
-                </div>
-              );
-            })}
-
-            {players.length === 0 && (
-              <div className="player-connecting-hint">
-                <span className="connecting-spinner"></span>
-                <span>Connecting to room...</span>
-              </div>
-            )}
-          </div>
+          <h1 className="lobby-title">{gameTitle}</h1>
+          <p className="lobby-subtitle">
+            {canStart
+              ? 'Ready to launch! Invite your team or configure match settings.'
+              : `Waiting for players (${players.length}/${maxPlayers} joined, minimum ${minPlayers} required)`}
+          </p>
         </div>
 
-        {/* Custom Game Specific Settings */}
-        {customSettings && <div className="lobby-custom-settings">{customSettings}</div>}
-
-        {/* Host Control vs Guest Waiting */}
-        <div className="lobby-controls-footer">
-          {isHost ? (
-            <div className="host-actions">
-              <button
-                type="button"
-                onClick={onStartGame}
-                disabled={!canStart}
-                className={`lobby-btn lobby-btn-primary start-btn ${canStart ? 'ready-pulse' : 'disabled'}`}
-              >
-                <span>{canStart ? 'Start Game Now →' : `Waiting for ${minPlayers - players.length} more player(s)...`}</span>
-              </button>
+        <div className="room-columns-layout">
+          {/* Left Column: Room Code + Team List + Launch Controls */}
+          <div className="room-col-main">
+            {/* Share Link Banner */}
+            <div className="lobby-share-box">
+              <ShareRoomLink roomId={currentRoomId} gameTitle={gameTitle} />
             </div>
-          ) : (
-            <div className="guest-waiting-box">
-              <div className="waiting-spinner"></div>
-              <span>Waiting for the host to launch the game...</span>
-            </div>
-          )}
 
-          {onLeaveRoom && (
-            <div className="leave-room-row">
-              <button type="button" onClick={onLeaveRoom} className="leave-room-btn">
-                Leave Room
-              </button>
+            {/* Live Players Section */}
+            <div className="lobby-players-section">
+              <div className="lobby-players-header">
+                <span className="players-count-label">
+                  Players in Room ({players.length}/{maxPlayers})
+                </span>
+                <span className="players-req-indicator">
+                  {canStart ? '✅ Minimum met' : `Need ${minPlayers - players.length} more`}
+                </span>
+              </div>
+
+              <div className="players-list">
+                {players.map((p, idx) => {
+                  const isMe = p.id === currentPlayerId;
+                  return (
+                    <div key={p.id} className={`player-badge ${isMe ? 'player-me' : ''}`}>
+                      <div className="player-avatar" style={{ backgroundColor: getAvatarColor(idx) }}>
+                        {p.displayName.slice(0, 2).toUpperCase()}
+                      </div>
+                      <div className="player-info">
+                        <span className="player-name">
+                          {p.displayName} {isMe && <span className="you-pill">(You)</span>}
+                        </span>
+                        {p.isHost && <span className="player-host-tag">👑 Room Host</span>}
+                      </div>
+                    </div>
+                  );
+                })}
+
+                {players.length === 0 && (
+                  <div className="player-connecting-hint">
+                    <span className="connecting-spinner"></span>
+                    <span>Connecting to room...</span>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Host Control vs Guest Waiting */}
+            <div className="lobby-controls-footer">
+              {isHost ? (
+                <div className="host-actions">
+                  <button
+                    type="button"
+                    onClick={onStartGame}
+                    disabled={!canStart}
+                    className={`lobby-btn lobby-btn-primary start-btn ${canStart ? 'ready-pulse' : 'disabled'}`}
+                  >
+                    <span>{canStart ? 'Start Game Now →' : `Waiting for ${minPlayers - players.length} more player(s)...`}</span>
+                  </button>
+                </div>
+              ) : (
+                <div className="guest-waiting-box">
+                  <div className="waiting-spinner"></div>
+                  <span>Waiting for the host to launch the game...</span>
+                </div>
+              )}
+
+              {onLeaveRoom && (
+                <div className="leave-room-row">
+                  <button type="button" onClick={onLeaveRoom} className="leave-room-btn">
+                    Leave Room
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Right Column: Custom Settings (Dev Persona + Host Rules) */}
+          {customSettings && (
+            <div className="room-col-settings">
+              {customSettings}
             </div>
           )}
         </div>
@@ -407,7 +427,7 @@ const lobbyStyles = `
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 32px 16px 64px 16px;
+    padding: 20px 16px;
     box-sizing: border-box;
     background: var(--surface-base);
   }
@@ -417,13 +437,20 @@ const lobbyStyles = `
     border: 1px solid var(--border-default);
     border-radius: var(--radius-xl);
     width: 100%;
-    max-width: 540px;
-    padding: 32px;
+    max-width: 680px;
+    padding: 28px 32px;
     margin: auto;
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 18px;
+  }
+
+  .lobby-card.room-live-card {
+    max-width: 960px;
+    width: 100%;
+    padding: 22px 28px;
+    gap: 16px;
   }
 
   .lobby-header {
@@ -431,17 +458,23 @@ const lobbyStyles = `
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 6px;
+  }
+
+  .lobby-header-badge-row {
+    display: inline-flex;
+    align-items: center;
     gap: 8px;
   }
 
   .lobby-game-icon {
-    font-size: 44px;
+    font-size: 38px;
     line-height: 1;
     margin-bottom: 2px;
   }
 
   .lobby-title {
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 850;
     margin: 0;
     color: var(--text-primary);
@@ -449,10 +482,90 @@ const lobbyStyles = `
   }
 
   .lobby-subtitle {
-    font-size: 13.5px;
+    font-size: 13px;
     color: var(--text-muted);
     margin: 0;
-    line-height: 1.45;
+    line-height: 1.4;
+  }
+
+  /* Two Column Live Room Grid */
+  .room-columns-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.05fr;
+    gap: 20px;
+    align-items: start;
+    margin-top: 4px;
+  }
+
+  @media (max-width: 820px) {
+    .room-columns-layout {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .lobby-card.room-live-card {
+      padding: 18px 16px;
+    }
+  }
+
+  .room-col-main {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .room-col-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Live & Connecting Badges */
+  .status-live-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 750;
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+  }
+
+  .status-pulse {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10b981;
+    animation: livePulse 1.8s infinite;
+  }
+
+  .status-connecting-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 750;
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+  }
+
+  .connecting-pulse {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #f59e0b;
+    animation: livePulse 1.2s infinite;
+  }
+
+  .players-req-indicator {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent-default);
   }
 
   /* Invite View Header */
@@ -734,19 +847,20 @@ const lobbyStyles = `
   .players-list {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    max-height: 240px;
+    gap: 6px;
+    max-height: 180px;
     overflow-y: auto;
+    padding-right: 2px;
   }
 
   .player-badge {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     background: var(--surface-sunken);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
-    padding: 10px 14px;
+    padding: 7px 12px;
   }
 
   .player-badge.player-me {

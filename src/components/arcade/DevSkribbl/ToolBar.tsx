@@ -233,11 +233,11 @@ export const ToolBar: React.FC<ToolBarProps> = ({
           justify-content: space-between;
           flex-wrap: wrap;
           gap: 8px;
-          background: #0f172a;
-          border: 1px solid #1e293b;
+          background: var(--surface-raised);
+          border: 1px solid var(--border-default);
           border-radius: var(--radius-lg);
           padding: 6px 12px;
-          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
           flex-shrink: 0;
         }
 
@@ -250,14 +250,14 @@ export const ToolBar: React.FC<ToolBarProps> = ({
         .cluster-divider {
           width: 1px;
           height: 20px;
-          background: #334155;
+          background: var(--border-subtle);
           margin: 0 4px;
         }
 
         .group-label {
           font-size: 11px;
           font-weight: 700;
-          color: #94a3b8;
+          color: var(--text-muted);
           text-transform: uppercase;
           letter-spacing: 0.04em;
         }
@@ -267,8 +267,8 @@ export const ToolBar: React.FC<ToolBarProps> = ({
           width: 32px;
           height: 32px;
           border-radius: var(--radius-sm);
-          background: #1e293b;
-          border: 1px solid #334155;
+          background: var(--surface-sunken);
+          border: 1px solid var(--border-subtle);
           font-size: 14px;
           display: flex;
           align-items: center;
@@ -278,8 +278,8 @@ export const ToolBar: React.FC<ToolBarProps> = ({
           transition: background 0.15s, border-color 0.15s, transform 0.1s;
         }
         .tool-icon-btn:hover {
-          background: #334155;
-          border-color: #475569;
+          background: var(--surface-base);
+          border-color: var(--border-default);
           transform: translateY(-1px);
         }
         .tool-icon-btn.active {
@@ -297,8 +297,8 @@ export const ToolBar: React.FC<ToolBarProps> = ({
           width: 28px;
           height: 28px;
           border-radius: 50%;
-          background: #1e293b;
-          border: 1px solid #334155;
+          background: var(--surface-sunken);
+          border: 1px solid var(--border-subtle);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -306,11 +306,11 @@ export const ToolBar: React.FC<ToolBarProps> = ({
           transition: border-color 0.15s;
         }
         .brush-size-btn:hover {
-          border-color: #64748b;
+          border-color: var(--accent-default);
         }
         .brush-size-btn.size-active {
           border-color: var(--accent-default);
-          background: #334155;
+          background: var(--surface-base);
         }
 
         .size-dot {
@@ -329,7 +329,7 @@ export const ToolBar: React.FC<ToolBarProps> = ({
           width: 18px;
           height: 18px;
           border-radius: 4px;
-          border: 1px solid rgba(255, 255, 255, 0.2);
+          border: 1px solid rgba(0, 0, 0, 0.15);
           cursor: pointer;
           padding: 0;
           transition: transform 0.1s, box-shadow 0.15s;
@@ -339,7 +339,7 @@ export const ToolBar: React.FC<ToolBarProps> = ({
         }
         .color-swatch-btn.swatch-active {
           transform: scale(1.22);
-          box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px var(--accent-default);
+          box-shadow: 0 0 0 2px var(--surface-raised), 0 0 0 4px var(--accent-default);
           z-index: 2;
         }
 
@@ -347,8 +347,8 @@ export const ToolBar: React.FC<ToolBarProps> = ({
           width: 18px;
           height: 18px;
           border-radius: 4px;
-          background: #1e293b;
-          border: 1px solid #475569;
+          background: var(--surface-sunken);
+          border: 1px solid var(--border-subtle);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -378,8 +378,8 @@ export const ToolBar: React.FC<ToolBarProps> = ({
           width: 26px;
           height: 26px;
           border-radius: 4px;
-          background: #1e293b;
-          border: 1px solid #334155;
+          background: var(--surface-sunken);
+          border: 1px solid var(--border-subtle);
           font-size: 11px;
           display: flex;
           align-items: center;
@@ -388,19 +388,19 @@ export const ToolBar: React.FC<ToolBarProps> = ({
           transition: border-color 0.15s;
         }
         .bg-toggle-btn:hover {
-          border-color: #64748b;
+          border-color: var(--accent-default);
         }
         .bg-toggle-btn.active {
-          border-color: #38bdf8;
-          background: #334155;
-          box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.3);
+          border-color: var(--accent-default);
+          background: var(--surface-base);
+          box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.25);
         }
 
         /* Actions */
         .util-action-btn {
-          background: #1e293b;
-          border: 1px solid #334155;
-          color: #f1f5f9;
+          background: var(--surface-sunken);
+          border: 1px solid var(--border-default);
+          color: var(--text-primary);
           font-size: 12px;
           font-weight: 700;
           padding: 6px 12px;
@@ -409,8 +409,8 @@ export const ToolBar: React.FC<ToolBarProps> = ({
           transition: background 0.15s, border-color 0.15s;
         }
         .util-action-btn:hover {
-          background: #334155;
-          border-color: #475569;
+          background: var(--surface-base);
+          border-color: var(--accent-default);
         }
         .util-action-btn.clear-btn:hover {
           background: #ef4444;
