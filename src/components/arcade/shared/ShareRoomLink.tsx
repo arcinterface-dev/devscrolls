@@ -77,7 +77,7 @@ export const ShareRoomLink: React.FC<ShareRoomLinkProps> = ({ roomId, gameTitle 
           justify-content: space-between;
           flex-wrap: wrap;
           gap: 12px;
-          background: var(--surface-sunken);
+          background: var(--surface-raised);
           border: 1px solid var(--border-subtle);
           border-radius: var(--radius-md);
           padding: 10px 14px;

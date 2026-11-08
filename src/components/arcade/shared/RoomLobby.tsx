@@ -491,32 +491,252 @@ const lobbyStyles = `
   /* Two Column Live Room Grid */
   .room-columns-layout {
     display: grid;
-    grid-template-columns: 1fr 1.05fr;
-    gap: 20px;
-    align-items: start;
-    margin-top: 4px;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: stretch;
+    margin-top: 6px;
   }
 
   @media (max-width: 820px) {
     .room-columns-layout {
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: 14px;
     }
     .lobby-card.room-live-card {
       padding: 18px 16px;
     }
   }
 
-  .room-col-main {
+  .room-col-main, .room-col-settings {
+    background: var(--surface-sunken);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 16px;
     display: flex;
     flex-direction: column;
     gap: 12px;
+    box-sizing: border-box;
   }
 
-  .room-col-settings {
+  /* Skribbl Lobby Config inside RoomLobby */
+  .skribbl-lobby-config {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .config-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .config-label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .config-label {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+  }
+
+  .avatar-pick-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .avatar-pick-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface-raised);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-sm);
+    padding: 7px 10px;
+    color: var(--text-primary);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    box-sizing: border-box;
+    text-align: left;
+    outline: none;
+  }
+  .avatar-pick-btn:hover {
+    background: var(--surface-base);
+    border-color: var(--accent-default);
+    transform: translateY(-1px);
+  }
+  .avatar-pick-btn.avatar-active {
+    border-color: var(--accent-default);
+    background: color-mix(in srgb, var(--accent-default) 14%, var(--surface-raised));
+    box-shadow: 0 0 0 1.5px var(--accent-default);
+    font-weight: 750;
+    color: var(--text-primary);
+  }
+
+  .av-emoji {
+    font-size: 15px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .av-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .rules-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .rule-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    gap: 8px;
+  }
+
+  .rule-title {
+    color: var(--text-primary);
+    font-weight: 650;
+    font-size: 12px;
+  }
+
+  .segmented-track, .pill-options {
+    display: inline-flex;
+    background: var(--surface-raised);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-sm);
+    padding: 2px;
+    gap: 2px;
+  }
+
+  .segmented-pill, .pill-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    outline: none;
+  }
+  .segmented-pill:hover, .pill-btn:hover {
+    color: var(--text-primary);
+  }
+  .segmented-pill.active, .pill-btn.active {
+    background: var(--accent-default);
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(217, 119, 6, 0.35);
+  }
+
+  .deck-segmented-track, .deck-pill-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    margin-top: 2px;
+  }
+  .deck-segmented-track .segmented-pill, .deck-pill-options .pill-btn {
+    padding: 6px 8px;
+    text-align: center;
+  }
+
+  .custom-words-input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 4px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .custom-words-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .custom-count-badge {
+    font-size: 10.5px;
+    font-weight: 750;
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 1px 6px;
+    border-radius: var(--radius-full);
+  }
+
+  .custom-words-textarea {
+    width: 100%;
+    background: var(--surface-raised);
+    border: 1px solid var(--border-default);
+    color: var(--text-primary);
+    padding: 7px 9px;
+    border-radius: var(--radius-sm);
+    font-size: 11.5px;
+    box-sizing: border-box;
+    font-family: inherit;
+    resize: vertical;
+    outline: none;
+    min-height: 44px;
+    max-height: 100px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .custom-words-textarea:focus {
+    border-color: var(--accent-default);
+    box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.16);
+  }
+
+  .custom-only-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--text-muted);
+    cursor: pointer;
+  }
+  .custom-only-toggle input {
+    accent-color: var(--accent-default);
+    cursor: pointer;
+  }
+
+  .guest-rules-chips {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .guest-rule-chip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--surface-raised);
+    border: 1px solid var(--border-subtle);
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+  }
+  .guest-rule-chip .chip-label {
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+  .guest-rule-chip .chip-val {
+    color: var(--text-primary);
+    font-weight: 750;
   }
 
   /* Live & Connecting Badges */
@@ -857,7 +1077,7 @@ const lobbyStyles = `
     display: flex;
     align-items: center;
     gap: 10px;
-    background: var(--surface-sunken);
+    background: var(--surface-raised);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
     padding: 7px 12px;
@@ -865,7 +1085,7 @@ const lobbyStyles = `
 
   .player-badge.player-me {
     border-color: color-mix(in srgb, var(--accent-default) 40%, transparent);
-    background: color-mix(in srgb, var(--accent-default) 6%, var(--surface-sunken));
+    background: color-mix(in srgb, var(--accent-default) 10%, var(--surface-raised));
   }
 
   .player-avatar {
