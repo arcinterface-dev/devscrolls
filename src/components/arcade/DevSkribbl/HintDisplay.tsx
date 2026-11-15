@@ -18,49 +18,49 @@ export const HintDisplay: React.FC<HintDisplayProps> = ({
   totalRounds,
 }) => {
   // Parse hintMask into distinct word groups
-  // Split on 2 or more spaces to identify distinct words
   const wordGroups = hintMask.trim().split(/\s{2,}/).filter(Boolean);
 
   return (
-    <div className="skribbl-hint-bar">
-      {/* Timer and Round */}
+    <header className="skribbl-hint-bar">
+      {/* Left: Timer & Round Meta */}
       <div className="hint-meta-left">
-        <span className={`hint-clock ${timeLeft <= 10 ? 'danger-pulse' : ''}`}>
-          ⏱️ {timeLeft}s
-        </span>
-        <span className="round-pill">
-          Round {currentRound}/{totalRounds}
+        <div className={`hint-timer ${timeLeft <= 10 ? 'timer-danger' : ''}`}>
+          <svg className="timer-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+          <span className="timer-val">{timeLeft}s</span>
+        </div>
+        <span className="meta-divider">•</span>
+        <span className="round-indicator">
+          Round {currentRound} of {totalRounds}
         </span>
       </div>
 
-      {/* Word / Hint Area */}
+      {/* Center: Secret Word (Artist) or Letter Slots (Guesser) */}
       <div className="hint-display-center">
         {isArtist ? (
-          <div className="artist-secret-card">
-            <span className="artist-tag">DRAW THIS:</span>
-            <span className="artist-word-value">{word}</span>
+          <div className="artist-word-chip">
+            <span className="draw-prompt">Draw:</span>
+            <strong className="draw-word">{word}</strong>
           </div>
         ) : (
-          <div className="guesser-slots-card">
-            <div className="words-flex-container">
-              {wordGroups.map((group, gIdx) => {
-                const chars = group.split(' ').filter(Boolean);
-                return (
-                  <div key={gIdx} className="word-cluster">
-                    <div className="slots-row">
-                      {chars.map((ch, cIdx) => (
-                        <span
-                          key={cIdx}
-                          className={`letter-slot ${ch !== '_' ? 'revealed' : ''}`}
-                        >
-                          {ch === '_' ? '' : ch}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+          <div className="guesser-words-cluster">
+            {wordGroups.map((group, gIdx) => {
+              const chars = group.split(' ').filter(Boolean);
+              return (
+                <div key={gIdx} className="word-group">
+                  {chars.map((ch, cIdx) => (
+                    <span
+                      key={cIdx}
+                      className={`letter-slot ${ch !== '_' ? 'revealed' : ''}`}
+                    >
+                      {ch === '_' ? '' : ch}
+                    </span>
+                  ))}
+                </div>
+              );
+            })}
           </div>
         )}
       </div>
@@ -71,49 +71,59 @@ export const HintDisplay: React.FC<HintDisplayProps> = ({
           align-items: center;
           justify-content: space-between;
           background: var(--surface-raised);
-          border: 1px solid var(--border-default);
+          border: 1px solid var(--border-subtle);
           border-radius: var(--radius-lg);
-          padding: 8px 16px;
+          padding: 8px 18px;
           width: 100%;
           box-sizing: border-box;
-          min-height: 52px;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+          min-height: 48px;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
         }
 
         .hint-meta-left {
           display: flex;
           align-items: center;
           gap: 10px;
+          font-size: 13px;
         }
 
-        .hint-clock {
+        .hint-timer {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
           font-family: var(--font-mono, monospace);
-          font-size: 15px;
-          font-weight: 850;
-          color: var(--accent-default);
-          background: color-mix(in srgb, var(--accent-default) 10%, transparent);
-          padding: 4px 10px;
-          border-radius: var(--radius-sm);
-        }
-
-        .danger-pulse {
-          color: #ef4444;
-          background: rgba(239, 68, 68, 0.12);
-          animation: dangerPulse 0.8s infinite;
-        }
-
-        @keyframes dangerPulse {
-          50% { opacity: 0.4; }
-        }
-
-        .round-pill {
-          font-size: 11px;
+          font-size: 14px;
           font-weight: 750;
-          color: var(--text-secondary);
+          color: var(--text-primary);
+          padding: 3px 8px;
+          border-radius: var(--radius-sm);
           background: var(--surface-sunken);
-          border: 1px solid var(--border-subtle);
-          padding: 4px 10px;
-          border-radius: var(--radius-full);
+          transition: color 0.2s, background 0.2s;
+        }
+
+        .timer-icon {
+          color: var(--accent-default);
+        }
+
+        .timer-danger {
+          color: #ef4444;
+          background: rgba(239, 68, 68, 0.1);
+          animation: dangerBlink 1s infinite;
+        }
+
+        @keyframes dangerBlink {
+          50% { opacity: 0.5; }
+        }
+
+        .meta-divider {
+          color: var(--border-strong);
+          font-size: 10px;
+        }
+
+        .round-indicator {
+          font-size: 12px;
+          font-weight: 600;
+          color: var(--text-muted);
         }
 
         .hint-display-center {
@@ -123,126 +133,94 @@ export const HintDisplay: React.FC<HintDisplayProps> = ({
           flex: 1;
         }
 
-        /* Artist Secret View */
-        .artist-secret-card {
-          display: flex;
-          align-items: center;
-          gap: 10px;
+        /* Artist Word View */
+        .artist-word-chip {
+          display: inline-flex;
+          align-items: baseline;
+          gap: 8px;
         }
 
-        .artist-tag {
+        .draw-prompt {
           font-size: 11px;
-          font-weight: 800;
-          color: var(--accent-default);
-          background: rgba(217, 119, 6, 0.12);
-          border: 1px solid rgba(217, 119, 6, 0.3);
-          padding: 3px 9px;
-          border-radius: var(--radius-sm);
-          letter-spacing: 0.05em;
-        }
-
-        .artist-word-value {
-          font-size: 19px;
-          font-weight: 850;
-          color: var(--text-primary);
-          letter-spacing: 0.04em;
-        }
-
-        .artist-words-count {
-          font-size: 12px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.06em;
           color: var(--text-muted);
         }
 
-        /* Guesser Hint View */
-        .guesser-slots-card {
-          display: flex;
-          align-items: center;
-          gap: 14px;
+        .draw-word {
+          font-size: 17px;
+          font-weight: 850;
+          color: var(--accent-default);
+          letter-spacing: 0.02em;
         }
 
-        .words-flex-container {
+        /* Guesser Slots View */
+        .guesser-words-cluster {
           display: flex;
           align-items: center;
-          gap: 18px; /* Clear visible space between words */
+          gap: 18px;
         }
 
-        .word-cluster {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 2px;
-        }
-
-        .slots-row {
+        .word-group {
           display: flex;
           align-items: flex-end;
-          gap: 5px;
+          gap: 6px;
         }
 
         .letter-slot {
-          width: 18px;
-          height: 26px;
+          width: 17px;
+          height: 25px;
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          border-bottom: 3px solid var(--text-primary);
+          border-bottom: 2px solid var(--border-strong);
           font-family: var(--font-mono, monospace);
-          font-size: 16px;
-          font-weight: 850;
+          font-size: 15px;
+          font-weight: 800;
           color: var(--text-primary);
           text-transform: uppercase;
+          transition: border-color 0.15s, color 0.15s;
         }
 
         .letter-slot.revealed {
-          color: var(--accent-default);
           border-bottom-color: var(--accent-default);
-          animation: popLetter 0.2s ease-out;
-        }
-
-        @keyframes popLetter {
-          from { transform: scale(0.8); }
-          to { transform: scale(1); }
+          color: var(--accent-default);
         }
 
         @media (max-width: 640px) {
           .skribbl-hint-bar {
-            padding: 6px 8px;
-            gap: 6px;
-            min-height: 44px;
+            padding: 6px 12px;
+            gap: 8px;
+            min-height: 42px;
           }
           .hint-meta-left {
             gap: 6px;
           }
-          .hint-clock {
+          .hint-timer {
             font-size: 12px;
             padding: 2px 6px;
           }
-          .round-pill {
-            font-size: 10px;
-            padding: 2px 6px;
+          .round-indicator {
+            font-size: 11px;
           }
-          .artist-tag {
-            font-size: 9px;
-            padding: 2px 5px;
-          }
-          .artist-word-value {
+          .draw-word {
             font-size: 14px;
           }
           .letter-slot {
             width: 13px;
             height: 20px;
             font-size: 13px;
-            border-bottom-width: 2px;
           }
-          .slots-row {
+          .word-group {
             gap: 3px;
           }
-          .words-flex-container {
+          .guesser-words-cluster {
             gap: 10px;
             flex-wrap: wrap;
           }
         }
       `}</style>
-    </div>
+    </header>
   );
 };

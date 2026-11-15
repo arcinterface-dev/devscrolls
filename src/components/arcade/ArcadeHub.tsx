@@ -14,7 +14,6 @@ export const ArcadeHub: React.FC = () => {
   const joinInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    // Populate high scores and streaks from localStorage
     const scoresMap: Record<string, { high: number; streak: number }> = {};
     GAMES.forEach((game) => {
       scoresMap[game.id] = {
@@ -25,7 +24,6 @@ export const ArcadeHub: React.FC = () => {
     setScores(scoresMap);
   }, []);
 
-  // Autofocus input when modal opens
   useEffect(() => {
     if (isJoinModalOpen) {
       setTimeout(() => joinInputRef.current?.focus(), 50);
@@ -50,7 +48,6 @@ export const ArcadeHub: React.FC = () => {
     });
   }, [activeTab, searchQuery]);
 
-  // Quick Play / Surprise Me
   const handleRandomPlay = () => {
     const pool = filteredGames.length > 0 ? filteredGames : GAMES;
     const randomGame = pool[Math.floor(Math.random() * pool.length)];
@@ -79,120 +76,129 @@ export const ArcadeHub: React.FC = () => {
 
   return (
     <div className="games-console-container">
-      {/* Sleek Top Control Strip */}
-      <header className="console-header-strip">
-        <div className="header-brand-block">
-          <div className="brand-title-row">
-            <span className="live-status-dot" title="Servers Live"></span>
-            <h1 className="console-title">Developer Games</h1>
-            <span className="count-badge">{GAMES.length} Instant Games</span>
+      {/* Page Header */}
+      <header className="hub-page-header">
+        <div className="hub-title-block">
+          <div className="hub-title-row">
+            <h1 className="hub-main-title">Developer Games</h1>
+            <span className="hub-count-tag">{filteredGames.length}</span>
           </div>
-          <p className="console-subtitle">No signup, no installs. Pick a game and play.</p>
+          <p className="hub-lead-text">
+            Zero install, zero login browser games for developers and teams.
+          </p>
         </div>
 
-        {/* Action & Filter Controls */}
-        <div className="header-actions-group">
-          {/* Filter Pills */}
-          <div className="filter-pill-nav" role="tablist">
+        {/* Action Controls Bar */}
+        <div className="hub-toolbar">
+          {/* Segmented Filter Control */}
+          <div className="hub-segmented-control" role="tablist">
             <button
               type="button"
               role="tab"
               aria-selected={activeTab === 'all'}
-              className={`pill-tab ${activeTab === 'all' ? 'active' : ''}`}
+              className={`segmented-tab ${activeTab === 'all' ? 'is-active' : ''}`}
               onClick={() => setActiveTab('all')}
             >
-              All <span className="tab-count">{GAMES.length}</span>
+              All
             </button>
             <button
               type="button"
               role="tab"
               aria-selected={activeTab === 'solo'}
-              className={`pill-tab ${activeTab === 'solo' ? 'active' : ''}`}
+              className={`segmented-tab ${activeTab === 'solo' ? 'is-active' : ''}`}
               onClick={() => setActiveTab('solo')}
             >
-              ⚡ Solo <span className="tab-count">{SOLO_GAMES.length}</span>
+              Solo
             </button>
             <button
               type="button"
               role="tab"
               aria-selected={activeTab === 'multiplayer'}
-              className={`pill-tab ${activeTab === 'multiplayer' ? 'active' : ''}`}
+              className={`segmented-tab ${activeTab === 'multiplayer' ? 'is-active' : ''}`}
               onClick={() => setActiveTab('multiplayer')}
             >
-              👥 Multiplayer <span className="tab-count">{MULTIPLAYER_GAMES.length}</span>
+              Multiplayer
             </button>
           </div>
 
-          {/* Search Field */}
-          <div className="search-box-wrap">
-            <svg className="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="11" cy="11" r="8" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-            <input
-              type="text"
-              placeholder="Search by tech (e.g. Git, TypeScript)..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="console-search-input"
-            />
-            {searchQuery && (
-              <button
-                type="button"
-                onClick={() => setSearchQuery('')}
-                className="clear-search-btn"
-                aria-label="Clear search"
-              >
-                ✕
-              </button>
-            )}
-          </div>
+          <div className="hub-actions-cluster">
+            {/* Minimal Search Input */}
+            <div className="hub-search-field">
+              <svg className="hub-search-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+              <input
+                type="text"
+                placeholder="Search games or tech..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="hub-search-input"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery('')}
+                  className="hub-clear-search"
+                  aria-label="Clear search"
+                >
+                  ✕
+                </button>
+              )}
+            </div>
 
-          {/* Quick Buttons */}
-          <div className="action-buttons-wrap">
+            {/* Quick Actions */}
             <button
               type="button"
               onClick={handleRandomPlay}
-              className="action-btn random-btn"
-              title="Pick a random game for a quick 3-minute break"
+              className="hub-btn hub-btn-subtle"
+              title="Pick a random game"
             >
-              <span className="btn-icon">🎲</span>
-              <span className="btn-text">Quick Play</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <path d="M16 8h.01" />
+                <path d="M8 8h.01" />
+                <path d="M8 16h.01" />
+                <path d="M16 16h.01" />
+                <path d="M12 12h.01" />
+              </svg>
+              <span>Random</span>
             </button>
 
             <button
               type="button"
               onClick={() => setIsJoinModalOpen(true)}
-              className="action-btn join-btn"
+              className="hub-btn hub-btn-primary"
               title="Join a multiplayer room with code"
             >
-              <span className="btn-icon">🔑</span>
-              <span className="btn-text">Join Room</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="m21 2-2 2m-1.5 1.5L16 7l-1.5-1.5" />
+                <path d="m15.5 8.5-3 3a4.5 4.5 0 1 1-6.36-6.36 4.5 4.5 0 0 1 6.36 0l3 3Z" />
+              </svg>
+              <span>Join Room</span>
             </button>
           </div>
         </div>
       </header>
 
-      {/* Main High-Density Game Grid */}
-      <main className="games-grid-viewport">
+      {/* Main Game Cards Grid */}
+      <main className="hub-grid-wrapper">
         {filteredGames.length === 0 ? (
-          <div className="empty-state-box">
-            <span className="empty-icon">🔍</span>
-            <h3>No games found for "{searchQuery}"</h3>
-            <p>Try searching for "TypeScript", "DevOps", or reset your filters.</p>
+          <div className="hub-empty-state">
+            <p className="empty-title">No games found matching "{searchQuery}"</p>
             <button
               type="button"
               onClick={() => {
                 setSearchQuery('');
                 setActiveTab('all');
               }}
-              className="reset-filters-btn"
+              className="empty-reset-btn"
             >
-              Reset Filters
+              Clear filters
             </button>
           </div>
         ) : (
-          <div className="game-cards-grid">
+          <div className="hub-cards-grid">
             {filteredGames.map((game) => {
               const gameStats = scores[game.id] || { high: 0, streak: 0 };
 
@@ -200,63 +206,54 @@ export const ArcadeHub: React.FC = () => {
                 <a
                   key={game.id}
                   href={game.href}
-                  className="game-launcher-card"
-                  style={
-                    {
-                      '--accent': game.accentColor,
-                      '--accent-bg': `color-mix(in srgb, ${game.accentColor} 12%, transparent)`,
-                      '--accent-glow': `color-mix(in srgb, ${game.accentColor} 35%, transparent)`,
-                    } as React.CSSProperties
-                  }
+                  className="modern-game-card"
                 >
-                  {/* Top Ambient Highlight Bar */}
-                  <div className="card-top-accent"></div>
-
-                  {/* Card Header: Icon + Meta Badges */}
-                  <div className="card-head-row">
-                    <div className="game-icon-box">
-                      <span className="icon-symbol">{game.icon}</span>
+                  {/* Card Top: Icon & Meta */}
+                  <div className="card-top-row">
+                    <div className="card-icon-container">
+                      <span className="card-icon">{game.icon}</span>
                     </div>
 
-                    <div className="badge-row">
-                      {game.isNew && <span className="badge-pill new-tag">New</span>}
-                      <span className={`badge-pill mode-tag ${game.mode}`}>
-                        {game.mode === 'multiplayer' ? (game.playerRange || '2-10p') : 'Solo'}
-                      </span>
-                      <span className="badge-pill time-tag">{game.timeEstimate}</span>
-                    </div>
-                  </div>
-
-                  {/* Game Title & Tagline */}
-                  <div className="card-title-group">
-                    <h3 className="game-name">{game.title}</h3>
-                    <p className="game-tagline">{game.tagline}</p>
-                  </div>
-
-                  {/* Footer: Tags & Play CTA */}
-                  <div className="card-footer-row">
-                    {/* Tags or Personal Best */}
-                    <div className="stats-or-tags">
-                      {gameStats.high > 0 ? (
-                        <span className="stat-pill best" title="Personal Record">
-                          🏆 Best: <strong>{gameStats.high}</strong>
-                        </span>
-                      ) : gameStats.streak > 0 ? (
-                        <span className="stat-pill streak" title="Daily Streak">
-                          🔥 Streak: <strong>{gameStats.streak}d</strong>
+                    <div className="card-badge-wrap">
+                      {game.mode === 'multiplayer' ? (
+                        <span className="mode-pill pill-multi">
+                          Multiplayer • {game.playerRange || '2-8p'}
                         </span>
                       ) : (
-                        <span className="primary-tag">#{game.tags[0]}</span>
+                        <span className="mode-pill pill-solo">
+                          Solo
+                        </span>
                       )}
                     </div>
+                  </div>
 
-                    {/* Instant Play Button */}
-                    <span className="play-cta-chip">
-                      <span>Play</span>
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                  {/* Card Content */}
+                  <div className="card-body">
+                    <h2 className="card-title">{game.title}</h2>
+                    <p className="card-description">{game.tagline}</p>
+                  </div>
+
+                  {/* Card Bottom / Footer */}
+                  <div className="card-footer">
+                    <div className="card-meta">
+                      {gameStats.high > 0 ? (
+                        <span className="meta-record">Best: {gameStats.high}</span>
+                      ) : gameStats.streak > 0 ? (
+                        <span className="meta-record">Streak: {gameStats.streak}d</span>
+                      ) : (
+                        <span className="meta-time">{game.timeEstimate}</span>
+                      )}
+                      <span className="meta-dot">•</span>
+                      <span className="meta-tag">#{game.tags[0]}</span>
+                    </div>
+
+                    <div className="card-arrow-cta">
+                      <span className="cta-label">Play</span>
+                      <svg className="cta-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
                       </svg>
-                    </span>
+                    </div>
                   </div>
                 </a>
               );
@@ -267,26 +264,23 @@ export const ArcadeHub: React.FC = () => {
 
       {/* Join Room Modal */}
       {isJoinModalOpen && (
-        <div className="modal-backdrop" onClick={() => setIsJoinModalOpen(false)}>
-          <div className="modal-card" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-header">
-              <div className="modal-title-row">
-                <span className="modal-icon">🔑</span>
-                <h3>Join Multiplayer Room</h3>
-              </div>
+        <div className="hub-modal-overlay" onClick={() => setIsJoinModalOpen(false)}>
+          <div className="hub-modal-box" onClick={(e) => e.stopPropagation()}>
+            <div className="hub-modal-top">
+              <h3 className="hub-modal-heading">Join Multiplayer Room</h3>
               <button
                 type="button"
                 onClick={() => setIsJoinModalOpen(false)}
-                className="modal-close-btn"
-                aria-label="Close"
+                className="hub-modal-close"
+                aria-label="Close dialog"
               >
                 ✕
               </button>
             </div>
 
-            <form onSubmit={handleJoinSubmit} className="modal-form">
-              <div className="form-group">
-                <label htmlFor="join-room-code">Room Invite Code</label>
+            <form onSubmit={handleJoinSubmit} className="hub-modal-form">
+              <div className="modal-field-group">
+                <label htmlFor="join-room-code" className="modal-label">Room Code</label>
                 <input
                   id="join-room-code"
                   ref={joinInputRef}
@@ -298,18 +292,18 @@ export const ArcadeHub: React.FC = () => {
                     setJoinCode(e.target.value.toUpperCase());
                     setJoinError('');
                   }}
-                  className="modal-code-field"
+                  className="modal-input modal-code-input"
                 />
-                {joinError && <span className="modal-error-msg">{joinError}</span>}
+                {joinError && <span className="modal-field-error">{joinError}</span>}
               </div>
 
-              <div className="form-group">
-                <label htmlFor="select-game-target">Game Target</label>
+              <div className="modal-field-group">
+                <label htmlFor="select-game-target" className="modal-label">Game</label>
                 <select
                   id="select-game-target"
                   value={selectedGameForJoin}
                   onChange={(e) => setSelectedGameForJoin(e.target.value)}
-                  className="modal-select-field"
+                  className="modal-input modal-select"
                 >
                   {multiplayerGames.map((g) => (
                     <option key={g.id} value={g.id}>
@@ -319,15 +313,15 @@ export const ArcadeHub: React.FC = () => {
                 </select>
               </div>
 
-              <div className="modal-actions-row">
+              <div className="modal-btn-row">
                 <button
                   type="button"
                   onClick={() => setIsJoinModalOpen(false)}
-                  className="modal-cancel-btn"
+                  className="modal-btn modal-btn-cancel"
                 >
                   Cancel
                 </button>
-                <button type="submit" className="modal-submit-btn">
+                <button type="submit" className="modal-btn modal-btn-submit">
                   Connect &rarr;
                 </button>
               </div>
@@ -339,90 +333,72 @@ export const ArcadeHub: React.FC = () => {
       <style>{`
         .games-console-container {
           width: 100%;
-          max-width: 1140px;
+          max-width: 1120px;
           margin: 0 auto;
-          padding: 8px 0 24px 0;
+          padding: 8px 0 40px 0;
           display: flex;
           flex-direction: column;
-          gap: 16px;
+          gap: 24px;
         }
 
-        /* Top Command Header */
-        .console-header-strip {
+        /* Page Header */
+        .hub-page-header {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .hub-title-block {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+
+        .hub-title-row {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+
+        .hub-main-title {
+          font-size: 26px;
+          font-weight: 800;
+          letter-spacing: -0.025em;
+          color: var(--text-primary);
+          margin: 0;
+          line-height: 1.2;
+        }
+
+        .hub-count-tag {
+          font-size: 11px;
+          font-weight: 700;
+          color: var(--text-muted);
+          background: var(--surface-sunken);
+          border: 1px solid var(--border-subtle);
+          padding: 2px 8px;
+          border-radius: var(--radius-full);
+        }
+
+        .hub-lead-text {
+          font-size: 14px;
+          color: var(--text-muted);
+          margin: 0;
+          line-height: 1.4;
+        }
+
+        /* Toolbar */
+        .hub-toolbar {
           display: flex;
           align-items: center;
           justify-content: space-between;
           flex-wrap: wrap;
-          gap: 14px;
-          padding: 12px 18px;
-          background: var(--surface-raised);
-          border: 1px solid var(--border-subtle);
-          border-radius: var(--radius-lg);
-          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+          gap: 12px;
+          padding-bottom: 8px;
+          border-bottom: 1px solid var(--border-subtle);
         }
 
-        .header-brand-block {
-          display: flex;
-          flex-direction: column;
-          gap: 2px;
-        }
-
-        .brand-title-row {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-        }
-
-        .live-status-dot {
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          background: #10b981;
-          box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
-          animation: statusGlow 2s infinite ease-in-out;
-        }
-
-        @keyframes statusGlow {
-          0%, 100% { opacity: 1; transform: scale(1); }
-          50% { opacity: 0.6; transform: scale(0.9); }
-        }
-
-        .console-title {
-          font-size: 1.35rem;
-          font-weight: 850;
-          letter-spacing: -0.025em;
-          margin: 0;
-          color: var(--text-primary);
-          line-height: 1.2;
-        }
-
-        .count-badge {
-          font-size: 11px;
-          font-weight: 750;
-          color: var(--accent-default);
-          background: color-mix(in srgb, var(--accent-default) 12%, transparent);
-          border: 1px solid color-mix(in srgb, var(--accent-default) 28%, transparent);
-          padding: 2px 7px;
-          border-radius: var(--radius-full);
-          letter-spacing: 0.02em;
-        }
-
-        .console-subtitle {
-          font-size: 12px;
-          color: var(--text-muted);
-          margin: 0;
-        }
-
-        /* Actions & Filter Group */
-        .header-actions-group {
-          display: flex;
-          align-items: center;
-          flex-wrap: wrap;
-          gap: 10px;
-        }
-
-        /* Tabs */
-        .filter-pill-nav {
+        /* Segmented Control */
+        .hub-segmented-control {
           display: flex;
           background: var(--surface-sunken);
           border: 1px solid var(--border-subtle);
@@ -431,78 +407,75 @@ export const ArcadeHub: React.FC = () => {
           gap: 2px;
         }
 
-        .pill-tab {
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
+        .segmented-tab {
           background: transparent;
           border: none;
           color: var(--text-muted);
-          font-size: 12px;
-          font-weight: 700;
-          padding: 5px 11px;
+          font-size: 12.5px;
+          font-weight: 650;
+          padding: 6px 14px;
           border-radius: var(--radius-sm);
           cursor: pointer;
           transition: all 0.15s ease;
         }
 
-        .pill-tab:hover {
+        .segmented-tab:hover {
           color: var(--text-primary);
         }
 
-        .pill-tab.active {
+        .segmented-tab.is-active {
           background: var(--surface-raised);
           color: var(--text-primary);
-          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
         }
 
-        .tab-count {
-          font-size: 10px;
-          opacity: 0.75;
-          background: var(--surface-sunken);
-          padding: 1px 5px;
-          border-radius: var(--radius-full);
-        }
-
-        /* Search Input */
-        .search-box-wrap {
+        /* Action cluster */
+        .hub-actions-cluster {
           display: flex;
           align-items: center;
-          background: var(--surface-sunken);
+          gap: 8px;
+          flex-wrap: wrap;
+        }
+
+        /* Search input */
+        .hub-search-field {
+          display: flex;
+          align-items: center;
+          background: var(--surface-raised);
           border: 1px solid var(--border-subtle);
           border-radius: var(--radius-md);
           padding: 0 10px;
           height: 34px;
-          width: 220px;
-          transition: border-color 0.15s;
+          width: 210px;
+          transition: border-color 0.15s, box-shadow 0.15s;
         }
 
-        .search-box-wrap:focus-within {
+        .hub-search-field:focus-within {
           border-color: var(--accent-default);
-          background: var(--surface-raised);
+          box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.15);
         }
 
-        .search-icon {
+        .hub-search-svg {
           color: var(--text-muted);
           margin-right: 6px;
           flex-shrink: 0;
         }
 
-        .console-search-input {
+        .hub-search-input {
           background: transparent;
           border: none;
           outline: none;
-          font-size: 12px;
+          font-size: 12.5px;
           color: var(--text-primary);
           width: 100%;
         }
 
-        .console-search-input::placeholder {
+        .hub-search-input::placeholder {
           color: var(--text-muted);
           opacity: 0.7;
         }
 
-        .clear-search-btn {
+        .hub-clear-search {
           background: transparent;
           border: none;
           color: var(--text-muted);
@@ -511,346 +484,252 @@ export const ArcadeHub: React.FC = () => {
           padding: 2px 4px;
         }
 
-        /* Action Buttons */
-        .action-buttons-wrap {
-          display: flex;
-          align-items: center;
-          gap: 6px;
-        }
-
-        .action-btn {
+        /* Action buttons */
+        .hub-btn {
           display: inline-flex;
           align-items: center;
           gap: 6px;
           height: 34px;
           padding: 0 12px;
           border-radius: var(--radius-md);
-          font-size: 12px;
-          font-weight: 750;
+          font-size: 12.5px;
+          font-weight: 650;
           cursor: pointer;
           transition: all 0.15s ease;
-          border: 1px solid var(--border-subtle);
+          border: 1px solid transparent;
         }
 
-        .random-btn {
-          background: var(--surface-sunken);
+        .hub-btn-subtle {
+          background: var(--surface-raised);
+          border-color: var(--border-subtle);
+          color: var(--text-secondary);
+        }
+
+        .hub-btn-subtle:hover {
           color: var(--text-primary);
-        }
-        .random-btn:hover {
-          border-color: var(--accent-default);
-          background: var(--surface-base);
-          transform: translateY(-1px);
+          border-color: var(--border-default);
+          background: var(--surface-sunken);
         }
 
-        .join-btn {
+        .hub-btn-primary {
           background: var(--accent-default);
-          border-color: var(--accent-default);
           color: #ffffff;
         }
-        .join-btn:hover {
+
+        .hub-btn-primary:hover {
           background: var(--accent-hover);
-          transform: translateY(-1px);
-          box-shadow: 0 2px 8px color-mix(in srgb, var(--accent-default) 40%, transparent);
         }
 
-        /* Main Game Grid */
-        .games-grid-viewport {
+        /* Grid */
+        .hub-grid-wrapper {
           width: 100%;
         }
 
-        .game-cards-grid {
+        .hub-cards-grid {
           display: grid;
-          grid-template-columns: repeat(5, 1fr);
-          gap: 12px;
+          grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+          gap: 16px;
         }
 
-        @media (max-width: 1100px) {
-          .game-cards-grid {
-            grid-template-columns: repeat(3, 1fr);
-          }
-        }
-
-        @media (max-width: 768px) {
-          .console-header-strip {
-            flex-direction: column;
-            align-items: stretch;
-            padding: 12px;
-          }
-          .header-actions-group {
-            flex-direction: column;
-            align-items: stretch;
-          }
-          .filter-pill-nav {
-            width: 100%;
-            justify-content: space-between;
-          }
-          .pill-tab {
-            flex: 1;
-            justify-content: center;
-          }
-          .search-box-wrap {
-            width: 100%;
-            box-sizing: border-box;
-          }
-          .action-buttons-wrap {
-            width: 100%;
-          }
-          .action-btn {
-            flex: 1;
-            justify-content: center;
-          }
-          .game-cards-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .game-cards-grid {
-            grid-template-columns: 1fr;
-          }
-        }
-
-        /* Compact High-Density Game Card */
-        .game-launcher-card {
-          position: relative;
+        /* Modern Game Card */
+        .modern-game-card {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
           background: var(--surface-raised);
-          border: 1px solid var(--border-default);
+          border: 1px solid var(--border-subtle);
           border-radius: var(--radius-lg);
-          padding: 14px 14px 12px 14px;
+          padding: 18px;
           text-decoration: none;
           color: inherit;
-          min-height: 165px;
+          min-height: 170px;
           box-sizing: border-box;
-          overflow: hidden;
-          transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+          transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+          position: relative;
         }
 
-        .card-top-accent {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 3px;
-          background: var(--accent);
-          opacity: 0.75;
-          transition: opacity 0.18s, height 0.18s;
+        .modern-game-card:hover {
+          transform: translateY(-2px);
+          border-color: var(--accent-default);
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
         }
 
-        .game-launcher-card:hover {
-          transform: translateY(-3px);
-          border-color: var(--accent);
-          box-shadow: 0 10px 24px -6px var(--accent-glow);
-        }
-
-        .game-launcher-card:hover .card-top-accent {
-          opacity: 1;
-          height: 4px;
-        }
-
-        /* Head Row */
-        .card-head-row {
+        /* Card Top */
+        .card-top-row {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          margin-bottom: 8px;
+          margin-bottom: 12px;
         }
 
-        .game-icon-box {
-          width: 38px;
-          height: 38px;
+        .card-icon-container {
+          width: 36px;
+          height: 36px;
           border-radius: var(--radius-md);
-          background: var(--accent-bg);
-          border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+          background: var(--surface-sunken);
+          border: 1px solid var(--border-subtle);
           display: flex;
           align-items: center;
           justify-content: center;
           flex-shrink: 0;
-          transition: transform 0.2s ease;
+          transition: transform 0.15s ease;
         }
 
-        .game-launcher-card:hover .game-icon-box {
-          transform: scale(1.08);
+        .modern-game-card:hover .card-icon-container {
+          transform: scale(1.05);
         }
 
-        .icon-symbol {
-          font-size: 19px;
+        .card-icon {
+          font-size: 18px;
           line-height: 1;
         }
 
-        .badge-row {
+        .card-badge-wrap {
           display: flex;
           align-items: center;
-          gap: 4px;
-          flex-wrap: wrap;
-          justify-content: flex-end;
         }
 
-        .badge-pill {
-          font-size: 10px;
-          font-weight: 750;
-          padding: 2px 6px;
+        .mode-pill {
+          font-size: 11px;
+          font-weight: 650;
+          padding: 2px 8px;
           border-radius: var(--radius-full);
           letter-spacing: 0.02em;
         }
 
-        .new-tag {
-          background: #ef4444;
-          color: #ffffff;
+        .pill-multi {
+          color: var(--accent-default);
+          background: rgba(217, 119, 6, 0.1);
         }
 
-        .mode-tag.solo {
+        .pill-solo {
+          color: var(--text-muted);
           background: var(--surface-sunken);
-          color: var(--text-muted);
-          border: 1px solid var(--border-subtle);
         }
 
-        .mode-tag.multiplayer {
-          background: color-mix(in srgb, var(--accent) 15%, transparent);
-          color: var(--accent);
-          border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
-        }
-
-        .time-tag {
-          background: transparent;
-          color: var(--text-muted);
-          opacity: 0.8;
-          font-size: 9.5px;
-        }
-
-        /* Title & Tagline */
-        .card-title-group {
-          margin: 4px 0 12px 0;
+        /* Card Body */
+        .card-body {
           display: flex;
           flex-direction: column;
-          gap: 3px;
+          gap: 4px;
+          margin-bottom: 14px;
+          flex: 1;
         }
 
-        .game-name {
-          font-size: 15px;
-          font-weight: 800;
-          margin: 0;
+        .card-title {
+          font-size: 15.5px;
+          font-weight: 750;
           color: var(--text-primary);
+          margin: 0;
           letter-spacing: -0.015em;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
+          line-height: 1.3;
         }
 
-        .game-tagline {
-          font-size: 11.5px;
+        .card-description {
+          font-size: 12.5px;
           color: var(--text-muted);
           margin: 0;
-          line-height: 1.35;
+          line-height: 1.45;
           display: -webkit-box;
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
           overflow: hidden;
         }
 
-        /* Footer Row */
-        .card-footer-row {
+        /* Card Footer */
+        .card-footer {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding-top: 8px;
+          padding-top: 12px;
           border-top: 1px solid var(--border-subtle);
+          font-size: 11.5px;
         }
 
-        .stats-or-tags {
+        .card-meta {
           display: flex;
           align-items: center;
-          font-size: 11px;
-        }
-
-        .stat-pill {
-          font-size: 10.5px;
-          font-weight: 750;
-          padding: 2px 5px;
-          border-radius: 4px;
-        }
-
-        .stat-pill.best {
-          background: rgba(245, 158, 11, 0.12);
-          color: #f59e0b;
-        }
-
-        .stat-pill.streak {
-          background: rgba(239, 68, 68, 0.12);
-          color: #ef4444;
-        }
-
-        .primary-tag {
-          font-size: 10.5px;
+          gap: 6px;
           color: var(--text-muted);
-          opacity: 0.75;
+        }
+
+        .meta-record {
+          color: var(--accent-default);
+          font-weight: 700;
           font-family: var(--font-mono, monospace);
         }
 
-        .play-cta-chip {
+        .meta-time {
+          color: var(--text-muted);
+        }
+
+        .meta-dot {
+          opacity: 0.4;
+          font-size: 9px;
+        }
+
+        .meta-tag {
+          font-family: var(--font-mono, monospace);
+          opacity: 0.75;
+        }
+
+        .card-arrow-cta {
           display: inline-flex;
           align-items: center;
           gap: 4px;
-          font-size: 11px;
-          font-weight: 800;
+          font-size: 12px;
+          font-weight: 700;
           color: var(--text-muted);
-          padding: 3px 8px;
-          border-radius: var(--radius-sm);
-          background: var(--surface-sunken);
-          border: 1px solid var(--border-subtle);
-          transition: all 0.15s ease;
+          transition: color 0.15s ease, transform 0.15s ease;
         }
 
-        .game-launcher-card:hover .play-cta-chip {
-          background: var(--accent);
-          color: #ffffff;
-          border-color: var(--accent);
-          transform: scale(1.04);
+        .modern-game-card:hover .card-arrow-cta {
+          color: var(--accent-default);
         }
 
-        /* Empty state */
-        .empty-state-box {
+        .cta-arrow {
+          transition: transform 0.15s ease;
+        }
+
+        .modern-game-card:hover .cta-arrow {
+          transform: translateX(3px);
+        }
+
+        /* Empty State */
+        .hub-empty-state {
           text-align: center;
           padding: 48px 16px;
           background: var(--surface-raised);
-          border: 1px dashed var(--border-default);
+          border: 1px dashed var(--border-subtle);
           border-radius: var(--radius-lg);
         }
 
-        .empty-icon {
-          font-size: 36px;
-        }
-
-        .empty-state-box h3 {
-          margin: 12px 0 6px 0;
-          color: var(--text-primary);
-        }
-
-        .empty-state-box p {
+        .empty-title {
+          font-size: 14px;
           color: var(--text-muted);
-          font-size: 13px;
-          margin: 0 0 16px 0;
+          margin: 0 0 12px 0;
         }
 
-        .reset-filters-btn {
-          background: var(--accent-default);
-          color: #ffffff;
-          border: none;
-          padding: 8px 18px;
+        .empty-reset-btn {
+          background: transparent;
+          border: 1px solid var(--border-default);
+          color: var(--text-primary);
+          padding: 6px 14px;
           border-radius: var(--radius-md);
-          font-weight: 700;
           font-size: 12px;
+          font-weight: 650;
           cursor: pointer;
         }
 
-        /* Modal Backdrop & Card */
-        .modal-backdrop {
+        .empty-reset-btn:hover {
+          border-color: var(--accent-default);
+        }
+
+        /* Modal */
+        .hub-modal-overlay {
           position: fixed;
           inset: 0;
-          background: rgba(0, 0, 0, 0.65);
+          background: rgba(0, 0, 0, 0.55);
           backdrop-filter: blur(4px);
           display: flex;
           align-items: center;
@@ -859,145 +738,158 @@ export const ArcadeHub: React.FC = () => {
           padding: 16px;
         }
 
-        .modal-card {
+        .hub-modal-box {
           background: var(--surface-raised);
-          border: 1px solid var(--border-default);
+          border: 1px solid var(--border-subtle);
           border-radius: var(--radius-xl);
           width: 100%;
-          max-width: 420px;
-          padding: 24px;
-          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-          animation: modalPop 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+          max-width: 400px;
+          padding: 22px;
+          box-shadow: 0 20px 48px rgba(0, 0, 0, 0.25);
         }
 
-        @keyframes modalPop {
-          from { opacity: 0; transform: scale(0.95) translateY(10px); }
-          to { opacity: 1; transform: scale(1) translateY(0); }
-        }
-
-        .modal-header {
+        .hub-modal-top {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          margin-bottom: 20px;
+          margin-bottom: 18px;
         }
 
-        .modal-title-row {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-
-        .modal-title-row h3 {
+        .hub-modal-heading {
           margin: 0;
           font-size: 16px;
+          font-weight: 750;
           color: var(--text-primary);
         }
 
-        .modal-icon {
-          font-size: 18px;
-        }
-
-        .modal-close-btn {
+        .hub-modal-close {
           background: transparent;
           border: none;
-          font-size: 16px;
+          font-size: 14px;
           color: var(--text-muted);
           cursor: pointer;
-          padding: 4px 8px;
+          padding: 4px;
           border-radius: 4px;
         }
-        .modal-close-btn:hover {
+
+        .hub-modal-close:hover {
           color: var(--text-primary);
-          background: var(--surface-sunken);
         }
 
-        .modal-form {
+        .hub-modal-form {
           display: flex;
           flex-direction: column;
-          gap: 16px;
+          gap: 14px;
         }
 
-        .form-group {
+        .modal-field-group {
           display: flex;
           flex-direction: column;
-          gap: 6px;
+          gap: 5px;
         }
 
-        .form-group label {
-          font-size: 12px;
+        .modal-label {
+          font-size: 11.5px;
           font-weight: 700;
           color: var(--text-muted);
-          letter-spacing: 0.02em;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
         }
 
-        .modal-code-field {
+        .modal-input {
           background: var(--surface-sunken);
-          border: 1px solid var(--border-default);
+          border: 1px solid var(--border-subtle);
           color: var(--text-primary);
-          font-size: 18px;
-          font-weight: 800;
-          letter-spacing: 0.15em;
-          text-align: center;
-          padding: 10px;
+          padding: 8px 12px;
           border-radius: var(--radius-md);
           outline: none;
-          text-transform: uppercase;
+          font-size: 13px;
         }
-        .modal-code-field:focus {
+
+        .modal-input:focus {
           border-color: var(--accent-default);
         }
 
-        .modal-select-field {
-          background: var(--surface-sunken);
-          border: 1px solid var(--border-default);
-          color: var(--text-primary);
-          font-size: 13px;
-          padding: 10px;
-          border-radius: var(--radius-md);
-          outline: none;
+        .modal-code-input {
+          font-size: 16px;
+          font-weight: 800;
+          letter-spacing: 0.12em;
+          text-align: center;
+          text-transform: uppercase;
         }
 
-        .modal-error-msg {
+        .modal-select {
+          cursor: pointer;
+        }
+
+        .modal-field-error {
           font-size: 11px;
           color: #ef4444;
-          font-weight: 600;
         }
 
-        .modal-actions-row {
+        .modal-btn-row {
           display: flex;
           align-items: center;
           justify-content: flex-end;
           gap: 8px;
-          margin-top: 8px;
+          margin-top: 6px;
         }
 
-        .modal-cancel-btn {
+        .modal-btn {
+          padding: 7px 14px;
+          border-radius: var(--radius-md);
+          font-size: 12.5px;
+          font-weight: 650;
+          cursor: pointer;
+          border: none;
+        }
+
+        .modal-btn-cancel {
           background: transparent;
           border: 1px solid var(--border-subtle);
           color: var(--text-muted);
-          padding: 8px 16px;
-          border-radius: var(--radius-md);
-          font-size: 12px;
-          font-weight: 600;
-          cursor: pointer;
         }
-        .modal-cancel-btn:hover {
+
+        .modal-btn-cancel:hover {
           color: var(--text-primary);
         }
 
-        .modal-submit-btn {
+        .modal-btn-submit {
           background: var(--accent-default);
-          border: none;
           color: #ffffff;
-          padding: 8px 18px;
-          border-radius: var(--radius-md);
-          font-size: 12px;
-          font-weight: 750;
-          cursor: pointer;
         }
-        .modal-submit-btn:hover {
+
+        .modal-btn-submit:hover {
           background: var(--accent-hover);
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+          .hub-toolbar {
+            flex-direction: column;
+            align-items: stretch;
+          }
+          .hub-segmented-control {
+            width: 100%;
+          }
+          .segmented-tab {
+            flex: 1;
+            text-align: center;
+          }
+          .hub-actions-cluster {
+            width: 100%;
+          }
+          .hub-search-field {
+            width: 100%;
+            box-sizing: border-box;
+          }
+          .hub-btn {
+            flex: 1;
+            justify-content: center;
+          }
+          .hub-cards-grid {
+            grid-template-columns: 1fr;
+          }
         }
       `}</style>
     </div>

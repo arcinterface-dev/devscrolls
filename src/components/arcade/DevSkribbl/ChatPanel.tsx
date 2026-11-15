@@ -19,7 +19,7 @@ interface ChatPanelProps {
   onSendReaction?: (emoji: string) => void;
 }
 
-const REACTIONS = ['🔥', '😂', '👏', '🤔', '💩', '💀', '🚀'];
+const REACTIONS = ['🔥', '😂', '👏', '🤔', '💀', '🚀'];
 
 export const ChatPanel: React.FC<ChatPanelProps> = ({
   messages,
@@ -48,66 +48,94 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({
   };
 
   return (
-    <div className="chat-panel-container">
-      <div className="chat-header">
-        <span className="chat-title">CHAT & GUESSES</span>
-        {hasGuessedCorrectly && <span className="guessed-status">✓ Solved</span>}
+    <div className="modern-chat-panel">
+      {/* Header */}
+      <div className="chat-panel-header">
+        <div className="header-left">
+          <span className="chat-header-title">Guesses</span>
+          <span className="live-dot" title="Live chat active" />
+        </div>
+        {hasGuessedCorrectly && (
+          <span className="solved-pill">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            Solved
+          </span>
+        )}
       </div>
 
+      {/* Message Feed */}
       <div className="messages-stream">
-        {messages.map((msg) => (
-          <div
-            key={msg.id}
-            className={`chat-msg ${
-              msg.isCorrect
-                ? 'msg-correct'
-                : msg.isClose
-                ? 'msg-close'
-                : msg.isSystem
-                ? 'msg-system'
-                : msg.isSolvedChat
-                ? 'msg-solved-chat'
-                : ''
-            }`}
-          >
-            {msg.isSystem ? (
-              <span className="system-text">📢 {msg.text}</span>
-            ) : msg.isClose ? (
-              <span className="close-text">🤏 <strong>{msg.text}</strong> is super close!</span>
-            ) : msg.isCorrect ? (
-              <span className="correct-text">🎉 <strong>{msg.senderName}</strong> guessed the word!</span>
-            ) : msg.isSolvedChat ? (
-              <span>
-                <span className="solved-badge">SOLVED</span>
-                <strong className="sender-name">{msg.senderName}:</strong> {msg.text}
-              </span>
-            ) : (
-              <span>
-                <strong className="sender-name">{msg.senderName}:</strong> {msg.text}
-              </span>
-            )}
+        {messages.length === 0 ? (
+          <div className="chat-empty-state">
+            <span>Type your guess below...</span>
           </div>
-        ))}
+        ) : (
+          messages.map((msg) => {
+            if (msg.isSystem) {
+              return (
+                <div key={msg.id} className="chat-row row-system">
+                  <span className="system-icon">📢</span>
+                  <span className="system-text">{msg.text}</span>
+                </div>
+              );
+            }
+
+            if (msg.isCorrect) {
+              return (
+                <div key={msg.id} className="chat-row row-correct">
+                  <span className="correct-icon">🎉</span>
+                  <span className="correct-text">
+                    <strong>{msg.senderName}</strong> guessed the word!
+                  </span>
+                </div>
+              );
+            }
+
+            if (msg.isClose) {
+              return (
+                <div key={msg.id} className="chat-row row-close">
+                  <span className="close-icon">🤏</span>
+                  <span className="close-text">
+                    &ldquo;{msg.text}&rdquo; is super close!
+                  </span>
+                </div>
+              );
+            }
+
+            return (
+              <div
+                key={msg.id}
+                className={`chat-row ${msg.isSolvedChat ? 'row-solver-chat' : ''}`}
+              >
+                {msg.isSolvedChat && <span className="solver-tag">Solver</span>}
+                <span className="msg-sender">{msg.senderName}</span>
+                <span className="msg-text">{msg.text}</span>
+              </div>
+            );
+          })
+        )}
         <div ref={messagesEndRef} />
       </div>
 
-      {/* Floating Reaction Bar */}
-      <div className="reaction-strip">
-        {REACTIONS.map((em) => (
+      {/* Reactions Bar (Compact Pill Row) */}
+      <div className="compact-reactions-row">
+        {REACTIONS.map((emoji) => (
           <button
-            key={em}
+            key={emoji}
             type="button"
-            onClick={() => handleReactionClick(em)}
-            className="reaction-btn"
-            title={`Send ${em}`}
+            onClick={() => handleReactionClick(emoji)}
+            className="mini-rx-btn"
+            title={`React ${emoji}`}
           >
-            {em}
+            {emoji}
           </button>
         ))}
       </div>
 
-      {/* Input Form */}
-      <form onSubmit={handleSubmit} className="chat-input-bar">
+      {/* Input Bar */}
+      <form onSubmit={handleSubmit} className="modern-chat-form">
         <input
           type="text"
           value={inputText}
@@ -115,195 +143,261 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({
           disabled={isArtist}
           placeholder={
             isArtist
-              ? 'You are drawing! You cannot guess.'
+              ? 'You are drawing! No guessing.'
               : hasGuessedCorrectly
               ? 'Chat with other solvers...'
-              : 'Type your guess here...'
+              : 'Type a guess...'
           }
           onChange={(e) => setInputText(e.target.value)}
-          className="chat-field"
+          className="chat-text-input"
         />
         <button
           type="submit"
           disabled={isArtist || !inputText.trim()}
-          className="chat-send-btn"
+          className="chat-submit-btn"
+          aria-label="Send guess"
         >
-          Send
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13" />
+            <polygon points="22 2 15 22 11 13 2 9 22 2" />
+          </svg>
         </button>
       </form>
 
       <style>{`
-        .chat-panel-container {
+        .modern-chat-panel {
           background: var(--surface-raised);
-          border: 1px solid var(--border-default);
-          border-radius: var(--radius-md);
+          border: 1px solid var(--border-subtle);
+          border-radius: var(--radius-lg);
           display: flex;
           flex-direction: column;
           height: 100%;
           min-height: 240px;
           overflow: hidden;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
         }
 
-        .chat-header {
+        .chat-panel-header {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 8px 12px;
-          background: var(--surface-sunken);
+          padding: 10px 14px;
           border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .header-left {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+
+        .chat-header-title {
           font-size: 11px;
-        }
-
-        .chat-title {
-          font-weight: 800;
+          font-weight: 750;
           color: var(--text-muted);
-          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          letter-spacing: 0.06em;
         }
 
-        .guessed-status {
-          font-size: 10px;
-          font-weight: 800;
+        .live-dot {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: #10b981;
+          display: inline-block;
+          animation: pulse 2s infinite;
+        }
+
+        .solved-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+          font-size: 10.5px;
+          font-weight: 700;
           color: #10b981;
-          background: rgba(16, 185, 129, 0.15);
-          padding: 2px 6px;
-          border-radius: 4px;
+          background: rgba(16, 185, 129, 0.12);
+          padding: 2px 8px;
+          border-radius: var(--radius-full);
         }
 
+        /* Stream */
         .messages-stream {
           flex: 1;
-          padding: 8px;
+          padding: 8px 10px;
           overflow-y: auto;
           display: flex;
           flex-direction: column;
-          gap: 6px;
-          font-size: 12.5px;
+          gap: 4px;
+          font-size: 13px;
         }
 
-        .chat-msg {
-          padding: 6px 9px;
-          border-radius: var(--radius-sm);
-          background: var(--surface-sunken);
-          color: var(--text-primary);
-          word-break: break-word;
-          line-height: 1.4;
-        }
-
-        .sender-name {
-          color: var(--accent-default);
-          font-weight: 750;
-          margin-right: 4px;
-        }
-
-        .msg-correct {
-          background: rgba(16, 185, 129, 0.12);
-          border: 1px solid rgba(16, 185, 129, 0.35);
-          color: #10b981;
-          font-weight: 700;
-        }
-
-        .msg-close {
-          background: rgba(245, 158, 11, 0.12);
-          border: 1px solid rgba(245, 158, 11, 0.35);
-          color: #d97706;
-          font-weight: 700;
-          animation: pulse 1s ease-in-out;
-        }
-
-        .msg-solved-chat {
-          background: rgba(59, 130, 246, 0.1);
-          border-left: 2px solid #3b82f6;
-          color: var(--text-primary);
-        }
-
-        .solved-badge {
-          background: #3b82f6;
-          color: #ffffff;
-          font-size: 9px;
-          font-weight: 800;
-          padding: 1px 4px;
-          border-radius: 3px;
-          margin-right: 6px;
-        }
-
-        .msg-system {
-          background: var(--surface-sunken);
+        .chat-empty-state {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           color: var(--text-muted);
-          font-size: 11.5px;
+          font-size: 12px;
           font-style: italic;
         }
 
-        .reaction-strip {
+        .chat-row {
+          display: flex;
+          align-items: baseline;
+          gap: 6px;
+          padding: 3px 6px;
+          border-radius: var(--radius-sm);
+          line-height: 1.4;
+          word-break: break-word;
+          transition: background 0.1s;
+        }
+
+        .chat-row:hover {
+          background: var(--surface-sunken);
+        }
+
+        .msg-sender {
+          font-weight: 700;
+          color: var(--text-secondary);
+          font-size: 12px;
+          flex-shrink: 0;
+        }
+
+        .msg-sender::after {
+          content: ':';
+        }
+
+        .msg-text {
+          color: var(--text-primary);
+        }
+
+        /* Special message types */
+        .row-correct {
+          background: rgba(16, 185, 129, 0.1);
+          border-left: 2px solid #10b981;
+          color: #10b981;
+          padding: 4px 8px;
+          font-size: 12.5px;
+        }
+
+        .correct-text strong {
+          color: #10b981;
+        }
+
+        .row-close {
+          background: rgba(245, 158, 11, 0.1);
+          border-left: 2px solid #f59e0b;
+          color: #d97706;
+          padding: 4px 8px;
+          font-size: 12.5px;
+        }
+
+        .row-system {
+          color: var(--text-muted);
+          font-size: 11.5px;
+          font-style: italic;
+          padding: 2px 6px;
+        }
+
+        .row-solver-chat {
+          background: rgba(59, 130, 246, 0.06);
+          border-left: 2px solid #3b82f6;
+        }
+
+        .solver-tag {
+          font-size: 9px;
+          font-weight: 750;
+          text-transform: uppercase;
+          color: #3b82f6;
+          background: rgba(59, 130, 246, 0.15);
+          padding: 1px 4px;
+          border-radius: 3px;
+          margin-right: 2px;
+        }
+
+        /* Reactions */
+        .compact-reactions-row {
           display: flex;
           align-items: center;
           justify-content: space-around;
-          background: var(--surface-sunken);
+          padding: 4px 8px;
           border-top: 1px solid var(--border-subtle);
-          padding: 4px 6px;
+          background: var(--surface-sunken);
         }
 
-        .reaction-btn {
+        .mini-rx-btn {
           background: transparent;
           border: none;
-          font-size: 16px;
+          font-size: 15px;
           cursor: pointer;
-          padding: 3px 6px;
-          border-radius: 4px;
-          transition: transform 0.15s ease, background 0.15s;
-        }
-        .reaction-btn:hover {
-          transform: scale(1.25);
-          background: var(--surface-raised);
-        }
-
-        .chat-input-bar {
-          display: flex;
-          gap: 6px;
-          padding: 8px;
-          background: var(--surface-sunken);
-          border-top: 1px solid var(--border-subtle);
-        }
-
-        .chat-field {
-          flex: 1;
-          background: var(--surface-raised);
-          border: 1px solid var(--border-default);
-          color: var(--text-primary);
-          padding: 7px 10px;
+          padding: 2px 6px;
           border-radius: var(--radius-sm);
+          transition: transform 0.15s, background 0.15s;
+          line-height: 1;
+        }
+
+        .mini-rx-btn:hover {
+          transform: scale(1.2);
+          background: var(--surface-raised);
+        }
+
+        /* Input Form */
+        .modern-chat-form {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          padding: 8px 10px;
+          border-top: 1px solid var(--border-subtle);
+          background: var(--surface-raised);
+        }
+
+        .chat-text-input {
+          flex: 1;
+          background: var(--surface-sunken);
+          border: 1px solid var(--border-subtle);
+          color: var(--text-primary);
+          padding: 7px 12px;
+          border-radius: var(--radius-full);
           font-size: 12.5px;
           outline: none;
+          transition: border-color 0.15s, box-shadow 0.15s;
         }
 
-        .chat-field:focus {
+        .chat-text-input:focus {
           border-color: var(--accent-default);
+          box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.15);
         }
 
-        .chat-field:disabled {
-          opacity: 0.5;
+        .chat-text-input:disabled {
+          opacity: 0.6;
           cursor: not-allowed;
         }
 
-        .chat-send-btn {
-          padding: 7px 14px;
+        .chat-submit-btn {
+          width: 32px;
+          height: 32px;
+          border-radius: var(--radius-full);
           background: var(--accent-default);
           color: #ffffff;
           border: none;
-          border-radius: var(--radius-sm);
-          font-size: 12.5px;
-          font-weight: 750;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           cursor: pointer;
-          transition: filter 0.15s;
-        }
-        .chat-send-btn:hover:not(:disabled) {
-          filter: brightness(1.1);
+          transition: opacity 0.15s, transform 0.1s;
+          flex-shrink: 0;
+          padding: 0;
         }
 
-        .chat-send-btn:disabled {
-          opacity: 0.5;
+        .chat-submit-btn:hover:not(:disabled) {
+          transform: scale(1.05);
+        }
+
+        .chat-submit-btn:disabled {
+          opacity: 0.4;
           cursor: not-allowed;
         }
       `}</style>
     </div>
   );
 };
-

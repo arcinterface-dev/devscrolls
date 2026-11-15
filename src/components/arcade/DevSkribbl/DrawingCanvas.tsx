@@ -467,12 +467,12 @@ export const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
           width: 100%;
           min-height: 180px;
           height: 100%;
-          background: #020617;
+          background: #ffffff;
           border-radius: var(--radius-lg);
-          border: 1px solid var(--border-default);
+          border: 1px solid var(--border-subtle);
           overflow: hidden;
           position: relative;
-          box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
           touch-action: none;
           -webkit-touch-callout: none;
           user-select: none;

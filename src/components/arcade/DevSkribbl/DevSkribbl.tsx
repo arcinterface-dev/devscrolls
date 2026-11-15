@@ -1135,8 +1135,8 @@ export const DevSkribbl: React.FC = () => {
           height: 100%;
           display: flex;
           flex-direction: column;
-          gap: 10px;
-          padding: 12px;
+          gap: 12px;
+          padding: 14px;
           box-sizing: border-box;
           max-width: 1280px;
           margin: 0 auto;
@@ -1144,21 +1144,25 @@ export const DevSkribbl: React.FC = () => {
         }
 
         .choosing-banner {
-          background: #8b5cf6;
-          color: #ffffff;
-          font-weight: 800;
+          background: rgba(139, 92, 246, 0.1);
+          color: #8b5cf6;
+          border: 1px solid rgba(139, 92, 246, 0.25);
+          font-weight: 700;
           font-size: 13px;
           text-align: center;
-          padding: 6px;
-          border-radius: var(--radius-sm);
-          animation: pulse 1s infinite;
+          padding: 8px 14px;
+          border-radius: var(--radius-lg);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
         }
 
         .skribbl-play-area {
           flex: 1;
           display: grid;
-          grid-template-columns: 200px 1fr 280px;
-          gap: 12px;
+          grid-template-columns: 210px 1fr 280px;
+          gap: 14px;
           min-height: 0;
           overflow: hidden;
         }
