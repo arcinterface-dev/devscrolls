@@ -9,9 +9,10 @@ from app.telegram.callbacks import handle_callback_query
 from app.telegram.handlers import handle_message
 
 logger = logging.getLogger(__name__)
-router = APIRouter(prefix="/webhooks", tags=["Webhooks"])
+router = APIRouter(tags=["Webhooks"])
 
-@router.post("/telegram")
+@router.post("/webhooks/telegram")
+@router.post("/api/telegram/webhook")
 async def telegram_webhook(
     request: Request,
     background_tasks: BackgroundTasks,
