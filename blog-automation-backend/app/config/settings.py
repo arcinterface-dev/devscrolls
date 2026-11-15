@@ -88,10 +88,25 @@ class Settings(BaseSettings):
     @field_validator("AUTHORIZED_TELEGRAM_USER_IDS", mode="before")
     @classmethod
     def parse_user_ids(cls, v):
+        if isinstance(v, int):
+            return [v]
         if isinstance(v, str):
-            if not v.strip():
+            v_str = v.strip()
+            if not v_str:
                 return []
-            return [int(uid.strip()) for uid in v.split(",") if uid.strip()]
+            if v_str.startswith("[") and v_str.endswith("]"):
+                import json
+                try:
+                    loaded = json.loads(v_str)
+                    if isinstance(loaded, list):
+                        return [int(x) for x in loaded]
+                    elif isinstance(loaded, int):
+                        return [loaded]
+                except Exception:
+                    pass
+            return [int(uid.strip()) for uid in v_str.split(",") if uid.strip()]
+        if isinstance(v, (list, tuple, set)):
+            return [int(x) for x in v]
         return v
 
     # -------------------------------------------------------------------------
