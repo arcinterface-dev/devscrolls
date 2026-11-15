@@ -287,3 +287,21 @@ BEGIN
     END LOOP;
 END;
 $$;
+
+-- ==============================================================================
+-- Schema Privileges & PostgREST Exposure
+-- Expose automation schema to Supabase PostgREST API so backend queries succeed
+-- ==============================================================================
+GRANT USAGE ON SCHEMA automation TO service_role, authenticator, anon;
+GRANT ALL ON ALL TABLES IN SCHEMA automation TO service_role;
+GRANT ALL ON ALL SEQUENCES IN SCHEMA automation TO service_role;
+GRANT ALL ON ALL ROUTINES IN SCHEMA automation TO service_role;
+
+ALTER DEFAULT PRIVILEGES IN SCHEMA automation GRANT ALL ON TABLES TO service_role;
+ALTER DEFAULT PRIVILEGES IN SCHEMA automation GRANT ALL ON SEQUENCES TO service_role;
+ALTER DEFAULT PRIVILEGES IN SCHEMA automation GRANT ALL ON ROUTINES TO service_role;
+
+-- Expose automation schema to PostgREST and reload schema cache
+ALTER ROLE authenticator SET pgrst.db_schemas = 'public, automation, storage, graphql_public';
+NOTIFY pgrst, 'reload config';
+NOTIFY pgrst, 'reload schema';
