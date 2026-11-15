@@ -1,0 +1,19 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: devscrolls-blog-automation
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=development
+      - LOG_LEVEL=DEBUG
+    env_file:
+      - .env
+    volumes:
+      - ./app:/app/app:ro
+      - ./knowledge_assets:/app/knowledge_assets:ro
+      - ./prompts:/app/prompts:ro
+    restart: unless-stopped
+
