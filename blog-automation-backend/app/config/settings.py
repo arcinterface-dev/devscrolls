@@ -131,6 +131,12 @@ class Settings(BaseSettings):
     GITHUB_REPO_NAME: str = Field(default="myblog", description="Target blog repository name")
     GITHUB_BRANCH: str = Field(default="main", description="Target branch for article publishing")
 
+    # -------------------------------------------------------------------------
+    # Kit (ConvertKit) Integration
+    # -------------------------------------------------------------------------
+    KIT_API_KEY: str = Field(default="", description="Kit (ConvertKit) API Key")
+    KIT_API_SECRET: str = Field(default="", description="Kit (ConvertKit) API Secret for broadcasts and subscribers")
+
     def get_provider_for_agent(self, agent_role: str) -> AIProviderType:
         """Returns the configured AI provider for a specific agent role,
         falling back to DEFAULT_AI_PROVIDER if no specific override is set.

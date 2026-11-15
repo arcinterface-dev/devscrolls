@@ -16,9 +16,11 @@ from app.telegram.bot_client import bot_client
 from app.telegram.keyboards import (
     get_audio_confirmation_keyboard,
     get_draft_review_keyboard,
+    get_draft_list_keyboard,
     get_transcript_review_keyboard,
 )
 from app.telegram.session_manager import session_manager
+from app.integrations.kit_client import kit_client
 
 logger = logging.getLogger(__name__)
 
@@ -73,6 +75,8 @@ async def handle_message(message: Dict[str, Any]) -> None:
             await _handle_cmd_cancel(chat_id, user_id)
         elif command == "/drafts":
             await _handle_cmd_drafts(chat_id)
+        elif command == "/subscribers":
+            await _handle_cmd_subscribers(chat_id)
         else:
             await bot_client.send_message(
                 chat_id=chat_id,
@@ -122,12 +126,14 @@ async def _handle_cmd_help(chat_id: int) -> None:
         "• /newblog — Start a fresh blog idea session\n"
         "• /status — Check the state of your active idea or background job\n"
         "• /cancel — Cancel the active session (prevents any AI spend)\n"
-        "• /drafts — List pending article drafts awaiting review\n"
+        "• /drafts — Open your interactive Idea Bank (view, polish, or publish drafts)\n"
+        "• /subscribers — Check your live Kit (ConvertKit) newsletter subscribers\n"
         "• /help — Show this help message\n\n"
         "<b>Tips for Voice Recordings:</b>\n"
         "• Speak naturally — share your personal perspective and pain points.\n"
         "• Include technical keywords and context (e.g. React 19, Astro, Redux re-renders).\n"
-        "• Don't worry about verbal slips: Gate 1 and Gate 2 allow easy re-recording or manual text editing!"
+        "• Don't worry about verbal slips: Gate 1 and Gate 2 allow easy re-recording or manual text editing!\n"
+        "• Save drafts to your offline Idea Bank anytime and publish when ready."
     )
     await bot_client.send_message(chat_id=chat_id, text=help_text)
 
@@ -195,23 +201,68 @@ async def _handle_cmd_cancel(chat_id: int, user_id: int) -> None:
 
 
 async def _handle_cmd_drafts(chat_id: int) -> None:
-    # Query pending drafts in Supabase
-    drafts = draft_repo._table().select("id, title, slug, status, current_version, created_at").eq("status", "pending_review").order("created_at", desc=True).limit(5).execute()
-    if not drafts.data:
+    """Displays the interactive Idea Bank containing all unpublished drafts."""
+    # Query unpublished drafts in Supabase (status: 'draft' or 'pending_review')
+    resp = draft_repo._table().select(
+        "id, title, slug, status, current_version, created_at"
+    ).in_("status", ["draft", "pending_review"]).order("created_at", desc=True).limit(10).execute()
+
+    drafts = resp.data or []
+    if not drafts:
         await bot_client.send_message(
             chat_id=chat_id,
-            text="No drafts currently awaiting review."
+            text=(
+                "📭 <b>Your Idea Bank is Empty</b>\n\n"
+                "You don't have any unpublished drafts yet.\n\n"
+                "Send a 🎙️ <b>voice recording</b> or type /newblog to turn an idea into an article!"
+            )
         )
         return
 
-    text = "📝 <b>Pending Blog Drafts:</b>\n\n"
-    for d in drafts.data:
-        text += (
-            f"• <b>{d['title']}</b> (v{d['current_version']})\n"
-            f"  Slug: <code>{d['slug']}</code> | Status: <code>{d['status']}</code>\n\n"
-        )
+    text = (
+        f"📚 <b>DevScrolls Idea Bank ({len(drafts)} drafts)</b>\n\n"
+        "Select any draft below to read the full article, request AI reworks, or publish live to <code>devscrolls.dev</code>:"
+    )
+    keyboard = get_draft_list_keyboard(drafts)
+    await bot_client.send_message(chat_id=chat_id, text=text, reply_markup=keyboard)
 
-    await bot_client.send_message(chat_id=chat_id, text=text)
+
+async def _handle_cmd_subscribers(chat_id: int) -> None:
+    """Checks live newsletter subscriber stats from Kit (ConvertKit)."""
+    if not kit_client.is_configured:
+        await bot_client.send_message(
+            chat_id=chat_id,
+            text=(
+                "📧 <b>Kit (ConvertKit) Integration</b>\n\n"
+                "Your Kit API credentials are not yet configured in Render.\n\n"
+                "To connect your account and enable live subscriber stats & newsletter broadcasting:\n"
+                "1. Open <a href=\"https://app.kit.com/account_settings/developer\">Kit Developer Settings</a>\n"
+                "2. Copy your <b>API Secret</b>\n"
+                "3. Add <code>KIT_API_SECRET</code> to your Render environment variables."
+            )
+        )
+        return
+
+    await bot_client.send_chat_action(chat_id=chat_id, action="typing")
+    stats = await kit_client.get_subscriber_count()
+
+    if stats.get("error"):
+        await bot_client.send_message(
+            chat_id=chat_id,
+            text=f"⚠️ <b>Kit Connection Issue</b>\n\n<code>{stats['error']}</code>"
+        )
+        return
+
+    total = stats.get("total_subscribers", 0)
+    await bot_client.send_message(
+        chat_id=chat_id,
+        text=(
+            "📊 <b>Kit Newsletter Subscribers</b>\n\n"
+            f"• <b>Total Confirmed Subscribers:</b> <code>{total:,}</code>\n"
+            "• <b>Status:</b> Connected & Ready for Broadcasts 🚀\n\n"
+            "<i>Whenever you publish a new blog post, use [📧 Create Kit Newsletter Broadcast] to announce it to your readers.</i>"
+        )
+    )
 
 # ------------------------------------------------------------------------------
 # Input Processing (Gate 1 & Gate 2)

@@ -67,6 +67,10 @@ GITHUB_TOKEN=<YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
 GITHUB_REPO_OWNER=santhanakrishnanstark
 GITHUB_REPO_NAME=myblog
 GITHUB_BRANCH=main
+
+# Kit (ConvertKit) Integration (Optional)
+KIT_API_KEY=<OPTIONAL_KIT_API_KEY>
+KIT_API_SECRET=<OPTIONAL_KIT_API_SECRET>
 ```
 
 Click **Create Web Service**. Render will build and deploy the container. Once live, note your public Render URL:
@@ -115,3 +119,17 @@ Render Free Tier instances spin down after 15 minutes of inactivity. To ensure i
 5. Inspect the generated transcript and tap **Confirm & Start AI** (Gate 2).
 6. Watch real-time milestone updates stream in as the 4 agents research, fact-check, and draft your article.
 7. Inspect the draft card, tap **View Full Article** or **View Research**, and tap **Approve & Publish** to publish directly to DevScrolls!
+
+---
+
+## 6. Offline Idea Bank, Social Distribution & Newsletter Broadcasting
+
+1. **Offline Idea Bank (`/drafts` & `[💾 Keep in Drafts]`)**:
+   - Whenever an article draft is generated, you can tap `[💾 Keep in Drafts]` to store it safely in Supabase.
+   - Type `/drafts` anytime to view an interactive menu of all your staged drafts.
+   - Select any draft to view it, tap `[✍️ Request Changes]` to rework it with AI, or publish when ready.
+2. **One-Tap LinkedIn Generator (`[📱 Generate LinkedIn Post]`)**:
+   - Immediately after publishing, tap `[📱 Generate LinkedIn Post]` to generate a viral, open-loop post formatted with your canonical URL (`https://devscrolls.dev/articles/<slug>/`), ready to copy & paste.
+3. **Kit (ConvertKit) Newsletter Broadcasts (`/subscribers` & `[📧 Create Kit Newsletter]`)**:
+   - Type `/subscribers` to inspect your live subscriber count from Kit.
+   - Tap `[📧 Create Kit Newsletter Broadcast]` to automatically stage an email newsletter draft inside your Kit account with your CTA and subscriber reply ask.

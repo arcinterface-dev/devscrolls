@@ -114,8 +114,142 @@ def get_draft_review_keyboard(draft_id: UUID | str) -> Dict[str, Any]:
             ],
             [
                 {
+                    "text": "💾 Keep in Drafts",
+                    "callback_data": f"draft_keep:{did}"
+                },
+                {
                     "text": "🗑️ Reject Draft",
                     "callback_data": f"draft_reject:{did}"
+                }
+            ]
+        ]
+    }
+
+def get_draft_list_keyboard(drafts: list[dict]) -> Dict[str, Any]:
+    """Interactive Idea Bank keyboard displaying unpublished drafts."""
+    buttons = []
+    for d in drafts:
+        did = str(d.get("id", ""))
+        title = d.get("title", "Untitled Draft")
+        if len(title) > 34:
+            title = title[:31] + "..."
+        version = d.get("current_version", 1)
+        buttons.append([
+            {
+                "text": f"📝 {title} (v{version})",
+                "callback_data": f"draft_select:{did}"
+            }
+        ])
+
+    # Utility row at bottom
+    buttons.append([
+        {
+            "text": "➕ Record New Idea",
+            "callback_data": "draft_new_idea"
+        },
+        {
+            "text": "🔄 Refresh",
+            "callback_data": "draft_refresh"
+        }
+    ])
+
+    return {"inline_keyboard": buttons}
+
+def get_draft_detail_keyboard(draft_id: UUID | str) -> Dict[str, Any]:
+    """Detailed control card for an individual draft opened from the Idea Bank."""
+    did = str(draft_id)
+    return {
+        "inline_keyboard": [
+            [
+                {
+                    "text": "🚢 Approve & Publish",
+                    "callback_data": f"draft_approve:{did}"
+                },
+                {
+                    "text": "✍️ Request Changes / Rework",
+                    "callback_data": f"draft_revise:{did}"
+                }
+            ],
+            [
+                {
+                    "text": "📄 View Full Article",
+                    "callback_data": f"draft_view:{did}"
+                },
+                {
+                    "text": "🔍 View Research & Sources",
+                    "callback_data": f"draft_sources:{did}"
+                }
+            ],
+            [
+                {
+                    "text": "🗑️ Archive Draft",
+                    "callback_data": f"draft_archive:{did}"
+                },
+                {
+                    "text": "⬅️ Back to Drafts List",
+                    "callback_data": "draft_list"
+                }
+            ]
+        ]
+    }
+
+def get_post_publish_keyboard(draft_id: UUID | str, canonical_url: str) -> Dict[str, Any]:
+    """Presented after successful deployment to provide one-tap social & newsletter distribution."""
+    did = str(draft_id)
+    return {
+        "inline_keyboard": [
+            [
+                {
+                    "text": "📱 Generate LinkedIn Post",
+                    "callback_data": f"post_publish_linkedin:{did}"
+                }
+            ],
+            [
+                {
+                    "text": "📧 Create Kit Newsletter Broadcast",
+                    "callback_data": f"post_publish_kit:{did}"
+                }
+            ],
+            [
+                {
+                    "text": "🌐 Open Live Article",
+                    "url": canonical_url
+                }
+            ]
+        ]
+    }
+
+def get_linkedin_keyboard(draft_id: UUID | str) -> Dict[str, Any]:
+    """Action buttons attached to generated LinkedIn post."""
+    did = str(draft_id)
+    return {
+        "inline_keyboard": [
+            [
+                {
+                    "text": "🔄 Regenerate LinkedIn Post",
+                    "callback_data": f"post_publish_linkedin:{did}"
+                },
+                {
+                    "text": "📧 Create Kit Newsletter",
+                    "callback_data": f"post_publish_kit:{did}"
+                }
+            ]
+        ]
+    }
+
+def get_newsletter_keyboard(draft_id: UUID | str) -> Dict[str, Any]:
+    """Action buttons attached to generated newsletter."""
+    did = str(draft_id)
+    return {
+        "inline_keyboard": [
+            [
+                {
+                    "text": "🔄 Regenerate Newsletter",
+                    "callback_data": f"post_publish_kit:{did}"
+                },
+                {
+                    "text": "📱 Generate LinkedIn Post",
+                    "callback_data": f"post_publish_linkedin:{did}"
                 }
             ]
         ]

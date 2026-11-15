@@ -21,8 +21,15 @@ from app.telegram.keyboards import (
     get_audio_confirmation_keyboard,
     get_cancel_only_keyboard,
     get_draft_review_keyboard,
+    get_draft_list_keyboard,
+    get_draft_detail_keyboard,
+    get_post_publish_keyboard,
+    get_linkedin_keyboard,
+    get_newsletter_keyboard,
     get_transcript_review_keyboard,
 )
+from app.telegram.session_manager import session_manager
+from app.config.settings import settings
 from app.workers.job_queue import job_queue
 
 logger = logging.getLogger(__name__)
@@ -58,11 +65,10 @@ async def handle_callback_query(callback_query: Dict[str, Any]) -> None:
         )
         return
 
-    if ":" not in data:
-        await bot_client.answer_callback_query(cb_id, text="Unknown action.")
-        return
-
-    action, target_id = data.split(":", 1)
+    if ":" in data:
+        action, target_id = data.split(":", 1)
+    else:
+        action, target_id = data, ""
 
     try:
         if action == "audio_confirm":
@@ -91,6 +97,20 @@ async def handle_callback_query(callback_query: Dict[str, Any]) -> None:
             await _handle_draft_revise(cb_id, chat_id, message_id, user_id, target_id)
         elif action == "draft_reject":
             await _handle_draft_reject(cb_id, chat_id, message_id, user_id, target_id)
+        elif action == "draft_keep":
+            await _handle_draft_keep(cb_id, chat_id, message_id, user_id, target_id)
+        elif action in ["draft_list", "draft_refresh"]:
+            await _handle_draft_list(cb_id, chat_id, message_id)
+        elif action == "draft_select":
+            await _handle_draft_select(cb_id, chat_id, message_id, user_id, target_id)
+        elif action == "draft_archive":
+            await _handle_draft_archive(cb_id, chat_id, message_id, user_id, target_id)
+        elif action == "draft_new_idea":
+            await _handle_draft_new_idea(cb_id, chat_id, message_id, user_id)
+        elif action == "post_publish_linkedin":
+            await _handle_post_publish_linkedin(cb_id, chat_id, message_id, user_id, target_id)
+        elif action == "post_publish_kit":
+            await _handle_post_publish_kit(cb_id, chat_id, message_id, user_id, target_id)
         else:
             await bot_client.answer_callback_query(cb_id, text="Action not recognized.")
     except Exception as e:
@@ -653,6 +673,279 @@ async def _handle_draft_reject(
         message_id=message_id,
         text="🗑️ <b>Draft Discarded</b>\n\nThis draft has been discarded. Send a new voice note or text message whenever inspiration strikes!",
         reply_markup=None
+    )
+
+
+# ------------------------------------------------------------------------------
+# Idea Bank (Keep in Drafts, Interactive Browsing & Archiving)
+# ------------------------------------------------------------------------------
+
+async def _handle_draft_keep(
+    cb_id: str,
+    chat_id: int,
+    message_id: int,
+    user_id: int,
+    draft_id: str
+) -> None:
+    """Saves the draft to the offline Idea Bank, freeing the conversation session for new ideas."""
+    draft = await draft_repo.get_by_id(draft_id)
+    if not draft:
+        await bot_client.answer_callback_query(cb_id, text="Draft not found.", show_alert=True)
+        return
+
+    await draft_repo.update_status(draft_id, "draft")
+    await conv_repo.update_status(draft.conversation_id, "idle", None)
+    await bot_client.answer_callback_query(cb_id, text="Draft saved to Idea Bank!")
+
+    await bot_client.edit_message_text(
+        chat_id=chat_id,
+        message_id=message_id,
+        text=(
+            "💾 <b>Saved to Idea Bank!</b>\n\n"
+            f"• <b>Title:</b> {draft.title}\n"
+            f"• <b>Version:</b> v{draft.current_version}\n"
+            f"• <b>Status:</b> Staged Draft\n\n"
+            "This article is safely stored in your database. You can return to it anytime by typing /drafts to polish, revise, or publish whenever you're ready!\n\n"
+            "<i>Your session is now clear. Send another voice note whenever you have an idea!</i>"
+        ),
+        reply_markup={
+            "inline_keyboard": [
+                [
+                    {
+                        "text": "📚 View All Drafts",
+                        "callback_data": "draft_list"
+                    },
+                    {
+                        "text": "➕ Record New Idea",
+                        "callback_data": "draft_new_idea"
+                    }
+                ]
+            ]
+        }
+    )
+
+
+async def _handle_draft_list(
+    cb_id: str,
+    chat_id: int,
+    message_id: int
+) -> None:
+    """Renders or refreshes the interactive Idea Bank list."""
+    resp = draft_repo._table().select(
+        "id, title, slug, status, current_version, created_at"
+    ).in_("status", ["draft", "pending_review"]).order("created_at", desc=True).limit(10).execute()
+
+    drafts = resp.data or []
+    await bot_client.answer_callback_query(cb_id, text=f"Found {len(drafts)} drafts.")
+
+    if not drafts:
+        await bot_client.edit_message_text(
+            chat_id=chat_id,
+            message_id=message_id,
+            text=(
+                "📭 <b>Your Idea Bank is Empty</b>\n\n"
+                "You don't have any unpublished drafts yet.\n\n"
+                "Send a 🎙️ <b>voice recording</b> or type /newblog to turn an idea into an article!"
+            ),
+            reply_markup=None
+        )
+        return
+
+    text = (
+        f"📚 <b>DevScrolls Idea Bank ({len(drafts)} drafts)</b>\n\n"
+        "Select any draft below to read the full article, request AI reworks, or publish live to <code>devscrolls.dev</code>:"
+    )
+    keyboard = get_draft_list_keyboard(drafts)
+    await bot_client.edit_message_text(
+        chat_id=chat_id,
+        message_id=message_id,
+        text=text,
+        reply_markup=keyboard
+    )
+
+
+async def _handle_draft_select(
+    cb_id: str,
+    chat_id: int,
+    message_id: int,
+    user_id: int,
+    draft_id: str
+) -> None:
+    """Displays the detail control card for a selected draft."""
+    draft = await draft_repo.get_by_id(draft_id)
+    if not draft:
+        await bot_client.answer_callback_query(cb_id, text="Draft not found.", show_alert=True)
+        return
+
+    await bot_client.answer_callback_query(cb_id, text="Draft loaded.")
+
+    lines = [l.strip() for l in draft.content.split("\n") if l.strip()]
+    preview_snippet = lines[0][:200] + "..." if lines else ""
+
+    text = (
+        f"📝 <b>Draft: {draft.title}</b> (v{draft.current_version})\n\n"
+        f"• <b>Slug:</b> <code>{draft.slug}</code>\n"
+        f"• <b>Status:</b> <code>{draft.status}</code>\n"
+        f"• <b>Category:</b> {draft.frontmatter.get('category', 'Engineering')}\n"
+        f"• <b>Tags:</b> {draft.frontmatter.get('tags', [])}\n\n"
+        f"<b>Opening Preview:</b>\n<i>{preview_snippet}</i>\n\n"
+        "Choose an action below to review, rework, or publish:"
+    )
+    keyboard = get_draft_detail_keyboard(draft.id)
+    await bot_client.edit_message_text(
+        chat_id=chat_id,
+        message_id=message_id,
+        text=text,
+        reply_markup=keyboard
+    )
+
+
+async def _handle_draft_archive(
+    cb_id: str,
+    chat_id: int,
+    message_id: int,
+    user_id: int,
+    draft_id: str
+) -> None:
+    """Archives an unpublished draft so it no longer appears in the active bank."""
+    draft = await draft_repo.get_by_id(draft_id)
+    if not draft:
+        await bot_client.answer_callback_query(cb_id, text="Draft not found.", show_alert=True)
+        return
+
+    await draft_repo.update_status(draft_id, "archived")
+    await bot_client.answer_callback_query(cb_id, text="Draft archived.")
+    # Return to draft list
+    await _handle_draft_list(cb_id, chat_id, message_id)
+
+
+async def _handle_draft_new_idea(
+    cb_id: str,
+    chat_id: int,
+    message_id: int,
+    user_id: int
+) -> None:
+    """Starts a new blog recording session from the Idea Bank menu."""
+    await session_manager.get_or_create_active_conversation(user_id)
+    await bot_client.answer_callback_query(cb_id, text="New session ready!")
+    await bot_client.send_message(
+        chat_id=chat_id,
+        text=(
+            "✨ <b>New Blog Session Started</b>\n\n"
+            "Whenever you're ready, send a 🎙️ <b>voice recording</b> or 📝 <b>type your thoughts</b>.\n\n"
+            "<i>No tokens or APIs will be consumed until you tap Confirm & Transcribe.</i>"
+        )
+    )
+
+
+# ------------------------------------------------------------------------------
+# Social Media & Newsletter Post-Publish Distribution
+# ------------------------------------------------------------------------------
+
+async def _handle_post_publish_linkedin(
+    cb_id: str,
+    chat_id: int,
+    message_id: int,
+    user_id: int,
+    draft_id: str
+) -> None:
+    """Generates an open-loop LinkedIn post promoting the published article."""
+    draft = await draft_repo.get_by_id(draft_id)
+    if not draft:
+        await bot_client.answer_callback_query(cb_id, text="Draft not found.", show_alert=True)
+        return
+
+    await bot_client.answer_callback_query(cb_id, text="Crafting LinkedIn post with Gemini...")
+    await bot_client.send_chat_action(chat_id=chat_id, action="typing")
+
+    from app.ai.agents.social_writer import social_writer
+    canonical_url = f"{settings.BASE_BLOG_URL}/articles/{draft.slug}/"
+
+    post_text = await social_writer.generate_linkedin_post(
+        title=draft.title,
+        content=draft.content,
+        canonical_url=canonical_url,
+        tags=draft.frontmatter.get("tags")
+    )
+
+    card_text = (
+        "📱 <b>LinkedIn Post Generated (Open-Loop Strategy)</b>\n\n"
+        "<i>Copy and paste the text below directly into the LinkedIn app or web:</i>\n\n"
+        f"<blockquote>{post_text}</blockquote>\n\n"
+        f"🔗 <b>Canonical Article URL:</b> <a href=\"{canonical_url}\">{canonical_url}</a>"
+    )
+
+    await bot_client.send_message(
+        chat_id=chat_id,
+        text=card_text,
+        reply_markup=get_linkedin_keyboard(draft.id)
+    )
+
+
+async def _handle_post_publish_kit(
+    cb_id: str,
+    chat_id: int,
+    message_id: int,
+    user_id: int,
+    draft_id: str
+) -> None:
+    """Generates and creates a Kit (ConvertKit) newsletter broadcast draft."""
+    draft = await draft_repo.get_by_id(draft_id)
+    if not draft:
+        await bot_client.answer_callback_query(cb_id, text="Draft not found.", show_alert=True)
+        return
+
+    await bot_client.answer_callback_query(cb_id, text="Drafting newsletter with Gemini...")
+    await bot_client.send_chat_action(chat_id=chat_id, action="typing")
+
+    from app.ai.agents.newsletter_writer import newsletter_writer
+    from app.integrations.kit_client import kit_client
+
+    canonical_url = f"{settings.BASE_BLOG_URL}/articles/{draft.slug}/"
+    newsletter = await newsletter_writer.generate_newsletter(
+        title=draft.title,
+        content=draft.content,
+        canonical_url=canonical_url
+    )
+
+    subject = newsletter.get("subject")
+    html_content = newsletter.get("html_content")
+    plain_text = newsletter.get("plain_text")
+
+    if kit_client.is_configured:
+        b_res = await kit_client.create_broadcast_draft(
+            subject=subject,
+            content=html_content,
+            description=f"DevScrolls: {draft.title}"
+        )
+
+        if b_res.get("success"):
+            b_id = b_res.get("broadcast_id")
+            await bot_client.send_message(
+                chat_id=chat_id,
+                text=(
+                    "📧 <b>Kit (ConvertKit) Broadcast Draft Created!</b>\n\n"
+                    f"• <b>Subject:</b> {subject}\n"
+                    f"• <b>Broadcast ID:</b> <code>{b_id}</code>\n"
+                    f"• <b>Status:</b> Staged as Draft in Kit 🚀\n\n"
+                    "Log into your <a href=\"https://app.kit.com/broadcasts\">Kit Broadcasts Dashboard</a> to preview and schedule the blast to all your subscribers!"
+                ),
+                reply_markup=get_newsletter_keyboard(draft.id)
+            )
+            return
+
+    # Fallback if Kit API secret is not yet set
+    fallback_text = (
+        "📧 <b>Newsletter Copy Ready (Kit not yet connected)</b>\n\n"
+        f"• <b>Subject:</b> <code>{subject}</code>\n\n"
+        "<i>Copy and paste the plain text below into Kit or your email provider:</i>\n\n"
+        f"<blockquote>{plain_text}</blockquote>\n\n"
+        "💡 <i>Tip: Add <code>KIT_API_SECRET</code> to your Render environment variables to automatically create drafts inside Kit with one tap!</i>"
+    )
+    await bot_client.send_message(
+        chat_id=chat_id,
+        text=fallback_text,
+        reply_markup=get_newsletter_keyboard(draft.id)
     )
 
 

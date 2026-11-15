@@ -484,12 +484,14 @@ async def handle_publishing_stage(job: GenerationJob) -> None:
         f"• <b>Git Commit:</b> <code>{commit_short}</code>\n"
         f"{status_line}\n\n"
         "Your voice note has been completely researched, fact-checked, written, and deployed to DevScrolls without touching a line of code!\n\n"
-        "<i>Ready for your next idea whenever you are. Just send a voice note!</i>"
+        "Tap below to generate social media distribution assets or draft your newsletter:"
     )
 
+    from app.telegram.keyboards import get_post_publish_keyboard
     await bot_client.send_message(
         chat_id=conv.telegram_user_id,
-        text=celebration_text
+        text=celebration_text,
+        reply_markup=get_post_publish_keyboard(draft.id, canonical_url)
     )
 
     # 6. Index reusable opinions, war stories, and architectural stances into personal knowledge library
