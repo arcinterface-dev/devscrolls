@@ -985,10 +985,13 @@ async def _handle_post_publish_kit(
             target_msg_id = init_res.get("result", {}).get("message_id", message_id)
 
     try:
+        desc = draft.description or (draft.frontmatter.get("description") if draft.frontmatter else "")
         newsletter = await newsletter_writer.generate_newsletter(
             title=draft.title,
             content=draft.content,
-            canonical_url=canonical_url
+            canonical_url=canonical_url,
+            description=desc,
+            author_name="Sandy"
         )
 
         subject = newsletter.get("subject")

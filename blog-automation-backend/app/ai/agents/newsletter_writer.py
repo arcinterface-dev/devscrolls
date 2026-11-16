@@ -17,34 +17,40 @@ from app.config.settings import settings
 
 logger = logging.getLogger(__name__)
 
-NEWSLETTER_SYSTEM_PROMPT = """You are the personal newsletter editor for DevScrolls (https://devscrolls.dev).
-Your audience is senior software engineers, frontend architects, and full-stack developers.
-Write a concise, engaging email newsletter announcing a new article.
+NEWSLETTER_SYSTEM_PROMPT = """You are Sandy Krish (Senior Frontend & Full-Stack Architect, creator of DevScrolls at https://devscrolls.dev).
+You are writing a personal, authentic newsletter directly to your subscribers (senior engineers, technical leads, and full-stack developers).
 
-EDITORIAL RULES:
-1. THE SUBJECT LINE:
-   - Punchy, curiosity-driven, peer-to-peer (max 50 characters).
-   - Looks like an email from a smart colleague, not marketing spam.
-   - Good: "Why we killed React Context" or "The Postgres query that took down prod"
-   - Bad: "Check out our latest insightful blog post on..."
+CRITICAL REQUIREMENTS & CONSTRAINTS:
 
-2. THE OPENING (Coffee-chat tone):
-   - 2-3 short paragraphs explaining the real-world friction or engineering challenge that sparked this article.
-   - Be transparent, candid, and direct.
+1. PERSONA & AUTHENTIC VOICE (MANDATORY):
+   - Write in Sandy's first-person voice ("I", "my", "we" when referring to real engineering work).
+   - Greeting: MUST start with "Hey there," or "Hey fellow engineers,". NEVER say "Hey team," or corporate filler.
+   - Sign-off: MUST conclude with:
+     <p>&mdash; Sandy Krish, DevScrolls</p>
+     NEVER sign off as "DevScrolls Team", "Best, DevScrolls Team", or generic titles.
+   - Tone: A candid note from a smart senior colleague over coffee. Share the real engineering discovery, what caught you off guard, or why you took the time to investigate and write this piece.
 
-3. THE VALUE TEASER:
-   - 3 bullet points summarizing what they will take away (mental models, benchmarks, architecture fix).
+2. STRICT TRUTHFULNESS & ZERO HALLUCINATION (MANDATORY):
+   - You MUST explicitly introduce the EXACT article title: "{title}"
+   - You MUST reference the article's real core premise and description: "{description}"
+   - NEVER hallucinate or invent problems, terms, or metaphors (like "socket bleed" or fabricated metrics) that are not present in the article excerpt or author's transcript.
+   - Ground every single point, bullet, and takeaway strictly in what the article actually proves and explains.
 
-4. THE "REPLY" ASK:
-   - Mandatory: Ask a specific, thoughtful question inviting readers to hit reply directly (e.g. "Have you hit this bottleneck in your microfrontends? Hit reply and let me know how you solved it.").
-
-5. HTML STRUCTURE:
-   - Output valid, clean email HTML formatted with <p>, <strong>, <ul>, <li>, and a clean styled button:
+3. STRUCTURE & FLOW:
+   - Opening: 1-2 short, punchy paragraphs sharing the real-world friction or misconception that sparked the article.
+   - Core Takeaway Teaser: 3 concise bullet points highlighting what the reader will learn (the architectural mechanism, the underlying engine behavior, the production fix).
+   - The "Reply" Ask: A thoughtful, specific question inviting direct replies (e.g. "Have you hit this in your stack? Hit reply and let me know.").
+   - CTA Button:
      <div style="margin: 28px 0; text-align: center;">
        <a href="{canonical_url}" style="background-color: #d97706; color: #ffffff; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 600; display: inline-block;">Read the Full Breakdown &rarr;</a>
      </div>
 
-6. JSON OUTPUT FORMAT:
+4. THE SUBJECT LINE:
+   - Punchy, curiosity-driven, peer-to-peer (max 50 characters).
+   - Looks like an email from a smart colleague.
+   - BANNED FILLER WORDS: delve, robust, landscape, in conclusion, tapestry, seamless, game-changer, unlock.
+
+5. JSON OUTPUT FORMAT:
    Return ONLY a valid JSON object with these keys:
    {
      "subject": "Email subject line (<=50 chars)",
@@ -64,20 +70,29 @@ class NewsletterWriter:
         self,
         title: str,
         content: str,
-        canonical_url: str
+        canonical_url: str,
+        description: Optional[str] = None,
+        author_name: str = "Sandy"
     ) -> Dict[str, Any]:
         """Generates a complete newsletter campaign (subject + HTML body + plain text)."""
-        prompt = f"""Generate a newsletter announcement for this new DevScrolls article:
+        prompt = f"""Write a personal newsletter announcement from {author_name} for this new DevScrolls article:
 
 Article Title: {title}
+Article Description: {description or 'Production architecture and runtime trade-offs.'}
 Canonical URL: {canonical_url}
 
-Article Content Excerpt:
+Article Content Excerpt (use ONLY real facts, code mechanisms, and trade-offs from this text):
 {content[:3500]}
 
 Respond ONLY with the JSON object containing 'subject', 'preview_text', 'html_content', and 'plain_text'."""
 
-        system_prompt = NEWSLETTER_SYSTEM_PROMPT.replace("{canonical_url}", canonical_url)
+        system_prompt = (
+            NEWSLETTER_SYSTEM_PROMPT
+            .replace("{canonical_url}", canonical_url)
+            .replace("{title}", title)
+            .replace("{description}", description or "")
+            .replace("{author_name}", author_name)
+        )
 
         try:
             raw, _ = await self.provider.generate_text(
@@ -103,19 +118,19 @@ Respond ONLY with the JSON object containing 'subject', 'preview_text', 'html_co
             }
         except Exception as e:
             logger.error(f"Error generating newsletter with AI: {e}", exc_info=True)
-            # Fallback newsletter
+            # Fallback newsletter adhering strictly to author persona and exact title
             subject = f"New on DevScrolls: {title[:40]}"
             html = f"""
             <p>Hey there,</p>
-            <p>We just published a deep dive on <strong>{title}</strong> over at DevScrolls.</p>
-            <p>In this piece, we break down the production mechanics, trade-offs, and benchmarks you need to know.</p>
+            <p>I just published a deep dive on <strong>"{title}"</strong> over at DevScrolls.</p>
+            <p>{description or "In this piece, I break down the production mechanics, runtime trade-offs, and benchmarks you need to know."}</p>
             <div style="margin: 28px 0; text-align: center;">
               <a href="{canonical_url}" style="background-color: #d97706; color: #ffffff; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 600; display: inline-block;">Read the Full Breakdown &rarr;</a>
             </div>
             <p>Have you encountered this challenge in your stack? Hit reply and let me know.</p>
-            <p>&mdash; Sandy</p>
+            <p>&mdash; Sandy Krish, DevScrolls</p>
             """
-            plain = f"Hey there,\n\nWe just published a deep dive on {title}.\n\nRead the full post here: {canonical_url}\n\nHave you hit this challenge? Hit reply and let me know!\n\n-- Sandy"
+            plain = f"Hey there,\n\nI just published a deep dive on \"{title}\" over at DevScrolls.\n\nRead the full post here: {canonical_url}\n\nHave you hit this challenge? Hit reply and let me know!\n\n-- Sandy Krish, DevScrolls"
             return {
                 "subject": subject,
                 "preview_text": f"Production trade-offs and architecture breakdown for {title[:40]}",
