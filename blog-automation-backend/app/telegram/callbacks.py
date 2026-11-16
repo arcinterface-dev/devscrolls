@@ -877,7 +877,7 @@ async def _handle_post_publish_linkedin(
 
     card_text = (
         "📱 <b>LinkedIn Post Generated (Open-Loop Strategy)</b>\n\n"
-        "<i>Tap the 'Copy Post to Clipboard' button below or tap the text block to copy directly:</i>\n\n"
+        "<i>👇 Tap anywhere on the code block below to copy the full post text to your clipboard:</i>\n\n"
         f"<pre><code class=\"language-text\">{escaped_post}</code></pre>\n\n"
         f"🔗 <b>Canonical Article URL:</b> <a href=\"{canonical_url}\">{canonical_url}</a>"
     )
@@ -885,7 +885,7 @@ async def _handle_post_publish_linkedin(
     await bot_client.send_message(
         chat_id=chat_id,
         text=card_text,
-        reply_markup=get_linkedin_keyboard(draft.id, post_text=post_text)
+        reply_markup=get_linkedin_keyboard(draft.id, canonical_url=canonical_url)
     )
 
 
@@ -938,7 +938,7 @@ async def _handle_post_publish_kit(
                     f"• <b>Status:</b> Staged as Draft in Kit 🚀\n\n"
                     "Log into your <a href=\"https://app.kit.com/broadcasts\">Kit Broadcasts Dashboard</a> to preview and schedule the blast to all your subscribers!"
                 ),
-                reply_markup=get_newsletter_keyboard(draft.id, plain_text=plain_text)
+                reply_markup=get_newsletter_keyboard(draft.id)
             )
             return
         else:
@@ -954,14 +954,14 @@ async def _handle_post_publish_kit(
         "📧 <b>Newsletter Copy Ready</b>\n\n"
         f"• <b>Subject:</b> <code>{escaped_subject}</code>\n\n"
         f"{note_line}"
-        "<i>Tap the 'Copy Newsletter Copy' button below or tap the text block to copy directly:</i>\n\n"
+        "<i>👇 Tap anywhere on the code block below to copy the newsletter copy to your clipboard:</i>\n\n"
         f"<pre><code class=\"language-text\">{escaped_plain}</code></pre>\n\n"
         "💡 <i>Tip: Ensure <code>KIT_API_SECRET</code> is configured in Render to create drafts automatically inside Kit!</i>"
     )
     await bot_client.send_message(
         chat_id=chat_id,
         text=fallback_text,
-        reply_markup=get_newsletter_keyboard(draft.id, plain_text=plain_text)
+        reply_markup=get_newsletter_keyboard(draft.id)
     )
 
 
