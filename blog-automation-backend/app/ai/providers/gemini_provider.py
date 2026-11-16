@@ -132,7 +132,7 @@ class GeminiProvider(AIProvider):
         system_prompt: str,
         user_prompt: str,
         temperature: float = 0.7,
-        max_tokens: int = 4096
+        max_tokens: int = 16384
     ) -> tuple[str, UsageMetadata]:
         """Generates regular text/markdown using Gemini with auto-retry and fallbacks."""
         from google.genai import types
@@ -168,7 +168,7 @@ class GeminiProvider(AIProvider):
         user_prompt: str,
         response_schema: Type[T],
         temperature: float = 0.2,
-        max_tokens: int = 4096
+        max_tokens: int = 16384
     ) -> tuple[T, UsageMetadata]:
         """Generates structured output strictly validated against response_schema with auto-retry."""
         from google.genai import types

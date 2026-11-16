@@ -149,7 +149,8 @@ class BlogWriterAgent:
             system_prompt=self._writer_prompt,
             user_prompt=user_prompt,
             response_schema=ArticleDraftOutput,
-            temperature=0.3
+            temperature=0.3,
+            max_tokens=16384
         )
 
         # 3. Post-generation sanitization
@@ -301,7 +302,8 @@ TASK:
             system_prompt=self._writer_prompt,
             user_prompt=user_prompt,
             response_schema=ArticleDraftOutput,
-            temperature=0.3
+            temperature=0.3,
+            max_tokens=16384
         )
 
         sanitized_body, detected_banned = self._sanitize_markdown(raw_output.markdown_content)
