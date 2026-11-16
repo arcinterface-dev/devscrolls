@@ -225,13 +225,29 @@ async def handle_fact_check_stage(job: GenerationJob) -> None:
     )
 
     # Update claims in database with verification verdicts
+    db_status_map = {
+        "verified": "VERIFIED",
+        "contradicted": "CONTRADICTED",
+        "outdated": "OUTDATED",
+        "personal_opinion": "PERSONAL_OPINION",
+        "personal_exp": "PERSONAL_EXPERIENCE",
+        "personal_experience": "PERSONAL_EXPERIENCE",
+        "unverifiable": "UNSUPPORTED",
+        "unsupported": "UNSUPPORTED",
+        "ambiguous": "INTERPRETATION",
+        "interpretation": "INTERPRETATION",
+        "hypothesis": "HYPOTHESIS",
+        "partially_verified": "PARTIALLY_VERIFIED",
+    }
     db_claims = await claim_repo.get_claims_for_job(job.id)
     for verif in output.verifications:
         matching_db_claim = next((c for c in db_claims if c.claim_text == verif.claim_text), None)
         if matching_db_claim:
+            raw_val = verif.status.value.lower() if hasattr(verif.status, "value") else str(verif.status).lower()
+            db_status = db_status_map.get(raw_val, "VERIFIED")
             await claim_repo.update_claim_verification(
                 claim_id=matching_db_claim.id,
-                status=verif.status.value.upper() if hasattr(verif.status, "value") else str(verif.status).upper(),
+                status=db_status,
                 suggested_correction=verif.suggested_revision,
                 confidence=verif.confidence_score,
                 explanation=verif.explanation
