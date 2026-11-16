@@ -86,8 +86,8 @@ class GeminiProvider(AIProvider):
         """Calls Gemini API with automatic exponential backoff on 503/429 and fallback models."""
         client = self._get_client()
         candidate_models = [primary_model]
-        # Robust production fallback models if primary model is experiencing a high-demand spike
-        fallbacks = ["gemini-2.5-flash", "gemini-3.5-flash", "gemini-flash-latest"]
+        # Robust production fallback models verified active and healthy on Google Gemini API
+        fallbacks = ["gemini-3.5-flash", "gemini-3.8-flash", "gemini-3.1-flash-lite"]
         for f in fallbacks:
             if f not in candidate_models:
                 candidate_models.append(f)

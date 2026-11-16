@@ -23,5 +23,5 @@ MAX_GENERATION_ATTEMPTS: int = 3
 RESEARCH_CACHE_TTL_DAYS: int = 7
 
 # Timeout in minutes before considering an active processing job stale
-JOB_STALE_TIMEOUT_MINUTES: int = 30
+JOB_STALE_TIMEOUT_MINUTES: int = 5
 

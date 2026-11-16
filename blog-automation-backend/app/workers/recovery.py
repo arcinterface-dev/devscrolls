@@ -9,7 +9,7 @@ from app.workers.job_queue import job_queue
 
 logger = logging.getLogger(__name__)
 
-async def run_startup_recovery(timeout_minutes: int = JOB_STALE_TIMEOUT_MINUTES) -> List[GenerationJob]:
+async def run_startup_recovery(timeout_minutes: int = 0) -> List[GenerationJob]:
     """Scans for jobs left in 'processing' status prior to a server restart or timeout.
     Resets them to 'queued' while preserving all intermediate agent outputs so processing
     resumes from the exact interrupted stage.
