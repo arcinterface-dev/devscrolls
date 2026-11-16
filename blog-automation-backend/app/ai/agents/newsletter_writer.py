@@ -77,7 +77,7 @@ Article Content Excerpt:
 
 Respond ONLY with the JSON object containing 'subject', 'preview_text', 'html_content', and 'plain_text'."""
 
-        system_prompt = NEWSLETTER_SYSTEM_PROMPT.format(canonical_url=canonical_url)
+        system_prompt = NEWSLETTER_SYSTEM_PROMPT.replace("{canonical_url}", canonical_url)
 
         try:
             raw, _ = await self.provider.generate_text(

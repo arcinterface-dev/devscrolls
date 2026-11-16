@@ -73,7 +73,7 @@ Article Content Excerpt:
 
 Generate the complete LinkedIn post now following the Open-Loop rules."""
 
-        system_prompt = LINKEDIN_SYSTEM_PROMPT.format(canonical_url=canonical_url)
+        system_prompt = LINKEDIN_SYSTEM_PROMPT.replace("{canonical_url}", canonical_url)
 
         try:
             text_result, _ = await self.provider.generate_text(
