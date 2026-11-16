@@ -21,10 +21,15 @@ logger = logging.getLogger(__name__)
 
 PROMPTS_DIR = Path(__file__).resolve().parent.parent.parent.parent / "prompts"
 
+class ClaimQueryPair(BaseModel):
+    """Mapping of an individual claim to its targeted technical search query."""
+    claim: str = Field(description="The exact claim statement to be researched.")
+    query: str = Field(description="Single targeted technical search query for official documentation.")
+
 class QueryGenerationOutput(BaseModel):
-    """Schema for AI query generation step."""
-    queries_by_claim: Dict[str, str] = Field(
-        description="Dictionary mapping claim text to a single, targeted technical search query."
+    """Schema for AI query generation step (Gemini Developer API compatible with zero additionalProperties)."""
+    queries: List[ClaimQueryPair] = Field(
+        description="List of claim-to-query mappings."
     )
 
 class ResearchAgent:
@@ -65,8 +70,8 @@ class ResearchAgent:
             prompt += f"{i}. {c.statement}\n"
 
         system_instruction = (
-            "You are a technical search strategist. Output a QueryGenerationOutput JSON mapping "
-            "each claim string to a single authoritative search query."
+            "You are a technical search strategist. Output a QueryGenerationOutput JSON with a list of "
+            "ClaimQueryPair objects mapping each claim to a single authoritative search query."
         )
 
         output, _ = await self.provider.generate_structured(
@@ -75,7 +80,7 @@ class ResearchAgent:
             response_schema=QueryGenerationOutput,
             temperature=0.1
         )
-        return output.queries_by_claim
+        return {item.claim: item.query for item in output.queries}
 
     async def conduct_research(
         self,
