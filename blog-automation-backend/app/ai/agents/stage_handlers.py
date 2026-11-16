@@ -489,7 +489,7 @@ async def handle_publishing_stage(job: GenerationJob) -> None:
     # 4. Finalize Records
     await draft_repo.update_status(draft.id, "published")
     await job_queue.mark_completed(job.id)
-    await conv_repo.update_status(conv.id, "idle", None)
+    await conv_repo.update_status(conv.id, "completed", None)
 
     # 5. Send Celebration Telegram Announcement
     commit_short = commit_sha[:7] if commit_sha else "latest"

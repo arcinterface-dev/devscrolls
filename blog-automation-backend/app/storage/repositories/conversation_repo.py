@@ -60,7 +60,18 @@ class ConversationRepository(BaseRepository):
         current_stage: Optional[str] = None
     ) -> Optional[Conversation]:
         """Update conversation status and optional stage."""
-        payload = {"status": status}
+        # Map any legacy non-standard statuses to valid DB constraint values: ('active', 'completed', 'cancelled', 'failed')
+        status_map = {
+            "idle": "completed",
+            "pending": "active",
+            "done": "completed",
+            "rejected": "cancelled",
+        }
+        valid_status = status_map.get(str(status), str(status))
+        if valid_status not in ["active", "completed", "cancelled", "failed"]:
+            valid_status = "active"
+
+        payload = {"status": valid_status}
         if current_stage is not None:
             payload["current_stage"] = current_stage
 

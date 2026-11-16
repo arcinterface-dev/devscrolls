@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     # App & Environment
     # -------------------------------------------------------------------------
     APP_ENV: str = Field(default="development", description="development | staging | production")
-    APP_VERSION: str = Field(default="0.1.2")
+    APP_VERSION: str = Field(default="0.1.3")
     LOG_LEVEL: str = Field(default="INFO")
     INTERNAL_API_SECRET: str = Field(
         default="dev-secret-key-change-in-production",

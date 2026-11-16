@@ -262,7 +262,7 @@ async def test_handle_publishing_stage_full_flow():
 
         mock_draft_status.assert_awaited_once_with(draft_id, "published")
         mock_job_completed.assert_awaited_once_with(job_id)
-        mock_conv_status.assert_awaited_once_with(conv_id, "idle", None)
+        mock_conv_status.assert_awaited_once_with(conv_id, "completed", None)
 
         # Celebration message sent
         last_msg = mock_send_msg.call_args_list[-1][1]["text"]

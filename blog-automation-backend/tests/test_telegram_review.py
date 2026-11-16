@@ -193,7 +193,7 @@ async def test_callback_draft_reject():
 
         mock_draft_status.assert_awaited_once_with(draft_id, "rejected")
         mock_job_status.assert_awaited_once_with(job_id, "cancelled")
-        mock_conv_status.assert_awaited_once_with(conv_id, "idle", None)
+        mock_conv_status.assert_awaited_once_with(conv_id, "cancelled", None)
         assert "Draft Discarded" in mock_edit_msg.call_args[1]["text"]
 
 

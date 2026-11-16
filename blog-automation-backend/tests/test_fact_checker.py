@@ -427,5 +427,5 @@ async def test_correction_callbacks():
         # Test corr_cancel
         await _handle_corr_cancel("cb3", 1234, 5678, 5435882029, job_id)
         mock_status_update.assert_awaited_with(job_id, "cancelled")
-        mock_conv_update.assert_awaited_with(conv_id, "idle", None)
+        mock_conv_update.assert_awaited_with(conv_id, "cancelled", None)
         assert "Cancelled" in mock_edit_msg.call_args[1]["text"]

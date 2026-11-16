@@ -443,7 +443,7 @@ async def _handle_corr_cancel(
         return
 
     await job_repo.set_job_status(job_id, "cancelled")
-    await conv_repo.update_status(job.conversation_id, "idle", None)
+    await conv_repo.update_status(job.conversation_id, "cancelled", None)
     await bot_client.answer_callback_query(cb_id, text="Generation cancelled.")
     await bot_client.edit_message_text(
         chat_id=chat_id,
@@ -669,7 +669,7 @@ async def _handle_draft_reject(
     await draft_repo.update_status(draft_id, "rejected")
     if draft.job_id:
         await job_repo.set_job_status(draft.job_id, "cancelled")
-    await conv_repo.update_status(draft.conversation_id, "idle", None)
+    await conv_repo.update_status(draft.conversation_id, "cancelled", None)
 
     await bot_client.answer_callback_query(cb_id, text="Draft rejected.")
     await bot_client.edit_message_text(
@@ -698,7 +698,7 @@ async def _handle_draft_keep(
         return
 
     await draft_repo.update_status(draft_id, "draft")
-    await conv_repo.update_status(draft.conversation_id, "idle", None)
+    await conv_repo.update_status(draft.conversation_id, "completed", None)
     await bot_client.answer_callback_query(cb_id, text="Draft saved to Idea Bank!")
 
     await bot_client.edit_message_text(
