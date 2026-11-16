@@ -77,6 +77,56 @@ class GeminiProvider(AIProvider):
         )
         return result, usage
 
+    async def _call_with_retry_and_fallback(
+        self,
+        contents: Any,
+        config: Any,
+        primary_model: str
+    ) -> tuple[Any, str]:
+        """Calls Gemini API with automatic exponential backoff on 503/429 and fallback models."""
+        client = self._get_client()
+        candidate_models = [primary_model]
+        # Robust production fallback models if primary model is experiencing a high-demand spike
+        fallbacks = ["gemini-2.5-flash", "gemini-3.5-flash", "gemini-flash-latest"]
+        for f in fallbacks:
+            if f not in candidate_models:
+                candidate_models.append(f)
+
+        last_err = None
+        for model in candidate_models:
+            for attempt in range(1, 4):
+                try:
+                    logger.info(f"Gemini invoking model '{model}' (attempt {attempt}/3)...")
+                    def _call():
+                        return client.models.generate_content(
+                            model=model,
+                            contents=contents,
+                            config=config
+                        )
+                    response = await asyncio.to_thread(_call)
+                    return response, model
+                except Exception as e:
+                    last_err = e
+                    err_str = str(e).lower()
+                    is_transient = any(
+                        code in err_str
+                        for code in ["503", "unavailable", "high demand", "429", "resource_exhausted", "quota", "timeout"]
+                    )
+                    if is_transient:
+                        backoff = 2 ** attempt
+                        logger.warning(
+                            f"Gemini model '{model}' returned transient error on attempt {attempt}: {e}. "
+                            f"Retrying in {backoff}s..."
+                        )
+                        await asyncio.sleep(backoff)
+                    else:
+                        logger.error(f"Gemini model '{model}' failed with non-transient error: {e}")
+                        break
+
+            logger.warning(f"Gemini model '{model}' exhausted retries. Switching to fallback candidate...")
+
+        raise last_err
+
     async def generate_text(
         self,
         system_prompt: str,
@@ -84,8 +134,7 @@ class GeminiProvider(AIProvider):
         temperature: float = 0.7,
         max_tokens: int = 4096
     ) -> tuple[str, UsageMetadata]:
-        """Generates regular text/markdown using Gemini."""
-        client = self._get_client()
+        """Generates regular text/markdown using Gemini with auto-retry and fallbacks."""
         from google.genai import types
 
         config = types.GenerateContentConfig(
@@ -94,21 +143,18 @@ class GeminiProvider(AIProvider):
             max_output_tokens=max_tokens
         )
 
-        def _call_api():
-            return client.models.generate_content(
-                model=self.model_name,
-                contents=user_prompt,
-                config=config
-            )
-
-        response = await asyncio.to_thread(_call_api)
+        response, used_model = await self._call_with_retry_and_fallback(
+            contents=user_prompt,
+            config=config,
+            primary_model=self.model_name
+        )
 
         in_tokens = response.usage_metadata.prompt_token_count if response.usage_metadata else 0
         out_tokens = response.usage_metadata.candidates_token_count if response.usage_metadata else 0
 
         usage = UsageMetadata(
             provider="gemini",
-            model=self.model_name,
+            model=used_model,
             operation="generate_text",
             input_tokens=in_tokens or 0,
             output_tokens=out_tokens or 0,
@@ -124,8 +170,7 @@ class GeminiProvider(AIProvider):
         temperature: float = 0.2,
         max_tokens: int = 4096
     ) -> tuple[T, UsageMetadata]:
-        """Generates structured output strictly validated against response_schema."""
-        client = self._get_client()
+        """Generates structured output strictly validated against response_schema with auto-retry."""
         from google.genai import types
 
         config = types.GenerateContentConfig(
@@ -136,14 +181,11 @@ class GeminiProvider(AIProvider):
             response_schema=response_schema
         )
 
-        def _call_api():
-            return client.models.generate_content(
-                model=self.model_name,
-                contents=user_prompt,
-                config=config
-            )
-
-        response = await asyncio.to_thread(_call_api)
+        response, used_model = await self._call_with_retry_and_fallback(
+            contents=user_prompt,
+            config=config,
+            primary_model=self.model_name
+        )
 
         in_tokens = response.usage_metadata.prompt_token_count if response.usage_metadata else 0
         out_tokens = response.usage_metadata.candidates_token_count if response.usage_metadata else 0
@@ -151,7 +193,7 @@ class GeminiProvider(AIProvider):
         parsed = response_schema.model_validate_json(response.text)
         usage = UsageMetadata(
             provider="gemini",
-            model=self.model_name,
+            model=used_model,
             operation="generate_structured",
             input_tokens=in_tokens or 0,
             output_tokens=out_tokens or 0,
