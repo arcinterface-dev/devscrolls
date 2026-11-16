@@ -107,8 +107,8 @@ async def test_github_publisher_success():
     """Verify GitHub REST API commit with base64 encoded content."""
     publisher = GitHubPublisher(
         token="ghp_mock_token_12345",
-        owner="santhanakrishnanstark",
-        repo="myblog",
+        owner="arcinterface-dev",
+        repo="devscrolls",
         branch="main"
     )
 
@@ -120,7 +120,7 @@ async def test_github_publisher_success():
     mock_resp_put.json.return_value = {
         "commit": {
             "sha": "abc1234567890",
-            "html_url": "https://github.com/santhanakrishnanstark/myblog/commit/abc1234567890"
+            "html_url": "https://github.com/arcinterface-dev/devscrolls/commit/abc1234567890"
         }
     }
 
@@ -154,8 +154,8 @@ async def test_github_publisher_existing_sha_update():
     """Verify GitHub publisher includes existing blob SHA when updating a file."""
     publisher = GitHubPublisher(
         token="ghp_mock_token_12345",
-        owner="santhanakrishnanstark",
-        repo="myblog"
+        owner="arcinterface-dev",
+        repo="devscrolls"
     )
 
     mock_resp_sha = MagicMock()

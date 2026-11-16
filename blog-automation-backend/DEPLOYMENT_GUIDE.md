@@ -23,7 +23,7 @@ This guide walks you through deploying the **DevScrolls Blog Automation Backend*
 ### Step 1: Connect GitHub Repository
 1. Log into [Render.com](https://dashboard.render.com).
 2. Click **New +** → **Web Service**.
-3. Select your repository: `santhanakrishnanstark/myblog`.
+3. Select your repository: `arcinterface-dev/devscrolls`.
 4. Configure the service settings:
    - **Name**: `devscrolls-blog-automation`
    - **Region**: `Singapore` (or nearest region)
@@ -64,8 +64,8 @@ TAVILY_API_KEY=<YOUR_TAVILY_API_KEY>
 
 # GitHub REST API Publishing
 GITHUB_TOKEN=<YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
-GITHUB_REPO_OWNER=santhanakrishnanstark
-GITHUB_REPO_NAME=myblog
+GITHUB_REPO_OWNER=arcinterface-dev
+GITHUB_REPO_NAME=devscrolls
 GITHUB_BRANCH=main
 
 # Kit (ConvertKit) Integration (Optional)

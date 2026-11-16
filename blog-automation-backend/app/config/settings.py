@@ -127,8 +127,8 @@ class Settings(BaseSettings):
     # GitHub Publishing
     # -------------------------------------------------------------------------
     GITHUB_TOKEN: str = Field(default="", description="GitHub Fine-Grained Personal Access Token with repo write permissions")
-    GITHUB_REPO_OWNER: str = Field(default="santhanakrishnanstark", description="GitHub username / organization")
-    GITHUB_REPO_NAME: str = Field(default="myblog", description="Target blog repository name")
+    GITHUB_REPO_OWNER: str = Field(default="arcinterface-dev", description="GitHub username / organization")
+    GITHUB_REPO_NAME: str = Field(default="devscrolls", description="Target blog repository name")
     GITHUB_BRANCH: str = Field(default="main", description="Target branch for article publishing")
 
     # -------------------------------------------------------------------------

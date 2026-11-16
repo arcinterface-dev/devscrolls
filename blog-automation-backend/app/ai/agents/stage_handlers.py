@@ -460,7 +460,12 @@ async def handle_publishing_stage(job: GenerationJob) -> None:
         logger.error(f"GitHub publish failed for draft {draft.id}: {err}")
         await bot_client.send_message(
             chat_id=conv.telegram_user_id,
-            text=f"❌ <b>Publishing Error</b>\n\nFailed to commit to GitHub: <code>{err[:200]}</code>"
+            text=(
+                f"❌ <b>Publishing Error</b>\n\n"
+                f"Failed to commit to GitHub: <code>{err[:200]}</code>\n\n"
+                "Tap below to retry publishing after verifying repository settings."
+            ),
+            reply_markup=get_draft_review_keyboard(draft.id)
         )
         await job_queue.mark_failed(job.id, f"GitHub publish failed: {err}")
         return

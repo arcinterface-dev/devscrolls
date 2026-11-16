@@ -24,9 +24,9 @@ services:
       - key: GEMINI_TRANSCRIPTION_MODEL
         value: gemini-3.5-flash-lite
       - key: GITHUB_REPO_OWNER
-        value: santhanakrishnanstark
+        value: arcinterface-dev
       - key: GITHUB_REPO_NAME
-        value: myblog
+        value: devscrolls
       - key: GITHUB_BRANCH
         value: main
       # Secrets to be provided in the Render Dashboard
