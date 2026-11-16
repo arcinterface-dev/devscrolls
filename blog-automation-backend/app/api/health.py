@@ -13,6 +13,7 @@ class HealthResponse(BaseModel):
     default_ai_provider: str
     gemini_configured: bool
     anthropic_configured: bool
+    github_repo: str
 
 @router.get("/health", response_model=HealthResponse)
 async def health_check():
@@ -23,6 +24,7 @@ async def health_check():
         environment=settings.APP_ENV,
         default_ai_provider=settings.DEFAULT_AI_PROVIDER,
         gemini_configured=bool(settings.GEMINI_API_KEY),
-        anthropic_configured=bool(settings.ANTHROPIC_API_KEY)
+        anthropic_configured=bool(settings.ANTHROPIC_API_KEY),
+        github_repo=f"{settings.GITHUB_REPO_OWNER}/{settings.GITHUB_REPO_NAME}"
     )
 

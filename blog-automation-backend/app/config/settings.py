@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     # App & Environment
     # -------------------------------------------------------------------------
     APP_ENV: str = Field(default="development", description="development | staging | production")
-    APP_VERSION: str = Field(default="0.1.0")
+    APP_VERSION: str = Field(default="0.1.2")
     LOG_LEVEL: str = Field(default="INFO")
     INTERNAL_API_SECRET: str = Field(
         default="dev-secret-key-change-in-production",
@@ -130,6 +130,20 @@ class Settings(BaseSettings):
     GITHUB_REPO_OWNER: str = Field(default="arcinterface-dev", description="GitHub username / organization")
     GITHUB_REPO_NAME: str = Field(default="devscrolls", description="Target blog repository name")
     GITHUB_BRANCH: str = Field(default="main", description="Target branch for article publishing")
+
+    @field_validator("GITHUB_REPO_OWNER", mode="before")
+    @classmethod
+    def sanitize_repo_owner(cls, v):
+        if not v or str(v).strip().lower() in ["santhanakrishnanstark", "your-github-username", "owner"]:
+            return "arcinterface-dev"
+        return str(v).strip()
+
+    @field_validator("GITHUB_REPO_NAME", mode="before")
+    @classmethod
+    def sanitize_repo_name(cls, v):
+        if not v or str(v).strip().lower() in ["myblog", "your-repo-name", "repo"]:
+            return "devscrolls"
+        return str(v).strip()
 
     # -------------------------------------------------------------------------
     # Kit (ConvertKit) Integration

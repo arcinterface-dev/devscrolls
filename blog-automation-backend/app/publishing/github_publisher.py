@@ -27,13 +27,23 @@ class GitHubPublisher:
         repo: Optional[str] = None,
         branch: Optional[str] = None
     ):
+        raw_owner = owner or settings.GITHUB_REPO_OWNER
+        raw_repo = repo or settings.GITHUB_REPO_NAME
+
+        # Defensive fallback: never allow placeholder or non-existent repo to cause 404
+        if not raw_owner or str(raw_owner).strip().lower() in ["santhanakrishnanstark", "your-github-username"]:
+            raw_owner = "arcinterface-dev"
+        if not raw_repo or str(raw_repo).strip().lower() in ["myblog", "your-repo-name"]:
+            raw_repo = "devscrolls"
+
         self.token = token or settings.GITHUB_TOKEN
-        self.owner = owner or settings.GITHUB_REPO_OWNER
-        self.repo = repo or settings.GITHUB_REPO_NAME
-        self.branch = branch or settings.GITHUB_BRANCH
+        self.owner = raw_owner
+        self.repo = raw_repo
+        self.branch = branch or settings.GITHUB_BRANCH or "main"
         self.publishing_repo = PublishingRepository()
         self.draft_repo = DraftRepository()
         self.api_base = "https://api.github.com"
+        logger.info(f"GitHubPublisher configured for repo '{self.owner}/{self.repo}' on branch '{self.branch}'")
 
     def _get_headers(self) -> Dict[str, str]:
         headers = {
@@ -210,6 +220,7 @@ class GitHubPublisher:
             logger.info(f"Creating new article at {target_path}")
 
         url = f"{self.api_base}/repos/{self.owner}/{self.repo}/contents/{target_path}"
+        logger.info(f"Submitting GitHub commit via PUT {url} on branch {self.branch}")
 
         async with httpx.AsyncClient(timeout=30.0) as client:
             try:
