@@ -171,8 +171,9 @@ class BlogWriterAgent:
         # Ensure valid slug
         slug = raw_output.slug or self._generate_slug(title)
 
-        # Ensure publish date is present
-        pub_date = raw_output.frontmatter.publishDate or datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        # Ensure publish date is present and always uses current date for new articles
+        today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        pub_date = today_str
 
         # Fallback category and tags to taxonomy bounds
         valid_cats = ["frontend", "backend", "ai", "architecture", "interviews", "tutorials"]
@@ -328,10 +329,14 @@ TASK:
         if not tags:
             tags = ["react", "performance"]
 
+        orig_pub = current_frontmatter.get("publishDate")
+        if not orig_pub or orig_pub == "2026-07-01":
+            orig_pub = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
         frontmatter = AstroFrontmatter(
             title=title,
             description=desc,
-            publishDate=raw_output.frontmatter.publishDate or current_frontmatter.get("publishDate", datetime.now(timezone.utc).strftime("%Y-%m-%d")),
+            publishDate=orig_pub,
             updatedDate=datetime.now(timezone.utc).strftime("%Y-%m-%d"),
             category=cat,
             tags=tags,

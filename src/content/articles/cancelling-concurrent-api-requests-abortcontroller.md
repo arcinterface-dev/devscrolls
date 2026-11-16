@@ -2,7 +2,7 @@
 title: Why Promise.any Leaves Jobs Half Done and How to Cancel Fetch
 description: Discover why Promise.any and Promise.race leak running HTTP connections
   and how to truly terminate in-flight fetch requests with AbortController.
-publishDate: 2026-07-01
+publishDate: 2026-11-16
 updatedDate: 2026-11-16
 category: frontend
 tags:
