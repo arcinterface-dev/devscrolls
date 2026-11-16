@@ -80,12 +80,12 @@ Respond ONLY with the JSON object containing 'subject', 'preview_text', 'html_co
         system_prompt = NEWSLETTER_SYSTEM_PROMPT.format(canonical_url=canonical_url)
 
         try:
-            response = await self.provider.generate_text(
-                prompt=prompt,
-                system_instruction=system_prompt,
+            raw, _ = await self.provider.generate_text(
+                system_prompt=system_prompt,
+                user_prompt=prompt,
                 temperature=0.7
             )
-            raw = response.text.strip()
+            raw = raw.strip()
             if raw.startswith("```"):
                 lines = raw.split("\n")
                 if lines[0].startswith("```"):

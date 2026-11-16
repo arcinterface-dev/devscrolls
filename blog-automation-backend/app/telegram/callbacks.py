@@ -872,10 +872,13 @@ async def _handle_post_publish_linkedin(
         tags=draft.frontmatter.get("tags")
     )
 
+    import html
+    escaped_post = html.escape(post_text)
+
     card_text = (
         "📱 <b>LinkedIn Post Generated (Open-Loop Strategy)</b>\n\n"
         "<i>Copy and paste the text below directly into the LinkedIn app or web:</i>\n\n"
-        f"<blockquote>{post_text}</blockquote>\n\n"
+        f"<blockquote>{escaped_post}</blockquote>\n\n"
         f"🔗 <b>Canonical Article URL:</b> <a href=\"{canonical_url}\">{canonical_url}</a>"
     )
 
@@ -939,11 +942,14 @@ async def _handle_post_publish_kit(
             return
 
     # Fallback if Kit API secret is not yet set
+    import html
+    escaped_plain = html.escape(plain_text or "")
+    escaped_subject = html.escape(subject or "")
     fallback_text = (
         "📧 <b>Newsletter Copy Ready (Kit not yet connected)</b>\n\n"
-        f"• <b>Subject:</b> <code>{subject}</code>\n\n"
+        f"• <b>Subject:</b> <code>{escaped_subject}</code>\n\n"
         "<i>Copy and paste the plain text below into Kit or your email provider:</i>\n\n"
-        f"<blockquote>{plain_text}</blockquote>\n\n"
+        f"<blockquote>{escaped_plain}</blockquote>\n\n"
         "💡 <i>Tip: Add <code>KIT_API_SECRET</code> to your Render environment variables to automatically create drafts inside Kit with one tap!</i>"
     )
     await bot_client.send_message(

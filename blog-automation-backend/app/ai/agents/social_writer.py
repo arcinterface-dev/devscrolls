@@ -76,13 +76,13 @@ Generate the complete LinkedIn post now following the Open-Loop rules."""
         system_prompt = LINKEDIN_SYSTEM_PROMPT.format(canonical_url=canonical_url)
 
         try:
-            response = await self.provider.generate_text(
-                prompt=prompt,
-                system_instruction=system_prompt,
+            text_result, _ = await self.provider.generate_text(
+                system_prompt=system_prompt,
+                user_prompt=prompt,
                 temperature=0.7
             )
             # Ensure canonical link is present
-            post_text = response.text.strip()
+            post_text = text_result.strip()
             if canonical_url not in post_text:
                 post_text += f"\n\nRead the full post here:\n{canonical_url}"
             return post_text

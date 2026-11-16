@@ -46,3 +46,15 @@ def get_agent_provider(agent_role: str) -> AIProvider:
     provider_name = settings.get_provider_for_agent(agent_role)
     return get_ai_provider(provider_name)
 
+
+class AIFactory:
+    """Factory alias supporting create_provider."""
+
+    @staticmethod
+    def create_provider(provider_name: str | None = None) -> AIProvider:
+        return get_ai_provider(provider_name)
+
+    @staticmethod
+    def get_provider(provider_name: str | None = None) -> AIProvider:
+        return get_ai_provider(provider_name)
+
