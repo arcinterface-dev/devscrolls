@@ -103,7 +103,8 @@ class ContextBuilder:
 
 ### 2. OUTLINE SECTIONS TO EXPAND:
 """
-        for i, sec in enumerate(perspective.outline, 1):
+        outline_secs = getattr(perspective, "proposed_outline", None) or getattr(perspective, "outline", [])
+        for i, sec in enumerate(outline_secs, 1):
             prompt += f"{i}. {sec.heading}\n"
             for pt in sec.key_points:
                 prompt += f"   - {pt}\n"

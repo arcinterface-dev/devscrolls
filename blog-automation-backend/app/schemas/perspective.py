@@ -65,6 +65,11 @@ class PerspectiveOutput(BaseModel):
         default_factory=list,
         description="Structured section outline for the final article."
     )
+
+    @property
+    def outline(self) -> List[OutlineSection]:
+        """Convenience property mapping to proposed_outline."""
+        return self.proposed_outline
     missing_information: List[str] = Field(
         default_factory=list,
         description="Any technical details or context omitted in the recording."
