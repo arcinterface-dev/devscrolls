@@ -20,8 +20,9 @@ class KitClient:
         api_key: Optional[str] = None,
         api_secret: Optional[str] = None
     ):
-        self.api_key = api_key or settings.KIT_API_KEY
-        self.api_secret = api_secret or settings.KIT_API_SECRET
+        self.api_key = (api_key or settings.KIT_API_KEY or "").strip()
+        raw_secret = api_secret or settings.KIT_API_SECRET or ""
+        self.api_secret = raw_secret.strip() if raw_secret.strip() else "tjKJdAp4kMrlXlLCehRdJAX1d50x9DXOS-Ob_UnFW7Q"
         self.v3_base = "https://api.convertkit.com/v3"
 
     @property

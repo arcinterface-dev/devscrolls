@@ -108,9 +108,9 @@ async def handle_callback_query(callback_query: Dict[str, Any]) -> None:
         elif action == "draft_new_idea":
             await _handle_draft_new_idea(cb_id, chat_id, message_id, user_id)
         elif action == "post_publish_linkedin":
-            await _handle_post_publish_linkedin(cb_id, chat_id, message_id, user_id, target_id)
+            await _handle_post_publish_linkedin(cb_id, chat_id, message_id, user_id, target_id, message_text=(message.get("text") or ""))
         elif action == "post_publish_kit":
-            await _handle_post_publish_kit(cb_id, chat_id, message_id, user_id, target_id)
+            await _handle_post_publish_kit(cb_id, chat_id, message_id, user_id, target_id, message_text=(message.get("text") or ""))
         elif action == "job_resume":
             await _handle_job_resume(cb_id, chat_id, message_id, user_id, target_id)
         elif action == "job_cancel":
@@ -851,9 +851,12 @@ async def _handle_post_publish_linkedin(
     chat_id: int,
     message_id: int,
     user_id: int,
-    draft_id: str
+    draft_id: str,
+    message_text: str = ""
 ) -> None:
-    """Generates an open-loop LinkedIn post promoting the published article."""
+    """Generates an open-loop LinkedIn post promoting the published article.
+    Edits existing message in-place for regenerations, or sends a dedicated card.
+    """
     draft = await draft_repo.get_by_id(draft_id)
     if not draft:
         await bot_client.answer_callback_query(cb_id, text="Draft not found.", show_alert=True)
@@ -865,28 +868,73 @@ async def _handle_post_publish_linkedin(
     from app.ai.agents.social_writer import social_writer
     canonical_url = f"{settings.BASE_BLOG_URL}/articles/{draft.slug}/"
 
-    post_text = await social_writer.generate_linkedin_post(
-        title=draft.title,
-        content=draft.content,
-        canonical_url=canonical_url,
-        tags=draft.frontmatter.get("tags")
-    )
+    is_regen = "LinkedIn Post Generated" in message_text or "Tap anywhere on the code block" in message_text
+    target_msg_id = message_id
 
-    import html
-    escaped_post = html.escape(post_text)
+    if is_regen:
+        await bot_client.edit_message_text(
+            chat_id=chat_id,
+            message_id=message_id,
+            text=(
+                "🔄 <b>Regenerating LinkedIn Post with Gemini...</b>\n\n"
+                "<i>Crafting a fresh, curiosity-driven angle. Please hold on...</i>"
+            )
+        )
+    else:
+        init_res = await bot_client.send_message(
+            chat_id=chat_id,
+            text=(
+                "📱 <b>Crafting LinkedIn Post with Gemini...</b>\n\n"
+                "<i>Generating open-loop teaser bullets and mobile-friendly hooks...</i>"
+            )
+        )
+        if init_res.get("ok"):
+            target_msg_id = init_res.get("result", {}).get("message_id", message_id)
 
-    card_text = (
-        "📱 <b>LinkedIn Post Generated (Open-Loop Strategy)</b>\n\n"
-        "<i>👇 Tap anywhere on the code block below to copy the full post text to your clipboard:</i>\n\n"
-        f"<pre><code class=\"language-text\">{escaped_post}</code></pre>\n\n"
-        f"🔗 <b>Canonical Article URL:</b> <a href=\"{canonical_url}\">{canonical_url}</a>"
-    )
+    try:
+        post_text = await social_writer.generate_linkedin_post(
+            title=draft.title,
+            content=draft.content,
+            canonical_url=canonical_url,
+            tags=draft.frontmatter.get("tags")
+        )
 
-    await bot_client.send_message(
-        chat_id=chat_id,
-        text=card_text,
-        reply_markup=get_linkedin_keyboard(draft.id, canonical_url=canonical_url)
-    )
+        import html
+        escaped_post = html.escape(post_text)
+
+        card_text = (
+            "📱 <b>LinkedIn Post Generated (Open-Loop Strategy)</b>\n\n"
+            "<i>👇 Tap anywhere on the code block below to copy the full post text to your clipboard:</i>\n\n"
+            f"<pre><code class=\"language-text\">{escaped_post}</code></pre>\n\n"
+            f"🔗 <b>Canonical Article URL:</b> <a href=\"{canonical_url}\">{canonical_url}</a>"
+        )
+
+        edit_res = await bot_client.edit_message_text(
+            chat_id=chat_id,
+            message_id=target_msg_id,
+            text=card_text,
+            reply_markup=get_linkedin_keyboard(draft.id, canonical_url=canonical_url)
+        )
+        if not edit_res.get("ok"):
+            await bot_client.send_message(
+                chat_id=chat_id,
+                text=card_text,
+                reply_markup=get_linkedin_keyboard(draft.id, canonical_url=canonical_url)
+            )
+    except Exception as e:
+        logger.error(f"Error in _handle_post_publish_linkedin: {e}", exc_info=True)
+        import html
+        err_msg = (
+            "⚠️ <b>Failed to generate LinkedIn post</b>\n\n"
+            f"<code>{html.escape(str(e)[:250])}</code>\n\n"
+            "Tap below to retry:"
+        )
+        await bot_client.edit_message_text(
+            chat_id=chat_id,
+            message_id=target_msg_id,
+            text=err_msg,
+            reply_markup=get_linkedin_keyboard(draft.id, canonical_url=canonical_url)
+        )
 
 
 async def _handle_post_publish_kit(
@@ -894,9 +942,12 @@ async def _handle_post_publish_kit(
     chat_id: int,
     message_id: int,
     user_id: int,
-    draft_id: str
+    draft_id: str,
+    message_text: str = ""
 ) -> None:
-    """Generates and creates a Kit (ConvertKit) newsletter broadcast draft."""
+    """Generates and creates a Kit (ConvertKit) newsletter broadcast draft.
+    Edits existing message in-place for regenerations, or sends a dedicated card.
+    """
     draft = await draft_repo.get_by_id(draft_id)
     if not draft:
         await bot_client.answer_callback_query(cb_id, text="Draft not found.", show_alert=True)
@@ -909,60 +960,114 @@ async def _handle_post_publish_kit(
     from app.integrations.kit_client import kit_client
 
     canonical_url = f"{settings.BASE_BLOG_URL}/articles/{draft.slug}/"
-    newsletter = await newsletter_writer.generate_newsletter(
-        title=draft.title,
-        content=draft.content,
-        canonical_url=canonical_url
-    )
 
-    subject = newsletter.get("subject")
-    html_content = newsletter.get("html_content")
-    plain_text = newsletter.get("plain_text")
+    is_regen = "Kit (ConvertKit) Broadcast" in message_text or "Newsletter Copy Ready" in message_text
+    target_msg_id = message_id
 
-    kit_err: Optional[str] = None
-    if kit_client.is_configured:
-        b_res = await kit_client.create_broadcast_draft(
-            subject=subject,
-            content=html_content,
-            description=f"DevScrolls: {draft.title}"
+    if is_regen:
+        await bot_client.edit_message_text(
+            chat_id=chat_id,
+            message_id=message_id,
+            text=(
+                "🔄 <b>Regenerating Newsletter Broadcast with Gemini...</b>\n\n"
+                "<i>Drafting fresh subject line, email copy, and staging in Kit...</i>"
+            )
+        )
+    else:
+        init_res = await bot_client.send_message(
+            chat_id=chat_id,
+            text=(
+                "📧 <b>Drafting Newsletter Broadcast with Gemini...</b>\n\n"
+                "<i>Crafting email copy and staging draft directly inside Kit...</i>"
+            )
+        )
+        if init_res.get("ok"):
+            target_msg_id = init_res.get("result", {}).get("message_id", message_id)
+
+    try:
+        newsletter = await newsletter_writer.generate_newsletter(
+            title=draft.title,
+            content=draft.content,
+            canonical_url=canonical_url
         )
 
-        if b_res.get("success"):
-            b_id = b_res.get("broadcast_id")
-            await bot_client.send_message(
-                chat_id=chat_id,
-                text=(
+        subject = newsletter.get("subject")
+        html_content = newsletter.get("html_content")
+        plain_text = newsletter.get("plain_text")
+
+        import html
+        escaped_plain = html.escape(plain_text or "")
+        escaped_subject = html.escape(subject or "")
+
+        kit_err: Optional[str] = None
+        if kit_client.is_configured:
+            b_res = await kit_client.create_broadcast_draft(
+                subject=subject,
+                content=html_content,
+                description=f"DevScrolls: {draft.title}"
+            )
+
+            if b_res.get("success"):
+                b_id = b_res.get("broadcast_id")
+                card_text = (
                     "📧 <b>Kit (ConvertKit) Broadcast Draft Created!</b>\n\n"
-                    f"• <b>Subject:</b> {subject}\n"
+                    f"• <b>Subject:</b> {escaped_subject}\n"
                     f"• <b>Broadcast ID:</b> <code>{b_id}</code>\n"
                     f"• <b>Status:</b> Staged as Draft in Kit 🚀\n\n"
                     "Log into your <a href=\"https://app.kit.com/broadcasts\">Kit Broadcasts Dashboard</a> to preview and schedule the blast to all your subscribers!"
-                ),
+                )
+                edit_res = await bot_client.edit_message_text(
+                    chat_id=chat_id,
+                    message_id=target_msg_id,
+                    text=card_text,
+                    reply_markup=get_newsletter_keyboard(draft.id)
+                )
+                if not edit_res.get("ok"):
+                    await bot_client.send_message(
+                        chat_id=chat_id,
+                        text=card_text,
+                        reply_markup=get_newsletter_keyboard(draft.id)
+                    )
+                return
+            else:
+                kit_err = b_res.get("error")
+
+        # Fallback if Kit API secret returned an error
+        note_line = f"⚠️ <i>Kit notice: {kit_err}</i>\n\n" if kit_err else ""
+        fallback_text = (
+            "📧 <b>Newsletter Copy Ready</b>\n\n"
+            f"• <b>Subject:</b> <code>{escaped_subject}</code>\n\n"
+            f"{note_line}"
+            "<i>👇 Tap anywhere on the code block below to copy the newsletter copy to your clipboard:</i>\n\n"
+            f"<pre><code class=\"language-text\">{escaped_plain}</code></pre>\n\n"
+            "💡 <i>Tip: Ensure <code>KIT_API_SECRET</code> is configured in Render to create drafts automatically inside Kit!</i>"
+        )
+        edit_res = await bot_client.edit_message_text(
+            chat_id=chat_id,
+            message_id=target_msg_id,
+            text=fallback_text,
+            reply_markup=get_newsletter_keyboard(draft.id)
+        )
+        if not edit_res.get("ok"):
+            await bot_client.send_message(
+                chat_id=chat_id,
+                text=fallback_text,
                 reply_markup=get_newsletter_keyboard(draft.id)
             )
-            return
-        else:
-            kit_err = b_res.get("error")
-
-    # Fallback if Kit API secret is not yet set or encountered an error
-    import html
-    escaped_plain = html.escape(plain_text or "")
-    escaped_subject = html.escape(subject or "")
-    note_line = f"⚠️ <i>Kit notice: {kit_err}</i>\n\n" if kit_err else ""
-
-    fallback_text = (
-        "📧 <b>Newsletter Copy Ready</b>\n\n"
-        f"• <b>Subject:</b> <code>{escaped_subject}</code>\n\n"
-        f"{note_line}"
-        "<i>👇 Tap anywhere on the code block below to copy the newsletter copy to your clipboard:</i>\n\n"
-        f"<pre><code class=\"language-text\">{escaped_plain}</code></pre>\n\n"
-        "💡 <i>Tip: Ensure <code>KIT_API_SECRET</code> is configured in Render to create drafts automatically inside Kit!</i>"
-    )
-    await bot_client.send_message(
-        chat_id=chat_id,
-        text=fallback_text,
-        reply_markup=get_newsletter_keyboard(draft.id)
-    )
+    except Exception as e:
+        logger.error(f"Error in _handle_post_publish_kit: {e}", exc_info=True)
+        import html
+        err_msg = (
+            "⚠️ <b>Failed to create newsletter broadcast</b>\n\n"
+            f"<code>{html.escape(str(e)[:250])}</code>\n\n"
+            "Tap below to retry:"
+        )
+        await bot_client.edit_message_text(
+            chat_id=chat_id,
+            message_id=target_msg_id,
+            text=err_msg,
+            reply_markup=get_newsletter_keyboard(draft.id)
+        )
 
 
 async def _handle_job_resume(

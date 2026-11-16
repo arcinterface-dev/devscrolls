@@ -84,6 +84,15 @@ class TelegramBotClient:
             data = res.json()
             if not data.get("ok"):
                 logger.error(f"Telegram editMessageText failed: {data}")
+                err_desc = data.get("description", "")
+                if "parse entities" in err_desc or "start tag" in err_desc or "entity" in err_desc:
+                    import re
+                    logger.warning("Telegram HTML entity error; retrying editMessageText in plain text mode...")
+                    payload_plain = payload.copy()
+                    payload_plain.pop("parse_mode", None)
+                    payload_plain["text"] = re.sub(r"<[^>]+>", "", text)
+                    retry_res = await client.post(url, json=payload_plain)
+                    return retry_res.json()
             return data
 
     async def answer_callback_query(
