@@ -132,6 +132,15 @@ DevScrolls articles are authored from real-world production experience. They emp
   - Memory trade-offs between Python tuples and lists (fixed allocation vs amortized over-allocation).
   - Two-pass frequency counting for first non-repeating character in O(n) time and O(k) space using `collections.Counter`.
 
+### 3.6 "How to Cancel Unwanted HTTP Requests with AbortController"
+- **URL**: https://devscrolls.dev/articles/cancelling-concurrent-api-requests-abortcontroller/
+- **Topics**: Fetch API, AbortController, Promise.any, ECMAScript, React, TanStack Query, network performance, zombie sockets.
+- **Key Insights**:
+  - Standard JavaScript promises cannot be cancelled once initiated; resolving or ignoring a promise leaves the underlying HTTP request running in the background.
+  - AbortController provides an AbortSignal instance that communicates directly with browser network sockets, immediately terminating redundant HTTP calls and preventing backend connection pool exhaustion.
+  - When `.abort()` is invoked, `fetch()` instantly rejects with a `DOMException` named `AbortError`, which must be caught and ignored cleanly in application fetch wrappers.
+  - In high-throughput interfaces (e.g., search autocomplete), failing to cancel stale requests results in severe database connection spikes and mobile CPU overhead.
+
 ### 1.5 DevScrolls Games (Dev Skribbl)
 - **URL**: https://devscrolls.dev/games/
 - **Category**: Interactive Developer Gaming / Team Engagement / Realtime Multiplayer Party Games

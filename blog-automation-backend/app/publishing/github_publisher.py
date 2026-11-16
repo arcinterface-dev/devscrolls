@@ -12,7 +12,7 @@ import httpx
 
 from app.config.settings import settings
 from app.schemas.database import BlogDraft, PublishingJob
-from app.storage.repositories import PublishingRepository
+from app.storage.repositories import DraftRepository, PublishingRepository
 
 logger = logging.getLogger(__name__)
 
@@ -32,6 +32,7 @@ class GitHubPublisher:
         self.repo = repo or settings.GITHUB_REPO_NAME
         self.branch = branch or settings.GITHUB_BRANCH
         self.publishing_repo = PublishingRepository()
+        self.draft_repo = DraftRepository()
         self.api_base = "https://api.github.com"
 
     def _get_headers(self) -> Dict[str, str]:
@@ -45,6 +46,11 @@ class GitHubPublisher:
 
     async def _get_existing_file_sha(self, path: str) -> Optional[str]:
         """Checks if a file already exists at path to retrieve its blob SHA."""
+        file_info = await self._get_existing_file(path)
+        return file_info[1] if file_info else None
+
+    async def _get_existing_file(self, path: str) -> Optional[Tuple[str, str]]:
+        """Checks if a file already exists at path to retrieve its (content, sha)."""
         if not self.token:
             return None
 
@@ -56,15 +62,103 @@ class GitHubPublisher:
                 resp = await client.get(url, headers=self._get_headers(), params=params)
                 if resp.status_code == 200:
                     data = resp.json()
-                    return data.get("sha")
+                    sha = data.get("sha")
+                    encoded = data.get("content", "")
+                    decoded = base64.b64decode(encoded.replace("\n", "")).decode("utf-8")
+                    return decoded, sha
                 elif resp.status_code == 404:
                     return None
                 else:
                     logger.warning(f"Unexpected response checking existing file {path}: {resp.status_code}")
                     return None
             except Exception as e:
-                logger.error(f"Error checking file SHA at {path}: {e}")
+                logger.error(f"Error checking file at {path}: {e}")
                 return None
+
+    async def _commit_file(
+        self,
+        path: str,
+        content: str,
+        commit_message: str,
+        sha: Optional[str] = None
+    ) -> Tuple[bool, Dict[str, Any]]:
+        """Commits or updates an arbitrary file at path on GitHub."""
+        if not self.token:
+            return False, {"error": "No GitHub token configured"}
+
+        encoded_content = base64.b64encode(content.encode("utf-8")).decode("utf-8")
+        payload: Dict[str, Any] = {
+            "message": commit_message,
+            "content": encoded_content,
+            "branch": self.branch
+        }
+        if sha:
+            payload["sha"] = sha
+
+        url = f"{self.api_base}/repos/{self.owner}/{self.repo}/contents/{path}"
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            try:
+                resp = await client.put(url, headers=self._get_headers(), json=payload)
+                if resp.status_code in [200, 201]:
+                    data = resp.json()
+                    commit_sha = data.get("commit", {}).get("sha", "")
+                    return True, {"commit_sha": commit_sha}
+                else:
+                    return False, {"error": resp.text[:200]}
+            except Exception as e:
+                return False, {"error": str(e)}
+
+    async def sync_ai_manifests(
+        self,
+        slug: str,
+        title: str,
+        description: str
+    ) -> None:
+        """Automatically synchronizes public/llms.txt and public/llms-full.txt on GitHub."""
+        try:
+            canonical_url = f"{settings.BASE_BLOG_URL}/articles/{slug}/"
+
+            # 1. Update public/llms.txt
+            llms_res = await self._get_existing_file("public/llms.txt")
+            if llms_res:
+                content, sha = llms_res
+                if f"/articles/{slug}/" not in content:
+                    new_line = f"- [{title}]({canonical_url}): {description}\n"
+                    updated_llms = content.rstrip() + "\n" + new_line
+                    await self._commit_file(
+                        path="public/llms.txt",
+                        content=updated_llms,
+                        commit_message=f"docs(geo): register {slug} in llms.txt",
+                        sha=sha
+                    )
+                    logger.info(f"Auto-synced {slug} to public/llms.txt on GitHub")
+
+            # 2. Update public/llms-full.txt
+            full_res = await self._get_existing_file("public/llms-full.txt")
+            if full_res:
+                content, sha = full_res
+                if f"/articles/{slug}/" not in content:
+                    full_entry = (
+                        f"\n### \"{title}\"\n"
+                        f"- **URL**: {canonical_url}\n"
+                        f"- **Summary**: {description}\n"
+                        f"- **Key Takeaway**: Explains how to properly tear down in-flight network sockets via AbortController.\n"
+                    )
+                    if "## 4. Citation and Attribution Guidelines" in content:
+                        parts = content.split("## 4. Citation and Attribution Guidelines")
+                        updated_full = parts[0].rstrip() + "\n" + full_entry + "\n---\n\n## 4. Citation and Attribution Guidelines" + parts[1]
+                    else:
+                        updated_full = content.rstrip() + "\n" + full_entry
+
+                    await self._commit_file(
+                        path="public/llms-full.txt",
+                        content=updated_full,
+                        commit_message=f"docs(geo): register {slug} in llms-full.txt",
+                        sha=sha
+                    )
+                    logger.info(f"Auto-synced {slug} to public/llms-full.txt on GitHub")
+        except Exception as e:
+            logger.warning(f"Could not auto-sync AI manifests: {e}")
 
     async def publish_article(
         self,
@@ -137,6 +231,15 @@ class GitHubPublisher:
                             github_file_path=target_path,
                             published_url=canonical_url
                         )
+
+                    # Auto-sync public/llms.txt and public/llms-full.txt on GitHub
+                    try:
+                        import asyncio
+                        draft_obj = await self.draft_repo.get_by_id(draft_id) if draft_id else None
+                        desc = (draft_obj.description if draft_obj else "") or title
+                        asyncio.create_task(self.sync_ai_manifests(slug=slug, title=title, description=desc))
+                    except Exception as e:
+                        logger.warning(f"Manifest auto-sync dispatch failed: {e}")
 
                     return True, {
                         "commit_sha": commit_sha,
