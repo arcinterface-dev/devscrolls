@@ -877,15 +877,15 @@ async def _handle_post_publish_linkedin(
 
     card_text = (
         "📱 <b>LinkedIn Post Generated (Open-Loop Strategy)</b>\n\n"
-        "<i>Copy and paste the text below directly into the LinkedIn app or web:</i>\n\n"
-        f"<blockquote>{escaped_post}</blockquote>\n\n"
+        "<i>Tap the 'Copy Post to Clipboard' button below or tap the text block to copy directly:</i>\n\n"
+        f"<pre><code class=\"language-text\">{escaped_post}</code></pre>\n\n"
         f"🔗 <b>Canonical Article URL:</b> <a href=\"{canonical_url}\">{canonical_url}</a>"
     )
 
     await bot_client.send_message(
         chat_id=chat_id,
         text=card_text,
-        reply_markup=get_linkedin_keyboard(draft.id)
+        reply_markup=get_linkedin_keyboard(draft.id, post_text=post_text)
     )
 
 
@@ -919,6 +919,7 @@ async def _handle_post_publish_kit(
     html_content = newsletter.get("html_content")
     plain_text = newsletter.get("plain_text")
 
+    kit_err: Optional[str] = None
     if kit_client.is_configured:
         b_res = await kit_client.create_broadcast_draft(
             subject=subject,
@@ -937,25 +938,30 @@ async def _handle_post_publish_kit(
                     f"• <b>Status:</b> Staged as Draft in Kit 🚀\n\n"
                     "Log into your <a href=\"https://app.kit.com/broadcasts\">Kit Broadcasts Dashboard</a> to preview and schedule the blast to all your subscribers!"
                 ),
-                reply_markup=get_newsletter_keyboard(draft.id)
+                reply_markup=get_newsletter_keyboard(draft.id, plain_text=plain_text)
             )
             return
+        else:
+            kit_err = b_res.get("error")
 
-    # Fallback if Kit API secret is not yet set
+    # Fallback if Kit API secret is not yet set or encountered an error
     import html
     escaped_plain = html.escape(plain_text or "")
     escaped_subject = html.escape(subject or "")
+    note_line = f"⚠️ <i>Kit notice: {kit_err}</i>\n\n" if kit_err else ""
+
     fallback_text = (
-        "📧 <b>Newsletter Copy Ready (Kit not yet connected)</b>\n\n"
+        "📧 <b>Newsletter Copy Ready</b>\n\n"
         f"• <b>Subject:</b> <code>{escaped_subject}</code>\n\n"
-        "<i>Copy and paste the plain text below into Kit or your email provider:</i>\n\n"
-        f"<blockquote>{escaped_plain}</blockquote>\n\n"
-        "💡 <i>Tip: Add <code>KIT_API_SECRET</code> to your Render environment variables to automatically create drafts inside Kit with one tap!</i>"
+        f"{note_line}"
+        "<i>Tap the 'Copy Newsletter Copy' button below or tap the text block to copy directly:</i>\n\n"
+        f"<pre><code class=\"language-text\">{escaped_plain}</code></pre>\n\n"
+        "💡 <i>Tip: Ensure <code>KIT_API_SECRET</code> is configured in Render to create drafts automatically inside Kit!</i>"
     )
     await bot_client.send_message(
         chat_id=chat_id,
         text=fallback_text,
-        reply_markup=get_newsletter_keyboard(draft.id)
+        reply_markup=get_newsletter_keyboard(draft.id, plain_text=plain_text)
     )
 
 

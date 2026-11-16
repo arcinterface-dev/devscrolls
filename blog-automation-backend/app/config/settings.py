@@ -18,7 +18,7 @@ class Settings(BaseSettings):
     # App & Environment
     # -------------------------------------------------------------------------
     APP_ENV: str = Field(default="development", description="development | staging | production")
-    APP_VERSION: str = Field(default="0.1.4")
+    APP_VERSION: str = Field(default="0.1.5")
     LOG_LEVEL: str = Field(default="INFO")
     INTERNAL_API_SECRET: str = Field(
         default="dev-secret-key-change-in-production",
@@ -149,7 +149,7 @@ class Settings(BaseSettings):
     # Kit (ConvertKit) Integration
     # -------------------------------------------------------------------------
     KIT_API_KEY: str = Field(default="", description="Kit (ConvertKit) API Key")
-    KIT_API_SECRET: str = Field(default="", description="Kit (ConvertKit) API Secret for broadcasts and subscribers")
+    KIT_API_SECRET: str = Field(default="tjKJdAp4kMrlXlLCehRdJAX1d50x9DXOS-Ob_UnFW7Q", description="Kit (ConvertKit) API Secret for broadcasts and subscribers")
 
     def get_provider_for_agent(self, agent_role: str) -> AIProviderType:
         """Returns the configured AI provider for a specific agent role,

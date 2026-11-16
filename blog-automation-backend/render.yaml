@@ -48,3 +48,5 @@ services:
         sync: false
       - key: GITHUB_TOKEN
         sync: false
+      - key: KIT_API_SECRET
+        sync: false

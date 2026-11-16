@@ -194,7 +194,9 @@ def get_draft_detail_keyboard(draft_id: UUID | str) -> Dict[str, Any]:
     }
 
 def get_post_publish_keyboard(draft_id: UUID | str, canonical_url: str) -> Dict[str, Any]:
-    """Presented after successful deployment to provide one-tap social & newsletter distribution."""
+    """Presented after successful deployment to provide one-tap social & newsletter distribution.
+    Structured vertically for full button label visibility.
+    """
     did = str(draft_id)
     return {
         "inline_keyboard": [
@@ -219,41 +221,59 @@ def get_post_publish_keyboard(draft_id: UUID | str, canonical_url: str) -> Dict[
         ]
     }
 
-def get_linkedin_keyboard(draft_id: UUID | str) -> Dict[str, Any]:
-    """Action buttons attached to generated LinkedIn post."""
+def get_linkedin_keyboard(draft_id: UUID | str, post_text: Optional[str] = None) -> Dict[str, Any]:
+    """Action buttons attached to generated LinkedIn post.
+    Structured vertically with native one-tap clipboard copy button.
+    """
     did = str(draft_id)
-    return {
-        "inline_keyboard": [
-            [
-                {
-                    "text": "🔄 Regenerate LinkedIn Post",
-                    "callback_data": f"post_publish_linkedin:{did}"
-                },
-                {
-                    "text": "📧 Create Kit Newsletter",
-                    "callback_data": f"post_publish_kit:{did}"
-                }
-            ]
-        ]
-    }
+    buttons = []
+    if post_text:
+        buttons.append([
+            {
+                "text": "📋 Copy Post to Clipboard",
+                "copy_text": {"text": post_text}
+            }
+        ])
+    buttons.append([
+        {
+            "text": "🔄 Regenerate LinkedIn Post",
+            "callback_data": f"post_publish_linkedin:{did}"
+        }
+    ])
+    buttons.append([
+        {
+            "text": "📧 Create Kit Newsletter Broadcast",
+            "callback_data": f"post_publish_kit:{did}"
+        }
+    ])
+    return {"inline_keyboard": buttons}
 
-def get_newsletter_keyboard(draft_id: UUID | str) -> Dict[str, Any]:
-    """Action buttons attached to generated newsletter."""
+def get_newsletter_keyboard(draft_id: UUID | str, plain_text: Optional[str] = None) -> Dict[str, Any]:
+    """Action buttons attached to generated newsletter.
+    Structured vertically with native one-tap copy button.
+    """
     did = str(draft_id)
-    return {
-        "inline_keyboard": [
-            [
-                {
-                    "text": "🔄 Regenerate Newsletter",
-                    "callback_data": f"post_publish_kit:{did}"
-                },
-                {
-                    "text": "📱 Generate LinkedIn Post",
-                    "callback_data": f"post_publish_linkedin:{did}"
-                }
-            ]
-        ]
-    }
+    buttons = []
+    if plain_text:
+        buttons.append([
+            {
+                "text": "📋 Copy Newsletter Copy",
+                "copy_text": {"text": plain_text}
+            }
+        ])
+    buttons.append([
+        {
+            "text": "🔄 Regenerate Newsletter Broadcast",
+            "callback_data": f"post_publish_kit:{did}"
+        }
+    ])
+    buttons.append([
+        {
+            "text": "📱 Generate LinkedIn Post",
+            "callback_data": f"post_publish_linkedin:{did}"
+        }
+    ])
+    return {"inline_keyboard": buttons}
 
 def get_cancel_only_keyboard(session_id: UUID | str) -> Dict[str, Any]:
     """Single cancel button used when waiting for text corrections."""
