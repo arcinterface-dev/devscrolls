@@ -106,6 +106,14 @@ class ArticleValidator:
             allow_unicode=True
         ).strip()
 
+        # Ensure publishDate and updatedDate are never quoted so Astro z.date() parses them as Date objects
+        yaml_header = re.sub(
+            r"^(publishDate|updatedDate):\s*['\"](\d{4}-\d{2}-\d{2})['\"]",
+            r"\1: \2",
+            yaml_header,
+            flags=re.MULTILINE
+        )
+
         final_content = f"---\n{yaml_header}\n---\n\n{markdown_content.strip()}\n"
         return True, final_content, []
 
