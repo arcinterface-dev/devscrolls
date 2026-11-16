@@ -30,6 +30,9 @@ async def lifespan(app: FastAPI):
     # 1. Run crash and cold-start recovery check on startup
     try:
         await run_startup_recovery()
+        import asyncio
+        from app.workers.job_processor import job_processor
+        asyncio.create_task(job_processor.run_worker_cycle())
     except Exception as e:
         logger.warning(f"Startup recovery encountered an error (continuing startup): {e}")
 

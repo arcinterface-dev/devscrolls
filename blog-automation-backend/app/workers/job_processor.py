@@ -49,51 +49,86 @@ class JobProcessor:
             logger.warning(f"Failed to send Telegram progress notification for job {job.id}: {e}")
 
     async def process_single_job(self, job: GenerationJob) -> bool:
-        """Executes the current stage of a claimed job.
-        Returns True if the job progressed or finished, False if failed.
-        """
-        logger.info(f"Processing job {job.id} at stage: {job.current_stage}")
+        """Executes all stages of a claimed job continuously until paused, completed, or failed."""
+        job_id = job.id
+        logger.info(f"Starting continuous multi-agent execution for job {job_id}...")
 
-        stage_name = job.current_stage
+        while True:
+            # Refresh latest job state from DB
+            current_job = await self.queue.get_job(job_id)
+            if not current_job:
+                logger.warning(f"Job {job_id} no longer exists in database.")
+                return False
 
-        # Check if a custom agent handler is registered for this stage
-        handler = STAGE_HANDLERS.get(stage_name)
+            # If job is paused for human interaction, completed, or failed, stop processing
+            if current_job.status in [
+                "awaiting_clarification",
+                "awaiting_approval",
+                "paused_quota",
+                "completed",
+                "failed",
+                "cancelled"
+            ]:
+                logger.info(f"Job {job_id} finished execution cycle with status: {current_job.status}")
+                return True
 
-        try:
-            if handler:
-                logger.info(f"Executing registered handler for stage: {stage_name}")
-                await handler(job)
-            else:
-                # Default built-in stage progression (stub for Phase 4)
-                await self._execute_default_stage(job)
+            stage_name = current_job.current_stage
+            handler = STAGE_HANDLERS.get(stage_name)
 
-            return True
+            if not handler:
+                logger.warning(f"No registered handler for stage '{stage_name}'. Executing default stage.")
+                await self._execute_default_stage(current_job)
+                continue
 
-        except Exception as e:
-            logger.error(f"Error processing job {job.id} at stage {stage_name}: {e}", exc_info=True)
-            new_retries = job.retry_count + 1
+            try:
+                logger.info(f"Executing handler for stage '{stage_name}' on job {job_id}...")
+                await handler(current_job)
 
-            if new_retries < MAX_GENERATION_ATTEMPTS:
-                logger.info(f"Retrying job {job.id} (attempt {new_retries}/{MAX_GENERATION_ATTEMPTS})...")
-                # Increment retry count and reset to queued
-                await self.queue.job_repo._table().update({
-                    "status": "queued",
-                    "retry_count": new_retries,
-                    "claimed_at": None,
-                    "error_message": f"Retry {new_retries}: {str(e)[:150]}"
-                }).eq("id", str(job.id)).execute()
-            else:
-                # Mark as permanently failed
-                fail_msg = f"Failed after {MAX_GENERATION_ATTEMPTS} attempts: {str(e)}"
-                await self.queue.mark_failed(job.id, fail_msg)
-                await self._notify_user(
-                    job,
-                    f"❌ <b>Generation Paused</b>\n\n"
-                    f"The blog generation encountered an issue: <code>{str(e)[:200]}</code>\n\n"
-                    "Our team has preserved your transcript. Type /status to review."
-                )
+                # Fetch updated state to verify transition
+                refreshed = await self.queue.get_job(job_id)
+                if not refreshed:
+                    break
 
-            return False
+                # If stage didn't change and status remains processing, avoid infinite loop
+                if refreshed.current_stage == stage_name and refreshed.status == "processing":
+                    logger.warning(f"Stage '{stage_name}' did not transition job {job_id}. Pausing.")
+                    break
+
+            except Exception as e:
+                logger.error(f"Error processing job {job_id} at stage '{stage_name}': {e}", exc_info=True)
+                fail_msg = f"Error in {stage_name}: {str(e)}"
+                await self.queue.mark_failed(job_id, fail_msg)
+
+                # Send transparent error notification with quick-action retry button
+                conv = await self.conv_repo.get_by_id(current_job.conversation_id)
+                if conv:
+                    error_card = (
+                        f"⚠️ <b>Pipeline Interrupted at Stage: {stage_name}</b>\n\n"
+                        f"<code>{str(e)[:250]}</code>\n\n"
+                        "Your voice transcript and earlier stages are safely preserved in the database."
+                    )
+                    retry_keyboard = {
+                        "inline_keyboard": [
+                            [
+                                {
+                                    "text": "🔄 Retry This Stage",
+                                    "callback_data": f"job_resume:{job_id}"
+                                },
+                                {
+                                    "text": "🛑 Cancel Job",
+                                    "callback_data": f"corr_cancel:{job_id}"
+                                }
+                            ]
+                        ]
+                    }
+                    await bot_client.send_message(
+                        chat_id=conv.telegram_user_id,
+                        text=error_card,
+                        reply_markup=retry_keyboard
+                    )
+                return False
+
+        return True
 
     async def _execute_default_stage(self, job: GenerationJob) -> None:
         """Default stage executor when agents are stubbed or during Phase 4 validation."""

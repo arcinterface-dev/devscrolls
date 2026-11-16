@@ -111,6 +111,10 @@ async def handle_callback_query(callback_query: Dict[str, Any]) -> None:
             await _handle_post_publish_linkedin(cb_id, chat_id, message_id, user_id, target_id)
         elif action == "post_publish_kit":
             await _handle_post_publish_kit(cb_id, chat_id, message_id, user_id, target_id)
+        elif action == "job_resume":
+            await _handle_job_resume(cb_id, chat_id, message_id, user_id, target_id)
+        elif action == "job_cancel":
+            await _handle_corr_cancel(cb_id, chat_id, message_id, user_id, target_id)
         else:
             await bot_client.answer_callback_query(cb_id, text="Action not recognized.")
     except Exception as e:
@@ -947,6 +951,34 @@ async def _handle_post_publish_kit(
         text=fallback_text,
         reply_markup=get_newsletter_keyboard(draft.id)
     )
+
+
+async def _handle_job_resume(
+    cb_id: str,
+    chat_id: int,
+    message_id: int,
+    user_id: int,
+    job_id: str
+) -> None:
+    """Manually resumes or retries an interrupted job."""
+    job = await job_repo.get_by_id(job_id)
+    if not job:
+        await bot_client.answer_callback_query(cb_id, text="Job not found.", show_alert=True)
+        return
+
+    # Reset job to queued so worker claims it
+    await job_repo.set_job_status(job_id, "queued")
+    await conv_repo.update_status(job.conversation_id, "active", "generation_queued")
+    await bot_client.answer_callback_query(cb_id, text="Pipeline resumed!")
+
+    await bot_client.send_message(
+        chat_id=chat_id,
+        text=f"▶️ <b>Pipeline Resumed</b>\n\nResuming generation at <b>Stage: {job.current_stage}</b>..."
+    )
+
+    from app.workers.job_processor import job_processor
+    import asyncio
+    asyncio.create_task(job_processor.run_worker_cycle())
 
 
 

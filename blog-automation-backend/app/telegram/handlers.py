@@ -162,28 +162,59 @@ async def _handle_cmd_status(chat_id: int, user_id: int) -> None:
     active_job = await job_repo.get_active_job_for_conversation(conv.id)
     latest_session = await session_repo.get_latest_session(conv.id)
 
+    stage_names = {
+        "perspective_analysis": "Agent 1: Perspective Analysis",
+        "research": "Agent 2: Technical Research (Tavily)",
+        "fact_check": "Agent 3: Fact Verification Ledger",
+        "writing": "Agent 4: Blog Writer & Editorial",
+        "editorial_review": "Agent 4: Editorial Quality Pass",
+        "user_review": "Awaiting Author Review",
+        "publishing": "Publishing to GitHub / DevScrolls",
+    }
+
     status_text = (
         "📊 <b>Active Session Status</b>\n\n"
-        f"• <b>Conversation ID:</b> <code>{conv.id}</code>\n"
+        f"• <b>Conversation:</b> <code>{conv.id}</code>\n"
         f"• <b>Session Stage:</b> <code>{conv.current_stage}</code>\n"
     )
 
     if latest_session:
         status_text += (
-            f"• <b>Input Type:</b> <code>{latest_session.input_type}</code>\n"
-            f"• <b>Audio Status:</b> <code>{latest_session.audio_status}</code>\n"
-            f"• <b>Transcript Status:</b> <code>{latest_session.transcript_status}</code>\n"
+            f"• <b>Input Mode:</b> <code>{latest_session.input_type}</code>\n"
+            f"• <b>Audio Confirmed:</b> <code>{latest_session.audio_status}</code>\n"
+            f"• <b>Transcript Confirmed:</b> <code>{latest_session.transcript_status}</code>\n"
         )
 
+    reply_markup = None
     if active_job:
+        friendly_stage = stage_names.get(active_job.current_stage, active_job.current_stage)
+        status_emoji = "🟢" if active_job.status == "processing" else ("🟡" if active_job.status == "queued" else "🔴")
         status_text += (
-            f"\n🤖 <b>Active Generation Job:</b>\n"
+            f"\n🤖 <b>Multi-Agent Generation Pipeline:</b>\n"
             f"• <b>Job ID:</b> <code>{active_job.id}</code>\n"
-            f"• <b>Job Status:</b> <code>{active_job.status}</code>\n"
-            f"• <b>Agent Stage:</b> <code>{active_job.current_stage}</code>\n"
+            f"• <b>Status:</b> {status_emoji} <code>{active_job.status}</code>\n"
+            f"• <b>Current Stage:</b> <b>{friendly_stage}</b>\n"
         )
+        if active_job.error_message:
+            status_text += f"• <b>Last Issue:</b> <code>{active_job.error_message}</code>\n"
 
-    await bot_client.send_message(chat_id=chat_id, text=status_text)
+        if active_job.status in ["processing", "queued", "failed"]:
+            reply_markup = {
+                "inline_keyboard": [
+                    [
+                        {
+                            "text": "▶️ Resume / Run Next Stage",
+                            "callback_data": f"job_resume:{active_job.id}"
+                        },
+                        {
+                            "text": "🛑 Cancel Job",
+                            "callback_data": f"job_cancel:{active_job.id}"
+                        }
+                    ]
+                ]
+            }
+
+    await bot_client.send_message(chat_id=chat_id, text=status_text, reply_markup=reply_markup)
 
 
 async def _handle_cmd_cancel(chat_id: int, user_id: int) -> None:
