@@ -1271,48 +1271,114 @@
    Resume Template Modal & X-Y-Z Action Formula Bank Styles
    ========================================================================== */
 .ats-template-modal-card {
-  max-width: 860px;
-  max-height: 90vh;
-  overflow-y: auto;
+  max-width: 880px;
+  width: 100%;
+  max-height: 88vh;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+}
+
+.ats-modal-header-fixed {
+  padding: var(--space-6) var(--space-6) var(--space-4);
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--surface-raised);
+  flex-shrink: 0;
 }
 
 .ats-tab-nav {
   display: flex;
   gap: var(--space-2);
-  border-bottom: 1px solid var(--border-subtle);
-  padding-bottom: var(--space-2);
-  margin-top: var(--space-2);
+  margin-top: var(--space-4);
+  padding: 5px;
+  background: var(--surface-sunken);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
   overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.ats-tab-nav::-webkit-scrollbar {
+  display: none;
 }
 
 .ats-tab-btn {
-  background: none;
-  border: none;
-  padding: 6px 14px;
-  font-size: var(--text-ui);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 18px;
+  font-size: 13.5px;
   font-weight: 600;
+  line-height: 1;
+  border-radius: var(--radius-md);
   color: var(--text-secondary);
-  border-radius: var(--radius-sm);
+  background: transparent;
+  border: 1px solid transparent;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
 }
 
 .ats-tab-btn:hover {
   color: var(--text-primary);
-  background: var(--surface-sunken);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .ats-tab-btn.is-active {
-  color: var(--accent-brand);
-  background: rgba(217, 119, 6, 0.12);
+  color: #ffffff;
+  background: var(--accent-brand);
+  border-color: var(--accent-brand);
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.3);
+}
+
+.ats-tab-icon {
+  font-size: 15px;
+}
+
+.ats-modal-body-scroll {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-default) transparent;
+}
+
+.ats-tab-meta {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.ats-meta-badge {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-sunken);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+.ats-meta-badge.ats-badge-success {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.25);
 }
 
 .ats-tab-content {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
-  margin-top: var(--space-3);
 }
 
 .ats-template-code-preview {
@@ -1320,7 +1386,7 @@
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: var(--space-4);
-  max-height: 340px;
+  max-height: 380px;
   overflow-y: auto;
 }
 
@@ -1337,54 +1403,85 @@
   word-break: break-word;
 }
 
-/* X-Y-Z Tab */
+/* X-Y-Z Tab Layout */
+.ats-xyz-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.ats-category-sticky-bar {
+  position: sticky;
+  top: calc(-1 * var(--space-6));
+  z-index: 10;
+  background: var(--surface-raised);
+  padding: var(--space-2) 0 var(--space-3);
+  border-bottom: 1px solid var(--border-subtle);
+  margin-top: calc(-1 * var(--space-2));
+}
+
 .ats-category-pills {
   display: flex;
   gap: var(--space-2);
   flex-wrap: wrap;
-  margin-bottom: var(--space-2);
 }
 
 .ats-cat-pill {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: 20px;
   background: var(--surface-sunken);
   border: 1px solid var(--border-subtle);
   color: var(--text-secondary);
   cursor: pointer;
   transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .ats-cat-pill:hover {
   color: var(--text-primary);
   border-color: var(--border-default);
+  background: var(--surface-base);
 }
 
 .ats-cat-pill.is-active {
-  background: var(--accent-brand);
-  color: #ffffff;
+  background: rgba(217, 119, 6, 0.12);
+  color: var(--accent-brand);
   border-color: var(--accent-brand);
+  font-weight: 700;
+}
+
+.ats-cat-count {
+  font-size: 10.5px;
+  opacity: 0.8;
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.08);
+  padding: 1px 6px;
+  border-radius: 10px;
 }
 
 .ats-xyz-list {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-  max-height: 380px;
-  overflow-y: auto;
-  padding-right: var(--space-2);
 }
 
 .ats-xyz-item {
   background: var(--surface-sunken);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--space-3);
+  transition: border-color 0.2s ease;
+}
+
+.ats-xyz-item:hover {
+  border-color: var(--border-default);
 }
 
 .ats-xyz-item-header {
@@ -1394,13 +1491,13 @@
 }
 
 .ats-xyz-role {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--text-primary);
 }
 
 .ats-xyz-category-tag {
-  font-size: 10px;
+  font-size: 10.5px;
   font-weight: 600;
   text-transform: uppercase;
   color: var(--accent-brand);
@@ -1410,59 +1507,75 @@
 .ats-xyz-compare {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: var(--space-2);
 }
 
 .ats-xyz-line {
-  font-size: 12px;
-  line-height: 1.5;
+  font-size: 13px;
+  line-height: 1.55;
   display: flex;
-  gap: 6px;
+  gap: 10px;
   align-items: flex-start;
 }
 
-.ats-xyz-line p {
+.ats-xyz-badge-weak {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.ats-xyz-badge-strong {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.ats-xyz-line.weak p {
   margin: 0;
+  color: var(--text-muted);
   flex: 1;
 }
 
-.ats-xyz-line.weak {
-  color: var(--text-muted);
-}
-
-.ats-xyz-line.weak .ats-xyz-label {
-  color: var(--state-danger);
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-.ats-xyz-line.strong {
+.ats-xyz-line.strong p {
+  margin: 0;
   color: var(--text-primary);
-}
-
-.ats-xyz-line.strong .ats-xyz-label {
-  color: var(--state-success);
-  font-weight: 600;
-  white-space: nowrap;
+  font-weight: 500;
+  flex: 1;
 }
 
 .ats-xyz-actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: var(--space-2);
+  border-top: 1px dashed var(--border-subtle);
   margin-top: var(--space-1);
 }
 
 .ats-xyz-metric-pill {
-  font-size: 11px;
+  font-size: 11.5px;
   color: var(--text-muted);
   font-style: italic;
 }
 
 .ats-xyz-copy-btn {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
-  padding: 3px 8px;
+  padding: 5px 12px;
   border-radius: var(--radius-sm);
   background: var(--surface-raised);
   border: 1px solid var(--border-default);
@@ -1478,12 +1591,14 @@
 }
 
 /* Newsletter Lead Magnet Footer */
-.ats-modal-newsletter-box {
-  margin-top: var(--space-3);
-  padding: var(--space-4);
+.ats-modal-footer {
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--border-subtle);
   background: var(--surface-sunken);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
+.ats-modal-newsletter-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1513,7 +1628,7 @@
 
 .ats-modal-newsletter-input {
   flex-grow: 1;
-  padding: 6px 10px;
+  padding: 8px 12px;
   font-size: 12px;
   background: var(--surface-raised);
   border: 1px solid var(--border-default);
@@ -1535,7 +1650,7 @@
   color: var(--accent-brand);
   background: rgba(217, 119, 6, 0.08);
   border: 1px solid rgba(217, 119, 6, 0.2);
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: all 0.2s ease;
