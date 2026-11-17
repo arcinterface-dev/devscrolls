@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import StructuredData from '../components/StructuredData.astro';
 import AtsChecker from '../components/tools/AtsChecker/index.tsx';
+import { DEVELOPER_RESUME_MARKDOWN, DEVELOPER_RESUME_LATEX } from '../lib/ats/resume-templates';
 import '../styles/prose.css';
 ---
 
@@ -185,6 +186,23 @@ Senior Frontend Engineer | Acme Corp (2022 - Core Skills: TypeScript, React 19, 
         <p>
           The right way to rank is contextual skill integration. Group your stack explicitly under <code>Technical Skills</code>, and reiterate those exact tools inside your work bullet points as evidence of hands-on production application.
         </p>
+
+        <h2>Free ATS Developer Resume Templates</h2>
+        <p>
+          To make your engineering resume immune to parsing failures across Workday, Greenhouse, and Lever, we provide two open-source, single-column templates. Both are pre-structured with the proper heading taxonomy, zero tables, zero drawing-layer text boxes, and zero unparsed icons.
+        </p>
+
+        <h3>1. Single-Column Markdown Template</h3>
+        <p>
+          Copy the Markdown below into VS Code, Obsidian, or Typora, customize your experience, and export as a clean, text-searchable PDF:
+        </p>
+        <pre><code>{DEVELOPER_RESUME_MARKDOWN}</code></pre>
+
+        <h3>2. LaTeX Overleaf Developer Template</h3>
+        <p>
+          If you typeset your resume with LaTeX, this minimal single-column template compiles directly on Overleaf or pdflatex without third-party font packages:
+        </p>
+        <pre><code>{DEVELOPER_RESUME_LATEX}</code></pre>
 
         <h2>Frequently Asked Questions</h2>
         

@@ -12,6 +12,7 @@ import { DetectedSkillsView } from './DetectedSkillsView';
 import { MatchedJobsView } from './MatchedJobsView';
 import { MonetizationCTA } from './MonetizationCTA';
 import { ShareCardModal } from './ShareCardModal';
+import { ResumeTemplateModal } from './ResumeTemplateModal';
 import './ats-checker.css';
 
 export default function AtsChecker() {
@@ -21,6 +22,7 @@ export default function AtsChecker() {
   const [currentFileName, setCurrentFileName] = useState<string>('');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isShareModalOpen, setIsShareModalOpen] = useState<boolean>(false);
+  const [isTemplateModalOpen, setIsTemplateModalOpen] = useState<boolean>(false);
 
   const handleFile = async (file: File) => {
     setErrorMessage(null);
@@ -122,6 +124,7 @@ export default function AtsChecker() {
         <UploadZone
           onFileSelected={handleFile}
           onLoadSample={handleLoadSample}
+          onOpenTemplates={() => setIsTemplateModalOpen(true)}
           isLoading={false}
           errorMessage={errorMessage}
         />
@@ -186,6 +189,12 @@ export default function AtsChecker() {
           />
         </div>
       )}
+
+      {/* Standalone Template & X-Y-Z Bank Modal */}
+      <ResumeTemplateModal
+        isOpen={isTemplateModalOpen}
+        onClose={() => setIsTemplateModalOpen(false)}
+      />
     </div>
   );
 }

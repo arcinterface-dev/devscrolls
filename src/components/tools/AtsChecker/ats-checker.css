@@ -1264,3 +1264,283 @@
   font-size: 13px;
   padding: var(--space-2) var(--space-4);
 }
+
+/* ==========================================================================
+   Resume Template Modal & X-Y-Z Action Formula Bank Styles
+   ========================================================================== */
+.ats-template-modal-card {
+  max-width: 860px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.ats-tab-nav {
+  display: flex;
+  gap: var(--space-2);
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: var(--space-2);
+  margin-top: var(--space-2);
+  overflow-x: auto;
+}
+
+.ats-tab-btn {
+  background: none;
+  border: none;
+  padding: 6px 14px;
+  font-size: var(--text-ui);
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.ats-tab-btn:hover {
+  color: var(--text-primary);
+  background: var(--surface-sunken);
+}
+
+.ats-tab-btn.is-active {
+  color: var(--accent-brand);
+  background: rgba(217, 119, 6, 0.12);
+}
+
+.ats-tab-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+}
+
+.ats-template-code-preview {
+  background: #020617;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  max-height: 340px;
+  overflow-y: auto;
+}
+
+.ats-template-code-preview pre {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.6;
+  color: #e2e8f0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* X-Y-Z Tab */
+.ats-category-pills {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-2);
+}
+
+.ats-cat-pill {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: var(--surface-sunken);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ats-cat-pill:hover {
+  color: var(--text-primary);
+  border-color: var(--border-default);
+}
+
+.ats-cat-pill.is-active {
+  background: var(--accent-brand);
+  color: #ffffff;
+  border-color: var(--accent-brand);
+}
+
+.ats-xyz-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: var(--space-2);
+}
+
+.ats-xyz-item {
+  background: var(--surface-sunken);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.ats-xyz-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ats-xyz-role {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.ats-xyz-category-tag {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--accent-brand);
+  letter-spacing: 0.05em;
+}
+
+.ats-xyz-compare {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.ats-xyz-line {
+  font-size: 12px;
+  line-height: 1.5;
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.ats-xyz-line p {
+  margin: 0;
+  flex: 1;
+}
+
+.ats-xyz-line.weak {
+  color: var(--text-muted);
+}
+
+.ats-xyz-line.weak .ats-xyz-label {
+  color: var(--state-danger);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.ats-xyz-line.strong {
+  color: var(--text-primary);
+}
+
+.ats-xyz-line.strong .ats-xyz-label {
+  color: var(--state-success);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.ats-xyz-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-1);
+}
+
+.ats-xyz-metric-pill {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.ats-xyz-copy-btn {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-raised);
+  border: 1px solid var(--border-default);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ats-xyz-copy-btn:hover {
+  background: var(--accent-brand);
+  color: #ffffff;
+  border-color: var(--accent-brand);
+}
+
+/* Newsletter Lead Magnet Footer */
+.ats-modal-newsletter-box {
+  margin-top: var(--space-3);
+  padding: var(--space-4);
+  background: var(--surface-sunken);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.ats-modal-newsletter-text strong {
+  font-size: 13px;
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.ats-modal-newsletter-text p {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.ats-modal-newsletter-form {
+  display: flex;
+  gap: var(--space-2);
+  flex-grow: 1;
+  max-width: 360px;
+}
+
+.ats-modal-newsletter-input {
+  flex-grow: 1;
+  padding: 6px 10px;
+  font-size: 12px;
+  background: var(--surface-raised);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+}
+
+.ats-modal-newsletter-input:focus {
+  outline: none;
+  border-color: var(--accent-brand);
+}
+
+.ats-template-trigger-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-brand);
+  background: rgba(217, 119, 6, 0.08);
+  border: 1px solid rgba(217, 119, 6, 0.2);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-left: 8px;
+}
+
+.ats-template-trigger-btn:hover {
+  background: rgba(217, 119, 6, 0.16);
+  border-color: var(--accent-brand);
+}
