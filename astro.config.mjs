@@ -7,6 +7,9 @@ import react from '@astrojs/react';
 
 export default defineConfig({
   site: 'https://devscrolls.dev',
+  redirects: {
+    '/articles/hello-world': '/about/'
+  },
   integrations: [
     sitemap({
       filter: (page) => !page.includes('/admin')

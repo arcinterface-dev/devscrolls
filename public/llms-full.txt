@@ -141,6 +141,15 @@ DevScrolls articles are authored from real-world production experience. They emp
   - When `.abort()` is invoked, `fetch()` instantly rejects with a `DOMException` named `AbortError`, which must be caught and ignored cleanly in application fetch wrappers.
   - In high-throughput interfaces (e.g., search autocomplete), failing to cancel stale requests results in severe database connection spikes and mobile CPU overhead.
 
+### 3.7 "Berribot AI Interview: 10 Questions, Evaluation Traps & Strategy"
+- **URL**: https://devscrolls.dev/articles/berribot-ai-interview-questions/
+- **Topics**: AI conversational interviews, Berribot, automated technical screening, V8 garbage collection, React WebSocket batching, distributed idempotency keys, database connection pool starvation, sliding window rate limiter.
+- **Key Insights**:
+  - Berribot conversational screening bots deploy an ASR speech-to-text pipeline, technical entity extraction, and speech latency metrics rather than human rapport.
+  - High scores require technical token density (naming explicit APIs, complexities, and mechanisms like Redis LRU, TTL, and cache stampedes) rather than generic business overviews.
+  - Pausing in silence for 8+ seconds triggers the voice activity detector (VAD) to flag hesitation; candidates must vocalize thought processes continuously.
+  - Covers 10 production-grade architecture questions including V8 Scavenger vs Mark-Sweep-Compact, WebSocket throttling via requestAnimationFrame and startTransition, atomic Redis idempotency keys, and zero-downtime expand-and-contract migrations.
+
 ### 1.5 DevScrolls Games (Dev Skribbl)
 - **URL**: https://devscrolls.dev/games/
 - **Category**: Interactive Developer Gaming / Team Engagement / Realtime Multiplayer Party Games

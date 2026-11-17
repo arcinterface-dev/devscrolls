@@ -58,6 +58,54 @@ allPosts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueO
 
     <CategoryNav />
 
+    <section class="pillars-section" aria-label="Featured guides and tools">
+      <div class="pillars-header">
+        <span class="pillars-label">Featured Guides & Tools</span>
+      </div>
+
+      <div class="pillars-grid">
+        <a href="/articles/mern-stack-ai-interview-experience/" class="pillar-card">
+          <div class="pillar-top">
+            <span class="pillar-badge">AI Interview</span>
+            <span class="pillar-arrow" aria-hidden="true">&rarr;</span>
+          </div>
+          <h3 class="pillar-title">MERN + AI Bot Interview Experience</h3>
+          <p class="pillar-desc">14 real questions on React reconciliation, backpressure, and Berribot screening.</p>
+        </a>
+
+        <a href="/articles/gemini-interview-prep/" class="pillar-card">
+          <div class="pillar-top">
+            <span class="pillar-badge">Interview Prep</span>
+            <span class="pillar-arrow" aria-hidden="true">&rarr;</span>
+          </div>
+          <h3 class="pillar-title">Technical Prep with Gemini Live</h3>
+          <p class="pillar-desc">A 48-hour active-recall voice simulation system for senior engineers.</p>
+        </a>
+
+        <a href="/articles/python-genai-interview-experience/" class="pillar-card">
+          <div class="pillar-top">
+            <span class="pillar-badge">Architecture</span>
+            <span class="pillar-arrow" aria-hidden="true">&rarr;</span>
+          </div>
+          <h3 class="pillar-title">Python & GenAI System Design</h3>
+          <p class="pillar-desc">Production RAG pipelines, agentic workflows, and LLM evaluation.</p>
+        </a>
+
+        <a href="/ats-checker/" class="pillar-card highlight">
+          <div class="pillar-top">
+            <span class="pillar-badge tool">Free Tool</span>
+            <span class="pillar-arrow" aria-hidden="true">&rarr;</span>
+          </div>
+          <h3 class="pillar-title">ATS Scroll: Resume Auditor</h3>
+          <p class="pillar-desc">In-browser parser check against Workday, Greenhouse & Lever formatting traps.</p>
+        </a>
+      </div>
+    </section>
+
+    <div class="feed-header">
+      <span class="feed-label">Recent Articles</span>
+    </div>
+
     <section class="home-feed" aria-label="All articles">
       {allPosts.map((post, index) => (
         <ArticleListItem 
@@ -161,6 +209,117 @@ allPosts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueO
   .intro-social-link.telegram:hover {
     color: #0088cc;
     border-color: #0088cc;
+  }
+
+  .pillars-section {
+    margin-bottom: var(--space-8);
+  }
+
+  .pillars-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-3);
+  }
+
+  .pillars-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+
+  @media (max-width: 640px) {
+    .pillars-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .pillar-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-3) var(--space-4);
+    background: var(--surface-raised);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .pillar-card:hover {
+    border-color: var(--border-default);
+    transform: translateY(-2px);
+    background: var(--surface-sunken);
+  }
+
+  .pillar-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+
+  .pillar-badge {
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-default, #d97706);
+  }
+
+  .pillar-badge.tool {
+    color: #10b981;
+  }
+
+  .pillar-arrow {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+
+  .pillar-card:hover .pillar-arrow {
+    transform: translateX(3px);
+    color: var(--text-primary);
+  }
+
+  .pillar-title {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 4px 0;
+    line-height: 1.35;
+  }
+
+  .pillar-card:hover .pillar-title {
+    color: var(--accent-default, #d97706);
+  }
+
+  .pillar-desc {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  .feed-header {
+    margin: var(--space-8) 0 var(--space-4);
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .feed-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
   }
 
   .home-feed {

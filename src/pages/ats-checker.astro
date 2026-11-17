@@ -2,11 +2,12 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import StructuredData from '../components/StructuredData.astro';
 import AtsChecker from '../components/tools/AtsChecker/index.tsx';
+import '../styles/prose.css';
 ---
 
 <BaseLayout 
   title="ATS Scroll — Free In-Browser ATS Resume Checker | DevScrolls" 
-  description="Audit your engineering resume against Workday, Greenhouse, and Lever ATS parsers with 100% in-browser privacy. Instant compatibility score, action verb density, keyword analysis, and matched remote developer jobs."
+  description="Audit your engineering resume against Workday, Greenhouse, and Lever ATS parsers. 100% in-browser privacy, instant compatibility score, and keyword analysis."
   canonical="https://devscrolls.dev/ats-checker/"
 >
   <StructuredData 
@@ -65,5 +66,331 @@ import AtsChecker from '../components/tools/AtsChecker/index.tsx';
     }}
   />
 
-  <AtsChecker client:only="react" />
+  <!-- Top App Section: Fully Prerendered & Interactive -->
+  <div class="ats-app-container">
+    <AtsChecker client:load />
+  </div>
+
+  <!-- Educational & Architectural Guide for Search Crawlers and Readers -->
+  <section class="ats-guide-section">
+    <div class="ats-guide-container">
+      <article class="prose ats-guide-prose">
+        <h2>How Modern Applicant Tracking Systems Parse Developer Resumes</h2>
+        <p>
+          When you submit an engineering resume to organizations using Workday, Greenhouse, Lever, or Ashby, human recruiters rarely review your raw PDF first. An automated ingestion pipeline converts your document into raw text, runs pattern-matching tokenizers and named-entity recognition (NER) models, and maps your work history into standardized database entities.
+        </p>
+        <p>
+          If your resume layout confuses the parser, your years of distributed systems or frontend engineering work get miscategorized before a technical recruiter ever runs a query.
+        </p>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>ATS Platform</th>
+                <th>Underlying Engine</th>
+                <th>Multi-Column Support</th>
+                <th>Table Parsing</th>
+                <th>Keyword Logic</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Workday</strong></td>
+                <td>Sovren / Proprietary</td>
+                <td>Poor (reads horizontally)</td>
+                <td>Drops or strips cells</td>
+                <td>Exact token & taxonomy matching</td>
+              </tr>
+              <tr>
+                <td><strong>Greenhouse</strong></td>
+                <td>TextKernel</td>
+                <td>Moderate</td>
+                <td>Flattens to plain text</td>
+                <td>Frequency & role recency</td>
+              </tr>
+              <tr>
+                <td><strong>Lever</strong></td>
+                <td>Proprietary NLP</td>
+                <td>Moderate</td>
+                <td>Strips layout borders</td>
+                <td>Entity tagging & skills extraction</td>
+              </tr>
+              <tr>
+                <td><strong>Ashby</strong></td>
+                <td>Modern AI / Vector Parser</td>
+                <td>Good</td>
+                <td>Handles clean single tables</td>
+                <td>Semantic relevance & embeddings</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>The 4 Formatting Traps That Drop Engineering Resumes</h2>
+
+        <h3>1. Multi-Column Layouts</h3>
+        <p>
+          Two-column templates generated in visual design editors look clean to human eyes, but they break legacy parsers like Workday and Taleo. PDF text layers store character coordinates, not visual columns. Most parsers extract text by scanning bounding boxes horizontally across the page.
+        </p>
+        <p>
+          When a two-column resume is parsed horizontally, text from the left column merges into the right column:
+        </p>
+        <pre><code>// Visual layout:
+// Column 1: Senior Frontend Engineer | Acme Corp (2022 - Present)
+// Column 2: Core Skills: TypeScript, React 19, GraphQL
+
+// What the ATS parser extracts:
+Senior Frontend Engineer | Acme Corp (2022 - Core Skills: TypeScript, React 19, Present) GraphQL</code></pre>
+        <p>
+          The parser fails to isolate your employment dates, fails to parse Acme Corp as an employer entity, and fails to register your core skills under the proper taxonomy. Stick to a single-column top-to-bottom layout.
+        </p>
+
+        <h3>2. Graphical Contact Icons</h3>
+        <p>
+          Placing phone, email, GitHub, or LinkedIn links next to SVG or font icons without clear descriptive text frequently causes parsers to miss contact information entirely. If the parser does not OCR vector glyphs, your profile is created with missing email or phone fields, triggering auto-rejections when recruiters filter for complete profiles.
+        </p>
+
+        <h3>3. Text Boxes and Canvas Elements</h3>
+        <p>
+          In document editors, text boxes are stored as separate drawing objects outside the main document stream. Standard PDF conversion engines often omit drawing layer text during linear text extraction, wiping out entire sidebars containing skills or certifications.
+        </p>
+
+        <h3>4. Non-Standard Section Headings</h3>
+        <p>
+          Parsers rely on deterministic heading classifiers to segment resumes into structured objects. Using creative headings like "Where I Have Been" instead of <code>Work Experience</code>, or "My Toolkit" instead of <code>Technical Skills</code>, causes the parser to lump all text into an unclassified notes bucket, failing automated skill screens.
+        </p>
+
+        <h2>The Google X-Y-Z Formula for Software Engineers</h2>
+        <p>
+          Scoring algorithms and technical hiring managers prioritize concrete impact over passive responsibility lists. The industry benchmark is Google's X-Y-Z formula: <em>"Accomplished [X], as measured by [Y], by doing [Z]."</em>
+        </p>
+
+        <h3>Frontend Architecture Example</h3>
+        <ul>
+          <li><strong>Weak:</strong> Responsible for website performance optimization and migrating components to Next.js.</li>
+          <li><strong>Impact-Driven:</strong> Reduced P95 First Contentful Paint from 2.4s to 650ms (73% decrease) across 1.2M monthly users by migrating client-side rendered routes to Next.js SSR with edge caching.</li>
+        </ul>
+
+        <h3>Backend & Distributed Systems Example</h3>
+        <ul>
+          <li><strong>Weak:</strong> Built payment APIs with Node.js and improved database query speeds.</li>
+          <li><strong>Impact-Driven:</strong> Scaled payment webhook throughput from 200 req/s to 1,000 req/s (400% increase) with zero packet drops by implementing BullMQ message queues and batching PostgreSQL writes.</li>
+        </ul>
+
+        <h2>Keyword Optimization vs. Keyword Stuffing in 2026</h2>
+        <p>
+          Old tricks like stuffing invisible white text with 50 framework keywords in 1pt font are flagged by modern ATS security parsers as adversarial injection. Recruiters also inspect plain-text extracts: seeing a chaotic keyword dump immediately destroys credibility.
+        </p>
+        <p>
+          The right way to rank is contextual skill integration. Group your stack explicitly under <code>Technical Skills</code>, and reiterate those exact tools inside your work bullet points as evidence of hands-on production application.
+        </p>
+
+        <h2>Frequently Asked Questions</h2>
+        
+        <h3>Is my resume stored or uploaded to any server?</h3>
+        <p>
+          No. ATS Scroll runs entirely inside your browser using client-side Web Workers and local PDF text extractors. Your personal data, work history, and contact information never leave your local machine.
+        </p>
+
+        <h3>Which ATS engines are evaluated?</h3>
+        <p>
+          ATS Scroll evaluates your resume against the parsing behaviors of Workday, Greenhouse, Lever, and Ashby, specifically flagging column splits, missing standard sections, and quantifiable metric density.
+        </p>
+
+        <h3>What file format is safest for ATS parsing?</h3>
+        <p>
+          A single-column PDF generated directly from a clean text processor (like Microsoft Word, Google Docs, or pure Markdown/LaTeX) is ideal. Always verify that text can be highlighted and copied cleanly from the PDF.
+        </p>
+      </article>
+
+      <!-- Sleek, Minimal Recommendations (Matching Homepage Style) -->
+      <div class="ats-recommendations">
+        <div class="ats-rec-header">
+          <span class="ats-rec-eyebrow">Explore Next</span>
+          <h3 class="ats-rec-title">Featured Guides & Tools</h3>
+        </div>
+
+        <div class="ats-rec-grid">
+          <a href="/articles/mern-stack-ai-interview-experience/" class="ats-rec-card">
+            <div class="ats-rec-top">
+              <span class="ats-rec-badge">AI Interview</span>
+              <span class="ats-rec-arrow" aria-hidden="true">&rarr;</span>
+            </div>
+            <h4 class="ats-rec-card-title">MERN + AI Bot Interview Experience</h4>
+            <p class="ats-rec-card-desc">14 real questions on React reconciliation, backpressure, and Berribot screening.</p>
+          </a>
+
+          <a href="/articles/gemini-interview-prep/" class="ats-rec-card">
+            <div class="ats-rec-top">
+              <span class="ats-rec-badge">Interview Prep</span>
+              <span class="ats-rec-arrow" aria-hidden="true">&rarr;</span>
+            </div>
+            <h4 class="ats-rec-card-title">Technical Prep with Gemini Live</h4>
+            <p class="ats-rec-card-desc">A 48-hour active-recall voice simulation system for senior engineers.</p>
+          </a>
+
+          <a href="/tools/pii-scrubber/" class="ats-rec-card">
+            <div class="ats-rec-top">
+              <span class="ats-rec-badge tool">Privacy Tool</span>
+              <span class="ats-rec-arrow" aria-hidden="true">&rarr;</span>
+            </div>
+            <h4 class="ats-rec-card-title">PII & Secret Scrubber</h4>
+            <p class="ats-rec-card-desc">Zero-egress in-browser log and resume redaction before sharing with AI chatbots.</p>
+          </a>
+
+          <a href="/jobs/" class="ats-rec-card">
+            <div class="ats-rec-top">
+              <span class="ats-rec-badge job">Job Board</span>
+              <span class="ats-rec-arrow" aria-hidden="true">&rarr;</span>
+            </div>
+            <h4 class="ats-rec-card-title">Remote Developer Jobs</h4>
+            <p class="ats-rec-card-desc">Curated engineering roles updated daily with direct verified application links.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  .ats-app-container {
+    width: 100%;
+    min-height: 480px;
+  }
+
+  .ats-guide-section {
+    border-top: 1px solid var(--border-subtle);
+    margin-top: var(--space-8);
+    padding: var(--space-12) var(--space-4) var(--space-16);
+    background: var(--surface-base);
+  }
+
+  .ats-guide-container {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .ats-guide-prose {
+    max-width: 100%;
+  }
+
+  .table-wrapper {
+    margin: var(--space-6) 0;
+    overflow-x: auto;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-subtle);
+  }
+
+  .table-wrapper table {
+    margin: 0;
+  }
+
+  /* Sleek Curated Recommendations (Identical to Homepage Pillar Grid) */
+  .ats-recommendations {
+    margin-top: var(--space-12);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .ats-rec-header {
+    margin-bottom: var(--space-3);
+  }
+
+  .ats-rec-eyebrow {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+  }
+
+  .ats-rec-title {
+    font-size: var(--text-ui);
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  .ats-rec-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+    margin-top: var(--space-3);
+  }
+
+  @media (max-width: 640px) {
+    .ats-rec-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .ats-rec-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-3) var(--space-4);
+    background: var(--surface-raised);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .ats-rec-card:hover {
+    border-color: var(--border-default);
+    transform: translateY(-2px);
+    background: var(--surface-sunken);
+  }
+
+  .ats-rec-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+
+  .ats-rec-badge {
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-default, #d97706);
+  }
+
+  .ats-rec-badge.tool {
+    color: #10b981;
+  }
+
+  .ats-rec-badge.job {
+    color: #3b82f6;
+  }
+
+  .ats-rec-arrow {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+
+  .ats-rec-card:hover .ats-rec-arrow {
+    transform: translateX(3px);
+    color: var(--text-primary);
+  }
+
+  .ats-rec-card-title {
+    font-size: var(--text-ui);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 2px 0;
+    line-height: var(--leading-snug);
+  }
+
+  .ats-rec-card-desc {
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    line-height: var(--leading-normal);
+    margin: 0;
+  }
+</style>

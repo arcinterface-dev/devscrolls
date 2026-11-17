@@ -100,7 +100,7 @@ const { slug } = Astro.props;
       let userClaps = parseInt(localStorage.getItem(localClapKey) || '0', 10);
       let totalClaps = 0;
 
-      // Desktop floating visibility observer (mirrors TOC observer)
+      // Desktop floating visibility observer (identical to TOC observer)
       const targetElement = document.querySelector('.hero-image-container') || document.querySelector('.article-header');
       if (targetElement) {
         const observer = new IntersectionObserver((entries) => {
@@ -112,7 +112,14 @@ const { slug } = Astro.props;
             }
           });
         }, { threshold: 0 });
+
         observer.observe(targetElement);
+
+        // Immediate check in case page is loaded/reloaded already scrolled
+        const rect = targetElement.getBoundingClientRect();
+        if (rect.top < 0 && rect.bottom < 0) {
+          container.classList.add('is-visible');
+        }
       } else {
         container.classList.add('is-visible');
       }
@@ -386,7 +393,7 @@ const { slug } = Astro.props;
   }
 
   /* ==========================================================================
-     Desktop View (>= 1200px): Pure Minimalist Dock (Mirrors TOC Markers)
+     Desktop View (>= 1200px): Pure Minimalist Dock (Mirrors TOC on right)
      Zero white background, zero box shadow, blends perfectly with blog
      ========================================================================== */
   @media (min-width: 1200px) {
@@ -406,8 +413,6 @@ const { slug } = Astro.props;
       opacity: 1;
       visibility: visible;
     }
-
-
 
     .reactions-dock {
       flex-direction: column;
@@ -461,6 +466,47 @@ const { slug } = Astro.props;
 
     .reaction-item:hover .dock-tooltip {
       opacity: 1;
+      transform: translateY(-50%) translateX(0);
+      color: var(--text-primary, #f8fafc);
+    }
+  }
+
+  /* Medium Screens (960px - 1199px): Responsive left dock */
+  @media (min-width: 960px) and (max-width: 1199px) {
+    .reactions-wrapper {
+      position: fixed;
+      left: max(1rem, calc((100vw - 760px) / 2 - 46px));
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 50;
+      margin: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .reactions-wrapper.is-visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .reactions-dock {
+      flex-direction: column;
+      gap: 1rem;
+      padding: 0;
+      background: transparent;
+      border: none;
+    }
+
+    .dock-btn {
+      flex-direction: column;
+      gap: 0.2rem;
+      padding: 0.3rem 0;
+      width: 32px;
+      justify-content: center;
+      color: var(--text-muted, #94a3b8);
+    }
+  }
       transform: translateY(-50%) translateX(0);
       color: var(--text-primary, #f8fafc);
     }
