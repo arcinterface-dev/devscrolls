@@ -13,6 +13,7 @@ import { MatchedJobsView } from './MatchedJobsView';
 import { MonetizationCTA } from './MonetizationCTA';
 import { ShareCardModal } from './ShareCardModal';
 import { ResumeTemplateModal } from './ResumeTemplateModal';
+import { ErrorBoundary } from './ErrorBoundary';
 import './ats-checker.css';
 
 export default function AtsChecker() {
@@ -83,118 +84,112 @@ export default function AtsChecker() {
     setCurrentFileName('');
   };
 
-  const handleShareScore = () => {
-    if (!result) return;
-    const shareText = `My developer resume scored ${result.overallScore}/100 on ATS Scroll! 🚀 Test your resume with 100% in-browser privacy: https://devscrolls.dev/ats-checker/`;
-    navigator.clipboard.writeText(shareText);
-    setCopiedShare(true);
-    setTimeout(() => setCopiedShare(false), 2500);
-  };
-
   return (
-    <div className="ats-tool-wrapper">
-      {/* Tool Header */}
-      <header className="ats-tool-header">
-        <div className="ats-badge-row">
-          <span className="ats-badge-pill">100% Client-Side</span>
-          <span className="ats-badge-pill">Zero Server Storage</span>
-          <span className="ats-badge-pill ats-badge-highlight">Free Forever</span>
-        </div>
-        <h1 className="ats-tool-title">ATS Scroll — Resume Score & Job Matcher</h1>
-        <p className="ats-tool-subtitle">
-          Audit your engineering resume against Workday, Greenhouse, and Lever parsing engines. 
-          Extract skills, find layout traps, and get matched with verified remote developer roles.
-        </p>
-      </header>
-
-      {/* Processing State */}
-      {status === 'processing' && (
-        <div className="ats-loading-container">
-          <div className="ats-spinner" />
-          <h3 className="ats-loading-title">Analyzing Resume</h3>
-          <p className="ats-loading-step">{loadingStep}</p>
-          <span className="ats-loading-privacy-tag">
-            🔒 Executing locally in Web Worker. No data is being uploaded.
-          </span>
-        </div>
-      )}
-
-      {/* Upload State */}
-      {status === 'idle' && (
-        <UploadZone
-          onFileSelected={handleFile}
-          onLoadSample={handleLoadSample}
-          onOpenTemplates={() => setIsTemplateModalOpen(true)}
-          isLoading={false}
-          errorMessage={errorMessage}
-        />
-      )}
-
-      {/* Results View */}
-      {status === 'results' && result && (
-        <div className="ats-results-view">
-          {/* Top Actions Bar */}
-          <div className="ats-results-toolbar">
-            <button onClick={handleReset} className="ats-toolbar-btn">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="17 8 12 3 7 8"></polyline>
-                <line x1="12" y1="3" x2="12" y2="15"></line>
-              </svg>
-              Scan Another Resume
-            </button>
-
-            <button onClick={() => setIsShareModalOpen(true)} className="ats-toolbar-btn ats-share-btn">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                <polyline points="21 15 16 10 5 21"></polyline>
-              </svg>
-              Share Score Card (Image)
-            </button>
+    <ErrorBoundary>
+      <div className="ats-tool-wrapper">
+        {/* Tool Header */}
+        <header className="ats-tool-header">
+          <div className="ats-badge-row">
+            <span className="ats-badge-pill">100% Client-Side</span>
+            <span className="ats-badge-pill">Zero Server Storage</span>
+            <span className="ats-badge-pill ats-badge-highlight">Free Forever</span>
           </div>
+          <h1 className="ats-tool-title">ATS Scroll — Resume Score & Job Matcher</h1>
+          <p className="ats-tool-subtitle">
+            Audit your engineering resume against Workday, Greenhouse, and Lever parsing engines. 
+            Extract skills, find layout traps, and get matched with verified remote developer roles.
+          </p>
+        </header>
 
-          {/* 1. Score Gauge Hero */}
-          <ScoreGauge
-            score={result.overallScore}
-            verdict={result.verdict}
-            metrics={result.metrics}
-            fileName={currentFileName}
+        {/* Processing State */}
+        {status === 'processing' && (
+          <div className="ats-loading-container">
+            <div className="ats-spinner" />
+            <h3 className="ats-loading-title">Analyzing Resume</h3>
+            <p className="ats-loading-step">{loadingStep}</p>
+            <span className="ats-loading-privacy-tag">
+              🔒 Executing locally in Web Worker. No data is being uploaded.
+            </span>
+          </div>
+        )}
+
+        {/* Upload State */}
+        {status === 'idle' && (
+          <UploadZone
+            onFileSelected={handleFile}
+            onLoadSample={handleLoadSample}
+            onOpenTemplates={() => setIsTemplateModalOpen(true)}
+            isLoading={false}
+            errorMessage={errorMessage}
           />
+        )}
 
-          {/* 2. Matched Jobs Bridge (Direct value to job board) */}
-          <MatchedJobsView jobs={result.matchedJobs} />
+        {/* Results View */}
+        {status === 'results' && result && (
+          <div className="ats-results-view">
+            {/* Top Actions Bar */}
+            <div className="ats-results-toolbar">
+              <button onClick={handleReset} className="ats-toolbar-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="17 8 12 3 7 8"></polyline>
+                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                Scan Another Resume
+              </button>
 
-          {/* 3. ATS Systems Audit Matrix */}
-          <AtsCompatibilityMatrix systems={result.atsSystems} />
+              <button onClick={() => setIsShareModalOpen(true)} className="ats-toolbar-btn ats-share-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                  <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+                Share Score Card (Image)
+              </button>
+            </div>
 
-          {/* 4. 5-Dimension Category Breakdown & Actionable Fixes */}
-          <CategoryBreakdown
-            categories={result.categories}
-            suggestions={result.suggestions}
-          />
+            {/* 1. Score Gauge Hero */}
+            <ScoreGauge
+              score={result.overallScore}
+              verdict={result.verdict}
+              metrics={result.metrics}
+              fileName={currentFileName}
+            />
 
-          {/* 5. Detected Technical Competencies */}
-          <DetectedSkillsView skills={result.detectedSkills} />
+            {/* 2. Matched Jobs Bridge (Direct value to job board) */}
+            <MatchedJobsView jobs={result.matchedJobs} />
 
-          {/* 6. Monetization & Free Template Download */}
-          <MonetizationCTA />
+            {/* 3. ATS Systems Audit Matrix */}
+            <AtsCompatibilityMatrix systems={result.atsSystems} />
 
-          {/* 7. Share Card Modal with Canvas Image Generator */}
-          <ShareCardModal
-            isOpen={isShareModalOpen}
-            onClose={() => setIsShareModalOpen(false)}
-            result={result}
-            fileName={currentFileName}
-          />
-        </div>
-      )}
+            {/* 4. 5-Dimension Category Breakdown & Actionable Fixes */}
+            <CategoryBreakdown
+              categories={result.categories}
+              suggestions={result.suggestions}
+            />
 
-      {/* Standalone Template & X-Y-Z Bank Modal */}
-      <ResumeTemplateModal
-        isOpen={isTemplateModalOpen}
-        onClose={() => setIsTemplateModalOpen(false)}
-      />
-    </div>
+            {/* 5. Detected Technical Competencies */}
+            <DetectedSkillsView skills={result.detectedSkills} />
+
+            {/* 6. Monetization & Free Template Download */}
+            <MonetizationCTA />
+
+            {/* 7. Share Card Modal with Canvas Image Generator */}
+            <ShareCardModal
+              isOpen={isShareModalOpen}
+              onClose={() => setIsShareModalOpen(false)}
+              result={result}
+              fileName={currentFileName}
+            />
+          </div>
+        )}
+
+        {/* Standalone Template & X-Y-Z Bank Modal */}
+        <ResumeTemplateModal
+          isOpen={isTemplateModalOpen}
+          onClose={() => setIsTemplateModalOpen(false)}
+        />
+      </div>
+    </ErrorBoundary>
   );
 }
