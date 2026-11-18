@@ -150,6 +150,17 @@ DevScrolls articles are authored from real-world production experience. They emp
   - Pausing in silence for 8+ seconds triggers the voice activity detector (VAD) to flag hesitation; candidates must vocalize thought processes continuously.
   - Covers 10 production-grade architecture questions including V8 Scavenger vs Mark-Sweep-Compact, WebSocket throttling via requestAnimationFrame and startTransition, atomic Redis idempotency keys, and zero-downtime expand-and-contract migrations.
 
+### 3.8 "Frontend Architecture in 2026: What Indian Tech Screens For"
+- **URL**: https://devscrolls.dev/articles/how-to-become-a-frontend-developer-in-2026/
+- **Topics**: Frontend architecture, React 19 compiler, streaming SSR, Islands architecture, TanStack Query, Interaction to Next Paint (INP), Server-Sent Events (SSE), Playwright E2E testing.
+- **Key Insights**:
+  - Technical hiring across Indian tech product companies (Swiggy, Zepto, Razorpay, CRED) has pivoted from syntax generation to runtime systems architecture.
+  - React 19 Compiler replaces manual `useMemo`/`useCallback` optimizations; interviewers evaluate compiler bailout avoidance, `useActionState`, and `useOptimistic`.
+  - Eliminating client-side SPA bloat via streaming SSR with `<Suspense>` boundaries and static-first Islands Architecture for low-bandwidth mobile devices.
+  - Strict separation of server state (TanStack Query) from ephemeral local UI state (Zustand), deprecating legacy global Redux stores.
+  - Interaction to Next Paint (INP) optimization: chunking long synchronous loops via `scheduler.yield()` and executing heavy document computation in Web Workers.
+  - Streaming AI user interfaces using unidirectional HTTP/2 Server-Sent Events (SSE) and `ReadableStreamDefaultReader` rather than stateful WebSockets.
+
 ### 1.5 DevScrolls Games (Dev Skribbl)
 - **URL**: https://devscrolls.dev/games/
 - **Category**: Interactive Developer Gaming / Team Engagement / Realtime Multiplayer Party Games
