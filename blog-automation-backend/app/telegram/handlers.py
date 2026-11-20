@@ -21,6 +21,7 @@ from app.telegram.keyboards import (
 )
 from app.telegram.session_manager import session_manager
 from app.integrations.kit_client import kit_client
+from app.telegram.handlers_dev import handle_cmd_new, handle_dev_text_input
 
 logger = logging.getLogger(__name__)
 
@@ -67,6 +68,8 @@ async def handle_message(message: Dict[str, Any]) -> None:
             await _handle_cmd_start(chat_id, display_name)
         elif command == "/help":
             await _handle_cmd_help(chat_id)
+        elif command == "/new":
+            await handle_cmd_new(chat_id, user_id, text)
         elif command == "/newblog":
             await _handle_cmd_newblog(chat_id, user_id)
         elif command == "/status":
@@ -123,6 +126,7 @@ async def _handle_cmd_start(chat_id: int, display_name: str) -> None:
 async def _handle_cmd_help(chat_id: int) -> None:
     help_text = (
         "📖 <b>DevScrolls Bot Commands</b>\n\n"
+        "• /new &lt;task&gt; — Ask ScrollBot AI Dev Agent to make code or design changes\n"
         "• /newblog — Start a fresh blog idea session\n"
         "• /status — Check the state of your active idea or background job\n"
         "• /cancel — Cancel the active session (prevents any AI spend)\n"
@@ -340,9 +344,14 @@ async def _handle_voice_input(
 
 
 async def _handle_text_input(chat_id: int, user_id: int, text: str) -> None:
-    """Handles text input: either transcript corrections or a fresh direct text blog idea."""
+    """Handles text input: dev task prompts, transcript corrections, or a fresh direct text blog idea."""
     conv = await session_manager.get_or_create_active_conversation(user_id)
     latest_session = await session_repo.get_latest_session(conv.id)
+
+    # Case 0: User is submitting a task to ScrollBot Dev Agent
+    if conv.current_stage == "dev_task_input":
+        await handle_dev_text_input(chat_id, user_id, text)
+        return
 
     # Case A: User is submitting corrections to a transcript
     if conv.current_stage == "transcript_editing" and latest_session:

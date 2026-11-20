@@ -1,0 +1,16 @@
+---
+import ArcadeLayout from '../../layouts/ArcadeLayout.astro';
+import { SketchQL } from '../../components/arcade/DevSkribbl/DevSkribbl';
+
+const pageTitle = "SketchQL — DevScrolls Arcade";
+const pageDescription = "Multiplayer draw and guess game for developers with Tech and Casual word decks. Zero login, invite your engineering team via link.";
+---
+
+<ArcadeLayout
+  title={pageTitle}
+  description={pageDescription}
+  gameName="SketchQL"
+  badge="Multiplayer"
+>
+  <SketchQL client:only="react" />
+</ArcadeLayout>

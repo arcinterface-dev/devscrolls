@@ -8,7 +8,7 @@ export const ArcadeHub: React.FC = () => {
   const [scores, setScores] = useState<Record<string, { high: number; streak: number }>>({});
   const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
   const [joinCode, setJoinCode] = useState('');
-  const [selectedGameForJoin, setSelectedGameForJoin] = useState('dev-skribbl');
+  const [selectedGameForJoin, setSelectedGameForJoin] = useState('sketchql');
   const [joinError, setJoinError] = useState('');
 
   const joinInputRef = useRef<HTMLInputElement>(null);

@@ -47,7 +47,7 @@ src/
 │       ├── git-untangler.astro     # Solo: Graph theory puzzle
 │       ├── regex-golf.astro        # Solo: Pattern matching
 │       ├── 2048.astro              # Solo: Tech evolution tiles
-│       ├── dev-skribbl.astro       # Multiplayer: Draw & guess
+│       ├── sketchql.astro          # Multiplayer: Draw & guess (SketchQL)
 │       ├── who-broke-prod.astro    # Multiplayer: Social deduction
 │       ├── codenames.astro         # Multiplayer: Team word grid
 │       ├── type-racer.astro        # Multiplayer: Live typing race
@@ -166,15 +166,15 @@ export const GAMES: GameMeta[] = [
     tags: ['Puzzle', 'Classic', 'Casual'],
   },
   {
-    id: 'dev-skribbl',
-    title: 'Dev Skribbl',
+    id: 'sketchql',
+    title: 'SketchQL',
     description: 'Multiplayer draw & guess with Tech and Casual word decks. Invite your team via link.',
-    href: '/arcade/dev-skribbl/',
+    href: '/arcade/sketchql/',
     icon: '🎨',
     mode: 'multiplayer',
     playerRange: '3-12 players',
     timeEstimate: '5-15 min',
-    tags: ['Drawing', 'Party', 'Team'],
+    tags: ['Drawing', 'Party', 'Team', 'SketchQL'],
     isNew: true,
   },
   {

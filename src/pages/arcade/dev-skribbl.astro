@@ -1,16 +1,4 @@
 ---
-import ArcadeLayout from '../../layouts/ArcadeLayout.astro';
-import { DevSkribbl } from '../../components/arcade/DevSkribbl/DevSkribbl';
-
-const pageTitle = "Dev Skribbl — DevScrolls Arcade";
-const pageDescription = "Multiplayer draw and guess game for developers with Tech and Casual word decks. Zero login, invite your engineering team via link.";
+// Permanent redirect from legacy Dev Skribbl route to SketchQL
+return Astro.redirect('/games/sketchql/', 301);
 ---
-
-<ArcadeLayout
-  title={pageTitle}
-  description={pageDescription}
-  gameName="Dev Skribbl"
-  badge="Multiplayer"
->
-  <DevSkribbl client:only="react" />
-</ArcadeLayout>

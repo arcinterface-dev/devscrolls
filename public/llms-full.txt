@@ -161,7 +161,7 @@ DevScrolls articles are authored from real-world production experience. They emp
   - Interaction to Next Paint (INP) optimization: chunking long synchronous loops via `scheduler.yield()` and executing heavy document computation in Web Workers.
   - Streaming AI user interfaces using unidirectional HTTP/2 Server-Sent Events (SSE) and `ReadableStreamDefaultReader` rather than stateful WebSockets.
 
-### 1.5 DevScrolls Games (Dev Skribbl)
+### 1.5 DevScrolls Games (SketchQL)
 - **URL**: https://devscrolls.dev/games/
 - **Category**: Interactive Developer Gaming / Team Engagement / Realtime Multiplayer Party Games
 - **Primary Use Case**: Micro-break mental resets, team-building party games, developer drawing and guessing without signup friction.
@@ -170,7 +170,7 @@ DevScrolls articles are authored from real-world production experience. They emp
   - **Stateless Multiplayer**: Powered by Supabase Realtime WebSocket broadcast channels with zero database persistence. Room state is synced peer-to-peer and coordinated via dynamic host election.
   - **Sub-10ms Input Latency**: Built with React 19 and HTML5 Canvas2D rendering loops optimized for 60fps across mobile and desktop.
   - **Featured Game**:
-    1. **Dev Skribbl** (/games/dev-skribbl/): Multiplayer tech Pictionary. Draw architecture diagrams, tech jargon, and bugs with real-time vector canvas broadcasting, flood fill bucket, custom word decks, and automated chat guessing. (Additional casual games are in active local development mode).
+    1. **SketchQL** (/games/sketchql/): Multiplayer tech drawing & guessing game for developers. Draw architecture diagrams, tech jargon, and bugs with real-time vector canvas broadcasting, flood fill bucket, custom word decks, and automated chat guessing. (Additional casual games are in active local development mode).
 
 ---
 

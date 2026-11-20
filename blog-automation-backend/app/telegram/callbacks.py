@@ -115,6 +115,9 @@ async def handle_callback_query(callback_query: Dict[str, Any]) -> None:
             await _handle_job_resume(cb_id, chat_id, message_id, user_id, target_id)
         elif action == "job_cancel":
             await _handle_corr_cancel(cb_id, chat_id, message_id, user_id, target_id)
+        elif action.startswith("dev_"):
+            from app.telegram.handlers_dev import handle_dev_callback
+            await handle_dev_callback(action, target_id, cb_id, chat_id, message_id, user_id)
         else:
             await bot_client.answer_callback_query(cb_id, text="Action not recognized.")
     except Exception as e:

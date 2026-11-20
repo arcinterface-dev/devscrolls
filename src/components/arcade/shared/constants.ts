@@ -18,16 +18,16 @@ export interface GameMeta {
 export const ALL_GAMES: GameMeta[] = [
   // --- MULTIPLAYER PARTY GAMES ---
   {
-    id: 'dev-skribbl',
-    title: 'Dev Skribbl',
-    tagline: 'Multiplayer draw & guess with custom words',
-    description: 'Draw tech concepts, system diagrams, and funny dev memes while friends race to guess. Full drawing toolkit, fill bucket, and custom word decks.',
-    href: '/games/dev-skribbl/',
+    id: 'sketchql',
+    title: 'SketchQL',
+    tagline: 'Multiplayer tech draw & query with custom words',
+    description: 'Draw tech concepts, system diagrams, and funny dev memes while friends race to guess and query. Full drawing toolkit, fill bucket, and custom word decks.',
+    href: '/games/sketchql/',
     icon: '🎨',
     mode: 'multiplayer',
     playerRange: '2-12 players',
     timeEstimate: '5-15 min',
-    tags: ['Drawing', 'Party', 'Skribbl', 'Realtime'],
+    tags: ['Drawing', 'Party', 'SketchQL', 'Realtime'],
     accentColor: '#ec4899',
     difficulty: 'Easy',
     isNew: true,
@@ -138,12 +138,12 @@ export const ALL_GAMES: GameMeta[] = [
   },
 ];
 
-// Production exposure: only Dev Skribbl is published; all 8 games available in local development mode
+// Production exposure: only SketchQL is published; all games available in local development mode
 export const IS_DEV = import.meta.env.DEV;
 
 export const GAMES: GameMeta[] = IS_DEV
   ? ALL_GAMES
-  : ALL_GAMES.filter((g) => g.id === 'dev-skribbl');
+  : ALL_GAMES.filter((g) => g.id === 'sketchql');
 
 export const SOLO_GAMES = GAMES.filter((g) => g.mode === 'solo');
 export const MULTIPLAYER_GAMES = GAMES.filter((g) => g.mode === 'multiplayer');

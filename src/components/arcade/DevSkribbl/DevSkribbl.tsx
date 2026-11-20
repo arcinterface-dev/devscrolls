@@ -49,7 +49,7 @@ function getLevenshteinDistance(a: string, b: string): number {
   return prevRow[s2.length];
 }
 
-export const DevSkribbl: React.FC = () => {
+export const SketchQL: React.FC = () => {
   const [roomId, setRoomId] = useState<string>('');
   const [inviteCode, setInviteCode] = useState<string>('');
   const [displayName, setDisplayName] = useState<string>('');
@@ -711,7 +711,7 @@ export const DevSkribbl: React.FC = () => {
     const url = canvas.toDataURL('image/png');
     const a = document.createElement('a');
     a.href = url;
-    a.download = `dev-skribbl-${secretWord.toLowerCase().replace(/[^a-z0-9]/g, '-') || 'drawing'}.png`;
+    a.download = `sketchql-${secretWord.toLowerCase().replace(/[^a-z0-9]/g, '-') || 'drawing'}.png`;
     a.click();
   };
 
@@ -836,7 +836,7 @@ export const DevSkribbl: React.FC = () => {
   if (phase === 'lobby') {
     return (
       <RoomLobby
-        gameTitle="Dev Skribbl"
+        gameTitle="SketchQL"
         gameIcon="🎨"
         minPlayers={1}
         maxPlayers={12}
@@ -1113,8 +1113,8 @@ export const DevSkribbl: React.FC = () => {
       {/* Game Over Screen */}
       {phase === 'game_over' && (
         <GameOverScreen
-          gameId="dev-skribbl"
-          gameTitle="Dev Skribbl Match"
+          gameId="sketchql"
+          gameTitle="SketchQL Match"
           playerResults={skribblPlayers.map((p) => ({
             displayName: p.name,
             score: p.score,
@@ -1720,3 +1720,7 @@ export const DevSkribbl: React.FC = () => {
     </div>
   );
 };
+
+// Backwards-compatible alias
+export const DevSkribbl = SketchQL;
+
