@@ -27,8 +27,13 @@ class GeminiProvider(AIProvider):
         if self._client is None:
             if not self.api_key:
                 raise ValueError("GEMINI_API_KEY is not configured in settings or environment.")
+            import os
+            os.environ["GOOGLE_GENAI_API_VERSION"] = "v1beta"
             from google import genai
-            self._client = genai.Client(api_key=self.api_key)
+            self._client = genai.Client(
+                api_key=self.api_key,
+                http_options={"api_version": "v1beta"}
+            )
         return self._client
 
     async def transcribe_audio(
@@ -50,7 +55,7 @@ class GeminiProvider(AIProvider):
 
         part = types.Part.from_bytes(data=audio_bytes, mime_type=mime_type)
 
-        candidate_models = [self.transcription_model_name, "gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash"]
+        candidate_models = [self.transcription_model_name, "gemini-3.1-flash-lite", "gemini-3.5-flash", "gemini-3.8-flash"]
         seen = set()
         candidate_models = [m for m in candidate_models if m and not (m in seen or seen.add(m))]
 
@@ -96,8 +101,8 @@ class GeminiProvider(AIProvider):
         """Calls Gemini API with automatic exponential backoff on 503/429 and fallback models."""
         client = self._get_client()
         candidate_models = [primary_model]
-        # Robust production fallback models verified active and healthy on Google Gemini API
-        fallbacks = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash"]
+        # Robust production fallback models verified active and healthy on Google Gemini API v1beta
+        fallbacks = ["gemini-3.5-flash", "gemini-3.1-flash-lite", "gemini-3.8-flash"]
         for f in fallbacks:
             if f not in candidate_models:
                 candidate_models.append(f)

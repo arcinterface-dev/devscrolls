@@ -19,10 +19,12 @@ services:
         value: https://devscrolls.dev
       - key: DEFAULT_AI_PROVIDER
         value: gemini
+      - key: GOOGLE_GENAI_API_VERSION
+        value: v1beta
       - key: GEMINI_MODEL
-        value: gemini-2.5-flash
+        value: gemini-3.5-flash
       - key: GEMINI_TRANSCRIPTION_MODEL
-        value: gemini-2.5-flash
+        value: gemini-3.1-flash-lite
       - key: GITHUB_REPO_OWNER
         value: arcinterface-dev
       - key: GITHUB_REPO_NAME

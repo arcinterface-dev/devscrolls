@@ -56,11 +56,11 @@ class Settings(BaseSettings):
     # Gemini Settings (Default Free Tier)
     GEMINI_API_KEY: str = Field(default="", description="Google Gemini API Key")
     GEMINI_MODEL: str = Field(
-        default="gemini-2.5-flash",
+        default="gemini-3.5-flash",
         description="Flagship Flash model for multi-agent reasoning, fact-checking, and drafting"
     )
     GEMINI_TRANSCRIPTION_MODEL: str = Field(
-        default="gemini-2.5-flash",
+        default="gemini-3.1-flash-lite",
         description="Active lightweight Flash model for fast multimodal audio transcription"
     )
 
