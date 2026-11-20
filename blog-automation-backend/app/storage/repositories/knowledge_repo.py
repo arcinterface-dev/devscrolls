@@ -70,3 +70,22 @@ class KnowledgeRepository(BaseRepository):
             return [PersonalKnowledge.model_validate(item) for item in response.data]
         return []
 
+    async def list_recent_knowledge(self, limit: int = 50) -> List[PersonalKnowledge]:
+        """Fetches the latest stored personal knowledge entries for assistant memory context."""
+        try:
+            response = self._table().select("*").order("created_at", desc=True).limit(limit).execute()
+            if response.data:
+                return [PersonalKnowledge.model_validate(item) for item in response.data]
+        except Exception as e:
+            logger.warning(f"Could not fetch recent knowledge: {e}")
+        return []
+
+    async def delete_knowledge(self, knowledge_id: UUID | str) -> bool:
+        """Deletes a knowledge memory entry by id."""
+        try:
+            self._table().delete().eq("id", str(knowledge_id)).execute()
+            return True
+        except Exception as e:
+            logger.error(f"Error deleting knowledge {knowledge_id}: {e}")
+            return False
+

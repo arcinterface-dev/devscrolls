@@ -33,6 +33,21 @@ async def lifespan(app: FastAPI):
         import asyncio
         from app.workers.job_processor import job_processor
         asyncio.create_task(job_processor.run_worker_cycle())
+
+        # Register command list in Telegram autocomplete menu
+        from app.telegram.bot_client import bot_client
+        bot_commands = [
+            {"command": "new", "description": "Ask ScrollBot Dev Agent to change code/design"},
+            {"command": "newblog", "description": "Start a fresh blog drafting session"},
+            {"command": "remember", "description": "Save a permanent rule or preference to memory"},
+            {"command": "memories", "description": "View what ScrollBot remembers about you & blog"},
+            {"command": "status", "description": "Check background jobs and state"},
+            {"command": "drafts", "description": "Open your unpublished Idea Bank"},
+            {"command": "subscribers", "description": "View live Kit newsletter subscribers"},
+            {"command": "cancel", "description": "Cancel the current active task"},
+            {"command": "help", "description": "Show commands and tips"},
+        ]
+        asyncio.create_task(bot_client.set_my_commands(bot_commands))
     except Exception as e:
         logger.warning(f"Startup recovery encountered an error (continuing startup): {e}")
 

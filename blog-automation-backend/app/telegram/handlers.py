@@ -72,6 +72,10 @@ async def handle_message(message: Dict[str, Any]) -> None:
             await handle_cmd_new(chat_id, user_id, text)
         elif command == "/newblog":
             await _handle_cmd_newblog(chat_id, user_id)
+        elif command == "/remember":
+            await _handle_cmd_remember(chat_id, user_id, text)
+        elif command == "/memories":
+            await _handle_cmd_memories(chat_id)
         elif command == "/status":
             await _handle_cmd_status(chat_id, user_id)
         elif command == "/cancel":
@@ -127,23 +131,22 @@ async def _handle_cmd_help(chat_id: int) -> None:
     help_text = (
         "📖 <b>DevScrolls Bot Commands</b>\n\n"
         "• /new &lt;task&gt; — Ask ScrollBot AI Dev Agent to make code or design changes\n"
-        "• /newblog — Start a fresh blog idea session\n"
-        "• /status — Check the state of your active idea or background job\n"
-        "• /cancel — Cancel the active session (prevents any AI spend)\n"
-        "• /drafts — Open your interactive Idea Bank (view, polish, or publish drafts)\n"
-        "• /subscribers — Check your live Kit (ConvertKit) newsletter subscribers\n"
+        "• /newblog — Start a fresh blog drafting session\n"
+        "• /remember &lt;fact&gt; — Save a permanent architectural rule or preference\n"
+        "• /memories — View what ScrollBot remembers about you & your blog\n"
+        "• /status — Check active jobs and background state\n"
+        "• /drafts — Open your interactive Idea Bank\n"
+        "• /subscribers — Check live newsletter subscribers\n"
+        "• /cancel — Cancel the active task or session\n"
         "• /help — Show this help message\n\n"
-        "<b>Tips for Voice Recordings:</b>\n"
-        "• Speak naturally — share your personal perspective and pain points.\n"
-        "• Include technical keywords and context (e.g. React 19, Astro, Redux re-renders).\n"
-        "• Don't worry about verbal slips: Gate 1 and Gate 2 allow easy re-recording or manual text editing!\n"
-        "• Save drafts to your offline Idea Bank anytime and publish when ready."
+        "💬 <b>Jarvis Assistant:</b> Just send any message or voice note without a command to chat with your living blog assistant!"
     )
     await bot_client.send_message(chat_id=chat_id, text=help_text)
 
 
 async def _handle_cmd_newblog(chat_id: int, user_id: int) -> None:
     conv = await session_manager.get_or_create_active_conversation(user_id)
+    await session_manager.set_conversation_stage(conv.id, "blog_input_pending")
     await bot_client.send_message(
         chat_id=chat_id,
         text=(
@@ -152,6 +155,75 @@ async def _handle_cmd_newblog(chat_id: int, user_id: int) -> None:
             "<i>Reminder: No AI tokens or external APIs will be consumed until you manually confirm the audio and transcript.</i>"
         )
     )
+
+
+async def _handle_cmd_remember(chat_id: int, user_id: int, text: str) -> None:
+    """Explicitly saves a permanent rule or preference to the private Supabase ledger."""
+    fact_text = text.replace("/remember", "", 1).strip()
+    if not fact_text:
+        await bot_client.send_message(
+            chat_id=chat_id,
+            text=(
+                "💡 <b>How to use /remember:</b>\n\n"
+                "Type <code>/remember [your rule or preference]</code>\n\n"
+                "<b>Examples:</b>\n"
+                "• <code>/remember All arcade games must stay under 50KB bundle size.</code>\n"
+                "• <code>/remember I prefer Tailwind inline utilities over separate CSS modules.</code>\n"
+                "• <code>/remember We will never put paywalls on developer tools.</code>"
+            )
+        )
+        return
+
+    from app.ai.agents.jarvis_agent import jarvis_agent
+    try:
+        topic = "Author Preference"
+        if ":" in fact_text:
+            parts = fact_text.split(":", 1)
+            topic, fact_text = parts[0].strip(), parts[1].strip()
+
+        await jarvis_agent.save_memory(topic=topic, fact=fact_text, knowledge_type="opinion")
+        await bot_client.send_message(
+            chat_id=chat_id,
+            text=(
+                f"🧠 <b>Remembered, Sandy!</b>\n\n"
+                f"Saved to your private Supabase memory ledger:\n"
+                f"• <b>Topic:</b> <code>{topic}</code>\n"
+                f"• <b>Rule:</b> <i>\"{fact_text}\"</i>\n\n"
+                "<i>This memory is completely private to you and will automatically inform all future conversations and planning.</i>"
+            )
+        )
+    except Exception as e:
+        logger.error(f"Error saving memory: {e}")
+        await bot_client.send_message(chat_id=chat_id, text=f"❌ Could not save memory: {e}")
+
+
+async def _handle_cmd_memories(chat_id: int) -> None:
+    """Lists recent memories stored in the private Supabase database."""
+    from app.ai.agents.jarvis_agent import jarvis_agent
+    try:
+        memories = await jarvis_agent.list_memories(limit=25)
+        if not memories:
+            await bot_client.send_message(
+                chat_id=chat_id,
+                text=(
+                    "🧠 <b>Your Private Memory Ledger is Clean</b>\n\n"
+                    "You haven't taught ScrollBot any permanent rules yet.\n\n"
+                    "Use <code>/remember &lt;fact&gt;</code> anytime to store preferences or architectural rules!"
+                )
+            )
+            return
+
+        lines = [f"🧠 <b>ScrollBot Private Memory Ledger ({len(memories)} entries)</b>\n"]
+        for idx, m in enumerate(memories, 1):
+            content = m.corrected_content or m.original_content
+            k_type = (m.knowledge_type or "rule").upper()
+            lines.append(f"{idx}. <b>[{k_type}]</b> <code>{m.topic}</code>:\n   <i>\"{content}\"</i>\n")
+
+        lines.append("<i>Use /remember &lt;rule&gt; to teach me more. Stored 100% privately in Supabase.</i>")
+        await bot_client.send_message(chat_id=chat_id, text="\n".join(lines))
+    except Exception as e:
+        logger.error(f"Error listing memories: {e}")
+        await bot_client.send_message(chat_id=chat_id, text=f"❌ Could not retrieve memories: {e}")
 
 
 async def _handle_cmd_status(chat_id: int, user_id: int) -> None:
@@ -455,27 +527,38 @@ async def _handle_text_input(chat_id: int, user_id: int, text: str) -> None:
             )
         return
 
-    # Case D: User is sending a fresh idea directly as text
-    input_session = await session_repo.create_session(
-        conversation_id=conv.id,
-        input_type="text",
-        initial_text=text
-    )
+    # Case D: User explicitly started a blog idea session via /newblog
+    if conv.current_stage == "blog_input_pending":
+        input_session = await session_repo.create_session(
+            conversation_id=conv.id,
+            input_type="text",
+            initial_text=text
+        )
 
-    await session_manager.set_conversation_stage(conv.id, "transcript_review_pending")
+        await session_manager.set_conversation_stage(conv.id, "transcript_review_pending")
 
-    gate_2_text = (
-        "📝 <b>Text Idea Received</b>\n\n"
-        f"<blockquote>{text}</blockquote>\n\n"
-        "<b>No AI processing has started yet.</b>\n"
-        "Please confirm that this captures your idea. When you tap <b>Confirm & Start AI</b>, "
-        "the 4-agent research and drafting pipeline will begin."
-    )
+        gate_2_text = (
+            "📝 <b>Text Idea Received</b>\n\n"
+            f"<blockquote>{text}</blockquote>\n\n"
+            "<b>No AI processing has started yet.</b>\n"
+            "Please confirm that this captures your idea. When you tap <b>Confirm & Start AI</b>, "
+            "the 4-agent research and drafting pipeline will begin."
+        )
 
-    await bot_client.send_message(
-        chat_id=chat_id,
-        text=gate_2_text,
-        reply_markup=get_transcript_review_keyboard(input_session.id)
-    )
-    logger.info(f"Gate 2 presented directly for text session {input_session.id} (user {user_id})")
+        await bot_client.send_message(
+            chat_id=chat_id,
+            text=gate_2_text,
+            reply_markup=get_transcript_review_keyboard(input_session.id)
+        )
+        logger.info(f"Gate 2 presented directly for text session {input_session.id} (user {user_id})")
+        return
+
+    # Case E: Default conversational companion (ScrollBot Jarvis Assistant)
+    from app.ai.agents.jarvis_agent import jarvis_agent
+    try:
+        reply = await jarvis_agent.chat(user_id=user_id, message_text=text)
+        await bot_client.send_message(chat_id=chat_id, text=reply)
+    except Exception as e:
+        logger.error(f"Error in Jarvis chat: {e}")
+        await bot_client.send_message(chat_id=chat_id, text="I had an issue formulating my thought, Sandy. Try again?")
 

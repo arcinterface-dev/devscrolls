@@ -165,6 +165,19 @@ class TelegramBotClient:
             res = await client.post(url)
             return res.json()
 
+    async def set_my_commands(self, commands: list[dict[str, str]]) -> Dict[str, Any]:
+        """Registers the bot command autocomplete menu with Telegram."""
+        self._ensure_token()
+        url = f"{self.base_url}/setMyCommands"
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            res = await client.post(url, json={"commands": commands})
+            data = res.json()
+            if data.get("ok"):
+                logger.info(f"Registered {len(commands)} commands with Telegram menu.")
+            else:
+                logger.warning(f"Failed to register Telegram menu commands: {data}")
+            return data
+
 
 # Shared singleton instance
 bot_client = TelegramBotClient()
