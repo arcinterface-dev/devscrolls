@@ -381,8 +381,9 @@ async def _handle_voice_input(
     message: Dict[str, Any],
     voice_obj: Dict[str, Any]
 ) -> None:
-    """Gate 1: Voice message received.
-    Records metadata and strictly awaits explicit author confirmation before any AI processing.
+    """Handles incoming voice recordings.
+    - If user explicitly started a blog session via /newblog, triggers Gate 1 confirmation.
+    - Otherwise, transcribes audio and directly converses with Jarvis assistant.
     """
     file_id = voice_obj.get("file_id")
     duration = voice_obj.get("duration", 0)
@@ -390,29 +391,56 @@ async def _handle_voice_input(
 
     conv = await session_manager.get_or_create_active_conversation(user_id)
 
-    # Create input session with pending audio status
-    input_session = await session_repo.create_session(
-        conversation_id=conv.id,
-        input_type="voice",
-        telegram_file_id=file_id,
-        telegram_message_id=message_id
-    )
+    # 1. Blog drafting session (/newblog) -> Gate 1 Confirmation
+    if conv.current_stage == "blog_input_pending":
+        input_session = await session_repo.create_session(
+            conversation_id=conv.id,
+            input_type="voice",
+            telegram_file_id=file_id,
+            telegram_message_id=message_id
+        )
+        await session_manager.set_conversation_stage(conv.id, "audio_confirmation_pending")
+        gate_1_message = (
+            f"🎙️ <b>Blog Voice Recording Received</b> (Duration: {duration}s)\n\n"
+            "Before transcribing, please listen to the voice message above and confirm that "
+            "it contains all the thoughts and nuances you want included in your new article.\n\n"
+            "<b>No AI tokens or transcription credits have been spent yet.</b>"
+        )
+        await bot_client.send_message(
+            chat_id=chat_id,
+            text=gate_1_message,
+            reply_markup=get_audio_confirmation_keyboard(input_session.id)
+        )
+        logger.info(f"Gate 1 presented for blog session {input_session.id} (user {user_id})")
+        return
 
-    await session_manager.set_conversation_stage(conv.id, "audio_confirmation_pending")
+    # 2. Default: Conversational Voice Chat with Jarvis Assistant
+    await bot_client.send_chat_action(chat_id=chat_id, action="typing")
+    try:
+        from app.ai.transcription import transcription_service
+        from app.ai.agents.jarvis_agent import jarvis_agent
 
-    gate_1_message = (
-        "🎙️ <b>Voice Recording Received</b> (Duration: {duration}s)\n\n"
-        "Before transcribing, please listen to the voice message above and confirm that "
-        "it contains all the thoughts and nuances you want included.\n\n"
-        "<b>No AI tokens or transcription credits have been spent yet.</b>"
-    ).format(duration=duration)
+        transcript_text, _ = await transcription_service.transcribe_telegram_voice(file_id=file_id)
+        transcript_text = (transcript_text or "").strip()
+        if not transcript_text:
+            await bot_client.send_message(
+                chat_id=chat_id,
+                text="🎙️ <i>I couldn't hear any clear speech in that audio, Sandy. Could you try sending that again?</i>"
+            )
+            return
 
-    await bot_client.send_message(
-        chat_id=chat_id,
-        text=gate_1_message,
-        reply_markup=get_audio_confirmation_keyboard(input_session.id)
-    )
-    logger.info(f"Gate 1 presented for session {input_session.id} (user {user_id})")
+        # Generate Jarvis response
+        reply = await jarvis_agent.chat(user_id=user_id, message_text=transcript_text)
+        
+        # Send formatted reply with spoken transcript context
+        formatted_response = f"🎙️ <i>\"{transcript_text}\"</i>\n\n{reply}"
+        await bot_client.send_message(chat_id=chat_id, text=formatted_response)
+    except Exception as e:
+        logger.error(f"Error handling voice chat with Jarvis: {e}", exc_info=True)
+        await bot_client.send_message(
+            chat_id=chat_id,
+            text=f"❌ <b>Voice Note Issue</b>: <code>{str(e)[:150]}</code>"
+        )
 
 
 async def _handle_text_input(chat_id: int, user_id: int, text: str) -> None:
@@ -554,11 +582,12 @@ async def _handle_text_input(chat_id: int, user_id: int, text: str) -> None:
         return
 
     # Case E: Default conversational companion (ScrollBot Jarvis Assistant)
+    await bot_client.send_chat_action(chat_id=chat_id, action="typing")
     from app.ai.agents.jarvis_agent import jarvis_agent
     try:
         reply = await jarvis_agent.chat(user_id=user_id, message_text=text)
         await bot_client.send_message(chat_id=chat_id, text=reply)
     except Exception as e:
-        logger.error(f"Error in Jarvis chat: {e}")
+        logger.error(f"Error in Jarvis chat: {e}", exc_info=True)
         await bot_client.send_message(chat_id=chat_id, text="I had an issue formulating my thought, Sandy. Try again?")
 

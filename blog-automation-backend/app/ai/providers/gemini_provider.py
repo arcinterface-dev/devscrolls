@@ -50,32 +50,42 @@ class GeminiProvider(AIProvider):
 
         part = types.Part.from_bytes(data=audio_bytes, mime_type=mime_type)
 
-        def _call_api():
-            return client.models.generate_content(
-                model=self.transcription_model_name,
-                contents=[part, prompt]
-            )
+        candidate_models = [self.transcription_model_name, "gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash"]
+        seen = set()
+        candidate_models = [m for m in candidate_models if m and not (m in seen or seen.add(m))]
 
-        # Run via asyncio.to_thread for non-blocking I/O
-        response = await asyncio.to_thread(_call_api)
+        last_err = None
+        for model in candidate_models:
+            try:
+                def _call_api():
+                    return client.models.generate_content(
+                        model=model,
+                        contents=[part, prompt]
+                    )
 
-        in_tokens = response.usage_metadata.prompt_token_count if response.usage_metadata else 0
-        out_tokens = response.usage_metadata.candidates_token_count if response.usage_metadata else 0
+                response = await asyncio.to_thread(_call_api)
+                in_tokens = response.usage_metadata.prompt_token_count if response.usage_metadata else 0
+                out_tokens = response.usage_metadata.candidates_token_count if response.usage_metadata else 0
 
-        usage = UsageMetadata(
-            provider="gemini",
-            model=self.transcription_model_name,
-            operation="transcription",
-            input_tokens=in_tokens or 0,
-            output_tokens=out_tokens or 0,
-            estimated_cost=0.0  # Free tier
-        )
+                usage = UsageMetadata(
+                    provider="gemini",
+                    model=model,
+                    operation="transcription",
+                    input_tokens=in_tokens or 0,
+                    output_tokens=out_tokens or 0,
+                    estimated_cost=0.0  # Free tier
+                )
 
-        result = TranscriptionResult(
-            text=response.text.strip(),
-            language="en"
-        )
-        return result, usage
+                result = TranscriptionResult(
+                    text=response.text.strip(),
+                    language="en"
+                )
+                return result, usage
+            except Exception as e:
+                last_err = e
+                logger.warning(f"Gemini audio transcription model '{model}' failed: {e}. Trying next candidate...")
+
+        raise last_err
 
     async def _call_with_retry_and_fallback(
         self,
@@ -87,7 +97,7 @@ class GeminiProvider(AIProvider):
         client = self._get_client()
         candidate_models = [primary_model]
         # Robust production fallback models verified active and healthy on Google Gemini API
-        fallbacks = ["gemini-3.5-flash", "gemini-3.8-flash", "gemini-3.1-flash-lite"]
+        fallbacks = ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash"]
         for f in fallbacks:
             if f not in candidate_models:
                 candidate_models.append(f)

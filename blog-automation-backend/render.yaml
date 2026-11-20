@@ -20,9 +20,9 @@ services:
       - key: DEFAULT_AI_PROVIDER
         value: gemini
       - key: GEMINI_MODEL
-        value: gemini-3.8-flash
+        value: gemini-2.5-flash
       - key: GEMINI_TRANSCRIPTION_MODEL
-        value: gemini-3.5-flash-lite
+        value: gemini-2.5-flash
       - key: GITHUB_REPO_OWNER
         value: arcinterface-dev
       - key: GITHUB_REPO_NAME
