@@ -1,40 +1,56 @@
 [
   {
-    "id": "arbeitnow-remote-1227-back-end-developer-germany-388586",
-    "slug": "intetics-2-1227-back-end-developer",
-    "title": "1227 | Back-end Developer",
-    "company": "Intetics 2",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=intetics2.com&sz=128",
-    "location": "Remote (Germany)",
-    "region": "EU",
+    "id": "arbeitnow-senior-business-analyst-ma-100-remote-worldwide-london-127458",
+    "slug": "tether-operations-limited-senior-business-analyst-m-a-100-remote-worldwide",
+    "title": "Senior Business Analyst - M&A (100% remote Worldwide)",
+    "company": "Tether Operations Limited",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=tetheroperationslimited.com&sz=128",
+    "location": "Remote job",
+    "region": "Worldwide",
     "workplaceType": "Remote",
     "tags": [
-      "Backend",
-      "Python",
-      "Java",
-      "Node.js"
+      "Staff/Lead"
     ],
-    "applyUrl": "https://www.arbeitnow.com/jobs/companies/intetics-2/remote-1227-back-end-developer-germany-388586",
-    "datePosted": "2026-11-21T12:20:17.000Z",
+    "applyUrl": "https://www.arbeitnow.co.uk/jobs/companies/tether-operations-limited/senior-business-analyst-ma-100-remote-worldwide-london-127458",
+    "datePosted": "2026-11-22T12:31:15.000Z",
     "source": "Arbeitnow",
-    "descriptionSnippet": "Intetics Inc., a leading American technology company specializing in custom software application development, distributed professional teams creation, software product quality asse..."
+    "descriptionSnippet": "Join Tether and Shape the Future of Digital FinanceAt Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower b..."
   },
   {
-    "id": "gh-reddit-8319655",
-    "slug": "reddit-software-engineer-ad-signals",
-    "title": "Software Engineer, Ad Signals",
+    "id": "gh-reddit-8287466",
+    "slug": "reddit-senior-frontend-engineer-ads-formats",
+    "title": "Senior Frontend Engineer, Ads Formats",
     "company": "Reddit",
     "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
     "location": "Remote - United States",
     "region": "US",
     "workplaceType": "Remote",
     "tags": [
-      "Software Engineer"
+      "Frontend",
+      "Senior"
     ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8319655",
-    "datePosted": "2026-11-21T12:11:18.000Z",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8287466",
+    "datePosted": "2026-11-22T00:18:42.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Ad Signals role at Reddit. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Frontend Engineer, Ads Formats role at Reddit. Direct company career opening with high-impact engineering opportunities."
+  },
+  {
+    "id": "arbeitnow-remote-principal-enterprise-architect-ai-cloud-integrations-162065",
+    "slug": "celonis-principal-enterprise-architect-ai-cloud-integrations",
+    "title": "Principal Enterprise Architect - AI & Cloud Integrations",
+    "company": "celonis",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=celonis.com&sz=128",
+    "location": "Remote",
+    "region": "Worldwide",
+    "workplaceType": "Remote",
+    "tags": [
+      "Python",
+      "Staff/Lead"
+    ],
+    "applyUrl": "https://www.arbeitnow.nl/jobs/companies/celonis/remote-principal-enterprise-architect-ai-cloud-integrations-162065",
+    "datePosted": "2026-11-21T15:55:26.000Z",
+    "source": "Arbeitnow",
+    "descriptionSnippet": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;Celonis is the trusted platform to industrialize Enterprise AI. At our core is the Celonis Context Model — which combines proces..."
   },
   {
     "id": "gh-cloudflare-8401119",
@@ -86,42 +102,6 @@
     "datePosted": "2026-11-20T22:09:11.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Software Engineer, Partner Integrations  role at Airbnb. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "arbeitnow-remote-senior-customer-intelligence-manager-64301",
-    "slug": "camunda-senior-customer-intelligence-manager",
-    "title": "Senior Customer Intelligence Manager",
-    "company": "Camunda",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=camunda.com&sz=128",
-    "location": "Remote",
-    "region": "Worldwide",
-    "workplaceType": "Remote",
-    "tags": [
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://www.arbeitnow.com/jobs/companies/camunda/remote-senior-customer-intelligence-manager-64301",
-    "datePosted": "2026-11-20T21:40:15.000Z",
-    "source": "Arbeitnow",
-    "descriptionSnippet": "Camunda is the enterprise platform for agentic orchestration, enabling organizations to coordinate AI agents, people, and systems across complex, end-to-end business processes. Wit..."
-  },
-  {
-    "id": "arbeitnow-remote-ai-fabric-architect-51975",
-    "slug": "fal-ai-ai-fabric-architect",
-    "title": "AI Fabric Architect",
-    "company": "Fal Ai",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=falai.com&sz=128",
-    "location": "Remote",
-    "region": "Worldwide",
-    "workplaceType": "Remote",
-    "tags": [
-      "Frontend",
-      "Backend",
-      "Python"
-    ],
-    "applyUrl": "https://www.arbeitnow.com/jobs/companies/fal-ai/remote-ai-fabric-architect-51975",
-    "datePosted": "2026-11-20T21:40:14.000Z",
-    "source": "Arbeitnow",
-    "descriptionSnippet": "fal is the generative media ecosystem powering the next generation of AI products. We build the infrastructure, tools, and model access that teams need to move from idea to product..."
   },
   {
     "id": "arbeitnow-remote-backend-software-developer-hilversum-417173",
@@ -266,24 +246,6 @@
     "datePosted": "2026-11-19T22:30:13.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Staff Machine Learning Engineer, Ads Lightweight Ranking  role at Pinterest. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "lever-spotify-fb3f185c-961c-4b7b-a568-b42a37d66ead",
-    "slug": "spotify-senior-backend-engineer-subscriptions",
-    "title": "Senior Backend Engineer - Subscriptions",
-    "company": "Spotify",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=spotify.com&sz=128",
-    "location": "Remote (London)",
-    "region": "EU",
-    "workplaceType": "Hybrid",
-    "tags": [
-      "Backend",
-      "Senior"
-    ],
-    "applyUrl": "https://jobs.lever.co/spotify/fb3f185c-961c-4b7b-a568-b42a37d66ead/apply",
-    "datePosted": "2026-11-19T19:50:33.025Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "..."
   },
   {
     "id": "ashby-supabase-2184cfbd-927e-4d3c-b34a-f2301d3e8281",
@@ -606,42 +568,21 @@
     "descriptionSnippet": "We’re looking for a pragmatic, security-minded Full-Stack Developer to help build and scale Fluence’s B2B products used by clinicians, researchers, and organizations in psychedelic..."
   },
   {
-    "id": "arbeitnow-remote-1226-front-end-developer-germany-84712",
-    "slug": "intetics-2-1226-front-end-developer",
-    "title": "1226 | Front-end Developer",
-    "company": "Intetics 2",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=intetics2.com&sz=128",
-    "location": "Remote (Germany)",
-    "region": "EU",
-    "workplaceType": "Remote",
-    "tags": [
-      "Frontend",
-      "Backend",
-      "React",
-      "TypeScript"
-    ],
-    "applyUrl": "https://www.arbeitnow.com/jobs/companies/intetics-2/remote-1226-front-end-developer-germany-84712",
-    "datePosted": "2026-11-21T12:20:17.000Z",
-    "source": "Arbeitnow",
-    "descriptionSnippet": "Intetics Inc., a leading American technology company specializing in custom software application development, distributed professional teams creation, software product quality asse..."
-  },
-  {
-    "id": "gh-reddit-8316086",
-    "slug": "reddit-staff-machine-learning-engineer-retrieval-targeting",
-    "title": "Staff Machine Learning Engineer, Retrieval & Targeting",
+    "id": "gh-reddit-8319655",
+    "slug": "reddit-software-engineer-ad-signals",
+    "title": "Software Engineer, Ad Signals",
     "company": "Reddit",
     "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
     "location": "Remote - United States",
     "region": "US",
     "workplaceType": "Remote",
     "tags": [
-      "AI / ML",
-      "Staff/Lead"
+      "Software Engineer"
     ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8316086",
-    "datePosted": "2026-11-21T12:11:18.000Z",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8319655",
+    "datePosted": "2026-11-22T00:18:42.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Machine Learning Engineer, Retrieval & Targeting role at Reddit. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Ad Signals role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8401122",
@@ -797,23 +738,6 @@
     "datePosted": "2026-11-19T16:36:33.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Staff Machine Learning Engineer, Homefeed & Search Quality  role at Pinterest. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "lever-spotify-bcd66391-12eb-4b15-b938-2b5b844e4f2b",
-    "slug": "spotify-backend-engineer-subscriptions",
-    "title": "Backend Engineer - Subscriptions",
-    "company": "Spotify",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=spotify.com&sz=128",
-    "location": "Remote (London)",
-    "region": "EU",
-    "workplaceType": "Hybrid",
-    "tags": [
-      "Backend"
-    ],
-    "applyUrl": "https://jobs.lever.co/spotify/bcd66391-12eb-4b15-b938-2b5b844e4f2b/apply",
-    "datePosted": "2026-11-18T10:45:59.243Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Our mission on the Advertising Product & Technology team is to build a next generation advertising platform that aligns with our unique value proposition for audio and video. We wo..."
   },
   {
     "id": "ashby-supabase-0055f731-cffa-4c74-9c00-8abfa579873d",
@@ -1006,22 +930,22 @@
     "descriptionSnippet": "Explore this Senior Platform Product Manager - AI SDLC Trusted Throughput role at Datadog. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-reddit-8287466",
-    "slug": "reddit-senior-frontend-engineer-ads-formats",
-    "title": "Senior Frontend Engineer, Ads Formats",
+    "id": "gh-reddit-8316086",
+    "slug": "reddit-staff-machine-learning-engineer-retrieval-targeting",
+    "title": "Staff Machine Learning Engineer, Retrieval & Targeting",
     "company": "Reddit",
     "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
     "location": "Remote - United States",
     "region": "US",
     "workplaceType": "Remote",
     "tags": [
-      "Frontend",
-      "Senior"
+      "AI / ML",
+      "Staff/Lead"
     ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8287466",
-    "datePosted": "2026-11-21T12:11:17.000Z",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8316086",
+    "datePosted": "2026-11-22T00:18:42.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Frontend Engineer, Ads Formats role at Reddit. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Machine Learning Engineer, Retrieval & Targeting role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8401108",
@@ -1177,24 +1101,6 @@
     "datePosted": "2026-11-17T19:31:46.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Sr. Security Software Engineer, Security Operations    role at Pinterest. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "lever-spotify-2c51f265-b95b-4b47-b467-e0fdc7744b5c",
-    "slug": "spotify-vp-head-of-engineering-advertising",
-    "title": "VP, Head of Engineering - Advertising",
-    "company": "Spotify",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=spotify.com&sz=128",
-    "location": "Remote (New York, NY)",
-    "region": "US",
-    "workplaceType": "Hybrid",
-    "tags": [
-      "AI / ML",
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://jobs.lever.co/spotify/2c51f265-b95b-4b47-b467-e0fdc7744b5c/apply",
-    "datePosted": "2026-11-10T22:22:47.131Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Our mission on the Advertising Product & Technology team is to build a next generation advertising platform that aligns with our unique value proposition for audio and video. We wo..."
   },
   {
     "id": "ashby-supabase-fb0b563a-e541-43fd-8555-9eb6473aaa11",
@@ -1370,22 +1276,22 @@
     "descriptionSnippet": "Explore this Senior Software Engineer  role at Datadog. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-reddit-8368600",
-    "slug": "reddit-senior-staff-machine-learning-engineer-ads-ranking",
-    "title": "Senior Staff Machine Learning Engineer, Ads Ranking ",
+    "id": "gh-reddit-8175520",
+    "slug": "reddit-senior-frontend-engineer-ads-creative",
+    "title": "Senior Frontend Engineer, Ads Creative",
     "company": "Reddit",
     "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
     "location": "Remote - United States",
     "region": "US",
     "workplaceType": "Remote",
     "tags": [
-      "AI / ML",
-      "Staff/Lead"
+      "Frontend",
+      "Senior"
     ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8368600",
-    "datePosted": "2026-11-21T12:11:17.000Z",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8175520",
+    "datePosted": "2026-11-22T00:18:41.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Staff Machine Learning Engineer, Ads Ranking  role at Reddit. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Frontend Engineer, Ads Creative role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8401112",
@@ -1493,21 +1399,21 @@
     "descriptionSnippet": "Explore this Staff Backend Engineer, Database Automation (Go) role at GitLab. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8328662",
-    "slug": "stripe-phd-machine-learning-engineer-intern",
-    "title": "PhD Machine Learning Engineer, Intern",
+    "id": "gh-stripe-8384567",
+    "slug": "stripe-software-engineer-vulnerability-management",
+    "title": "Software Engineer, Vulnerability Management",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "San Francisco, New York City, Seattle",
-    "region": "US",
+    "location": "na",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "AI / ML"
+      "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8328662",
-    "datePosted": "2026-11-19T17:12:30.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8384567",
+    "datePosted": "2026-11-19T17:12:32.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this PhD Machine Learning Engineer, Intern role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Vulnerability Management role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-dropbox-8394046",
@@ -1542,23 +1448,6 @@
     "datePosted": "2026-11-17T18:41:25.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Software Engineer II, Android role at Pinterest. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "lever-spotify-b459a23c-18bd-43f6-a8fa-2a3165c8dac7",
-    "slug": "spotify-machine-learning-engineering-manager-ii",
-    "title": "Machine Learning Engineering Manager II",
-    "company": "Spotify",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=spotify.com&sz=128",
-    "location": "Remote (Stockholm)",
-    "region": "Worldwide",
-    "workplaceType": "Remote",
-    "tags": [
-      "AI / ML"
-    ],
-    "applyUrl": "https://jobs.lever.co/spotify/b459a23c-18bd-43f6-a8fa-2a3165c8dac7/apply",
-    "datePosted": "2026-11-09T16:41:13.651Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "..."
   },
   {
     "id": "ashby-supabase-9f2ba0b2-6d3b-43ea-990f-5b4bf3930520",
@@ -1715,9 +1604,9 @@
     "descriptionSnippet": "Explore this Senior Software Engineer - Autonomous Ops & Maintenance (ATOM) role at Datadog. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-reddit-8334138",
-    "slug": "reddit-staff-machine-learning-engineer-ads-forecasting-scenarios",
-    "title": "Staff Machine Learning Engineer, Ads Forecasting & Scenarios",
+    "id": "gh-reddit-8368600",
+    "slug": "reddit-senior-staff-machine-learning-engineer-ads-ranking",
+    "title": "Senior Staff Machine Learning Engineer, Ads Ranking ",
     "company": "Reddit",
     "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
     "location": "Remote - United States",
@@ -1727,10 +1616,10 @@
       "AI / ML",
       "Staff/Lead"
     ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8334138",
-    "datePosted": "2026-11-21T12:11:17.000Z",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8368600",
+    "datePosted": "2026-11-22T00:18:41.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Machine Learning Engineer, Ads Forecasting & Scenarios role at Reddit. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Staff Machine Learning Engineer, Ads Ranking  role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8157281",
@@ -1887,23 +1776,6 @@
     "descriptionSnippet": "Explore this Sr. Software Engineer, iOS role at Pinterest. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "lever-spotify-ced2c220-6b5c-4e74-8e06-37d50985097c",
-    "slug": "spotify-backend-engineer-data-infrastructure",
-    "title": "Backend Engineer - Data Infrastructure",
-    "company": "Spotify",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=spotify.com&sz=128",
-    "location": "Remote (New York, NY)",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "Backend"
-    ],
-    "applyUrl": "https://jobs.lever.co/spotify/ced2c220-6b5c-4e74-8e06-37d50985097c/apply",
-    "datePosted": "2026-11-05T17:27:58.804Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "The Platform team creates the technology that enables Spotify to learn quickly and scale easily, enabling rapid growth in our users and our business around the globe. Spanning many..."
-  },
-  {
     "id": "ashby-notion-f524ef6b-6a8a-4d73-b7ff-eac85bd6c887",
     "slug": "notion-software-engineer-growth",
     "title": "Software Engineer, Growth",
@@ -2025,22 +1897,22 @@
     "descriptionSnippet": "Explore this Senior Software Engineer - Distributed Systems role at Datadog. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-reddit-8175520",
-    "slug": "reddit-senior-frontend-engineer-ads-creative",
-    "title": "Senior Frontend Engineer, Ads Creative",
+    "id": "gh-reddit-8334138",
+    "slug": "reddit-staff-machine-learning-engineer-ads-forecasting-scenarios",
+    "title": "Staff Machine Learning Engineer, Ads Forecasting & Scenarios",
     "company": "Reddit",
     "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
     "location": "Remote - United States",
     "region": "US",
     "workplaceType": "Remote",
     "tags": [
-      "Frontend",
-      "Senior"
+      "AI / ML",
+      "Staff/Lead"
     ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8175520",
-    "datePosted": "2026-11-21T12:11:16.000Z",
+    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8334138",
+    "datePosted": "2026-11-22T00:18:41.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Frontend Engineer, Ads Creative role at Reddit. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Machine Learning Engineer, Ads Forecasting & Scenarios role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8262000",
@@ -2198,23 +2070,6 @@
     "descriptionSnippet": "Explore this Software Engineer II, iOS role at Pinterest. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "lever-spotify-19c12e29-b6d4-4d97-9053-48238fb7c381",
-    "slug": "spotify-machine-learning-engineer-subscriptions",
-    "title": "Machine Learning Engineer - Subscriptions",
-    "company": "Spotify",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=spotify.com&sz=128",
-    "location": "Remote (London)",
-    "region": "EU",
-    "workplaceType": "Hybrid",
-    "tags": [
-      "AI / ML"
-    ],
-    "applyUrl": "https://jobs.lever.co/spotify/19c12e29-b6d4-4d97-9053-48238fb7c381/apply",
-    "datePosted": "2026-10-23T16:53:57.686Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "At Spotify, our Subscriptions Mission focuses on creating experiences that help listeners discover the value of Spotify, become subscribers, and stay with us for the long term. By..."
-  },
-  {
     "id": "ashby-notion-30a5c739-185f-4a55-8a63-85974d687444",
     "slug": "notion-business-systems-engineer",
     "title": "Business Systems Engineer",
@@ -2348,7 +2203,7 @@
       "Senior"
     ],
     "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8029120",
-    "datePosted": "2026-11-21T12:11:15.000Z",
+    "datePosted": "2026-11-22T00:18:40.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Machine Learning Engineer, Ads Forecasting & Scenarios role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
@@ -2508,23 +2363,6 @@
     "descriptionSnippet": "Explore this Sr. Project & Program Manager, Quality - Trust & Safety  role at Pinterest. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "lever-spotify-8bd60a8c-d8bb-41ba-9ac0-69d0b643d63d",
-    "slug": "spotify-senior-product-manager-spotify-connect",
-    "title": "Senior Product Manager - Spotify Connect",
-    "company": "Spotify",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=spotify.com&sz=128",
-    "location": "Remote (London)",
-    "region": "EU",
-    "workplaceType": "Hybrid",
-    "tags": [
-      "Senior"
-    ],
-    "applyUrl": "https://jobs.lever.co/spotify/8bd60a8c-d8bb-41ba-9ac0-69d0b643d63d/apply",
-    "datePosted": "2026-10-23T14:07:42.365Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "We design Spotify’s consumer experience—end to end, moment to moment, across every screen, platform, and partner integration. Our mission is to make listening feel effortless, pers..."
-  },
-  {
     "id": "ashby-notion-73a71747-28d3-4dda-a718-77336056e687",
     "slug": "notion-data-engineer-product",
     "title": "Data Engineer, Product",
@@ -2658,7 +2496,7 @@
       "Senior"
     ],
     "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/7980795",
-    "datePosted": "2026-11-21T12:11:15.000Z",
+    "datePosted": "2026-11-22T00:18:40.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Software Engineer, Agentic Ads Experience role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
@@ -2934,7 +2772,7 @@
       "Staff/Lead"
     ],
     "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8250389",
-    "datePosted": "2026-11-21T12:11:15.000Z",
+    "datePosted": "2026-11-22T00:18:40.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Staff Machine Learning Engineer, Ads Creative Effectiveness role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
@@ -3078,23 +2916,6 @@
     "descriptionSnippet": "Explore this Staff Machine Learning Engineer, Ads Bidding & Pacing role at Pinterest. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "ashby-perplexity-06dcd116-2b07-4f40-869e-06ed540f7614",
-    "slug": "perplexity-ai-member-of-technical-staff-software-engineer-experience",
-    "title": "Member of Technical Staff, (Software Engineer, Experience)",
-    "company": "Perplexity AI",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=perplexity.com&sz=128",
-    "location": "San Francisco",
-    "region": "US",
-    "workplaceType": "Hybrid",
-    "tags": [
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://jobs.ashbyhq.com/Perplexity/06dcd116-2b07-4f40-869e-06ed540f7614",
-    "datePosted": "2026-10-22T23:00:03.164Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Join Perplexity AI as a Member of Technical Staff, (Software Engineer, Experience). Building high-performance software with modern engineering standards."
-  },
-  {
     "id": "gh-mozilla-8315191",
     "slug": "mozilla-staff-software-engineer-tools-systems",
     "title": "Staff Software Engineer, Tools & Systems",
@@ -3175,7 +2996,7 @@
       "Frontend"
     ],
     "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8194576",
-    "datePosted": "2026-11-21T12:11:14.000Z",
+    "datePosted": "2026-11-22T00:18:39.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Frontend Engineer, Ads role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
@@ -3381,7 +3202,7 @@
       "Frontend"
     ],
     "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8240716",
-    "datePosted": "2026-11-21T12:11:14.000Z",
+    "datePosted": "2026-11-22T00:18:39.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Frontend Engineer, Ads Campaign Manager role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
@@ -3558,23 +3379,6 @@
     "descriptionSnippet": "Explore this Manager, Software Engineering - AI Observability role at Figma. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "ashby-ramp-09360e92-fc95-4ba6-9611-dfefd60b13ce",
-    "slug": "ramp-software-engineer-forward-deployed-enterprise-product",
-    "title": "Software Engineer, Forward Deployed, Enterprise Product",
-    "company": "Ramp",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=ramp.com&sz=128",
-    "location": "New York, NY (HQ)",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "Software Engineer"
-    ],
-    "applyUrl": "https://jobs.ashbyhq.com/ramp/09360e92-fc95-4ba6-9611-dfefd60b13ce",
-    "datePosted": "2026-10-22T19:20:13.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Join Ramp as a Software Engineer, Forward Deployed, Enterprise Product. Building high-performance software with modern engineering standards."
-  },
-  {
     "id": "gh-reddit-8157275",
     "slug": "reddit-senior-staff-machine-learning-systems-engineer-ads-ml-platform",
     "title": "Senior Staff Machine Learning Systems Engineer, Ads ML Platform",
@@ -3588,7 +3392,7 @@
       "Staff/Lead"
     ],
     "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8157275",
-    "datePosted": "2026-11-21T12:11:13.000Z",
+    "datePosted": "2026-11-22T00:18:39.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Staff Machine Learning Systems Engineer, Ads ML Platform role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
@@ -3778,7 +3582,7 @@
       "Staff/Lead"
     ],
     "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8178085",
-    "datePosted": "2026-11-21T12:11:13.000Z",
+    "datePosted": "2026-11-22T00:18:39.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Staff Machine Learning Engineer, Retrieval role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
@@ -5269,21 +5073,21 @@
     "descriptionSnippet": "Explore this Staff Backend Engineer, Moderation Enforcement role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-cloudflare-8325834",
-    "slug": "cloudflare-hardware-systems-engineer-ai-hardware",
-    "title": "Hardware Systems Engineer, AI Hardware",
+    "id": "gh-cloudflare-8229998",
+    "slug": "cloudflare-technical-support-engineer-zero-trust",
+    "title": "Technical Support Engineer, Zero Trust",
     "company": "Cloudflare",
     "companyLogo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
-    "location": "Hybrid",
+    "location": "In-Office",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8325834?gh_jid=8325834",
-    "datePosted": "2026-11-17T22:53:32.000Z",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8229998?gh_jid=8229998",
+    "datePosted": "2026-11-18T02:26:41.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Hardware Systems Engineer, AI Hardware role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Technical Support Engineer, Zero Trust role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-elastic-8319081",
@@ -5422,38 +5226,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, GRC  role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-cloudflare-7276690",
-    "slug": "cloudflare-senior-software-engineer-r2-metadata",
-    "title": "Senior Software Engineer, R2 Metadata",
+    "id": "gh-cloudflare-8325834",
+    "slug": "cloudflare-hardware-systems-engineer-ai-hardware",
+    "title": "Hardware Systems Engineer, AI Hardware",
     "company": "Cloudflare",
     "companyLogo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
     "location": "Hybrid",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Senior"
-    ],
-    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/7276690?gh_jid=7276690",
-    "datePosted": "2026-11-17T19:20:59.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Software Engineer, R2 Metadata role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-elastic-8274383",
-    "slug": "elastic-software-engineer-ii-control-plane-hosted-foundations-applications",
-    "title": "Software Engineer II - Control Plane (Hosted Foundations / Applications)",
-    "company": "Elastic",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=elastic.com&sz=128",
-    "location": "United States",
-    "region": "US",
-    "workplaceType": "Hybrid/Remote",
-    "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8274383&gh_jid=8274383",
-    "datePosted": "2026-10-22T21:27:42.000Z",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8325834?gh_jid=8325834",
+    "datePosted": "2026-11-17T22:53:32.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer II - Control Plane (Hosted Foundations / Applications) role at Elastic. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Hardware Systems Engineer, AI Hardware role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-airbnb-8262812",
@@ -5576,9 +5363,9 @@
     "descriptionSnippet": "Explore this Software Engineer, Infrastructure Engineering role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-cloudflare-8187404",
-    "slug": "cloudflare-senior-systems-engineer-network-protocols-distributed-systems",
-    "title": "Senior Systems Engineer, Network Protocols & Distributed Systems",
+    "id": "gh-cloudflare-7276690",
+    "slug": "cloudflare-senior-software-engineer-r2-metadata",
+    "title": "Senior Software Engineer, R2 Metadata",
     "company": "Cloudflare",
     "companyLogo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
     "location": "Hybrid",
@@ -5587,27 +5374,10 @@
     "tags": [
       "Senior"
     ],
-    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8187404?gh_jid=8187404",
-    "datePosted": "2026-11-17T16:36:10.000Z",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/7276690?gh_jid=7276690",
+    "datePosted": "2026-11-17T19:20:59.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Systems Engineer, Network Protocols & Distributed Systems role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-elastic-8108689",
-    "slug": "elastic-senior-software-engineer-iam-control-plane-platform",
-    "title": "Senior Software Engineer - IAM - Control Plane - Platform",
-    "company": "Elastic",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=elastic.com&sz=128",
-    "location": "United States",
-    "region": "US",
-    "workplaceType": "Hybrid/Remote",
-    "tags": [
-      "Senior"
-    ],
-    "applyUrl": "https://jobs.elastic.co/jobs?gh_jid=8108689&gh_jid=8108689",
-    "datePosted": "2026-10-22T16:20:20.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Software Engineer - IAM - Control Plane - Platform role at Elastic. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Software Engineer, R2 Metadata role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-airbnb-8024057",
@@ -5731,9 +5501,9 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Infrastructure Engineering role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-cloudflare-8383586",
-    "slug": "cloudflare-senior-software-engineer",
-    "title": "Senior Software Engineer",
+    "id": "gh-cloudflare-8187404",
+    "slug": "cloudflare-senior-systems-engineer-network-protocols-distributed-systems",
+    "title": "Senior Systems Engineer, Network Protocols & Distributed Systems",
     "company": "Cloudflare",
     "companyLogo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
     "location": "Hybrid",
@@ -5742,10 +5512,10 @@
     "tags": [
       "Senior"
     ],
-    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8383586?gh_jid=8383586",
-    "datePosted": "2026-11-17T15:45:54.000Z",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8187404?gh_jid=8187404",
+    "datePosted": "2026-11-17T16:36:10.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Software Engineer role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Systems Engineer, Network Protocols & Distributed Systems role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-airbnb-8325813",
@@ -5870,21 +5640,21 @@
     "descriptionSnippet": "Explore this Staff Backend Engineer, User Safety role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-cloudflare-8383449",
-    "slug": "cloudflare-people-team-intern-emea-employment-compliance-manager-enablement-spri",
-    "title": "People Team Intern, EMEA Employment Compliance & Manager Enablement (Spring 2027)",
+    "id": "gh-cloudflare-8383586",
+    "slug": "cloudflare-senior-software-engineer",
+    "title": "Senior Software Engineer",
     "company": "Cloudflare",
     "companyLogo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
-    "location": "In-Office",
+    "location": "Hybrid",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Software Engineer"
+      "Senior"
     ],
-    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8383449?gh_jid=8383449",
-    "datePosted": "2026-11-17T11:48:04.000Z",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8383586?gh_jid=8383586",
+    "datePosted": "2026-11-17T15:45:54.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this People Team Intern, EMEA Employment Compliance & Manager Enablement (Spring 2027) role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Software Engineer role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-airbnb-8238592",
@@ -5991,21 +5761,21 @@
     "descriptionSnippet": "Explore this Senior Frontend Software Engineer, Consumer Engineering role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-cloudflare-8383577",
-    "slug": "cloudflare-principal-software-engineer-identity-access-management",
-    "title": "Principal Software Engineer, Identity & Access Management",
+    "id": "gh-cloudflare-8383449",
+    "slug": "cloudflare-people-team-intern-emea-employment-compliance-manager-enablement-spri",
+    "title": "People Team Intern, EMEA Employment Compliance & Manager Enablement (Spring 2027)",
     "company": "Cloudflare",
     "companyLogo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
-    "location": "Hybrid",
+    "location": "In-Office",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Staff/Lead"
+      "Software Engineer"
     ],
-    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8383577?gh_jid=8383577",
-    "datePosted": "2026-11-16T16:14:50.000Z",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8383449?gh_jid=8383449",
+    "datePosted": "2026-11-17T11:48:04.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Principal Software Engineer, Identity & Access Management role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this People Team Intern, EMEA Employment Compliance & Manager Enablement (Spring 2027) role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-airbnb-6757302",
@@ -6060,21 +5830,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Security Factory: Code Security role at GitLab. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8089353",
-    "slug": "stripe-software-engineer-vulnerability-management",
-    "title": "Software Engineer, Vulnerability Management",
+    "id": "gh-stripe-8039548",
+    "slug": "stripe-full-stack-engineer-support-experience-greater-china-support",
+    "title": "Full Stack Engineer, Support Experience (Greater China Support)",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "US - Remote",
+    "location": "US",
     "region": "Worldwide",
-    "workplaceType": "Remote",
+    "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8089353",
-    "datePosted": "2026-11-19T17:12:22.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8039548",
+    "datePosted": "2026-11-19T17:12:21.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Vulnerability Management role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Full Stack Engineer, Support Experience (Greater China Support) role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-8138090",
@@ -6111,21 +5881,21 @@
     "descriptionSnippet": "Explore this Staff Software Engineer, iOS Platform role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-cloudflare-8239181",
-    "slug": "cloudflare-senior-systems-engineer",
-    "title": "Senior Systems Engineer",
+    "id": "gh-cloudflare-8383577",
+    "slug": "cloudflare-principal-software-engineer-identity-access-management",
+    "title": "Principal Software Engineer, Identity & Access Management",
     "company": "Cloudflare",
     "companyLogo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
     "location": "Hybrid",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Senior"
+      "Staff/Lead"
     ],
-    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8239181?gh_jid=8239181",
-    "datePosted": "2026-11-16T15:46:27.000Z",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8383577?gh_jid=8383577",
+    "datePosted": "2026-11-16T16:14:50.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Systems Engineer role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Principal Software Engineer, Identity & Access Management role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-airbnb-7858738",
@@ -6181,21 +5951,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, SSCS : Authentication role at GitLab. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8039548",
-    "slug": "stripe-full-stack-engineer-support-experience-greater-china-support",
-    "title": "Full Stack Engineer, Support Experience (Greater China Support)",
+    "id": "gh-stripe-7982720",
+    "slug": "stripe-software-engineer-secure-devices",
+    "title": "Software Engineer, Secure Devices",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "US",
-    "region": "Worldwide",
+    "location": "New York, New York ",
+    "region": "US",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8039548",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7982720",
     "datePosted": "2026-11-19T17:12:21.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Full Stack Engineer, Support Experience (Greater China Support) role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Secure Devices role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-8011719",
@@ -6301,21 +6071,21 @@
     "descriptionSnippet": "Explore this Software Engineer, Delivery : Release role at GitLab. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7982720",
-    "slug": "stripe-software-engineer-secure-devices",
-    "title": "Software Engineer, Secure Devices",
+    "id": "gh-stripe-8112043",
+    "slug": "stripe-staff-software-engineer-risk-data-engineering",
+    "title": "Staff Software Engineer, Risk Data Engineering",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "New York, New York ",
-    "region": "US",
+    "location": "Toronto",
+    "region": "Canada",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Software Engineer"
+      "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7982720",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8112043",
     "datePosted": "2026-11-19T17:12:21.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Secure Devices role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Software Engineer, Risk Data Engineering role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-8015504",
@@ -6422,21 +6192,21 @@
     "descriptionSnippet": "Explore this Staff Backend Engineer, Architecture Engineering: Nonlinear Productivity role at GitLab. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8112043",
-    "slug": "stripe-staff-software-engineer-risk-data-engineering",
-    "title": "Staff Software Engineer, Risk Data Engineering",
+    "id": "gh-stripe-7476555",
+    "slug": "stripe-backend-engineer-developer-end-user-experience-platform",
+    "title": "Backend Engineer, Developer & End-user Experience Platform",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Toronto",
+    "location": "SEA, SF, NY, Toronto",
     "region": "Canada",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Staff/Lead"
+      "Backend"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8112043",
-    "datePosted": "2026-11-19T17:12:21.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7476555",
+    "datePosted": "2026-11-19T17:12:20.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Software Engineer, Risk Data Engineering role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Backend Engineer, Developer & End-user Experience Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-8046860",
@@ -6820,23 +6590,6 @@
     "descriptionSnippet": "Explore this Staff Software Engineer, Service Configuration Deployments role at Pinterest. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-reddit-8095009",
-    "slug": "reddit-machine-learning-manager-feed-ecosystems",
-    "title": "Machine Learning Manager, Feed Ecosystems",
-    "company": "Reddit",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - United States",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "AI / ML"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8095009",
-    "datePosted": "2026-10-23T14:06:06.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Machine Learning Manager, Feed Ecosystems role at Reddit. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
     "id": "gh-cloudflare-8178593",
     "slug": "cloudflare-senior-software-engineer-deploy-at-scale",
     "title": "Senior Software Engineer, Deploy at Scale",
@@ -6920,23 +6673,6 @@
     "datePosted": "2026-11-06T21:55:10.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Staff Software Engineer, Web Product Enablement  role at Pinterest. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-reddit-8094985",
-    "slug": "reddit-machine-learning-manager-feed-relevance-retrieval",
-    "title": "Machine Learning Manager, Feed Relevance (Retrieval)",
-    "company": "Reddit",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - United States",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "AI / ML"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8094985",
-    "datePosted": "2026-10-23T14:06:06.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Machine Learning Manager, Feed Relevance (Retrieval) role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8080780",
@@ -7024,24 +6760,6 @@
     "descriptionSnippet": "Explore this Machine Learning Engineer II, Responsible AI role at Pinterest. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-reddit-8122887",
-    "slug": "reddit-principal-ux-engineer-ads",
-    "title": "Principal UX Engineer, Ads",
-    "company": "Reddit",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - United States",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "UI/UX",
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8122887",
-    "datePosted": "2026-10-23T14:06:06.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Principal UX Engineer, Ads role at Reddit. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
     "id": "gh-cloudflare-8174207",
     "slug": "cloudflare-senior-software-engineer-r2-gateway",
     "title": "Senior Software Engineer, R2 Gateway",
@@ -7125,24 +6843,6 @@
     "datePosted": "2026-11-06T21:55:09.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Principal Engineer, AI Platform role at Pinterest. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-reddit-8044767",
-    "slug": "reddit-senior-backend-engineer-iam",
-    "title": "Senior Backend Engineer, IAM",
-    "company": "Reddit",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - United States",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "Backend",
-      "Senior"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8044767",
-    "datePosted": "2026-10-23T14:06:06.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Backend Engineer, IAM role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8155463",
@@ -7230,24 +6930,6 @@
     "descriptionSnippet": "Explore this Principal Engineer, Big Data Platform role at Pinterest. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-reddit-8304463",
-    "slug": "reddit-senior-machine-learning-engineer-ads-ml-efficiency",
-    "title": "Senior Machine Learning Engineer, Ads ML Efficiency",
-    "company": "Reddit",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - United States",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "AI / ML",
-      "Senior"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8304463",
-    "datePosted": "2026-10-23T14:06:06.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Machine Learning Engineer, Ads ML Efficiency role at Reddit. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
     "id": "gh-cloudflare-8346149",
     "slug": "cloudflare-senior-software-engineer-ztc",
     "title": "Senior Software Engineer - ZTC",
@@ -7331,24 +7013,6 @@
     "datePosted": "2026-11-06T21:55:09.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Principal Software Engineer, ML & Media Infra role at Pinterest. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-reddit-8125507",
-    "slug": "reddit-senior-machine-learning-manager-video-ranking",
-    "title": "Senior Machine Learning Manager, Video Ranking ",
-    "company": "Reddit",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - United States",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "AI / ML",
-      "Senior"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8125507",
-    "datePosted": "2026-10-23T14:06:06.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Machine Learning Manager, Video Ranking  role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-7463793",
@@ -7439,24 +7103,6 @@
     "descriptionSnippet": "Explore this Software Engineer Intern 2027 (USA) role at Pinterest. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-reddit-7731772",
-    "slug": "reddit-senior-machine-learning-systems-engineer",
-    "title": "Senior Machine Learning Systems Engineer",
-    "company": "Reddit",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - United States",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "AI / ML",
-      "Senior"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/7731772",
-    "datePosted": "2026-10-23T14:06:06.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Machine Learning Systems Engineer role at Reddit. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
     "id": "gh-cloudflare-7793013",
     "slug": "cloudflare-senior-software-engineer-network-connectivity-go-rust",
     "title": "Senior Software Engineer - Network Connectivity (Go/Rust)",
@@ -7493,21 +7139,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer (Institutional, Settlements & Transfers) role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8315954",
-    "slug": "stripe-full-stack-software-engineer-communication-tools",
-    "title": "Full-Stack Software Engineer, Communication Tools",
+    "id": "gh-stripe-8328664",
+    "slug": "stripe-phd-machine-learning-engineer-intern",
+    "title": "PhD Machine Learning Engineer, Intern",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Dublin",
-    "region": "EU",
+    "location": "Toronto",
+    "region": "Canada",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Full-Stack"
+      "AI / ML"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8315954",
-    "datePosted": "2026-11-19T17:10:18.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8328664",
+    "datePosted": "2026-11-19T17:10:19.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Full-Stack Software Engineer, Communication Tools role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this PhD Machine Learning Engineer, Intern role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-7577227",
@@ -7525,24 +7171,6 @@
     "datePosted": "2026-11-06T21:55:09.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Sr. Staff Software Engineer, AI Platform role at Pinterest. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-reddit-8283770",
-    "slug": "reddit-senior-machine-learning-systems-engineer-ml-platform",
-    "title": "Senior Machine Learning Systems Engineer, ML Platform",
-    "company": "Reddit",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - United States",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "AI / ML",
-      "Senior"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8283770",
-    "datePosted": "2026-10-23T14:06:06.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Machine Learning Systems Engineer, ML Platform role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8195746",
@@ -7580,21 +7208,21 @@
     "descriptionSnippet": "Explore this Software Engineer - Crypto Data Foundations role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8318509",
-    "slug": "stripe-software-engineer",
-    "title": "Software Engineer",
+    "id": "gh-stripe-8315954",
+    "slug": "stripe-full-stack-software-engineer-communication-tools",
+    "title": "Full-Stack Software Engineer, Communication Tools",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Taiwan",
-    "region": "Worldwide",
+    "location": "Dublin",
+    "region": "EU",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Software Engineer"
+      "Full-Stack"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8318509",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8315954",
     "datePosted": "2026-11-19T17:10:18.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Full-Stack Software Engineer, Communication Tools role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-7746946",
@@ -7612,23 +7240,6 @@
     "datePosted": "2026-11-06T21:55:09.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Sr. Staff Software Engineer, Data Product Platform role at Pinterest. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-reddit-6909093",
-    "slug": "reddit-senior-software-engineer-ads",
-    "title": "Senior Software Engineer, Ads",
-    "company": "Reddit",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - Ontario, Canada",
-    "region": "Canada",
-    "workplaceType": "Remote",
-    "tags": [
-      "Senior"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/6909093",
-    "datePosted": "2026-10-23T14:06:06.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Software Engineer, Ads role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8089031",
@@ -7666,21 +7277,21 @@
     "descriptionSnippet": "Explore this Senior Machine Learning Platform Engineer - Identity role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8301379",
-    "slug": "stripe-backend-api-engineer-radar",
-    "title": "\tBackend / API Engineer, Radar",
+    "id": "gh-stripe-8318509",
+    "slug": "stripe-software-engineer",
+    "title": "Software Engineer",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Toronto",
-    "region": "Canada",
+    "location": "Taiwan",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Backend"
+      "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8301379",
-    "datePosted": "2026-11-19T17:10:17.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8318509",
+    "datePosted": "2026-11-19T17:10:18.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this \tBackend / API Engineer, Radar role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-7770946",
@@ -7698,23 +7309,6 @@
     "datePosted": "2026-11-06T21:55:09.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Sr. Staff Software Engineer, Notifications & Growth Platform  role at Pinterest. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-reddit-7950520",
-    "slug": "reddit-senior-software-engineer-devx",
-    "title": "Senior Software Engineer - DevX",
-    "company": "Reddit",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - United States",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "Senior"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/7950520",
-    "datePosted": "2026-10-23T14:06:06.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Software Engineer - DevX role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8079544",
@@ -7751,21 +7345,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Certificates Management role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8274582",
-    "slug": "stripe-staff-software-engineer-stripe-tax",
-    "title": "Staff Software Engineer - Stripe Tax",
+    "id": "gh-stripe-8301379",
+    "slug": "stripe-backend-api-engineer-radar",
+    "title": "\tBackend / API Engineer, Radar",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Dublin ",
-    "region": "EU",
+    "location": "Toronto",
+    "region": "Canada",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Staff/Lead"
+      "Backend"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8274582",
-    "datePosted": "2026-11-19T17:10:15.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8301379",
+    "datePosted": "2026-11-19T17:10:17.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Software Engineer - Stripe Tax role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this \tBackend / API Engineer, Radar role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-7987856",
@@ -7783,23 +7377,6 @@
     "datePosted": "2026-11-06T21:55:09.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Staff Data Scientist, Trust and Safety role at Pinterest. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-reddit-8106246",
-    "slug": "reddit-senior-software-engineer-messaging",
-    "title": "Senior Software Engineer - Messaging",
-    "company": "Reddit",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - United States",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "Senior"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8106246",
-    "datePosted": "2026-10-23T14:06:06.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Software Engineer - Messaging role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8223480",
@@ -7836,21 +7413,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer (Institutional, Client Lifecycle) role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8260982",
-    "slug": "stripe-software-engineer-payments",
-    "title": "Software Engineer, Payments",
+    "id": "gh-stripe-8274582",
+    "slug": "stripe-staff-software-engineer-stripe-tax",
+    "title": "Staff Software Engineer - Stripe Tax",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "N/A",
-    "region": "Worldwide",
+    "location": "Dublin ",
+    "region": "EU",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Software Engineer"
+      "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8260982",
-    "datePosted": "2026-11-19T17:10:13.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8274582",
+    "datePosted": "2026-11-19T17:10:15.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Payments role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Software Engineer - Stripe Tax role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-7832348",
@@ -7868,23 +7445,6 @@
     "datePosted": "2026-11-06T21:55:09.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Staff Software Engineer, Batch Processing Platform role at Pinterest. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-reddit-8303798",
-    "slug": "reddit-senior-software-engineer-web-platform",
-    "title": "Senior Software Engineer, Web Platform",
-    "company": "Reddit",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - United States",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "Senior"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8303798",
-    "datePosted": "2026-10-23T14:06:06.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Software Engineer, Web Platform role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8306486",
@@ -7921,22 +7481,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Core Infra Systems role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8261010",
-    "slug": "stripe-staff-backend-engineer-supportability-decisions",
-    "title": "Staff Backend Engineer, Supportability Decisions",
+    "id": "gh-stripe-8260982",
+    "slug": "stripe-software-engineer-payments",
+    "title": "Software Engineer, Payments",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Dublin",
-    "region": "EU",
+    "location": "N/A",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Backend",
-      "Staff/Lead"
+      "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8261010",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8260982",
     "datePosted": "2026-11-19T17:10:13.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Backend Engineer, Supportability Decisions role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Payments role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-7494668",
@@ -7954,24 +7513,6 @@
     "datePosted": "2026-11-06T21:55:09.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Staff Software Engineer, Capacity Engineering role at Pinterest. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-reddit-8122606",
-    "slug": "reddit-senior-staff-machine-learning-engineer-feed-relevance",
-    "title": "Senior Staff Machine Learning Engineer, Feed Relevance",
-    "company": "Reddit",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - United States",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "AI / ML",
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8122606",
-    "datePosted": "2026-10-23T14:06:06.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Staff Machine Learning Engineer, Feed Relevance role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8038898",
@@ -8008,21 +7549,22 @@
     "descriptionSnippet": "Explore this Staff Software Engineer (Platform - Financial Engineering) role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8238733",
-    "slug": "stripe-staff-engineer-compute-foundation",
-    "title": "Staff Engineer, Compute Foundation",
+    "id": "gh-stripe-8261010",
+    "slug": "stripe-staff-backend-engineer-supportability-decisions",
+    "title": "Staff Backend Engineer, Supportability Decisions",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Sydney, Melbourne",
-    "region": "Worldwide",
+    "location": "Dublin",
+    "region": "EU",
     "workplaceType": "Hybrid/Remote",
     "tags": [
+      "Backend",
       "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8238733",
-    "datePosted": "2026-11-19T17:10:10.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8261010",
+    "datePosted": "2026-11-19T17:10:13.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Engineer, Compute Foundation role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Backend Engineer, Supportability Decisions role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-7990090",
@@ -8040,24 +7582,6 @@
     "datePosted": "2026-11-06T21:55:09.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Staff Software Engineer, Edge role at Pinterest. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-reddit-7772274",
-    "slug": "reddit-senior-staff-machine-learning-engineer-genai-platform",
-    "title": "Senior Staff Machine Learning Engineer, GenAI Platform",
-    "company": "Reddit",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - United States",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "AI / ML",
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/7772274",
-    "datePosted": "2026-10-23T14:06:06.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Staff Machine Learning Engineer, GenAI Platform role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8105716",
@@ -8094,21 +7618,21 @@
     "descriptionSnippet": "Explore this Staff Software Engineer, Security Platform role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8234357",
-    "slug": "stripe-full-stack-engineer-revenue",
-    "title": "Full Stack Engineer, Revenue",
+    "id": "gh-stripe-8238733",
+    "slug": "stripe-staff-engineer-compute-foundation",
+    "title": "Staff Engineer, Compute Foundation",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "N/A",
+    "location": "Sydney, Melbourne",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Software Engineer"
+      "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8234357",
-    "datePosted": "2026-11-19T17:10:09.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8238733",
+    "datePosted": "2026-11-19T17:10:10.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Full Stack Engineer, Revenue role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Engineer, Compute Foundation role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-7838591",
@@ -8126,24 +7650,6 @@
     "datePosted": "2026-11-06T21:55:09.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this University Grad Software Engineer 2027 (USA) role at Pinterest. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-reddit-8243010",
-    "slug": "reddit-senior-staff-machine-learning-engineer-ml-understanding",
-    "title": "Senior Staff Machine Learning Engineer, ML Understanding",
-    "company": "Reddit",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - United States",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "AI / ML",
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8243010",
-    "datePosted": "2026-10-23T14:06:06.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Staff Machine Learning Engineer, ML Understanding role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8055320",
@@ -8180,22 +7686,21 @@
     "descriptionSnippet": "Explore this Machine Learning Engineer Intern role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8226890",
-    "slug": "stripe-frontend-engineer-ui-platform",
-    "title": "Frontend Engineer, UI Platform",
+    "id": "gh-stripe-8234357",
+    "slug": "stripe-full-stack-engineer-revenue",
+    "title": "Full Stack Engineer, Revenue",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Barcelona",
+    "location": "N/A",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Frontend",
-      "UI/UX"
+      "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8226890",
-    "datePosted": "2026-11-19T17:10:08.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8234357",
+    "datePosted": "2026-11-19T17:10:09.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Frontend Engineer, UI Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Full Stack Engineer, Revenue role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-6121450",
@@ -8213,23 +7718,6 @@
     "datePosted": "2026-11-06T21:55:08.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Machine Learning Engineer, Core Engineering role at Pinterest. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-reddit-6469397",
-    "slug": "reddit-software-engineer-ads",
-    "title": "Software Engineer, Ads",
-    "company": "Reddit",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - United States",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "Software Engineer"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/6469397",
-    "datePosted": "2026-10-23T14:06:06.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Ads role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8042034",
@@ -8267,21 +7755,22 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Mobile (Platform - Identity) role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8231439",
-    "slug": "stripe-software-engineer-metronome-infrastructure",
-    "title": "Software Engineer, Metronome Infrastructure",
+    "id": "gh-stripe-8226890",
+    "slug": "stripe-frontend-engineer-ui-platform",
+    "title": "Frontend Engineer, UI Platform",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Toronto, Vancouver, Canada-Remote",
-    "region": "Canada",
-    "workplaceType": "Remote",
+    "location": "Barcelona",
+    "region": "Worldwide",
+    "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Software Engineer"
+      "Frontend",
+      "UI/UX"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8231439",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8226890",
     "datePosted": "2026-11-19T17:10:08.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Metronome Infrastructure role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Frontend Engineer, UI Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-6894747",
@@ -8299,23 +7788,6 @@
     "datePosted": "2026-11-06T21:55:08.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Sr. Machine Learning Engineer, Applied Science role at Pinterest. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-reddit-8139781",
-    "slug": "reddit-software-engineer-content-platform",
-    "title": "Software Engineer, Content Platform",
-    "company": "Reddit",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - United States",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "Software Engineer"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8139781",
-    "datePosted": "2026-10-23T14:06:06.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Content Platform role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8221248",
@@ -8353,21 +7825,21 @@
     "descriptionSnippet": "Explore this Staff Software Engineer, Developer Infrastructure role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8231178",
-    "slug": "stripe-software-engineer-storage-integrations",
-    "title": "Software Engineer, Storage Integrations",
+    "id": "gh-stripe-8231439",
+    "slug": "stripe-software-engineer-metronome-infrastructure",
+    "title": "Software Engineer, Metronome Infrastructure",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Bucharest",
-    "region": "Worldwide",
-    "workplaceType": "Hybrid/Remote",
+    "location": "Toronto, Vancouver, Canada-Remote",
+    "region": "Canada",
+    "workplaceType": "Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8231178",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8231439",
     "datePosted": "2026-11-19T17:10:08.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Storage Integrations role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Metronome Infrastructure role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-6121551",
@@ -8385,24 +7857,6 @@
     "datePosted": "2026-11-06T21:55:08.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Sr. Machine Learning Engineer, EPD Ads role at Pinterest. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-reddit-8247280",
-    "slug": "reddit-staff-machine-learning-engineer-ads-ml-efficiency",
-    "title": "Staff Machine Learning Engineer, Ads ML Efficiency",
-    "company": "Reddit",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - United States",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "AI / ML",
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8247280",
-    "datePosted": "2026-10-23T14:06:06.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Machine Learning Engineer, Ads ML Efficiency role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8164694",
@@ -8439,22 +7893,21 @@
     "descriptionSnippet": "Explore this Staff Software Engineer, Compute Platform (Routing) role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8212319",
-    "slug": "stripe-backend-engineer-ui-platform",
-    "title": "Backend Engineer, UI Platform",
+    "id": "gh-stripe-8231178",
+    "slug": "stripe-software-engineer-storage-integrations",
+    "title": "Software Engineer, Storage Integrations",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Barcelona, Spain",
-    "region": "EU",
+    "location": "Bucharest",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Backend",
-      "UI/UX"
+      "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8212319",
-    "datePosted": "2026-11-19T17:10:07.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8231178",
+    "datePosted": "2026-11-19T17:10:08.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Backend Engineer, UI Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Storage Integrations role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-7437356",
@@ -8472,24 +7925,6 @@
     "datePosted": "2026-11-06T21:55:08.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Staff Software Engineer, Big Data Storage role at Pinterest. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-reddit-8203478",
-    "slug": "reddit-staff-machine-learning-engineer-ai-security",
-    "title": "Staff Machine Learning Engineer, AI Security",
-    "company": "Reddit",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - United States",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "AI / ML",
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8203478",
-    "datePosted": "2026-10-23T14:06:06.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Machine Learning Engineer, AI Security role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8312254",
@@ -8526,21 +7961,22 @@
     "descriptionSnippet": "Explore this Software Engineer, CDP - Payment Acceptance  role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8222459",
-    "slug": "stripe-staff-engineer-revenue-experiences",
-    "title": "Staff Engineer, Revenue Experiences",
+    "id": "gh-stripe-8212319",
+    "slug": "stripe-backend-engineer-ui-platform",
+    "title": "Backend Engineer, UI Platform",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Bengaluru",
-    "region": "Worldwide",
+    "location": "Barcelona, Spain",
+    "region": "EU",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Staff/Lead"
+      "Backend",
+      "UI/UX"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8222459",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8212319",
     "datePosted": "2026-11-19T17:10:07.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Engineer, Revenue Experiences role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Backend Engineer, UI Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-6121543",
@@ -8558,24 +7994,6 @@
     "datePosted": "2026-11-06T21:55:07.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Machine Learning Engineer, EPD Ads role at Pinterest. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-reddit-7747244",
-    "slug": "reddit-staff-machine-learning-engineer-consumer",
-    "title": "Staff Machine Learning Engineer, Consumer ",
-    "company": "Reddit",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - United States",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "AI / ML",
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/7747244",
-    "datePosted": "2026-10-23T14:06:06.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Machine Learning Engineer, Consumer  role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8328562",
@@ -8612,21 +8030,21 @@
     "descriptionSnippet": "Explore this Senior Market Data Engineer role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8209970",
-    "slug": "stripe-software-engineer-stripe-data-pipeline",
-    "title": "Software Engineer, Stripe Data Pipeline",
+    "id": "gh-stripe-8222459",
+    "slug": "stripe-staff-engineer-revenue-experiences",
+    "title": "Staff Engineer, Revenue Experiences",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Bangalore",
+    "location": "Bengaluru",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Software Engineer"
+      "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8209970",
-    "datePosted": "2026-11-19T17:10:06.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8222459",
+    "datePosted": "2026-11-19T17:10:07.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Stripe Data Pipeline role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Engineer, Revenue Experiences role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-6121464",
@@ -8644,24 +8062,6 @@
     "datePosted": "2026-11-06T21:55:07.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Sr. Machine Learning Engineer, Core Engineering  role at Pinterest. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-reddit-7731788",
-    "slug": "reddit-staff-machine-learning-systems-engineer",
-    "title": "Staff Machine Learning Systems Engineer",
-    "company": "Reddit",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - United States",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "AI / ML",
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/7731788",
-    "datePosted": "2026-10-23T14:06:06.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Machine Learning Systems Engineer role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8250155",
@@ -8698,21 +8098,21 @@
     "descriptionSnippet": "Explore this Staff Software Engineer (Institutional, FCM) role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8185012",
-    "slug": "stripe-software-engineer-payin",
-    "title": "Software Engineer, Payin",
+    "id": "gh-stripe-8202299",
+    "slug": "stripe-software-engineer-new-grad",
+    "title": "Software Engineer, New Grad",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Bengaluru",
+    "location": "Taiwan",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8185012",
-    "datePosted": "2026-11-19T17:10:04.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8202299",
+    "datePosted": "2026-11-19T17:10:06.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Payin role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, New Grad role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-7473497",
@@ -8730,24 +8130,6 @@
     "datePosted": "2026-11-06T21:50:40.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Machine Learning Engineer II, Core Engineering  role at Pinterest. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-reddit-8237636",
-    "slug": "reddit-staff-software-engineer-android-design-system",
-    "title": "Staff Software Engineer, Android Design System",
-    "company": "Reddit",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - United States",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "UI/UX",
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8237636",
-    "datePosted": "2026-10-23T14:06:06.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Software Engineer, Android Design System role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8016162",
@@ -8784,21 +8166,21 @@
     "descriptionSnippet": "Explore this Staff Data Engineer, Market Data role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8175656",
-    "slug": "stripe-software-engineer-security-business-enablement",
-    "title": "Software Engineer, Security Business Enablement",
+    "id": "gh-stripe-8209970",
+    "slug": "stripe-software-engineer-stripe-data-pipeline",
+    "title": "Software Engineer, Stripe Data Pipeline",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Dublin",
-    "region": "EU",
+    "location": "Bangalore",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8175656",
-    "datePosted": "2026-11-19T17:10:03.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8209970",
+    "datePosted": "2026-11-19T17:10:06.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Security Business Enablement role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Stripe Data Pipeline role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-8138080",
@@ -8816,23 +8198,6 @@
     "datePosted": "2026-11-06T21:50:40.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Machine Learning Intern 2027 (Toronto) role at Pinterest. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-reddit-8205402",
-    "slug": "reddit-staff-software-engineer-ingestion-platform",
-    "title": "Staff Software Engineer - Ingestion Platform ",
-    "company": "Reddit",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - United States",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8205402",
-    "datePosted": "2026-10-23T14:06:06.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Software Engineer - Ingestion Platform  role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-5390243",
@@ -8869,21 +8234,21 @@
     "descriptionSnippet": "Explore this Senior Staff Software Engineer, Platform - IAM role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8212517",
-    "slug": "stripe-software-engineer-early-career-immediate-start",
-    "title": "Software Engineer, Early Career — Immediate Start",
+    "id": "gh-stripe-8185012",
+    "slug": "stripe-software-engineer-payin",
+    "title": "Software Engineer, Payin",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Toronto",
-    "region": "Canada",
+    "location": "Bengaluru",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8212517",
-    "datePosted": "2026-11-19T17:10:01.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8185012",
+    "datePosted": "2026-11-19T17:10:04.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Early Career — Immediate Start role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Payin role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-5459622",
@@ -8901,23 +8266,6 @@
     "datePosted": "2026-11-06T21:50:40.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Software Engineer II, Full Stack role at Pinterest. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-reddit-7961154",
-    "slug": "reddit-staff-software-engineer-onboarding",
-    "title": "Staff Software Engineer, Onboarding",
-    "company": "Reddit",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - United States",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/7961154",
-    "datePosted": "2026-10-23T14:06:06.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Software Engineer, Onboarding role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8263016",
@@ -8954,21 +8302,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer- Blockchain Network role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8157838",
-    "slug": "stripe-software-engineer-new-grad",
-    "title": "Software Engineer, New Grad",
+    "id": "gh-stripe-8175656",
+    "slug": "stripe-software-engineer-security-business-enablement",
+    "title": "Software Engineer, Security Business Enablement",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Toronto",
-    "region": "Canada",
+    "location": "Dublin",
+    "region": "EU",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8157838",
-    "datePosted": "2026-11-19T17:10:01.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8175656",
+    "datePosted": "2026-11-19T17:10:03.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, New Grad role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Security Business Enablement role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-8138039",
@@ -8986,23 +8334,6 @@
     "datePosted": "2026-11-06T21:50:40.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Software Engineering Intern 2027 (Toronto) role at Pinterest. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-reddit-8175131",
-    "slug": "reddit-staff-software-engineer-site-defense",
-    "title": "Staff Software Engineer - Site Defense",
-    "company": "Reddit",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=reddit.com&sz=128",
-    "location": "Remote - United States",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://job-boards.greenhouse.io/reddit/jobs/8175131",
-    "datePosted": "2026-10-23T14:06:06.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Software Engineer - Site Defense role at Reddit. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8212352",
@@ -9040,21 +8371,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Backend (Consumer - Growth Foundations) role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8162185",
-    "slug": "stripe-staff-engineer-support-experiences",
-    "title": "Staff Engineer, Support Experiences",
+    "id": "gh-stripe-8212517",
+    "slug": "stripe-software-engineer-early-career-immediate-start",
+    "title": "Software Engineer, Early Career — Immediate Start",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Bengaluru",
-    "region": "Worldwide",
+    "location": "Toronto",
+    "region": "Canada",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Staff/Lead"
+      "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8162185",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8212517",
     "datePosted": "2026-11-19T17:10:01.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Engineer, Support Experiences role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Early Career — Immediate Start role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-5691478",
@@ -9108,21 +8439,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Data Engineering Platform role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8130927",
-    "slug": "stripe-software-engineer-new-grad-frontend",
-    "title": "Software Engineer, New Grad - Frontend",
+    "id": "gh-stripe-8162185",
+    "slug": "stripe-staff-engineer-support-experiences",
+    "title": "Staff Engineer, Support Experiences",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Barcelona",
+    "location": "Bengaluru",
     "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Frontend"
+      "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8130927",
-    "datePosted": "2026-11-19T17:10:00.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8162185",
+    "datePosted": "2026-11-19T17:10:01.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, New Grad - Frontend role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Engineer, Support Experiences role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-6510646",
@@ -9177,21 +8508,21 @@
     "descriptionSnippet": "Explore this Staff Machine Learning Engineer role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8130867",
-    "slug": "stripe-software-engineer-intern",
-    "title": "Software Engineer, Intern",
+    "id": "gh-stripe-8130927",
+    "slug": "stripe-software-engineer-new-grad-frontend",
+    "title": "Software Engineer, New Grad - Frontend",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "London",
-    "region": "EU",
+    "location": "Barcelona",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Software Engineer"
+      "Frontend"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8130867",
-    "datePosted": "2026-11-19T17:09:59.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8130927",
+    "datePosted": "2026-11-19T17:10:00.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Intern role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, New Grad - Frontend role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-8244922",
@@ -9245,21 +8576,21 @@
     "descriptionSnippet": "Explore this Staff Software Engineer, Enterprise Apps role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8130805",
-    "slug": "stripe-software-engineer-intern-summer",
-    "title": "Software Engineer, Intern (Summer)",
+    "id": "gh-stripe-8130867",
+    "slug": "stripe-software-engineer-intern",
+    "title": "Software Engineer, Intern",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Toronto",
-    "region": "Canada",
+    "location": "London",
+    "region": "EU",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8130805",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8130867",
     "datePosted": "2026-11-19T17:09:59.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Intern (Summer) role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Intern role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-8214757",
@@ -9313,21 +8644,21 @@
     "descriptionSnippet": "Explore this Software Engineer, Blockchain Platform Nodes role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8120494",
-    "slug": "stripe-staff-software-engineer-risk-engineering",
-    "title": "Staff Software Engineer, Risk Engineering",
+    "id": "gh-stripe-8130805",
+    "slug": "stripe-software-engineer-intern-summer",
+    "title": "Software Engineer, Intern (Summer)",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
     "location": "Toronto",
     "region": "Canada",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Staff/Lead"
+      "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8120494",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8130805",
     "datePosted": "2026-11-19T17:09:59.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Software Engineer, Risk Engineering role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Intern (Summer) role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-8138034",
@@ -9347,9 +8678,9 @@
     "descriptionSnippet": "Explore this Software Engineering Intern 2027 (Dublin) role at Pinterest. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-cloudflare-7560174",
-    "slug": "cloudflare-senior-systems-engineer-ai-gateway",
-    "title": "Senior Systems Engineer, AI Gateway",
+    "id": "gh-cloudflare-8066589",
+    "slug": "cloudflare-senior-systems-engineer",
+    "title": "Senior Systems Engineer",
     "company": "Cloudflare",
     "companyLogo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
     "location": "In-Office",
@@ -9358,10 +8689,10 @@
     "tags": [
       "Senior"
     ],
-    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/7560174?gh_jid=7560174",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8066589?gh_jid=8066589",
     "datePosted": "2026-11-10T00:03:42.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Systems Engineer, AI Gateway role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Systems Engineer role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-8103569",
@@ -9381,21 +8712,21 @@
     "descriptionSnippet": "Explore this Senior Software Engineer, Simple Trade Experience role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8097801",
-    "slug": "stripe-software-engineer-intern-summer-or-winter",
-    "title": "Software Engineer, Intern (Summer or Winter)",
+    "id": "gh-stripe-8120494",
+    "slug": "stripe-staff-software-engineer-risk-engineering",
+    "title": "Staff Software Engineer, Risk Engineering",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Dublin",
-    "region": "EU",
+    "location": "Toronto",
+    "region": "Canada",
     "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Software Engineer"
+      "Staff/Lead"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8097801",
-    "datePosted": "2026-11-19T17:09:58.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8120494",
+    "datePosted": "2026-11-19T17:09:59.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Intern (Summer or Winter) role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Software Engineer, Risk Engineering role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-pinterest-8214745",
@@ -9415,9 +8746,9 @@
     "descriptionSnippet": "Explore this Software Engineering Intern 2027 (Zurich) role at Pinterest. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-cloudflare-7093840",
-    "slug": "cloudflare-senior-systems-engineer-basin-pipelines",
-    "title": "Senior Systems Engineer, Basin Pipelines",
+    "id": "gh-cloudflare-7560174",
+    "slug": "cloudflare-senior-systems-engineer-ai-gateway",
+    "title": "Senior Systems Engineer, AI Gateway",
     "company": "Cloudflare",
     "companyLogo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
     "location": "In-Office",
@@ -9426,10 +8757,10 @@
     "tags": [
       "Senior"
     ],
-    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/7093840?gh_jid=7093840",
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/7560174?gh_jid=7560174",
     "datePosted": "2026-11-10T00:03:42.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Systems Engineer, Basin Pipelines role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Systems Engineer, AI Gateway role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-coinbase-7964410",
@@ -9447,6 +8778,57 @@
     "datePosted": "2026-10-30T14:27:05.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Staff Software Engineer, Developer Infrastructure (Test Infrastructure) role at Coinbase. Direct company career opening with high-impact engineering opportunities."
+  },
+  {
+    "id": "gh-stripe-8097801",
+    "slug": "stripe-software-engineer-intern-summer-or-winter",
+    "title": "Software Engineer, Intern (Summer or Winter)",
+    "company": "Stripe",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
+    "location": "Dublin",
+    "region": "EU",
+    "workplaceType": "Hybrid/Remote",
+    "tags": [
+      "Software Engineer"
+    ],
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8097801",
+    "datePosted": "2026-11-19T17:09:58.000Z",
+    "source": "Direct ATS",
+    "descriptionSnippet": "Explore this Software Engineer, Intern (Summer or Winter) role at Stripe. Direct company career opening with high-impact engineering opportunities."
+  },
+  {
+    "id": "gh-cloudflare-7093840",
+    "slug": "cloudflare-senior-systems-engineer-basin-pipelines",
+    "title": "Senior Systems Engineer, Basin Pipelines",
+    "company": "Cloudflare",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
+    "location": "In-Office",
+    "region": "Worldwide",
+    "workplaceType": "Hybrid/Remote",
+    "tags": [
+      "Senior"
+    ],
+    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/7093840?gh_jid=7093840",
+    "datePosted": "2026-11-10T00:03:42.000Z",
+    "source": "Direct ATS",
+    "descriptionSnippet": "Explore this Senior Systems Engineer, Basin Pipelines role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
+  },
+  {
+    "id": "gh-coinbase-7964398",
+    "slug": "coinbase-senior-software-engineer-developer-infrastructure",
+    "title": "Senior Software Engineer, Developer Infrastructure",
+    "company": "Coinbase",
+    "companyLogo": "https://www.google.com/s2/favicons?domain=coinbase.com&sz=128",
+    "location": "Remote - USA",
+    "region": "US",
+    "workplaceType": "Remote",
+    "tags": [
+      "Senior"
+    ],
+    "applyUrl": "https://www.coinbase.com/careers/positions/7964398?gh_jid=7964398",
+    "datePosted": "2026-10-30T14:26:31.000Z",
+    "source": "Direct ATS",
+    "descriptionSnippet": "Explore this Senior Software Engineer, Developer Infrastructure role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-stripe-8076626",
@@ -9483,21 +8865,21 @@
     "descriptionSnippet": "Explore this Senior Systems Engineer, Basin Platform role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-coinbase-7964398",
-    "slug": "coinbase-senior-software-engineer-developer-infrastructure",
-    "title": "Senior Software Engineer, Developer Infrastructure",
+    "id": "gh-coinbase-7773776",
+    "slug": "coinbase-staff-software-engineer-platform-identity-idv",
+    "title": "Staff Software Engineer (Platform - Identity IDV)",
     "company": "Coinbase",
     "companyLogo": "https://www.google.com/s2/favicons?domain=coinbase.com&sz=128",
     "location": "Remote - USA",
     "region": "US",
     "workplaceType": "Remote",
     "tags": [
-      "Senior"
+      "Staff/Lead"
     ],
-    "applyUrl": "https://www.coinbase.com/careers/positions/7964398?gh_jid=7964398",
-    "datePosted": "2026-10-30T14:26:31.000Z",
+    "applyUrl": "https://www.coinbase.com/careers/positions/7773776?gh_jid=7773776",
+    "datePosted": "2026-10-30T14:23:42.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Software Engineer, Developer Infrastructure role at Coinbase. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Software Engineer (Platform - Identity IDV) role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-stripe-8089815",
@@ -9535,21 +8917,21 @@
     "descriptionSnippet": "Explore this Senior Systems Engineer, Browser Isolation role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-coinbase-7773776",
-    "slug": "coinbase-staff-software-engineer-platform-identity-idv",
-    "title": "Staff Software Engineer (Platform - Identity IDV)",
+    "id": "gh-coinbase-7701645",
+    "slug": "coinbase-senior-software-engineer-compute-platform",
+    "title": "Senior Software Engineer, Compute Platform",
     "company": "Coinbase",
     "companyLogo": "https://www.google.com/s2/favicons?domain=coinbase.com&sz=128",
     "location": "Remote - USA",
     "region": "US",
     "workplaceType": "Remote",
     "tags": [
-      "Staff/Lead"
+      "Senior"
     ],
-    "applyUrl": "https://www.coinbase.com/careers/positions/7773776?gh_jid=7773776",
-    "datePosted": "2026-10-30T14:23:42.000Z",
+    "applyUrl": "https://www.coinbase.com/careers/positions/7701645?gh_jid=7701645",
+    "datePosted": "2026-10-30T14:23:15.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Software Engineer (Platform - Identity IDV) role at Coinbase. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Software Engineer, Compute Platform role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-stripe-8070949",
@@ -9586,9 +8968,9 @@
     "descriptionSnippet": "Explore this Senior Systems Engineer, Cloudflare Tunnel role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-coinbase-7701645",
-    "slug": "coinbase-senior-software-engineer-compute-platform",
-    "title": "Senior Software Engineer, Compute Platform",
+    "id": "gh-coinbase-7483221",
+    "slug": "coinbase-senior-software-engineer-eaa",
+    "title": "Senior Software Engineer (EAA)",
     "company": "Coinbase",
     "companyLogo": "https://www.google.com/s2/favicons?domain=coinbase.com&sz=128",
     "location": "Remote - USA",
@@ -9597,10 +8979,10 @@
     "tags": [
       "Senior"
     ],
-    "applyUrl": "https://www.coinbase.com/careers/positions/7701645?gh_jid=7701645",
-    "datePosted": "2026-10-30T14:23:15.000Z",
+    "applyUrl": "https://www.coinbase.com/careers/positions/7483221?gh_jid=7483221",
+    "datePosted": "2026-10-30T14:21:02.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Software Engineer, Compute Platform role at Coinbase. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Software Engineer (EAA) role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-stripe-8022713",
@@ -9637,21 +9019,21 @@
     "descriptionSnippet": "Explore this Senior Systems Engineer - Developer Tooling role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-coinbase-7483221",
-    "slug": "coinbase-senior-software-engineer-eaa",
-    "title": "Senior Software Engineer (EAA)",
+    "id": "gh-coinbase-7366208",
+    "slug": "coinbase-senior-staff-software-engineer-blockchain-platform",
+    "title": "Senior Staff Software Engineer - Blockchain Platform",
     "company": "Coinbase",
     "companyLogo": "https://www.google.com/s2/favicons?domain=coinbase.com&sz=128",
     "location": "Remote - USA",
     "region": "US",
     "workplaceType": "Remote",
     "tags": [
-      "Senior"
+      "Staff/Lead"
     ],
-    "applyUrl": "https://www.coinbase.com/careers/positions/7483221?gh_jid=7483221",
-    "datePosted": "2026-10-30T14:21:02.000Z",
+    "applyUrl": "https://www.coinbase.com/careers/positions/7366208?gh_jid=7366208",
+    "datePosted": "2026-10-30T14:20:35.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Software Engineer (EAA) role at Coinbase. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Senior Staff Software Engineer - Blockchain Platform role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-stripe-7975725",
@@ -9688,9 +9070,9 @@
     "descriptionSnippet": "Explore this Senior Systems Engineer, Identity & Access Management role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-coinbase-7366208",
-    "slug": "coinbase-senior-staff-software-engineer-blockchain-platform",
-    "title": "Senior Staff Software Engineer - Blockchain Platform",
+    "id": "gh-coinbase-6784618",
+    "slug": "coinbase-staff-software-engineer",
+    "title": "Staff Software Engineer",
     "company": "Coinbase",
     "companyLogo": "https://www.google.com/s2/favicons?domain=coinbase.com&sz=128",
     "location": "Remote - USA",
@@ -9699,10 +9081,10 @@
     "tags": [
       "Staff/Lead"
     ],
-    "applyUrl": "https://www.coinbase.com/careers/positions/7366208?gh_jid=7366208",
-    "datePosted": "2026-10-30T14:20:35.000Z",
+    "applyUrl": "https://www.coinbase.com/careers/positions/6784618?gh_jid=6784618",
+    "datePosted": "2026-10-30T14:19:31.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Senior Staff Software Engineer - Blockchain Platform role at Coinbase. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Staff Software Engineer role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-stripe-7913700",
@@ -9737,23 +9119,6 @@
     "datePosted": "2026-11-10T00:03:42.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Senior Systems Engineer, MCP Server Portals role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-coinbase-6784618",
-    "slug": "coinbase-staff-software-engineer",
-    "title": "Staff Software Engineer",
-    "company": "Coinbase",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=coinbase.com&sz=128",
-    "location": "Remote - USA",
-    "region": "US",
-    "workplaceType": "Remote",
-    "tags": [
-      "Staff/Lead"
-    ],
-    "applyUrl": "https://www.coinbase.com/careers/positions/6784618?gh_jid=6784618",
-    "datePosted": "2026-10-30T14:19:31.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Staff Software Engineer role at Coinbase. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-stripe-7895287",
@@ -9960,21 +9325,21 @@
     "descriptionSnippet": "Explore this Software Engineer, Cloudflare Network Interconnect role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7292520",
-    "slug": "stripe-backend-engineer-developer-end-user-experience-platform",
-    "title": "Backend Engineer, Developer & End-user Experience Platform",
+    "id": "gh-stripe-8226261",
+    "slug": "stripe-full-stack-engineer-money-movement",
+    "title": "Full Stack Engineer, Money Movement",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Toronto Canada, San Francisco, Remote in US, Remote in Canada",
-    "region": "Canada",
-    "workplaceType": "Remote",
+    "location": "London",
+    "region": "EU",
+    "workplaceType": "Hybrid/Remote",
     "tags": [
-      "Backend"
+      "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7292520",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8226261",
     "datePosted": "2026-11-19T17:09:50.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Backend Engineer, Developer & End-user Experience Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Full Stack Engineer, Money Movement role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8158920",
@@ -9994,21 +9359,21 @@
     "descriptionSnippet": "Explore this Software Engineer, FL role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-8226261",
-    "slug": "stripe-full-stack-engineer-money-movement",
-    "title": "Full Stack Engineer, Money Movement",
+    "id": "gh-stripe-7230670",
+    "slug": "stripe-software-engineer-data-orchestration",
+    "title": "Software Engineer, Data Orchestration",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "London",
-    "region": "EU",
+    "location": "N/A",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=8226261",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7230670",
     "datePosted": "2026-11-19T17:09:50.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Full Stack Engineer, Money Movement role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Data Orchestration role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8245197",
@@ -10028,21 +9393,21 @@
     "descriptionSnippet": "Explore this Software Engineer Intern (2027) role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7230670",
-    "slug": "stripe-software-engineer-data-orchestration",
-    "title": "Software Engineer, Data Orchestration",
+    "id": "gh-stripe-7208537",
+    "slug": "stripe-software-engineer-money-movement",
+    "title": "Software Engineer, Money Movement ",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "N/A",
-    "region": "Worldwide",
+    "location": "London",
+    "region": "EU",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7230670",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7208537",
     "datePosted": "2026-11-19T17:09:50.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Data Orchestration role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Software Engineer, Money Movement  role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8199958",
@@ -10062,21 +9427,21 @@
     "descriptionSnippet": "Explore this Software Engineer Intern (2027) - Austin, TX role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-7208537",
-    "slug": "stripe-software-engineer-money-movement",
-    "title": "Software Engineer, Money Movement ",
+    "id": "gh-stripe-6567104",
+    "slug": "stripe-full-stack-engineer-developer-end-user-experience-platform",
+    "title": "Full Stack Engineer, Developer & End User Experience Platform",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "London",
-    "region": "EU",
+    "location": "N/A",
+    "region": "Worldwide",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=7208537",
-    "datePosted": "2026-11-19T17:09:50.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=6567104",
+    "datePosted": "2026-11-19T17:09:49.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Software Engineer, Money Movement  role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Full Stack Engineer, Developer & End User Experience Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8245211",
@@ -10096,21 +9461,21 @@
     "descriptionSnippet": "Explore this Software Engineer Intern (2027) - London, UK role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
-    "id": "gh-stripe-6567104",
-    "slug": "stripe-full-stack-engineer-developer-end-user-experience-platform",
-    "title": "Full Stack Engineer, Developer & End User Experience Platform",
+    "id": "gh-stripe-6447175",
+    "slug": "stripe-full-stack-engineer-link",
+    "title": "Full Stack Engineer, Link",
     "company": "Stripe",
     "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "N/A",
-    "region": "Worldwide",
+    "location": "Toronto",
+    "region": "Canada",
     "workplaceType": "Hybrid/Remote",
     "tags": [
       "Software Engineer"
     ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=6567104",
-    "datePosted": "2026-11-19T17:09:49.000Z",
+    "applyUrl": "https://stripe.com/jobs/search?gh_jid=6447175",
+    "datePosted": "2026-11-19T17:09:48.000Z",
     "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Full Stack Engineer, Developer & End User Experience Platform role at Stripe. Direct company career opening with high-impact engineering opportunities."
+    "descriptionSnippet": "Explore this Full Stack Engineer, Link role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8360609",
@@ -10128,23 +9493,6 @@
     "datePosted": "2026-11-10T00:03:42.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Software Engineer - Load Balancing role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-stripe-6447175",
-    "slug": "stripe-full-stack-engineer-link",
-    "title": "Full Stack Engineer, Link",
-    "company": "Stripe",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=stripe.com&sz=128",
-    "location": "Toronto",
-    "region": "Canada",
-    "workplaceType": "Hybrid/Remote",
-    "tags": [
-      "Software Engineer"
-    ],
-    "applyUrl": "https://stripe.com/jobs/search?gh_jid=6447175",
-    "datePosted": "2026-11-19T17:09:48.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Full Stack Engineer, Link role at Stripe. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-7446310",
@@ -10383,23 +9731,6 @@
     "datePosted": "2026-11-10T00:03:42.000Z",
     "source": "Direct ATS",
     "descriptionSnippet": "Explore this Systems Engineer, WARP role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
-  },
-  {
-    "id": "gh-cloudflare-8329758",
-    "slug": "cloudflare-technical-support-engineer-zero-trust",
-    "title": "Technical Support Engineer, Zero Trust",
-    "company": "Cloudflare",
-    "companyLogo": "https://www.google.com/s2/favicons?domain=cloudflare.com&sz=128",
-    "location": "Hybrid",
-    "region": "Worldwide",
-    "workplaceType": "Hybrid/Remote",
-    "tags": [
-      "Software Engineer"
-    ],
-    "applyUrl": "https://boards.greenhouse.io/cloudflare/jobs/8329758?gh_jid=8329758",
-    "datePosted": "2026-11-10T00:03:42.000Z",
-    "source": "Direct ATS",
-    "descriptionSnippet": "Explore this Technical Support Engineer, Zero Trust role at Cloudflare. Direct company career opening with high-impact engineering opportunities."
   },
   {
     "id": "gh-cloudflare-8172404",
